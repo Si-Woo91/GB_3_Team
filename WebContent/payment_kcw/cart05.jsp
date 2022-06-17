@@ -8,11 +8,11 @@
 	
 	//카드 아이템 정보 담는 bean 객체 선언 (이후 DAO 속에서 선언하여 DB데이터 받아들일 예정)
 	CartBean item1 = new CartBean("LG UHD TV 50인치 벽걸이, 스탠드", "LG",
-										"https://tinyurl.com/lgtelev01","lg_tv.png",700000,3);
+										"https://tinyurl.com/lgtelev01","/img/cart_tv1.png",700000,3);
 	CartBean item2 = new CartBean("삼성 BESPOKE 냉장고 4도어 프리스탠딩 875L", "Samsung",
-										"https://tinyurl.com/samsungbskp01","samsung_bespoke.png",2400000,1);
+										"https://tinyurl.com/samsungbskp01","/img/cart_fridge1.png",2400000,1);
 	CartBean item3 = new CartBean("LG UHD TV 50인치 벽걸이, 스탠드", "코스텔",
-										"https://tinyurl.com/costelfridge01","costel_fridge.png",17900,2);
+										"https://tinyurl.com/costelfridge01","/img/cart_fridge2.png",17900,2);
 	
 	//bean객체들을 for문으로 돌리고자 생성한 arraylist
 	ArrayList<CartBean> cart = new ArrayList<CartBean>();
@@ -35,7 +35,7 @@
 <link rel="stylesheet" type="text/css" href="cart05.css">
 </head>
 <body>
-	<%-- <header> <jsp:include page="/header/header.jsp"/> </header> --%>
+	<header> <jsp:include page="/header/header.jsp"/> </header>
 	<section>
 		<br>
 		<div id="title_big">장바구니</div>
@@ -125,7 +125,7 @@
 		
 	</section>
 	<div style="height:130px"></div>
-	<%-- <footer><jsp:include page="/footer/footer.jsp"/></footer> --%>
+	<footer><jsp:include page="/footer/footer.jsp"/></footer>
 </body>
 <script src="cart05.js"></script>
 </html>
