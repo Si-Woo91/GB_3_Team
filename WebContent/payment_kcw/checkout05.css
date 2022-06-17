@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/*----------------------주문결제만의 설정 시작------------------------*/
+#order_tb>tbody>tr>td:first-child{
+	border-right: 1px solid #e1e1e1;
+}
+
+#address_button{
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid green;
+	cursor:pointer;
+	font-size:14px;
+	width:100px;
+	color: green;
+/* 	font-weight: bold; */
+}
+
+#pay_button{
+	background-color: orange;
+	border-radius: 5px;
+	border: 1px solid orange;
+	cursor:pointer;
+	padding: 5px 0px;
+	font-size:20px;
+	width: 100%;
+	color: white;
+	font-weight: bold;
+}
+
+
+#pay_tb{
+    font-size: 14px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#pay_tb td{
+    vertical-align: top;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+
+.sub_tb{
+    font-size: 13px !important;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.sub_tb td{
+    padding: 5px !important;
+    border: 0px !important;
+}
+
+ul.explain>li{
+	list-style: initial;
+	color: grey;
+}
+/*----------------------주문결제만의 설정 끝------------------------*/
+
+

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>admin_product-Stock</title>
+<style>
+
+/* 페이지 전체 영역  */
+
+/* 페이지 전체 넓이 설정 */
+#wrap {
+	width: 100%;
+}
+
+/* body(전체) 넓이 및 가운데 정렬(마진) */
+body {
+	width: 1000px;
+	margin: 0 auto
+}
+/* 재고 관리 part css 시작 */
+
+/* menu태그 css 시작 */
+
+/* 메뉴 전체 css	 */
+menu {
+	/* 	가로 정렬 */
+	float: left;
+	/* 	넓이 설정 */
+	width: 1000px;
+	/* 	높이 설정 */
+	height: 40px;
+	/* 	텍스트 높이 설정 */
+	line-height: 10px;
+	/* 	메뉴 상/하단 선(디자인) */
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	/* 	배경색 */
+	background-color: #ffcc76;
+	/* 	가운데 정렬 */
+	margin: auto;
+	/* 	왼쪽으로 붙히려고 왼쪽 padding값 0 */
+	padding-left: 0;
+}
+
+/* 가로 정렬로 보이기 */
+menu ul {
+	display: flex;
+	padding-left: 0;
+}
+
+menu ul li {
+	list-style: none;
+	border-right: 1px solid black;
+	padding: 0 10px;
+	/* 	호버 시 마우스 커서의 모양을 pointer로 변경 */
+	cursor: pointer;
+	font-size: 10px;
+}
+
+/* 메뉴 마지막 텍스트 오른쪽에 border효과를 지움 */
+menu ul li:last-child {
+	border-right: 0;
+}
+
+/*  menu태그 css 끝 */
+.textBar {
+	/* 	위 영역과 간격 조정 */
+	margin-top: 7px;
+}
+
+/* 표 css 시작부분 */
+
+/* table의 title행 css */
+.stock-list {
+	width: 1000px;
+	border: 2px solid powderblue;
+	/* 	경계선이 두줄이라면 합쳐서 하나의 선으로 만들어준다 */
+	border-collapse: collapse;
+	margin: auto;
+}
+
+/* table 내부 구분선 */
+.stock-list th {
+	border: 2px solid powderblue;
+}
+
+/* table 1행 텍스트 정렬 */
+.list-title-tr {
+	text-align: center;
+}
+
+.selectbox {
+	
+}
+
+/* 수정가능한 셀안에 input태그 위치 */
+.update-cell {
+	width: 90%;
+}
+
+/* table 1행 세로  */
+.editable {
+	border: 2px solid powderblue;
+}
+
+/* table의 1열(상품명) css */
+.list1-1 {
+	text-align: left;
+}
+
+/* table 수정가능 부분 css */
+.table-edit-part {
+	background-color: #ffeccd;
+	text-align: center;
+}
+
+/* 재고 관리 part css 끝 */
+.btn {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+
+
+	<!-- 포장 시작 -->
+	<div class="wrap">
+		<div class=wrap1-1>
+			<!-- 타이틀 문구 -->
+			<header class="page-title">
+				<h3>상품재고관리</h3>
+			</header>
+			<!-- 타이틀 문구  끝-->
+
+			<!-- 상다 메뉴 문구 -->
+			<menu>
+				<ul>
+					<li>전체 목록</li>
+					<li>전체 상품 갯수</li>
+				</ul>
+			</menu>
+			<!-- 상다 메뉴 문구 끝-->
+
+			<br> <br>
+
+			<!-- 검색창 -->
+			<div class="search">
+				<input type="text" class="textBar"> <i class="fas fa-search"></i>
+			</div>
+			<!-- 검색창 끝 -->
+			<br>
+
+			<!-- 표 시작 -->
+			<table class="stock-list" summary="상품명, 재고 주문대기, 재고수정">
+				<colgroup>
+					<!-- 테이블의 각 열의 크기 조절 가능 -->
+					<col width="1">
+					<col width="150">
+					<col width="50">
+					<col width="50">
+					<col width="50">
+				</colgroup>
+				<!-- 표의 각 행 텍스트 -->
+				<thead>
+					<tr class="list-title-tr">
+						<td class="editable">#</td>
+						<td class="editable">상품명</td>
+						<td class="editable">재고</td>
+						<td class="editable">주문대기</td>
+						<td class="editable" style="background-color: #ffeccd;">재고수정</td>
+					</tr>
+
+				</thead>
+
+				<!-- 표 본문 -->
+				<tbody>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명1</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명2</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+
+						<th class="list1-1">test상품명3</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명4</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명5</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명6</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명7</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명8</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명9</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명10</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명11</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명12</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명13</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명14</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명15</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명16</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명17</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명18</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명19</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+					<tr>
+						<th><input class="selectbox" type="checkbox" name="checkcel"></th>
+						<th class="list1-1">test상품명20</th>
+						<th>0</th>
+						<th>0</th>
+						<th class="table-edit-part"><input class="update-cell"
+							type="text"></th>
+					</tr>
+				</tbody>
+			</table>
+			
+			<!-- 표 끝 -->
+
+			<br>
+
+			<div>
+				<form class="btn">
+					<input type="button" value="일괄수정"> 
+					<input type="button"
+						value="상품추가"> 
+						<input type="button" value="상품삭제" onclick="deleteRow(-1)">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

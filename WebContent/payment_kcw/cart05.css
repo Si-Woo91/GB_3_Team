@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/*----------------------장바구니만의 설정 시작------------------------*/
+
+.order_button1{
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid orange;
+	cursor:pointer;
+	padding: 10px 0px;
+	font-size:17px;
+	width:170px;
+	color: orange;
+	font-weight: bold;
+	
+}
+
+.order_button2{
+	background-color: orange;
+	border-radius: 5px;
+	border: 1px solid orange;
+	cursor:pointer;
+	padding: 10px 0px;
+	font-size:17px;
+	width:170px;
+	color: white;
+	font-weight: bold;
+}
+/*----------------------장바구니만의 설정 끝------------------------*/
+

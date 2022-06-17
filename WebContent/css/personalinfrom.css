@@ -1,0 +1,21 @@
+@charset "UTF-8";
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family :'GowunDodum-Regular';
+	
+}
+.css{
+	padding-bottom: 12%;
+    padding-left: 14%;
+    padding-right: 14%;
+    padding-top: 12%;
+}
+h2.cate_tit.write {
+    text-align: center;
+}
+.content {
+    margin-top: 15%;
+}
+

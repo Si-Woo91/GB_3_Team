@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연매출구십3조-구십삼-회원정보수정</title>
+<style>
+
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family :'GowunDodum-Regular';
+	
+}
+
+@font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* header 고정 부분 */
+.header{
+	position: sticky; 
+	top : 0;
+	width: 100%;
+	height:50%; 
+	line-height: 40%; 
+	/* position: relative; */ 
+	z-index:9999;
+	background-color : #FFFFF0;
+}
+
+.search1{
+	position : relative;
+	bottom : 50px;
+	margin-bottom: -3%;
+
+}
+
+.logo img{
+	width: 150px;
+	height: 70px;
+	margin: 5px 0px 40px 5px;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	margin: 0 auto;
+}
+.nav1 {
+	width: 100%;
+	height: 150px;
+	border-bottom: 1px solid black;
+	display: inline;
+	list-style: none;
+	margin: 10;
+	text-align: right;
+ 	text-color: black;
+ 	
+}
+.login, .service, .basket {
+	margin-left: 10px;
+	margin-right: 40px;
+	border: 0;
+	float: right;
+	text-align: top;
+	font-size : 13px;
+}
+input {
+	width: 235px;
+	border: 1px solid #bbb;
+	border-radius: 8px;
+	padding: 10px 13px;
+	margin: 20px;
+	font-size: 14px;
+}
+
+.search{
+	width: 40%;
+	margin-left: 30%;
+}
+/* 검색아이콘 */
+div a img{
+	width: 17px;
+}
+
+.nav2 {
+	/* 	폰트설정 */
+	font: blod 16px "malgun gothic";
+	width: 100%;
+	height: 50px;
+	border-bottom: 2px solid orange;
+	background: #FFFFF0;
+	/* 	글자색 */
+	color: black;
+	/* 	라인높이 */
+	line-height: 50px;
+	/* 	마진을 0으로 줘서 박스 가운데 정렬 */
+	margin: 0 auto;
+	/* 	마직을 0으로 줘서 글자 가운데 정렬 */
+	text-align: center;
+	font-family :'GowunBatang-Bold';
+
+}
+
+.nav2 ul{
+	display: flex;
+}
+/* nav태그 자식의 ul의 자식 li를 왼쪽정렬, 넓이설정 */
+.nav2>ul>li {
+	
+	margin : auto;
+	width: 100%;
+	position: relative;
+	
+}
+.nav2>ul>li>ul {
+	/* 	서브메뉴 크기를 130px 고정 */
+	width: 100%;
+	/* 	서브메뉴가 보이지 않게 설정 */
+	display: none;
+	/* 	후에 하위 메뉴의 위치를 메인메뉴에 상대적으로 변경하도록  */
+	position: absolute;
+	/* 	하위 메뉴 폰트 및 배경색 */
+	font-size: 14px;
+	background: powderblue;
+}
+
+/* 메인메뉴에 마우스 호버 시 하위 메뉴 보이기 */
+.nav2>ul>li:hover>ul {
+	/* 	상자모양으로 보이게 설정 */
+	display: block;
+}
+
+/* 선택중인 메뉴 표시 */
+.nav2>ul>li>ul>li:hover {
+	/* 하위 메뉴를 호버시 1초에 걸쳐서 색이 주황색으로 바뀌게 설정 */
+	background: orange;
+	transition: ease 1s;
+}
+
+.outer {
+	border: 6px solid red;
+	width: 10px;
+	height: 3px;
+	margin: 0 auto;
+	overflow-x: hidden;
+}
+
+.inner-list {
+	display: flex;
+	transition: .3s ease-out;
+	height: 100%;
+}
+
+.inner {
+	border: 6px solid blue;
+	padding: 0 16px;
+}
+
+.button-list {
+	text-align: center;
+}
+
+ul li a {
+	text-decoration: none;
+	color: black;
+	line-height: 3em;
+	text-transform: uppercase;
+
+}
+/* header 고정 부분 */
+
+
+
+
+
+/* modify table css */
+
+/* body박스 크기 조정 */
+.body-wrap{
+	margin: auto;
+/* 	높이 고정 */
+	min-height: 600px;
+	width: 60%;
+	padding-top: 20px;
+
+}
+
+
+.usermodify-title{
+	margin-bottom: 10px;
+	font-size: 30px;
+	font-weight: bold;
+    color: rgb(51, 51, 51);
+    letter-spacing: -1px;
+}
+
+.usermodify-table{
+/* 	테이블 넓이 */
+	width: 100%;
+	border-top: 2px solid #969696;
+	border-bottom: 1px solid #eef1f8;
+/* 	구분선이 겹치면 하나로 합쳐서 표시 */
+    border-collapse: collapse;
+}
+
+tbody{
+/* 	표 본문처럼 표시 */
+	display: table-row-group;
+/* 	글자 세로로 가운데정렬 */
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+
+.usermodify-table th{
+	background-color: #eef1f8;
+	min-width: 150px;
+	max-width: 150px;
+	line-height: 30px;
+}
+
+input[type=password]{
+	margin: auto;
+	padding: 3px;
+	
+}
+
+tr {
+	border-top: 1px solid #ddd;
+}
+
+td{
+	width: 1000px;
+	text-align: left;
+	padding-left: 20px;
+}
+
+.usermodify-input-table th{
+	text-align: center;
+	height: 50px;
+	
+}
+
+.usermodify-input-table {
+	width: 500px;
+}
+
+.usermodify-input-table th{
+	background-color: #fff;
+	font-size: 16px;
+	text-align: left;
+}
+
+.usermodify-input-table td{
+	text-align: left;
+}
+
+.usermodify-secession {
+    margin-top: 10px;
+    text-align: right;
+    color: #97979f;
+}
+
+.usermodify-foot{
+	text-align: center;
+}
+
+
+/* Foot css */
+
+footer {
+	width : 100%;
+	height: 130px;
+	bottom : 0px;
+	border-top: 1px solid #c4c4c4;
+	padding-top : 15px;
+	color : #FFFFFF;
+	font-size : 15px;
+	display: flex;
+	background-color : #383b40;
+	margin : auto;
+	
+	
+}
+
+footer a {
+	display : inline-block;
+	margin : 0 20px 10px 210px;
+	color : #808080; 
+	font-size: 17px;
+	/*border-left-color: 1px soild #808080;*/
+}
+
+footer a:visited{
+	color:#808080;
+}
+
+footer p{
+	margin-top : 0;
+	margin-bottom:0;
+	
+}
+footer p span{
+	display: inline-block;
+	margin-left : 100px;
+	
+}
+
+footer nav{
+	text-align: right;
+	
+	
+}
+
+/* section { */
+/* 	padding-bottom : 130px; footer height 값이랑 동일해야한다 */
+/* 	padding-left : 100px; */
+/* 	padding-right : 100px; */
+/* 	padding-top: 0px; */
+/* } */
+
+</style>
+</head>
+<body>
+	<!-- header 시작 -->
+	<div class= header>
+	<div class= except>
+			<div class="login_search">
+			<a href=" " class= logo><img src= logo.png></a>
+			<ul class = nav1>
+				<li class= service><a href= "center">고객센터</a></li>
+				<li class= basket><a href= "basket">장바구니</a></li>
+				<li class= login><a href= "login">로그아웃</a></li>
+			</ul>
+			<br>
+
+		</div>
+	
+	</div>
+	</div>
+	<br><br><br><br><br>
+	
+		<header> <jsp:include page="..\common\header.jsp"></header>
+
+<!-- 본문 포장지 -->
+	<div class="body-wrap">
+		<section class="member-container">
+			<h1 class="usermodify-title">회원정보수정</h1>
+		<table class="usermodify-table">
+			<tbody>
+				<tr>
+				    <th scope="row">아이디</th>
+					<td>
+						<div class="usermodify-id">
+							<span class="usermodify-id-id">testId</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+				    <th scope="row">이메일</th>
+					<td>
+						<div class="usermodify-email">
+							<span class="usermodify-email-email">testEmail</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">이름</th>
+					<td>
+						<div class="usermodify-name">
+							<span class="usermodify-name-name">testName</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">전화번호</th>
+					<td>
+						<div class="usermodify-phone">
+						<input type="hidden" id="originPhoneNumber" value="01012341234">
+					    <strong class="usermodify-phone-current-number">01012341234</strong>
+					    <button type="button" class="usermodify-phone-change">휴대폰 번호 변경</button>
+					    <button type="button" class="usermodify-phone-cancelchange" style="display: none;">휴대폰 번호 변경 취소</button>
+					    <form class="usermodify-phone-auth-send" action="/member/modify/sendSmsAuthNumber.pang" method="post" style="display: none;">
+					        <input type="text" class="usermodify-phone-tf" value="01012341234">
+					        <button type="submit" class="usermodify-phone-auth-send-submit">인증번호 전송</button>
+					        <div class="form-err usermodify-phone-auth-errmsg"></div>
+					    </form>
+					    <form class="usermodify-phone-authform" action="/member/modify/changePhone.pang" method="post" style="display: none;">
+					        <input type="text" class="usermodify-phone-auth-tf" placeholder="인증번호 입력">
+					        <button type="submit" class="usermodify-phone-auth-submit">인증</button>
+					        <button type="button" class="usermodify-phone-auth-resend">인증번호 재전송</button>
+					        <div class="form-err usermodify-phone-auth-errmsg"></div>
+					    </form>
+					    <div class="usermodify-phone-auth-msg" style="display: none;">입력하신 번호로 인증번호가 발송 되었습니다.</div>
+					</div>
+					</td>
+				</tr>
+				<tr>
+                <th scope="row">비밀번호변경</th>
+                <td><div class="usermodify-password">
+				    <table class="usermodify-input-table">
+				        <tbody><tr>
+				            <th>
+				                현재 비밀번호
+				            </th>
+				            <td>
+				                <input type="password" class="usermodify-currentpassword-tf"><div class="member__input-guide-area"></div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <th>
+				                새 비밀번호
+				            </th>
+				            <td>
+				                <input type="password" class="usermodify-newpassword-tf"><div class="member__input-guide-area"></div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <th>
+				                비밀번호 다시 입력
+				            </th>
+				            <td>
+				                <input type="password" class="usermodify-newpassword-confirm-tf"><div class="member__input-guide-area"></div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td></td>
+				            <td>
+				                <button type="button" class="usermodify-password-submit">비밀번호 변경</button>
+				            </td>
+       					</tr>
+    					</tbody>
+    				</table>
+				</div>
+			</td>
+            </tr>
+			</tbody>
+		</table>		
+		</section>
+	<div class="usermodify-secession">
+        탈퇴를 원하시면 우측의 회원탈퇴 버튼을 눌러주세요.
+        <a class="usermodify-secession-btn" href="secession.pang">회원탈퇴</a>
+    </div>
+    
+    <div class="usermodify-foot">
+        <button type="button" class="usermodify-cancel" onclick="location.href='Mypage.html'">나가기</button>
+    </div>
+	</div>
+	
+		<br> 
+			<!-- footer -->
+	<footer>
+		<p>
+			<span>상호명 : 구십삼</span><br/>
+			<span>이메일 : rlaeogns0706@gmail.com</span><br/>
+			<span>주소 : 테헤란로 3길 어디어디어디</span><br/>
+			<span>Copyright 2022. cocoder. All Rights Reserved.</span>
+		</p>
+		<nav>
+			<a href="" target='blank'>Blog</a><br/>
+			<a href="" target='blank'>Github</a>
+		</nav>
+	</footer>
+</body>
+</html>

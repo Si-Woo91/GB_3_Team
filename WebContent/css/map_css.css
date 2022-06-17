@@ -1,0 +1,30 @@
+@charset "UTF-8";
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family :'GowunDodum-Regular';
+}
+.map{
+	padding-bottom: 12%;
+    padding-left: 14%;
+    padding-right: 14%;
+    padding-top: 12%;
+}
+.map-a {
+	margin-top: 6%;
+	text-align: center;
+}
+
+.cnt{
+	margin-top:100px;
+}
+.cnt-a{
+	float:left;
+	font-size:1.2em;
+	margin-left:50px;
+}
+.cnt-b{
+text-align:right;
+margin-right:50px;
+}
