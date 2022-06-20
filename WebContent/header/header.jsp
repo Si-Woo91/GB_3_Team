@@ -26,37 +26,37 @@
 		<div class="category">
 		<div class= nav2>
 			<ul>
-				<li><a href="#" class="a">냉장고</a>
+				<li><a href="${pageContext.request.contextPath}/냉장고 상품페이지" class="a">냉장고</a>
 					<ul>
-						<li><a href="shop1.html">상품1</a></li>
-						<li><a href="shop2.html">상품2</a></li>
-						<li><a href="shop3.html">상품3</a></li>
-						<li><a href="shop3.html">상품4</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품3</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품4</a></li>
 					</ul>
 				</li>
-				<li><a href="#" class="a">세탁기</a>
+				<li><a href="${pageContext.request.contextPath}/세탁기 상품페이지" class="a">세탁기</a>
 					<ul>
-						<li><a href="shop1.html">상품1</a></li>
-						<li><a href="shop2.html">상품2</a></li>
-						<li><a href="shop3.html">상품3</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품3</a></li>
 					</ul></li>
-				<li><a href="#" class="a">TV</a>
+				<li><a href="${pageContext.request.contextPath}/TV 상품페이지" class="a">TV</a>
 					<ul>
-						<li><a href="shop1.html">상품1</a></li>
-						<li><a href="shop2.html">상품2</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
 					</ul></li>
-				<li><a href="#" class="a">에어컨</a>
+				<li><a href="${pageContext.request.contextPath}/에어컨 상품페이지" class="a">에어컨</a>
 					<ul>
-						<li><a href="shop1.html">상품1</a></li>
-						<li><a href="shop2.html">상품2</a></li>
-						<li><a href="shop3.html">상품3</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품3</a></li>
 					</ul></li>
 
-				<li><a href="#" class="a">컴퓨터</a>
+				<li><a href="${pageContext.request.contextPath}/컴퓨터 상품페이지" class="a">컴퓨터</a>
 					<ul>
-						<li><a href="shop1.html">상품1</a></li>
-						<li><a href="shop2.html">상품2</a></li>
-						<li><a href="shop3.html">상품3</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품3</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -65,6 +65,7 @@
 	</div>
 	</div>
 	<script>
+
 /* 	<a href="#" onclick="delchk();">삭제하기</a>
 	
 	<script type="text/javascript">
