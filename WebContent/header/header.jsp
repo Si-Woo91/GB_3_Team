@@ -28,35 +28,32 @@
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/냉장고 상품페이지" class="a">냉장고</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품3</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품4</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
 					</ul>
 				</li>
 				<li><a href="${pageContext.request.contextPath}/세탁기 상품페이지" class="a">세탁기</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품3</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
 					</ul></li>
 				<li><a href="${pageContext.request.contextPath}/TV 상품페이지" class="a">TV</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
 					</ul></li>
 				<li><a href="${pageContext.request.contextPath}/에어컨 상품페이지" class="a">에어컨</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품3</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">위니아</a></li>
 					</ul></li>
 
 				<li><a href="${pageContext.request.contextPath}/컴퓨터 상품페이지" class="a">컴퓨터</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품1</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품2</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">상품3</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
+						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">애플</a></li>
 					</ul>
 				</li>
 			</ul>
