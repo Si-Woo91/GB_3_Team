@@ -24,7 +24,7 @@
 			</a>
 		</div>
 		<div class="category">
-		<div class= nav2>
+		<div class= nav2> 
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/냉장고 상품페이지" class="a">냉장고</a>
 					<ul>
