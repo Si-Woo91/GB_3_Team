@@ -13,6 +13,7 @@
       <h2>회원가입</h2>
       <div class="textForm">
         <input name="loginId" type="text" class="id" placeholder="아이디">
+        <input name="loginId2" type="button" class="id3" value="중복확인" onclick="checkId(dojoin.userid.value)">
       </div>
       <div class="textForm">
         <input name="loginPw" type="password" class="pw" placeholder="비밀번호">

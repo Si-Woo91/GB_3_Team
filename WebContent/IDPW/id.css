@@ -43,6 +43,12 @@ body {
   background: none;
 }
 
+.id3 {
+  width: 11%;
+  margin: 0 -90% 0 0;
+}
+
+
 .pw {
   width: 100%;
   border:none;
