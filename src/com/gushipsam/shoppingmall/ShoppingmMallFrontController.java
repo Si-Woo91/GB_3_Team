@@ -14,7 +14,7 @@ import com.gushipsam.shoppingmall.action.ActionForward;
 
 
 @WebServlet("*.bo")
-public class ShoppingmallFrontController extends HttpServlet{
+public class ShoppingmMallFrontController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 

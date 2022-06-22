@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 @WebFilter("*.spm")
-public class ShoppingmallCharacterEncodingFilter implements Filter {
+public class ShoppingmMallCharacterEncodingFilter implements Filter {
 
 	@Override
 	public void doFilter(ServletRequest arg0, 

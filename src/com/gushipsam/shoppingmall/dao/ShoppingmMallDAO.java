@@ -6,11 +6,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.gushipsam.shoppingmall.mybatis.SqlMapConfig;
 
 
-public class shoppingmallDAO {
+public class ShoppingmMallDAO {
 	SqlSessionFactory factory = SqlMapConfig.getFactory();
 	SqlSession sqlsession;
 	
-	public shoppingmallDAO() {
+	public ShoppingmMallDAO() {
 		// autocommit
 		sqlsession = factory.openSession(true);
 	}
