@@ -21,6 +21,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	
 	<mappers>
-		<mapper resource="com/gushipsam/shoppingmall/sql/shoppingmall.xml"/>
+		<mapper resource="/com/gushipsam/shoppingmall/sql/shoppingmall.xml"/>
 	</mappers>
 </configuration>
