@@ -1,8 +1,7 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.gushipsam.cart.CartBean"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	String member_name = "김찬우";
 	String member_phone = "010-9142-8970";
@@ -11,9 +10,36 @@
 	
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
 	
-	ArrayList<CartBean> cart = (ArrayList) session.getAttribute("cart");
+	//카드 아이템 정보 담는 bean 객체 선언 (이후 DAO 속에서 선언하여 DB데이터 받아들일 예정)
+	CartBean item1 = new CartBean("LG UHD TV 50인치 벽걸이, 스탠드", "LG",
+										"https://tinyurl.com/lgtelev01","../img/cart_tv1.png",700000,3);
+	CartBean item2 = new CartBean("삼성 BESPOKE 냉장고 4도어 프리스탠딩 875L", "Samsung",
+										"https://tinyurl.com/samsungbskp01","../img/cart_fridge1.png",2400000,1);
+	CartBean item3 = new CartBean("코스텔 레트로 에디션 모던 냉장고 107L (빈티지 레드)", "코스텔",
+										"https://tinyurl.com/costelfridge01","../img/cart_fridge2.png",17900,2);
+	
+	//bean객체들을 for문으로 돌리고자 생성한 arraylist
+	ArrayList<CartBean> cart = new ArrayList<CartBean>();
+	cart.add(item1);
+	cart.add(item2);
+	cart.add(item3);
+	
+	
+	String brands = request.getParameter("brands");
+	String[] brandlist = brands.split(",");
+	
+	//장바구니에서 선택한 상품만을 checkout에 삽입하기
+	ArrayList<CartBean> checkout = new ArrayList<CartBean>();
+	for(String brand : brandlist){
+		for(CartBean item : cart){
+			if( brand.equals(item.getItemBrand()) ){
+				checkout.add(item);
+				break;
+			}
+		}
+	}
+	
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,12 +47,12 @@
 <title>구심삽 주문결제</title>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="shortcut icon" href="/img/gushipsam_icon.ico">	
-<link rel="stylesheet" type="text/css" href="common05.css">
-<link rel="stylesheet" type="text/css" href="checkout05.css">
+<link rel="shortcut icon" href="gu_icon.ico">	
+<link rel="stylesheet" type="text/css" href="common06.css">
+<link rel="stylesheet" type="text/css" href="checkout06.css">
 </head>
 <body>
-	<%-- <header> <jsp:include page="/header/header.jsp"/> </header> --%>
+	<header> <%@ include file= "../header/header.jsp" %> </header>
 	<section>
 		<br>
 		<div id="title_big">주문/결제</div>
@@ -61,7 +87,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% for (CartBean item : cart ) { %>
+				<% for (CartBean item : checkout ) { %>
 				<tr>
 					<td>
 						<table class="goods_tb">
@@ -165,7 +191,7 @@
 				</td>
 				<td rowspan="3" style="text-align:right">
 					<% int cartSum = 0;	
-					for (CartBean item : cart ) { 
+					for (CartBean item : checkout ) { 
 						cartSum += item.getItemPrice() * item.getItemQty();
 					} %>
 					<h2>최종 결제금액 : <%= df.format(cartSum+shippingCost)%> 원</h2>
@@ -326,7 +352,7 @@
 		</table>
 	</section>
 	<div style="height:130px"></div>
-	<%-- <footer><jsp:include page="/footer/footer.jsp"/></footer> --%>
+	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
-<script src="checkout05.js"></script>
+<script src="checkout06.js"></script>
 </html>
