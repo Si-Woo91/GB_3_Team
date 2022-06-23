@@ -2,6 +2,7 @@
 <%@page import="com.gushipsam.cart.CartBean"%>
 <%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 		
 	DecimalFormat df = new DecimalFormat("###,###"); 						// df.format(숫자)로 콤마 보이게 가능
@@ -20,7 +21,7 @@
 	cart.add(item2);
 	cart.add(item3);
 	
-	session.setAttribute("cart",cart);
+	//session.setAttribute("cart",cart);
 %>
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@
 <link rel="stylesheet" type="text/css" href="cart05.css">
 </head>
 <body>
-	<header> <jsp:include page="/header/header.jsp"/> </header>
+	<header> <%@ include file= "../header/header.jsp" %> </header>
 	<section>
 		<br>
 		<div id="title_big">장바구니</div>
@@ -125,7 +126,7 @@
 		
 	</section>
 	<div style="height:130px"></div>
-	<footer><jsp:include page="/footer/footer.jsp"/></footer>
+	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
 <script src="cart05.js"></script>
 </html>

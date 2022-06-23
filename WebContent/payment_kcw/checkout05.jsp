@@ -2,6 +2,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.gushipsam.cart.CartBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	String member_name = "김찬우";
 	String member_phone = "010-9142-8970";
@@ -12,6 +13,7 @@
 	
 	ArrayList<CartBean> cart = (ArrayList) session.getAttribute("cart");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
