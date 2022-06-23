@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.gushipsam.shoppingmall.action.ActionForward;
 
 
-@WebServlet("*.bo")
+@WebServlet("*.spm")
 public class ShoppingmMallFrontController extends HttpServlet{
 	
 	@Override
@@ -34,8 +34,8 @@ public class ShoppingmMallFrontController extends HttpServlet{
 		ActionForward forward = null;
 		
 		switch (requestURI) {
-		case" ":
-			forward = ;
+		case "SAMSUNG":
+			forward = new MainGoodsSelectAction().execute(req, resp);;
 			break;
 		default:
 			break;

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>구십삼</title>
-	<link rel="stylesheet" type="text/css" href="../css/main_css.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/main_css.css"> -->
 </head>
 <body>
 	<div class= header>
@@ -13,7 +13,7 @@
 			<a href="#"onclick="location.href='../main/main.jsp'" class= logo><img src= ../img/logo.png></a>
 			<ul class = nav1>
 				<li class= service><a href= "center">고객센터</a></li>
-				<li class= basket><a href= "basket">장바구니</a></li>
+				<li class= basket><a href= "../payment_kcw/cart05.jsp">장바구니</a></li>
 				<li class= login><a href= "login">로그인</a></li>
 			</ul>
 			<br>
@@ -26,34 +26,34 @@
 		<div class="category">
 		<div class= nav2> 
 			<ul>
-				<li><a href="${pageContext.request.contextPath}/냉장고 상품페이지" class="a">냉장고</a>
+				<li><a href="상품페이지 경로" class="a">냉장고</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
+						<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
+						<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
 					</ul>
 				</li>
-				<li><a href="${pageContext.request.contextPath}/세탁기 상품페이지" class="a">세탁기</a>
+				<li><a href="상품페이지 경로" class="a">세탁기</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
+						<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
+						<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
 					</ul></li>
-				<li><a href="${pageContext.request.contextPath}/TV 상품페이지" class="a">TV</a>
+				<li><a href="" class="a">TV</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
+						<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
+						<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
 					</ul></li>
-				<li><a href="${pageContext.request.contextPath}/에어컨 상품페이지" class="a">에어컨</a>
+				<li><a href="" class="a">에어컨</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">위니아</a></li>
+						<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
+						<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
+						<li><a href="상품페이지 경로" style="color:black;">WINIA</a></li>
 					</ul></li>
 
-				<li><a href="${pageContext.request.contextPath}/컴퓨터 상품페이지" class="a">컴퓨터</a>
+				<li><a href="상품페이지 경로" class="a">컴퓨터</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">삼성</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">LG</a></li>
-						<li><a href="${pageContext.request.contextPath}/브랜드별 상품">애플</a></li>
+						<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
+						<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
+						<li><a href="상품페이지 경로" style="color:black;">APPLE</a></li>
 					</ul>
 				</li>
 			</ul>

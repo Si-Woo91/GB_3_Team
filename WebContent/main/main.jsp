@@ -32,10 +32,10 @@
 
 	<!-- 인기제품목록  -->
 	<div class="popular">
-	<div class="popular-item"><a href=""><img src="../img/test.jpg"></a></div>
-	<div class="popular-item"><a href=""><img src="../img/test.jpg"></a></div>
-	<div class="popular-item"><a href=""><img src="../img/test.jpg"></a></div>
-	<div class="popular-item"><a href=""><img src="../img/test.jpg"></a></div>
+	<div class="popular-item"><a href=""><img src="../img/ac2.png"></a></div>
+	<div class="popular-item"><a href=""><img src="../img/pc1.png"></a></div>
+	<div class="popular-item"><a href=""><img src="../img/tv1.png"></a></div>
+	<div class="popular-item"><a href=""><img src="../img/washer2.png"></a></div>
 	</div>
 	</section>
 		<%@ include file= "../footer/footer.jsp" %>
