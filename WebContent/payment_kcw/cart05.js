@@ -47,7 +47,7 @@
 			alert("주문가능한 상품이 없습니다.");
 			return false;
 		} else{
-			location.href='test.jsp';
+			location.href='checkout05.jsp';
 		}
 	}
 	
