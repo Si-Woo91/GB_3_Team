@@ -1,6 +1,6 @@
 package com.gushipsam.shoppingmall.dao;
 
-public class ShoppingmMallDTO {
+public class ShoppingMallDTO {
 	// admin
 	private String aID;	
 	private String aPW;					
@@ -44,4 +44,6 @@ public class ShoppingmMallDTO {
 	
 	
 }
+    
+
     
