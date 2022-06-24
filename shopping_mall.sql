@@ -13,7 +13,7 @@ CREATE TABLE ADMIN(						-- 관리자정보
 	aNAME VARCHAR2(100)					-- 관리자 이름
 );
 
-CREATE TABLE MEMBER(					-- 회원정보
+CREATE TABLE "MEMBER"(					-- 회원정보
     mID VARCHAR2(100) PRIMARY KEY,		-- 회원 아이디
     mPW VARCHAR2(15), 					-- 회원 비밀번호
     mNickNAME VARCHAR2(100),			-- 회원 닉네임
@@ -79,7 +79,7 @@ CREATE TABLE ImageFile(							-- 이미지관리
 
 
 SELECT * FROM ADMIN;
-SELECT * FROM MEMBER;
+SELECT * FROM "MEMBER";
 SELECT * FROM GOODS;
 SELECT * FROM CART;
 SELECT * FROM ORDERS;
