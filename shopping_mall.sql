@@ -51,7 +51,7 @@ REFERENCES GOODS(gID)
 --	  gNumber NUMBER(4)
 --);
 
---ORDERS 테이블 주문수량컬럼 oQTY 추가 완료(찬우, 2022.06.24)
+--ORDERS 테이블 주문수량컬럼 oQTY 추가 완료, 결제금액 삭제 완료(찬우, 2022.06.24)
 CREATE TABLE ORDERS(							-- 주문내역
     oID NUMBER(10) PRIMARY KEY,					
     mID VARCHAR2(100),	
@@ -60,7 +60,7 @@ CREATE TABLE ORDERS(							-- 주문내역
     oDATE DATE DEFAULT SYSDATE,					-- 주문 날짜
     oPHONE VARCHAR2(100),						-- 주문자 연락처
     oADDRESS VARCHAR2(500),						-- 주소				
-    oPAYMENT NUMBER(20),						-- 결제금액
+--    oPAYMENT NUMBER(20),						-- 결제금액(GOODS join해서 계산하면 되므로 필요x)
 --    oINVOICE NUMBER(10),						-- 송장번호
 CONSTRAINT fk_ord_mem FOREIGN KEY(mID) 
 REFERENCES member(mID),
