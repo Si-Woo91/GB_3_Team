@@ -38,7 +38,7 @@ CREATE TABLE CART(								-- 장바구니
     gID NUMBER(4),						
     cQTY NUMBER(3) DEFAULT 1,					-- 장바구니에 담겨있는 상품의 수량
 CONSTRAINT fk_cart_mem FOREIGN KEY(mID) 
-REFERENCES member(mID),
+REFERENCES "member"(mID),
 CONSTRAINT fk_cart_goods FOREIGN KEY(gID) 
 REFERENCES GOODS(gID)
 );
