@@ -1,5 +1,4 @@
-package com.gushipsam.shoppingmall;
-
+package com.gushipsam.payment;
 
 import java.io.IOException;
 
@@ -10,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 
-
-@WebServlet("*.spm")
-public class ShoppingmMallFrontController extends HttpServlet{
+@WebServlet("*.pay")
+public class PaymentFrontController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
@@ -28,18 +27,21 @@ public class ShoppingmMallFrontController extends HttpServlet{
 		doProcess(req, resp);
 	}
 	
-	protected void doProcess(HttpServletRequest req, HttpServletResponse resp)  
-			throws ServletException, IOException {
+	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) 
+			throws IOException, ServletException {
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
 		
 		switch (requestURI) {
-		case "SAMSUNG":
-			forward = new MainGoodsSelectAction().execute(req, resp);;
-			break;
-		default:
-			break;
-		} 
+			case "/payment/cart.pay":
+				System.out.println("/payment/cart.pay 도착");
+				forward = new CartListAction().execute(req, resp);
+				break;
+			case "/payment/order.pay":
+				break;
+		}
+	
+	
 		
 		if( forward != null ) {
 			if( forward.isRedirect() ) {	// redirect
@@ -51,12 +53,8 @@ public class ShoppingmMallFrontController extends HttpServlet{
 		}
 		
 	}
-	
+
 }
-
-
-
-
 
 
 

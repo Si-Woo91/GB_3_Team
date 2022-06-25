@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/*----------------------공통 스타일 시작------------------------------*/
+body {
+	margin: 0 auto;
+}
+
+@font-face { 													/* 폰트 설정 (회의후 변경예정) */
+	font-family: 'GowunDodum-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GowunBatang-Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+/*----------------------공통 스타일 끝------------------------------*/
+
+/*----------------------푸터만의 스타일 시작------------------------------*/
+#footer *{																/* 폰트 설정 (회의후 변경예정) */
+	font-family: 'GowunDodum-Regular';	
+}
+
+#footer {
+	width : 100%;
+	bottom : 0px;
+	padding-top : 0.5%;
+	color : #FFFFFF;
+	font-size : 15px;
+	display: flex;
+	background-color : #383b40;
+	margin : auto;
+	justify-content: space-evenly;
+}
+
+#footer a {
+	display : inline-block;
+	margin : 0 0 0 1%;
+	color : #808080; 
+	font-size: 17px;
+	text-decoration: none;
+}
+
+#footer a:visited{
+	color:#808080;
+}
+
+#footer p{
+	width : 60%;
+	margin-top : 0;
+	margin-bottom:0;
+	
+}
+#footer p span{
+	display: inline-block;
+/* 	margin : 0% 10% 1% 15%; */
+/* 	margin : 0% 1% 0% 14%; */
+}
+
+#footer nav{
+	text-align: right;
+}
+/*----------------------푸터만의 스타일 끝------------------------------*/

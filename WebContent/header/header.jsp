@@ -5,15 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>구십삼</title>
-	<!-- <link rel="stylesheet" type="text/css" href="../css/main_css.css"> -->
+<link rel="stylesheet" type="text/css" href="../header/header.css">
 </head>
 <body>
 	<div class= header>
 			<div class="login_search">
-			<a href="#"onclick="location.href='../main/main.jsp'" class= logo><img src= ../img/logo.png></a>
+			<a href="#" onclick="location.href='../main/main.jsp'" class= logo><img src= ../img/logo.png></a>
 			<ul class = nav1>
 				<li class= service><a href= "center">고객센터</a></li>
-				<li class= basket><a href= "../payment_kcw/cart05.jsp">장바구니</a></li>
+				<li class= basket><a href= "${pageContext.request.contextPath }/payment/cart.pay">장바구니</a></li>
 				<li class= login><a href= "login">로그인</a></li>
 			</ul>
 			<br>

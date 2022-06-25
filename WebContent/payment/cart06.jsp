@@ -1,9 +1,13 @@
+<%@page import="com.gushipsam.payment.dao.CartDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.gushipsam.cart.CartBean"%>
 <%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	DecimalFormat df = new DecimalFormat("###,###"); 						// df.format(숫자)로 콤마 보이게 가능
+	
+	
 	
 	//카드 아이템 정보 담는 bean 객체 선언 (이후 DAO 속에서 선언하여 DB데이터 받아들일 예정)
 	CartBean item1 = new CartBean("LG UHD TV 50인치 벽걸이, 스탠드", "LG",
@@ -15,9 +19,7 @@
 	
 	//bean객체들을 for문으로 돌리고자 생성한 arraylist
 	ArrayList<CartBean> cart = new ArrayList<CartBean>();
-	cart.add(item1);
-	cart.add(item2);
-	cart.add(item3);
+
 	
 	session.setAttribute("cart", cart);
 %>
@@ -73,7 +75,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% for (CartBean item : cart ) { %>
+				<c:set var="cartList" value="${requestScope.cartList }"/>
+				<% List<CartDTO> cartList = (List) request.getAttribute("cartList"); %>
+				<% for (CartDTO item : cartList ) { %>
 				<tr>
 					<td>
 						<div class="align_center"><input type="checkbox" name="chk"></div>
@@ -86,23 +90,23 @@
 							</colgroup>
 							<tr>
 								<td rowspan="2">
-									<a href="<%=item.getItemLink()%>"><img src="<%=item.getItemImage()%>" style="width:100%"></a>
+									<a href="# "><img src="#" style="width:100%"></a>
 								</td>
-								<td id="brand+"><%=item.getItemBrand()%></td>
+								<td id="brand"><%=item.getgID()%></td>
 							</tr>
 							<tr>
-								<td><%=item.getItemName()%></td>
+								<td><%=item.getgID()%></td>
 							</tr>
 						</table>
 					</td>
 					<td>
-						<div class="align_center"><%= df.format(item.getItemPrice()) %></div>
+						<div class="align_center"></div>
 					</td>
 					<td>
-						<div class="align_center"><%= item.getItemQty() %></div>
+						<div class="align_center"><%= item.getcQTY() %></div>
 					</td>
 					<td>
-						<div class="align_center"><%= df.format(item.getItemPrice()*item.getItemQty())%></div>
+						<div class="align_center"></div>
 					</td>
 				</tr>
 				<% } %>
@@ -133,10 +137,10 @@
 	let brandarr = [];
 	
 	//brandarr 최초 생성
-	<% for (CartBean item : cart ) {
-		pageContext.setAttribute("brand",item.getItemBrand());
+	<% for (CartDTO item : cartList ) {
+		pageContext.setAttribute("cID",item.getcID());
 	%>
-		brandarr.push("${brand}");
+		brandarr.push("${cID}");
 	<%}%>
 	
 	//선택 상품 삭제. 맨 뒷 번호부터 차례대로 체크박스 확인. 체크되었을 경우 해당 테이블 열 삭제 + 해당 브랜드 brandarr에서 삭제. 완료되면 reset() 함수 실행
