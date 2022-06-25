@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/map_css.css">
 </head>
 <body>
-<%@ include file= "../header/header.jsp" %>
+<header> <%@ include file= "../header/header.jsp" %> </header>
 <div class = "map">
 	<div class = "map-a">
 		<h1>찾아오시는 길</h1><br>
@@ -26,6 +26,6 @@
 		</div>
 	</div>
 </div>
-<%@ include file= "../footer/footer.jsp" %>
+<footer> <%@ include file= "../footer/footer.jsp" %> </footer>
 </body>
 </html>

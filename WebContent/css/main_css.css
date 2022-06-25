@@ -19,6 +19,8 @@
     font-weight: normal;
     font-style: normal;
 }
+
+/* 아래 css 외 header에 필요한 css 분리 완료 (06.26 찬우)
 .header{
 	position: fixed; 
 	top : 0%;
@@ -27,6 +29,7 @@
 	z-index:9999;
 	background-color : #FFFFF0;
 }
+*/
 
 .search1{
 	position : relative;
@@ -409,7 +412,8 @@ section {
     padding-top: 12%;
 }
 
-footer {
+/* footer.css 분리 완료 (06.26 찬우)
+#footer {
 	width : 100%;
 	bottom : 0px;
 	padding-top : 0.5%;
@@ -421,36 +425,29 @@ footer {
 	justify-content: space-evenly;
 }
 
-footer a {
+#footer a {
 	display : inline-block;
 	margin : 0 0 0 1%;
 	color : #808080; 
 	font-size: 17px;
 }
 
-footer a:visited{
+#footer a:visited{
 	color:#808080;
 }
 
-footer p{
+#footer p{
 	width : 60%;
 	margin-top : 0;
 	margin-bottom:0;
 	
 }
-footer p span{
+#footer p span{
 	display: inline-block;
-<<<<<<< HEAD
-	margin : 0% 10% 1% 15%;
-=======
-	margin : 0% 1% 0% 14%;
-	
-	
->>>>>>> refs/heads/master
 }
 
-footer nav{
+#footer nav{
 	text-align: right;
 }
-
+*/
 

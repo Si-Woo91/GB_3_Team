@@ -1,4 +1,4 @@
-<%@page import="com.gushipsam.cart.CartBean"%>
+<%@page import="com.gushipsam.payment.CartBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>

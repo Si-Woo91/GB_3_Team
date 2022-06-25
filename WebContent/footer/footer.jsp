@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- 	<link rel="stylesheet" type="text/css" href="../css/main_css.css"> -->
+<link rel="stylesheet" type="text/css" href="../footer/footer.css">
 </head>
 <body>
 	<!-- footer -->
-	<footer>
+	<span id="footer">
 		<p>
 			<span>상호명 : 구십삼</span>
 			<span>대표 : 김시우</span><br/>
@@ -22,7 +22,7 @@
 			<a href="" target='blank'>회사소개</a>
 			<a href="#" onclick="location.href='../main/map.jsp'"> 찾아오시는 길</a>
 			<a href="#" onclick="location.href='../main/personalinfrom.jsp'"> 개인정보처리방침</a>
-	</footer>
+	</span>
 	
 	<script>
 	
