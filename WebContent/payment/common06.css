@@ -25,7 +25,7 @@ body {
 /* section 기본설정 */
 section {
 	width: 1000px;
-	margin: 0 auto;
+	margin:  auto;
 }
 
 /* 테이블 기본설정 */
@@ -60,7 +60,7 @@ a {
 #title_big{
 	line-height:100px;
 	width: 700px;
-	margin: 30px auto;
+	margin: 230px auto 30px auto;  /*header 때문에 맨 위 margin 크게 잡아야 전체화면이 보임.*/
 	border: 1px solid orange;
 	border-radius: 10px;
 	text-align: center;
