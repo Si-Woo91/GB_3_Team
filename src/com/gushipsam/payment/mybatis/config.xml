@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="com.gushipsam.shoppingmall.dao.CartDTO" alias="cartdto"/>
-		<typeAlias type="com.gushipsam.shoppingmall.dao.OrderDTO" alias="orderdto"/>
+		<typeAlias type="com.gushipsam.payment.dao.CartDTO" alias="cartdto"/>
+		<typeAlias type="com.gushipsam.payment.dao.MemberDTO" alias="memberdto"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -22,6 +22,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	
 	<mappers>
-		<mapper resource="/com/gushipsam/shoppingmall/sql/payment.xml"/>
+		<mapper resource="/com/gushipsam/payment/sql/payment.xml"/>
 	</mappers>
 </configuration>

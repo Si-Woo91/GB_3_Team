@@ -1,43 +1,19 @@
-<%@page import="com.gushipsam.payment.CartBean"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="com.gushipsam.payment.dao.MemberDTO"%>
+<%@page import="com.gushipsam.payment.dao.CartDTO"%>
 <%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:set var="checkoutList" value="${requestScope.checkoutList }"/>
+<c:set var="memberInfo" value="${requestScope.memberInfo }"/>
 <%
-	String member_name = "김찬우";
-	String member_phone = "010-9142-8970";
-	String[] phonearr = member_phone.split("-");
+	List<CartDTO> checkoutList = (List) request.getAttribute("checkoutList");
+	MemberDTO memberInfo = (MemberDTO) request.getAttribute("memberInfo");
+	
 	int shippingCost = 2500;
 	
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
-	
-	//카드 아이템 정보 담는 bean 객체 선언 (이후 DAO 속에서 선언하여 DB데이터 받아들일 예정)
-	CartBean item1 = new CartBean("LG UHD TV 50인치 벽걸이, 스탠드", "LG",
-										"https://tinyurl.com/lgtelev01","../img/cart_tv1.png",700000,3);
-	CartBean item2 = new CartBean("삼성 BESPOKE 냉장고 4도어 프리스탠딩 875L", "Samsung",
-										"https://tinyurl.com/samsungbskp01","../img/cart_fridge1.png",2400000,1);
-	CartBean item3 = new CartBean("코스텔 레트로 에디션 모던 냉장고 107L (빈티지 레드)", "코스텔",
-										"https://tinyurl.com/costelfridge01","../img/cart_fridge2.png",17900,2);
-	
-	//bean객체들을 for문으로 돌리고자 생성한 arraylist
-	ArrayList<CartBean> cart = new ArrayList<CartBean>();
-	cart.add(item1);
-	cart.add(item2);
-	cart.add(item3);
-	
-	
-	String brands = request.getParameter("brands");
-	String[] brandlist = brands.split(",");
-	
-	//장바구니에서 선택한 상품만을 checkout에 삽입하기
-	ArrayList<CartBean> checkout = new ArrayList<CartBean>();
-	for(String brand : brandlist){
-		for(CartBean item : cart){
-			if( brand.equals(item.getItemBrand()) ){
-				checkout.add(item);
-				break;
-			}
-		}
-	}
 	
 %>
 <!DOCTYPE html>
@@ -87,7 +63,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% for (CartBean item : checkout ) { %>
+				<% for (CartDTO item : checkoutList ) { %>
 				<tr>
 					<td>
 						<table class="goods_tb">
@@ -97,23 +73,24 @@
 							</colgroup>
 							<tr>
 								<td rowspan="2">
-									<a href="<%=item.getItemLink()%>"><img src="<%=item.getItemImage()%>" style="width:100%"></a>
+									<a href="#"><img src="#" style="width:100%"></a>
 								</td>
-								<td><%=item.getItemBrand()%></td>
+								<td><%=item.getgBRAND()%></td>
 							</tr>
 							<tr>
-								<td><%=item.getItemName()%></td>
+								<td><%=item.getgNAME()%></td>
 							</tr>
 						</table>
 					</td>
+					<% int price = item.getgPrice(); int qty = item.getcQTY(); %>
 					<td>
-						<div class="align_center"><%= df.format(item.getItemPrice()) %></div>
+						<div class="align_center"><%= df.format(price) %></div>
 					</td>
 					<td>
-						<div class="align_center"><%= item.getItemQty() %></div>
+						<div class="align_center"><%= qty %></div>
 					</td>
 					<td>
-						<div class="align_center"><%= df.format(item.getItemPrice()*item.getItemQty())%></div>
+						<div class="align_center"><%= df.format(price*qty) %></div>
 					</td>
 				</tr>
 				<% } %>
@@ -140,10 +117,14 @@
 							<col width="*">
 						</colgroup>
 						<tr>
+						<%
+							String name = memberInfo.getmNICKNAME(), phone = memberInfo.getmPHONE();
+							String[] phonearr = phone.split("-");
+						%>
 							<td>	받는분	</td>
 							<td>
 								<span style="color:red; font-weight:bold">*</span>
-								<input type="text" value="<%= member_name %>" style="width:300px">
+								<input type="text" value="<%= name %>" style="width:300px">
 							</td>
 						</tr>
 						<tr>
@@ -190,12 +171,12 @@
 					</table>	
 				</td>
 				<td rowspan="3" style="text-align:right">
-					<% int cartSum = 0;	
-					for (CartBean item : checkout ) { 
-						cartSum += item.getItemPrice() * item.getItemQty();
+					<% int checkoutSum = 0;	
+					for (CartDTO item : checkoutList ) { 
+						checkoutSum += item.getgPrice() * item.getcQTY();
 					} %>
-					<h2>최종 결제금액 : <%= df.format(cartSum+shippingCost)%> 원</h2>
-					<h3>상품금액 : <%= df.format(cartSum) %> 원 </h3>
+					<h2>최종 결제금액 : <%= df.format(checkoutSum+shippingCost)%> 원</h2>
+					<h3>상품금액 : <%= df.format(checkoutSum) %> 원 </h3>
 					<h3>배송비 : <%= df.format(shippingCost) %> 원</h3>
 					<br>
 					<input type="button" id="pay_button" value="결제하기">

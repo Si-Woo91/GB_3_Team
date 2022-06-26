@@ -35,9 +35,17 @@ public class PaymentFrontController extends HttpServlet{
 		switch (requestURI) {
 			case "/payment/cart.pay":
 				System.out.println("/payment/cart.pay 도착");
-				forward = new CartListAction().execute(req, resp);
+				
+//				String del_cid = req.getParameter("delcid");
+//				if (req.getParameter("delcid") == null || req.getParameter("delcid") == "") {
+//					forward = new CartDelAction().execute(req, resp);
+//				} else {
+					forward = new CartListAction().execute(req, resp);
+//				}
 				break;
-			case "/payment/order.pay":
+			case "/payment/checkout.pay":
+				System.out.println("/payment/checkout.pay 도착");
+				forward = new CheckoutListAction().execute(req, resp);
 				break;
 		}
 	

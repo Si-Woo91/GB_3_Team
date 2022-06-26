@@ -1,27 +1,10 @@
 <%@page import="com.gushipsam.payment.dao.CartDTO"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	DecimalFormat df = new DecimalFormat("###,###"); 						// df.format(숫자)로 콤마 보이게 가능
-	
-	
-	
-	//카드 아이템 정보 담는 bean 객체 선언 (이후 DAO 속에서 선언하여 DB데이터 받아들일 예정)
-	CartBean item1 = new CartBean("LG UHD TV 50인치 벽걸이, 스탠드", "LG",
-										"https://tinyurl.com/lgtelev01","../img/cart_tv1.png",700000,3);
-	CartBean item2 = new CartBean("삼성 BESPOKE 냉장고 4도어 프리스탠딩 875L", "Samsung",
-										"https://tinyurl.com/samsungbskp01","../img/cart_fridge1.png",2400000,1);
-	CartBean item3 = new CartBean("코스텔 레트로 에디션 모던 냉장고 107L (빈티지 레드)", "코스텔",
-										"https://tinyurl.com/costelfridge01","../img/cart_fridge2.png",17900,2);
-	
-	//bean객체들을 for문으로 돌리고자 생성한 arraylist
-	ArrayList<CartBean> cart = new ArrayList<CartBean>();
-
-	
-	session.setAttribute("cart", cart);
 %>
 
 <!DOCTYPE html>
@@ -75,9 +58,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:set var="cartList" value="${requestScope.cartList }"/>
+<%-- 				<c:set var="cartList" value="${requestScope.cartList }"/> --%>
 				<% List<CartDTO> cartList = (List) request.getAttribute("cartList"); %>
-				<% for (CartDTO item : cartList ) { %>
+				<% for (CartDTO item : cartList) { %>
 				<tr>
 					<td>
 						<div class="align_center"><input type="checkbox" name="chk"></div>
@@ -92,21 +75,22 @@
 								<td rowspan="2">
 									<a href="# "><img src="#" style="width:100%"></a>
 								</td>
-								<td id="brand"><%=item.getgID()%></td>
+								<td id="brand"><%=item.getgBRAND()%></td>
 							</tr>
 							<tr>
-								<td><%=item.getgID()%></td>
+								<td><%=item.getgNAME()%></td>
 							</tr>
 						</table>
 					</td>
+					<% int price = item.getgPrice(); int qty = item.getcQTY(); %>
 					<td>
-						<div class="align_center"></div>
+						<div class="align_center"><%= df.format(price) %></div>
 					</td>
 					<td>
-						<div class="align_center"><%= item.getcQTY() %></div>
+						<div class="align_center"><%= qty %></div>
 					</td>
 					<td>
-						<div class="align_center"></div>
+						<div class="align_center"><%= df.format(price*qty) %></div>
 					</td>
 				</tr>
 				<% } %>
@@ -127,20 +111,20 @@
 		</div>
 		
 	</section>
-	<div style="height:130px"></div>
+	<div style="height:100px"></div>
 	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
 <script>
 //------------brandarr 배열 사용하는 함수 및 자바스크립트 모음 시작-----------------------//
 	
 	//결제페이지에 전달할 파라미터 저장 배열 (현재 브랜드 저장하며, 나중에는 상품id 전달할 예정)
-	let brandarr = [];
+	let cid_arr = [];
 	
 	//brandarr 최초 생성
 	<% for (CartDTO item : cartList ) {
 		pageContext.setAttribute("cID",item.getcID());
 	%>
-		brandarr.push("${cID}");
+		cid_arr.push("${cID}");
 	<%}%>
 	
 	//선택 상품 삭제. 맨 뒷 번호부터 차례대로 체크박스 확인. 체크되었을 경우 해당 테이블 열 삭제 + 해당 브랜드 brandarr에서 삭제. 완료되면 reset() 함수 실행
@@ -158,7 +142,8 @@
 			if( checks[i].checked == true){
 				count++;
 				table.deleteRow(i+2);
-				brandarr.splice(i,1);
+				let del_cid = cid_arr.splice(i,1);
+// 				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
 			}
 		}
 		if(count==0){
@@ -177,11 +162,11 @@
 			alert("주문 가능한 상품이 없습니다.")
 			return false;
 		} else {
-			let brandarr_checked = [];
-			for(let i=0; i<brandarr.length;i++){
-				if( checks[i].checked == true) brandarr_checked.push(brandarr[i]);
+			let cid_arr_checked = [];
+			for(let i=0; i<cid_arr.length;i++){
+				if( checks[i].checked == true) cid_arr_checked.push(cid_arr[i]);
 			}
-			location.href='checkout06.jsp?brands='+brandarr_checked;
+			location.href='${pageContext.request.contextPath }/payment/checkout.pay?cids='+cid_arr_checked;
 		}
 	}	
 
@@ -192,7 +177,7 @@
 			alert("주문가능한 상품이 없습니다.");
 			return false;
 		} else{
-			location.href='checkout06.jsp?brands='+brandarr;
+			location.href='${pageContext.request.contextPath }/payment/checkout.pay?cids='+cid_arr;
 		}
 	}
 //------------brandarr 배열 사용하는 함수 및 자바스크립트 모음 끝-----------------------//

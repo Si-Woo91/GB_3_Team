@@ -5,7 +5,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Payment">
 	
 	<select id="getCartList" parameterType="string" resultType="cartdto">
-		SELECT * FROM CART WHERE mID = #{mID} ORDER BY cID DESC
+		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
+		FROM CART c 
+			LEFT OUTER JOIN MEMBERS m 	ON c.MID = m.MID 
+			LEFT OUTER JOIN GOODS g 	ON c.GID = g.GID 
+		WHERE c.MID = #{mID}
+		ORDER BY cID DESC
+	</select>
+	
+	<select id="getCheckoutList" parameterType="hashmap" resultType="cartdto">
+		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
+		FROM CART c 
+			LEFT OUTER JOIN MEMBERS m 	ON c.MID = m.MID 
+			LEFT OUTER JOIN GOODS g 	ON c.GID = g.GID 
+		WHERE c.MID = #{mID}
+		AND 	c.CID IN 
+		<foreach collection="cIDs" item="cID" open="(" separator="," close=")">
+				#{cID}
+		</foreach>
+		ORDER BY cID DESC
+	</select>
+	
+	<select id="getMemberInfo" parameterType="string" resultType="memberdto">
+		SELECT * FROM MEMBERS
+		WHERE MID = #{mID}
+	</select>
+	
+	<select id="deleteCartItem" parameterType="hashmap">
+		DELETE FROM CART
+		WHERE mID = #{mID}
+		AND cID = #{del_cID}
 	</select>
 
 </mapper>

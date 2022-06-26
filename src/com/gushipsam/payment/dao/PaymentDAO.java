@@ -1,5 +1,6 @@
 package com.gushipsam.payment.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -26,6 +27,44 @@ public class PaymentDAO {
 		System.out.println("CartList 조회");
 		
 		return cartList;
+	}
+
+	public List<CartDTO> getCheckoutList(String mID, String[] cIDs){
+		System.out.println("getCheckoutList 도착");
+		
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("mID", mID);
+		datas.put("cIDs", cIDs);
+		
+		List<CartDTO> checkoutList = sqlsession.selectList("Payment.getCheckoutList",datas);
+		
+		System.out.println("checkoutList 조회");
+		
+		return checkoutList;
+	}
+	
+	public MemberDTO getMemberInfo(String mID){
+		System.out.println("getMemberInfo 도착");
+		
+		MemberDTO memberInfo = sqlsession.selectOne("Payment.getMemberInfo",mID);
+		
+		System.out.println("memberInfo 조회");
+		
+		return memberInfo;
+	}
+
+	public boolean deleteCartItem(String mID, int del_cID){
+		System.out.println("deleteCartItem 도착");
+		boolean result = false;
+		
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("mID", mID);
+		datas.put("del_cID", del_cID);
+		
+		if(sqlsession.delete("Payment.deleteCartItem",datas) != 0) {
+			result = true;
+		}
+			return result;
 	}
 	
 	
