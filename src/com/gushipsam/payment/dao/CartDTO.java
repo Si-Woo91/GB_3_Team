@@ -7,6 +7,7 @@ public class CartDTO {
 	private String gNAME;
 	private String gBRAND;
 	private int gPrice;
+	
 	public int getcID() {
 		return cID;
 	}
