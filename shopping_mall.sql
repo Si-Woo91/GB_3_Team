@@ -13,12 +13,13 @@ CREATE TABLE ADMIN(						-- 관리자정보
 	aNAME VARCHAR2(100)					-- 관리자 이름
 );
 
-CREATE TABLE MEMBERS(					-- 회원정보
-    mID VARCHAR2(100) PRIMARY KEY,		-- 회원 아이디
-    mPW VARCHAR2(15), 					-- 회원 비밀번호
-    mNickNAME VARCHAR2(100),			-- 회원 닉네임
-    mEmail VARCHAR2(50),				-- 회원 이메일 
-    mPHONE VARCHAR2(100)				-- 회원 전화번호
+CREATE TABLE MEMBERS(
+   userid      		varchar2(200) PRIMARY KEY ,	-- 아이디
+   userpw     		varchar2(200) ,			-- 비밀번호
+   username   		varchar2(200) ,			-- 이름
+   userphone		varchar2(400),			-- 전화번호
+   userdata		varchar2(400) ,			-- 생일
+   useremail  		varchar2(800)			-- 이메일
 );
 
 CREATE TABLE GOODS(					-- 상품 정보
