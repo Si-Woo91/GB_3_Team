@@ -11,8 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/main_css.css">
 	<link rel="stylesheet" type="text/css" href="../css/slick.css">
 </head>
+	<%@ include file= "../header/header.jsp" %>
 <body>
-	<header> <%@ include file= "../header/header.jsp" %> </header>
 	<section>
 	<!-- body  -->
 	<!-- 슬라이드 사진 -->
@@ -38,6 +38,6 @@
 	<div class="popular-item"><a href=""><img src="../img/washer2.png"></a></div>
 	</div>
 	</section>
-	<footer> <%@ include file= "../footer/footer.jsp" %> </footer>
+		<%@ include file= "../footer/footer.jsp" %>
 </body>
 </html>

@@ -118,8 +118,7 @@
 						</colgroup>
 						<tr>
 						<%
-							String name = memberInfo.getmNICKNAME(), phone = memberInfo.getmPHONE();
-							String[] phonearr = phone.split("-");
+							String name = memberInfo.getUsername(), phone = memberInfo.getUserphone();
 						%>
 							<td>	받는분	</td>
 							<td>
@@ -131,7 +130,7 @@
 							<td>	연락처1	</td>
 							<td>	
 								<span style="color:red; font-weight:bold">*</span>
-								<input type="number" id="phone1" value="<%= phonearr[0] %>" style="width:80px"> - <input type="number" id="phone2" value="<%= phonearr[1] %>" style="width:80px"> - <input type="number" id="phone3" value="<%= phonearr[2] %>" style="width:80px">	
+								<input type="number" id="phone1" value="<%= phone.substring(0,3) %>" style="width:80px"> - <input type="number" id="phone2" value="<%= phone.substring(3,7)  %>" style="width:80px"> - <input type="number" id="phone3" value="<%= phone.substring(7,11)  %>" style="width:80px">	
 							</td>
 						</tr>	
 						<tr>
@@ -351,7 +350,7 @@
 			cid_arr.push("${cID}");
 		<%}%>
 		
-		let ophone = $('#phone1').val() + '-' + $('#phone2').val() + '-' + $('#phone3').val();
+		let ophone = $('#phone1').val() + $('#phone2').val() + $('#phone3').val();
 		let oaddress = $('#sample6_address').val() +" "+ $('#sample6_detailAddress').val() +" "+ $('#sample6_extraAddress').val();
 			
 		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress;

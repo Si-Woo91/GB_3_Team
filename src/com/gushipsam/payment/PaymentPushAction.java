@@ -19,8 +19,8 @@ public class PaymentPushAction implements Action{
 		OrderDTO odto = new OrderDTO();
 		CartDTO cdto = new CartDTO();
 
-		String mID = "test1234";
-		//String mID = req.getParameter("mID"); 으로 변경 예정
+		String userid = "test1234";
+		//String userid = req.getParameter("userid"); 으로 변경 예정
 		String[] cIDs = req.getParameter("cids").split(",");
 		String oPHONE = req.getParameter("ophone");
 		String oADDRESS = req.getParameter("oaddress");
@@ -31,7 +31,7 @@ public class PaymentPushAction implements Action{
 			cdto = pdao.getCartItem(cID);
 			
 			odto.setoID(0);
-			odto.setmID(mID);
+			odto.setUserid(userid);
 			odto.setgID(cdto.getgID());
 			odto.setoQTY(cdto.getcQTY());
 			odto.setoDATE(null);
@@ -41,7 +41,7 @@ public class PaymentPushAction implements Action{
 			pdao.insertOrder(odto);
 		}
 		
-		if(pdao.deleteCartItemAll(mID,cIDs) ) {
+		if(pdao.deleteCartItemAll(userid,cIDs) ) {
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/MyPage/OrderList/OrderList-Page.jsp");
 			System.out.println("ORDERS로 옮기기 완료");

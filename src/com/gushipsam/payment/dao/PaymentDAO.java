@@ -19,21 +19,21 @@ public class PaymentDAO {
 		sqlsession = factory.openSession(true);
 	}
 	
-	public List<CartDTO> getCartList(String mID){
+	public List<CartDTO> getCartList(String userid){
 		System.out.println("getCartList 도착");
 		
-		List<CartDTO> cartList = sqlsession.selectList("Payment.getCartList",mID);
+		List<CartDTO> cartList = sqlsession.selectList("Payment.getCartList",userid);
 		
 		System.out.println("CartList 조회");
 		
 		return cartList;
 	}
 
-	public List<CartDTO> getCheckoutList(String mID, String[] cIDs){
+	public List<CartDTO> getCheckoutList(String userid, String[] cIDs){
 		System.out.println("getCheckoutList 도착");
 		
 		HashMap<String, Object> datas = new HashMap<>();
-		datas.put("mID", mID);
+		datas.put("userid", userid);
 		datas.put("cIDs", cIDs);
 		
 		List<CartDTO> checkoutList = sqlsession.selectList("Payment.getCheckoutList",datas);
@@ -43,22 +43,22 @@ public class PaymentDAO {
 		return checkoutList;
 	}
 	
-	public MemberDTO getMemberInfo(String mID){
+	public MemberDTO getMemberInfo(String userid){
 		System.out.println("getMemberInfo 도착");
 		
-		MemberDTO memberInfo = sqlsession.selectOne("Payment.getMemberInfo",mID);
+		MemberDTO memberInfo = sqlsession.selectOne("Payment.getMemberInfo",userid);
 		
 		System.out.println("memberInfo 조회");
 		
 		return memberInfo;
 	}
 
-	public boolean deleteCartItem(String mID, int del_cID){
+	public boolean deleteCartItem(String userid, int del_cID){
 		System.out.println("deleteCartItem 도착");
 		boolean result = false;
 		
 		HashMap<String, Object> datas = new HashMap<>();
-		datas.put("mID", mID);
+		datas.put("userid", userid);
 		datas.put("del_cID", del_cID);
 		
 		if(sqlsession.delete("Payment.deleteCartItem",datas) != 0) {
@@ -88,12 +88,12 @@ public class PaymentDAO {
 		return result;
 	}
 	
-	public boolean deleteCartItemAll(String mID, String[] cIDs){
+	public boolean deleteCartItemAll(String userid, String[] cIDs){
 		System.out.println("deleteCartItemAll 도착");
 		boolean result = false;
 		
 		HashMap<String, Object> datas = new HashMap<>();
-		datas.put("mID", mID);
+		datas.put("userid", userid);
 		datas.put("cIDs", cIDs);
 		
 		if(sqlsession.delete("Payment.deleteCartItemAll",datas) != 0) {

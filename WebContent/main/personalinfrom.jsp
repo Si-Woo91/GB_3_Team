@@ -7,9 +7,9 @@
 <title>구십삼</title>
 <link rel="stylesheet" type="text/css" href="../css/personalinfrom.css">
 </head>
+	<%@ include file= "../header/header.jsp" %>
 <body>
-	<header> <%@ include file= "../header/header.jsp" %> </header>
-	<div id="container" class="css">
+<div id="container" class="css">
 		<div class="content">
 			<h2 class="cate_tit write"><span class="icon"></span>개인정보처리방침</h2></br><br>
 			<div class="mt30 u-editor terms">
@@ -76,6 +76,6 @@
 			</div>
 		</div><!-- END Content -->
 	</div>
-	<footer> <%@ include file= "../footer/footer.jsp" %> </footer>
+		<%@ include file= "../footer/footer.jsp" %>
 </body>
 </html>

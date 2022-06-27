@@ -7,18 +7,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getCartList" parameterType="string" resultType="cartdto">
 		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
 		FROM CART c 
-			LEFT OUTER JOIN MEMBERS m 	ON c.MID = m.MID 
+			LEFT OUTER JOIN MEMBERS m 	ON c.USERID = m.USERID 
 			LEFT OUTER JOIN GOODS g 	ON c.GID = g.GID 
-		WHERE c.MID = #{mID}
+		WHERE c.USERID = #{userid}
 		ORDER BY cID DESC
 	</select>
 	
 	<select id="getCheckoutList" parameterType="hashmap" resultType="cartdto">
 		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
 		FROM CART c 
-			LEFT OUTER JOIN MEMBERS m 	ON c.MID = m.MID 
+			LEFT OUTER JOIN MEMBERS m 	ON c.USERID = m.userid 
 			LEFT OUTER JOIN GOODS g 	ON c.GID = g.GID 
-		WHERE c.MID = #{mID}
+		WHERE c.USERID = #{userid}
 		AND 	c.CID IN 
 		<foreach collection="cIDs" item="cID" open="(" separator="," close=")">
 				#{cID}
@@ -28,12 +28,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getMemberInfo" parameterType="string" resultType="memberdto">
 		SELECT * FROM MEMBERS
-		WHERE MID = #{mID}
+		WHERE USERID = #{userid}
 	</select>
 	
 	<select id="deleteCartItem" parameterType="hashmap">
 		DELETE FROM CART
-		WHERE mID = #{mID}
+		WHERE USERID = #{userid}
 		AND cID = #{del_cID}
 	</select>
 	
@@ -44,13 +44,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertOrder" parameterType="orderdto">
-		INSERT INTO ORDERS VALUES(order_seq.nextval,#{mID},#{gID},#{oQTY},SYSDATE,#{oPHONE},#{oADDRESS})
+		INSERT INTO ORDERS VALUES(order_seq.nextval,#{userid},#{gID},#{oQTY},SYSDATE,#{oPHONE},#{oADDRESS})
 	</insert>
 	
 	
 	<select id="deleteCartItemAll" parameterType="hashmap">
 		DELETE FROM CART
-		WHERE 	mID = #{mID}
+		WHERE USERID = #{userid}
 		AND 	CID IN 
 		<foreach collection="cIDs" item="cID" open="(" separator="," close=")">
 				#{cID}

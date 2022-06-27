@@ -1,7 +1,7 @@
-package com.gushipsam.payment.dao;
+package com.gushipsam.shoppingmall.dao;
 
-public class MemberDTO {
-	
+public class ShoppingMallDTO {
+	//login
 	private String userid;	
 	private String userpw;
 	private String username;
@@ -45,11 +45,39 @@ public class MemberDTO {
 	public void setUseremail(String useremail) {
 		this.useremail = useremail;
 	}
-	
-	
-	
-	
-}
-    
 
+
+	// admin
+	private String aID;	
+	private String aPW;					
+	private String aNAME;
+	
+    
+    // goods
+	private String gID;			
+    private int gNumber;					
+    private String gName;				
+    private String gBrand;				
+    private int gPRICE;					
+    private int gSTOCK;
+    private String gDATE;
+    
+    // cart
+    private int cID;
+    private int cQTY;
+    
+    // orders
+    private String oDate;
+    private String oPHONE;
+    private String oADDRESS;
+    private int oPAYMENT;
+    
+    // imagefile
+    private int iID;
+    private String fileNm; 						
+	private String fileExtension;					
+	private String fileFullNm;					
+	private String fileRoute;	
+
+}
     

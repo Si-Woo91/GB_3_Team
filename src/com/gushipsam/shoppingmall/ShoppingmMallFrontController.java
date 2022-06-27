@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gushipsam.action.ActionForward;
+import com.gushipsam.shoppingmall.user.UserJoinAction;
+import com.gushipsam.shoppingmall.user.UserLoginOkAction;
 
 
 @WebServlet("*.spm")
@@ -32,15 +34,26 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			throws ServletException, IOException {
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
+		System.out.println("requestURI : " + requestURI);
 		
 		switch (requestURI) {
-		case "SAMSUNG":
-			forward = new MainGoodsSelectAction().execute(req, resp);;
+		case "/JSP/login.spm" :
+			forward = new UserJoinAction().execute(req, resp);
 			break;
-		default:
+			
+		case "/JSP/main/main.spm" : 
+			try {
+				forward = new UserLoginOkAction().execute(req, resp);
+			} catch (Exception e) {
+			}
 			break;
+			
+			
 		} 
 		
+		
+		
+		// 일괄처리
 		if( forward != null ) {
 			if( forward.isRedirect() ) {	// redirect
 				resp.sendRedirect(forward.getPath());

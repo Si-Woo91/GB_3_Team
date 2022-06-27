@@ -15,12 +15,12 @@ public class CheckoutListAction implements Action{
 		ActionForward forward = new ActionForward();
 		PaymentDAO pdao = new PaymentDAO();
 
-		String mID = "test1234";
-		//String mID = req.getParameter("mID"); 으로 변경 예정
+		String userid = "test1234";
+		//String userid = req.getParameter("userid"); 으로 변경 예정
 		String[] cIDs = req.getParameter("cids").split(",");
 		
-		req.setAttribute("checkoutList", pdao.getCheckoutList(mID, cIDs));
-		req.setAttribute("memberInfo", pdao.getMemberInfo(mID));
+		req.setAttribute("checkoutList", pdao.getCheckoutList(userid, cIDs));
+		req.setAttribute("memberInfo", pdao.getMemberInfo(userid));
 		System.out.println("조회완료");
 		
 	
