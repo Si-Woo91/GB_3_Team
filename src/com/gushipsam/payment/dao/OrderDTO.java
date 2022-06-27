@@ -6,9 +6,9 @@ public class OrderDTO {
 	private String mID;
 	private int gID;
 	private int oQTY;
-    private String oDate;
-    private String oPhone;
-    private String oAddress;
+    private String oDATE;
+    private String oPHONE;
+    private String oADDRESS;
     
     
 	public int getoID() {
@@ -35,26 +35,27 @@ public class OrderDTO {
 	public void setoQTY(int oQTY) {
 		this.oQTY = oQTY;
 	}
-	public String getoDate() {
-		return oDate;
+	public String getoDATE() {
+		return oDATE;
 	}
-	public void setoDate(String oDate) {
-		this.oDate = oDate;
+	public void setoDATE(String oDATE) {
+		this.oDATE = oDATE;
 	}
-	public String getoPhone() {
-		return oPhone;
+	public String getoPHONE() {
+		return oPHONE;
 	}
-	public void setoPhone(String oPhone) {
-		this.oPhone = oPhone;
+	public void setoPHONE(String oPHONE) {
+		this.oPHONE = oPHONE;
 	}
-	public String getoAddress() {
-		return oAddress;
+	public String getoADDRESS() {
+		return oADDRESS;
 	}
-	public void setoAddress(String oAddress) {
-		this.oAddress = oAddress;
+	public void setoADDRESS(String oADDRESS) {
+		this.oADDRESS = oADDRESS;
 	}
-
     
+    
+
 	
 	
 	

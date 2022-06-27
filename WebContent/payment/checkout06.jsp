@@ -131,7 +131,7 @@
 							<td>	연락처1	</td>
 							<td>	
 								<span style="color:red; font-weight:bold">*</span>
-								<input type="number" value="<%= phonearr[0] %>" style="width:80px"> - <input type="number" value="<%= phonearr[1] %>" style="width:80px"> - <input type="number" value="<%= phonearr[2] %>" style="width:80px">	
+								<input type="number" id="phone1" value="<%= phonearr[0] %>" style="width:80px"> - <input type="number" id="phone2" value="<%= phonearr[1] %>" style="width:80px"> - <input type="number" id="phone3" value="<%= phonearr[2] %>" style="width:80px">	
 							</td>
 						</tr>	
 						<tr>
@@ -179,7 +179,7 @@
 					<h3>상품금액 : <%= df.format(checkoutSum) %> 원 </h3>
 					<h3>배송비 : <%= df.format(shippingCost) %> 원</h3>
 					<br>
-					<input type="button" id="pay_button" value="결제하기">
+					<input type="button" id="pay_button" value="결제하기" onclick="checkoutnpay();">
 				</td>
 			</tr>
 			<tr>
@@ -336,4 +336,26 @@
 	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
 <script src="checkout06.js"></script>
+<script>
+	function checkoutnpay(){
+		
+		let total_amount = "<%= df.format(checkoutSum+shippingCost)%>";
+		if(! confirm("해당 상품을 주문하고자 " + total_amount + " 원을 결제하시겠습니까?") ) {
+			return false;
+		}
+		
+		let cid_arr = [];
+		<% for (CartDTO item : checkoutList ) {
+			pageContext.setAttribute("cID",item.getcID());
+		%>
+			cid_arr.push("${cID}");
+		<%}%>
+		
+		let ophone = $('#phone1').val() + '-' + $('#phone2').val() + '-' + $('#phone3').val();
+		let oaddress = $('#sample6_address').val() +" "+ $('#sample6_detailAddress').val() +" "+ $('#sample6_extraAddress').val();
+			
+		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress;
+	}
+
+</script>
 </html>
