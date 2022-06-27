@@ -1,5 +1,5 @@
 --DROP TABLE ADMIN;
---DROP TABLE "MEMBER";
+--DROP TABLE MEMBERS;
 --DROP TABLE product;
 --DROP TABLE cart;
 --DROP TABLE orders;
@@ -13,7 +13,7 @@ CREATE TABLE ADMIN(						-- 관리자정보
 	aNAME VARCHAR2(100)					-- 관리자 이름
 );
 
-CREATE TABLE "MEMBER"(					-- 회원정보
+CREATE TABLE MEMBERS(					-- 회원정보
     mID VARCHAR2(100) PRIMARY KEY,		-- 회원 아이디
     mPW VARCHAR2(15), 					-- 회원 비밀번호
     mNickNAME VARCHAR2(100),			-- 회원 닉네임
@@ -38,7 +38,7 @@ CREATE TABLE CART(								-- 장바구니
     gID NUMBER(4),						
     cQTY NUMBER(3) DEFAULT 1,					-- 장바구니에 담겨있는 상품의 수량
 CONSTRAINT fk_cart_mem FOREIGN KEY(mID) 
-REFERENCES "member"(mID),
+REFERENCES MEMBERS(mID),
 CONSTRAINT fk_cart_goods FOREIGN KEY(gID) 
 REFERENCES GOODS(gID)
 );
@@ -63,7 +63,7 @@ CREATE TABLE ORDERS(							-- 주문내역
 --    oPAYMENT NUMBER(20),						-- 결제금액(GOODS join해서 계산하면 되므로 필요x)
 --    oINVOICE NUMBER(10),						-- 송장번호
 CONSTRAINT fk_ord_mem FOREIGN KEY(mID) 
-REFERENCES "member"(mID),
+REFERENCES MEMBERS(mID),
 CONSTRAINT fk_ord_goods FOREIGN KEY(gID) 
 REFERENCES GOODS(gID)
 );
@@ -79,7 +79,7 @@ CREATE TABLE ImageFile(							-- 이미지관리
 
 
 SELECT * FROM ADMIN;
-SELECT * FROM "MEMBER";
+SELECT * FROM MEMBERS;
 SELECT * FROM GOODS;
 SELECT * FROM CART;
 SELECT * FROM ORDERS;
