@@ -103,7 +103,7 @@
 			</tbody>
 		</table>
 		
-		<p><form><input type="button" class="select_button" value=" 선택상품 삭제  " onclick="deleteTableRow();"></form></p>
+		<p><form><input type="button" class="select_button" id="select_button" value=" 선택상품 삭제  " onclick="deleteTableRow();"></form></p>
 		<br>
 		<div class="align_center">
 				<input type="button" class="order_button1" id="order_button1" value="선택주문" onclick="jumpPageSome();"> &nbsp;
@@ -129,12 +129,12 @@
 	
 	//선택 상품 삭제. 맨 뒷 번호부터 차례대로 체크박스 확인. 체크되었을 경우 해당 테이블 열 삭제 + 해당 브랜드 brandarr에서 삭제. 완료되면 reset() 함수 실행
 	function deleteTableRow() {
+		
 		if (confirm("선택된 상품을 삭제하시겠습니까?") == false){    
 			return false;
 		}
 	
 		let table = document.getElementById('order_tb');
-		//let table = $('#order_tb');  //왜 안되는지 모르겠음
 		checks = $('input[name="chk"]');
 		let len = checks.length;
 		let count = 0;
@@ -143,7 +143,7 @@
 				count++;
 				table.deleteRow(i+2);
 				let del_cid = cid_arr.splice(i,1);
-// 				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
+				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
 			}
 		}
 		if(count==0){

@@ -68,6 +68,43 @@ public class PaymentDAO {
 	}
 	
 	
+	public CartDTO getCartItem(String cID){
+		System.out.println("getCartItem 도착");
+		
+		CartDTO cartItem = sqlsession.selectOne("Payment.getCartItem",cID);
+		System.out.println("CartItem 조회");
+		
+		return cartItem;
+	}
+	
+	public boolean insertOrder(OrderDTO odto) {
+		System.out.println("insertOrder 도착");
+		boolean result = false;
+		
+		if(sqlsession.insert("Payment.insertOrder", odto) == 1) {
+			result = true;
+		}
+		
+		return result;
+	}
+	
+	public boolean deleteCartItemAll(String mID, String[] cIDs){
+		System.out.println("deleteCartItemAll 도착");
+		boolean result = false;
+		
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("mID", mID);
+		datas.put("cIDs", cIDs);
+		
+		if(sqlsession.delete("Payment.deleteCartItemAll",datas) != 0) {
+			result = true;
+		}
+			return result;
+	}
+	
+	
+	
+	
 }
 
 

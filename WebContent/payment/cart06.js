@@ -3,7 +3,9 @@
 		let len = $("input[name=chk]").length;
 		if( len == 0 ) {
 			$('#zerocart').show();
-			$("#chk_all").prop("checked", false);
+			$('#select_button').prop("disabled", true);
+			$("#chk_all").prop("disabled", true);
+			//$("#chk_all").prop("checked", false);
 		}
 		
 		$("#order_button1").val( "선택주문(" + $("input[name=chk]:checked").length + ")" );
