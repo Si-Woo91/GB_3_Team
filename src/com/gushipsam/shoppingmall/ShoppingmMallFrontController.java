@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.shoppingmall.user.UserJoinAction;
 import com.gushipsam.shoppingmall.user.UserLoginOkAction;
+import com.gushipsam.shoppingmall.user.UserLogoutOk;
 
 
 @WebServlet("*.spm")
@@ -47,6 +48,7 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			} catch (Exception e) {
 			}
 			break;
+		
 			
 			
 		} 

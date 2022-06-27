@@ -351,7 +351,7 @@
 		<%}%>
 		
 		let ophone = $('#phone1').val() + $('#phone2').val() + $('#phone3').val();
-		let oaddress = $('#sample6_address').val() +" "+ $('#sample6_detailAddress').val() +" "+ $('#sample6_extraAddress').val();
+		let oaddress = $('#sample6_address').val() +" "+ $('#sample6_detailAddress').val() + $('#sample6_extraAddress').val();
 			
 		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress;
 	}

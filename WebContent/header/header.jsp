@@ -11,7 +11,7 @@
 <script type="text/javascript" src="../js/slide.js"></script> 
 <link rel="stylesheet" type="text/css" href="../css/main_css.css">
 <link rel="stylesheet" type="text/css" href="../css/slick.css">
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
+	<link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
 <body>
 <%
@@ -21,7 +21,7 @@
    <div class= header>
       <!-- 로고 -->
       <div class="login_search">
-         <a href="#"onclick="location.href='../JSP/main/main.jsp'" class= logo><img src= ../JSP/img/logo.png></a>
+         <a href="#"onclick="location.href='../main/main.jsp'" class= logo><img src= ../img/logo.png></a>
           <!-- 로그인, 로그아웃, 장바구니, 고객센터 -->
           <ul class = nav1>
                 <li class= service><a href= "../center(KMS)/minsu1.jsp">고객센터</a></li>
@@ -38,7 +38,7 @@
                   </li>
                   <li class= login>
                       ${ sdto.getUsername } 님 환영합니다.&nbsp;&nbsp;&nbsp;
-                     <a href="${pageContext.request.contextPath}/JSP/main/main.jsp">로그아웃<%session.invalidate();%></a>
+                      <a href="${pageContext.request.contextPath}/main/main.jsp">로그아웃<%session.invalidate();%></a>
                   </li>
             </c:otherwise>
             </c:choose>
