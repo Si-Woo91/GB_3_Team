@@ -52,6 +52,11 @@ public class PaymentFrontController extends HttpServlet{
 				System.out.println("/payment/payresult.pay 도착");
 				forward = new PaymentPushAction().execute(req, resp);
 				break;
+				
+			case "/payment/checkoutdirect.pay":
+				System.out.println("/payment/checkoutdirect.pay 도착");
+				forward = new DirectCheckoutAction().execute(req, resp);
+				break;
 		}
 	
 	

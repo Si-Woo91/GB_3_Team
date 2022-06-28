@@ -120,7 +120,7 @@
 	//결제페이지에 전달할 파라미터 저장 배열 (현재 브랜드 저장하며, 나중에는 상품id 전달할 예정)
 	let cid_arr = [];
 	
-	//brandarr 최초 생성
+	//cid_arr 최초 생성
 	<% for (CartDTO item : cartList ) {
 		pageContext.setAttribute("cID",item.getcID());
 	%>
@@ -143,7 +143,27 @@
 				count++;
 				table.deleteRow(i+2);
 				let del_cid = cid_arr.splice(i,1);
-				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
+// 				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
+				// ajax 통신
+				let xhr = new XMLHttpRequest();
+				xhr.open("GET", '${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid, true);
+				xhr.send();
+				xhr.onreadystatechange = function(){
+					if( xhr.readyState == XMLHttpRequest.DONE 
+							&& xhr.status == 200 ){
+						alert(xhr.responseText);
+						console.log(xhr.responseText);
+// 						if(xhr.responseText.trim() == "ok"){
+// 							// 사용할수 있는 아이디 입니다.
+// 							document.getElementById("text").innerHTML 
+// 								= "사용할수 있는 아이디 입니다."; 
+// 						}else {
+// 							// 중복된 아이디 입니다.
+// 							document.getElementById("text").innerHTML 
+// 							= "중복된 아이디 입니다."; 
+// 						}
+					}			
+				}
 			}
 		}
 		if(count==0){

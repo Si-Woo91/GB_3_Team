@@ -3,6 +3,16 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Payment">
+
+
+<!-- 	<select id="getCheckoutDirect" parameterType="hashmap" resultType="cartdto"> -->
+<!-- 		SELECT 0 , GID , #{gQTY}, GNAME , GBRAND , GPRICE  -->
+<!-- 		FROM GOODS -->
+<!-- 		WHERE GID = #{gID} -->
+<!-- 	</select> -->
+	
+<!-- ///////////////////////////////////////////////////////////////////////////// -->
+	
 	
 	<select id="getCartList" parameterType="string" resultType="cartdto">
 		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
@@ -14,6 +24,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getCheckoutList" parameterType="hashmap" resultType="cartdto">
+		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
+		FROM CART c 
+			LEFT OUTER JOIN MEMBERS m 	ON c.USERID = m.userid 
+			LEFT OUTER JOIN GOODS g 	ON c.GID = g.GID 
+		WHERE c.USERID = #{userid}
+		AND 	c.CID IN 
+		<foreach collection="cIDs" item="cID" open="(" separator="," close=")">
+				#{cID}
+		</foreach>
+		ORDER BY cID DESC
+	</select>
+	
+	<select id="getCheckoutDirect" parameterType="hashmap" resultType="cartdto">
 		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
 		FROM CART c 
 			LEFT OUTER JOIN MEMBERS m 	ON c.USERID = m.userid 
