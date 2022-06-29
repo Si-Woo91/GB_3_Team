@@ -36,6 +36,7 @@ CREATE TABLE GOODS(						-- 상품 정보
     gImgs	VARCHAR2(300),				-- 상품 이미지1
     gImgl	VARCHAR2(300),				-- 상품 이미지2
     gDATE	DATE NOT NULL 				-- 상품 등록일
+    gStock	NUMBER(4)					-- 상품 재고	
 );
 
 -- 상품 시퀀스
@@ -116,63 +117,63 @@ INCREMENT BY 1;
 
 --fridge
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 디오스 오브제컬렉션 빌트인 타입', 'M623GTB052', 3550000, '914X186X69.8cm', '610L', 'fridge1.png', 'fridge1_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 디오스 오브제컬렉션 빌트인 타입', 'M623GTB052', 3550000, '914X186X69.8cm', '용량 : 610L', 'fridge1.png', 'fridge1_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '냉장고', '삼성', 'BESPOKE 냉장고 4도어 프리스탠딩 ', 'RF85B90023Y', 1859000, '910X185.3X93cm', '875L', 'fridge2.png', 'fridge2_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '냉장고', '삼성', 'BESPOKE 냉장고 4도어 프리스탠딩 ', 'RF85B90023Y', 1859000, '910X185.3X93cm', '용량 : 875L', 'fridge2.png', 'fridge2_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 오브제컬렉션 컨버터블 냉동고', 'Y321MW3S', 1187000, '595X186X670cm', '321L', 'fridge5.png', 'fridge5_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 오브제컬렉션 컨버터블 냉동고', 'Y321MW3S', 1187000, '595X186X670cm', '용량 : 321L', 'fridge5.png', 'fridge5_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 오브제컬렉션 와인냉장고', 'W0082GBE', 424500, '282X497X534cm', '12kg', 'fridge4.png', 'fridge4_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 오브제컬렉션 와인냉장고', 'W0082GBE', 424500, '282X497X534cm', '용량 : 8병', 'fridge4.png', 'fridge4_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 디오스 오브제컬렉션 얼음정수기냉장고', 'W822MWW452S', 4700000, '914X918X186cm', '820L', 'fridge3.png', 'fridge3_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 디오스 오브제컬렉션 얼음정수기냉장고', 'W822MWW452S', 4700000, '914X918X186cm', '용량 : 820L', 'fridge3.png', 'fridge3_spec1.png', sysdate, 0 );
 
 -- washer
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '세탁기', 'LG', 'LG 트롬 오브제컬렉션', 'FX25EA', 1879000, '700X990X830mm', '25kg', 'washer1.png', 'washer1_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '세탁기', 'LG', 'LG 트롬 오브제컬렉션', 'FX25EA', 1879000, '700X990X830mm', '세탁용량 : 25kg', 'washer1.png', 'washer1_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '세탁기', '삼성', '그랑데 AI[올인원컨트롤]', 'WF21T9500KW7T', 2000000, '686X984X796mm', '21kg+17kg', 'washer2.png', 'washer2_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '세탁기', '삼성', '그랑데 AI[올인원컨트롤]', 'WF21T9500KW7T', 2000000, '686X984X796mm', '세탁용량 : 21kg+17kg', 'washer2.png', 'washer2_spec1.png', sysdate, 0  );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '세탁기', 'LG', 'LG 트롬 트윈워시', 'FX24WSB', 2450000, '700X1360X830mm', '24kg+4kg', 'washer3.png', 'washer3_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '세탁기', 'LG', 'LG 트롬 트윈워시', 'FX24WSB', 2450000, '700X1360X830mm', '세탁용량 : 24kg+4kg', 'washer3.png', 'washer3_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '세탁기', 'LG', 'LG 통돌이', 'T20HVD', 755000, '690X1023X730mm', '20kg', 'washer4.png', 'washer4_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '세탁기', 'LG', 'LG 통돌이', 'T20HVD', 755000, '690X1023X730mm', '세탁용량 : 20kg', 'washer4.png', 'washer4_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '세탁기', '삼성', 'BESPOKE 그랑데 AI', 'WF25B8400KV', 1626000, '686X984X875mm', '25kg', 'washer5.png', 'washer5_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '세탁기', '삼성', 'BESPOKE 그랑데 AI', 'WF25B8400KV', 1626000, '686X984X875mm', '세탁용량 : 25kg', 'washer5.png', 'washer5_spec1.png', sysdate, 0 );
 
 --tv
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, 'TV', '삼성', 'Neo QLED 4K TV (55인치)', 'KQ55QNA88AFXKR', 1990000, '1227.4X706.2X26.9mm', 'LED', 'tv1.png', 'tv1_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, 'TV', '삼성', 'Neo QLED 4K TV (55인치)', 'KQ55QNA88AFXKR', 1990000, '1227.4X706.2X26.9mm', '종류 : LED', 'tv1.png', 'tv1_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, 'TV', 'LG', 'LG OLED evo TV (83인치)', 'OLED83G2KNA', 11505000, '1847X1052X28mm', 'OLED', 'tv2.png', 'tv2_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, 'TV', 'LG', 'LG OLED evo TV (83인치)', 'OLED83G2KNA', 11505000, '1847X1052X28mm', '종류 : OLED', 'tv2.png', 'tv2_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, 'TV', 'LG', 'LG 울트라 HD TV (75인치)', '75UQ8300ENA', 2685000, '1678X964X59.9mm', 'LED', 'tv3.png', 'tv3_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, 'TV', 'LG', 'LG 울트라 HD TV (75인치)', '75UQ8300ENA', 2685000, '1678X964X59.9mm', '종류 : LED', 'tv3.png', 'tv3_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, 'TV', 'LG', 'LG QNED TV (86인치)', '86QNED80KQA', 3520000, '218.44cm', 'LED', 'tv4.png', 'tv4_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, 'TV', 'LG', 'LG QNED TV (86인치)', '86QNED80KQA', 3520000, '218.44cm', '종류 : LED', 'tv4.png', 'tv4_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, 'TV', '삼성', '2022 Crystal UHD TV', 'KU85UB8070FXKR', 1682000, '1900.9X1086.2X26.9mm', 'QLED', 'tv5.png', 'tv5_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, 'TV', '삼성', '2022 Crystal UHD TV', 'KU85UB8070FXKR', 1682000, '1900.9X1086.2X26.9mm', '종류 : QLED', 'tv5.png', 'tv5_spec1.png', sysdate, 0 );
 
 --ac
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '에어컨', '삼성', '무풍에어컨 클래식 청정', 'AF17A7972RFRT', 2099000, '(363X1883X330mm)+(820X345X215mm)', '(56.9㎡)+(18.7㎡)', 'ac1.png', 'ac1_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '에어컨', '삼성', '무풍에어컨 클래식 청정', 'AF17A7972RFRT', 2099000, '(363X1883X330mm)+(820X345X215mm)', '냉방면적 : (56.9㎡)+(18.7㎡)', 'ac1.png', 'ac1_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '에어컨', '삼성', 'BESPOKE 무풍에어컨 갤러리', 'AF18AX778EZERT', 2549000, '(415X1830X286mm)+(820X299X215mm)', '(58.5 ㎡ + 18.7 ㎡)', 'ac2.png', 'ac2_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '에어컨', '삼성', 'BESPOKE 무풍에어컨 갤러리', 'AF18AX778EZERT', 2549000, '(415X1830X286mm)+(820X299X215mm)', '냉방면적 : (58.5 ㎡ + 18.7 ㎡)', 'ac2.png', 'ac2_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '에어컨', 'LG', 'LG 휘센 듀얼에어컨 (빅토리)', 'FQ17VCDWC2', 1850000, '(390X1870X332mm)+(870X650X330mm)', '(56.9㎡)+(18.7㎡)', 'ac3.png', 'ac3_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '에어컨', 'LG', 'LG 휘센 듀얼에어컨 (빅토리)', 'FQ17VCDWC2', 1850000, '(390X1870X332mm)+(870X650X330mm)', '냉방면적 : (56.9㎡)+(18.7㎡)', 'ac3.png', 'ac3_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '에어컨', '위니아', '위니아 2in1 둘레바람 에어컨', 'WPVW17GDSGQM', 2250000, '(390X1892X378mm)+(870X680X300mm)', '(56.9㎡)+(22.8㎡)', 'ac4.png', 'ac4_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '에어컨', '위니아', '위니아 2in1 둘레바람 에어컨', 'WPVW17GDSGQM', 2250000, '(390X1892X378mm)+(870X680X300mm)', '냉방면적 : (56.9㎡)+(22.8㎡)', 'ac4.png', 'ac4_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '에어컨', '삼성', 'BESPOKE 무풍에어컨 체온풍', 'AF19BX890NFRS', 4434000, '(415X1910X309mm)+(820X345X215mm)', '(62.6㎡)+(18.7㎡)', 'ac5.png', 'ac5_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '에어컨', '삼성', 'BESPOKE 무풍에어컨 체온풍', 'AF19BX890NFRS', 4434000, '(415X1910X309mm)+(820X345X215mm)', '냉방면적 : (62.6㎡)+(18.7㎡)', 'ac5.png', 'ac5_spec1.png', sysdate, 0 );
 
 -- pc
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '컴퓨터', 'LG', 'LG gram 16', '16Z90Q-EA5WK', 2340000, '356X244X16.8mm', '약 1190g', 'pc1.png', 'pc1_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '컴퓨터', 'LG', 'LG gram 16', '16Z90Q-EA5WK', 2340000, '356X244X16.8mm', '무게 : 약 1190g', 'pc1.png', 'pc1_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '컴퓨터', '삼성', 'Galaxy Book2 Pro', 'NT950XEV-G51A', 2148000, '355.4X225.8X13.3mm', '1.17kg', 'pc2.png', 'pc2_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '컴퓨터', '삼성', 'Galaxy Book2 Pro', 'NT950XEV-G51A', 2148000, '355.4X225.8X13.3mm', '무게 : 1.17kg', 'pc2.png', 'pc2_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '컴퓨터', '애플', 'MacBook Pro 14', 'MKGR3KH/A', 2690000, '35.97cm(14.2인치)', '1.6kg', 'pc3.png', 'pc3_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '컴퓨터', '애플', 'MacBook Pro 14', 'MKGR3KH/A', 2690000, '35.97cm(14.2인치)', '무게 : 1.6kg', 'pc3.png', 'pc3_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '컴퓨터', 'LG', 'LG UItraGear 노트북', '17U70P-PA7DK', 2240000, '381X274X19.9mm', '약 1950g', 'pc4.png', 'pc4_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '컴퓨터', 'LG', 'LG UItraGear 노트북', '17U70P-PA7DK', 2240000, '381X274X19.9mm', '무게 : 약 1950g', 'pc4.png', 'pc4_spec1.png', sysdate, 0 );
 INSERT INTO GOODS
-VALUES (seq_gidx.nextVal, '컴퓨터', 'LG', 'LG 울트라 PC', '15U40Q-GR3DK', 920000, '359X237X19.1mm', '약 1750g', 'pc5.png', 'pc5_spec1.png', sysdate );
+VALUES (seq_gidx.nextVal, '컴퓨터', 'LG', 'LG 울트라 PC', '15U40Q-GR3DK', 920000, '359X237X19.1mm', '무게 : 약 1750g', 'pc5.png', 'pc5_spec1.png', sysdate, 0 );
 
 SELECT * FROM ADMIN;
 SELECT * FROM SERVICE ;
