@@ -47,7 +47,7 @@
 			<tr>
 				<td>
 					<div class="photo">
-						<img src="${pageContext.request.contextPath }/imgs/<%=foldername %>/${goodsDetail.gImgs }" width="500" height="500">
+						<img src="${pageContext.request.contextPath }/img/<%=foldername %>/${goodsDetail.gImgs }" width="500" height="500">
 					</div>
 
 				</td>
