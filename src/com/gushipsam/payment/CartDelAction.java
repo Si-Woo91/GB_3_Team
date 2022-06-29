@@ -15,7 +15,10 @@ public class CartDelAction implements Action{
 		PaymentDAO pdao = new PaymentDAO();
 
 		String userid = "test1234";
-		//String userid = req.getParameter("userid"); 으로 변경 예정
+//		HttpSession session = req.getSession();
+//		userid = (String) session.getAttribute("sessionId"); 로 변경 예정
+		
+		
 		String del_cID_ = req.getParameter("delcid");
 		int del_cID = Integer.parseInt(del_cID_);
 		
@@ -25,8 +28,10 @@ public class CartDelAction implements Action{
 			System.out.println("삭제완료");
 
 		} else {
-			forward.setRedirect(true);
-			forward.setPath(null);
+			req.setAttribute("cartList", pdao.getCartList(userid));
+
+			forward.setRedirect(false);
+			forward.setPath(req.getContextPath() + "/payment/cart_tb.jsp");
 			System.out.println("CART 데이터베이스 삭제 실패!");
 		}
 	

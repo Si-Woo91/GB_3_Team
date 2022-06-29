@@ -1,4 +1,9 @@
-
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="com.gushipsam.payment.dao.CartDTO"%>
+<%@page import="java.util.List"%>
+<%
+	DecimalFormat df = new DecimalFormat("###,###"); 						// df.format(숫자)로 콤마 보이게 가능
+%>
 <table id="order_tb">
 	<colgroup>
 		<col width="2.5%">

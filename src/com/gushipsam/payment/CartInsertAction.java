@@ -7,11 +7,11 @@ import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.payment.dao.PaymentDAO;
 
-public class DirectCheckoutAction implements Action{
+public class CartInsertAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
-		System.out.println("CheckoutListAction 도착");
+		System.out.println("CartInsertAction 도착");
 		ActionForward forward = new ActionForward();
 		PaymentDAO pdao = new PaymentDAO();
 
@@ -22,13 +22,16 @@ public class DirectCheckoutAction implements Action{
 		int gID = Integer.parseInt(req.getParameter("gid"));
 		int gQTY = Integer.parseInt(req.getParameter("gqty"));
 		
-		req.setAttribute("checkoutItem", pdao.getCheckoutDirect(gID, gQTY));
-		req.setAttribute("memberInfo", pdao.getMemberInfo(userid));
-		System.out.println("조회완료");
+		if(pdao.cartInsert(userid,gID,gQTY)) {
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/payment/cart_tb.jsp");
+			System.out.println("cartInsert 완료");
+		} else {
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/payment/cart_tb.jsp");
+			System.out.println("cartInsert 실패!");
+		}
 		
-	
-		forward.setRedirect(false);
-		forward.setPath(req.getContextPath() + "/payment/checkout06.jsp");
 		
 		return forward;
 	}

@@ -24,6 +24,7 @@
 		<br>
 		<div id="title_big">장바구니</div>
 		<br>
+		<span id="ajaxed_tb">
 		<table id="order_tb">
 			<colgroup>
 				<col width="2.5%">
@@ -95,14 +96,14 @@
 				</tr>
 				<% } %>
 				<tr>
-					<td colspan="5" style="height: 150px" id="zerocart">
+					<td colspan="5" style="height: 150px" id="zerocart" >
 						<div class="align_center" style="font-size:30px">¯\_(ツ)_/¯</div>
 						<div class="align_center" style="font-size:17px; font-weight:bold;">장바구니에 저장된 상품이 없습니다.</div>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		
+		</span>
 		<p><form><input type="button" class="select_button" id="select_button" value=" 선택상품 삭제  " onclick="deleteTableRow();"></form></p>
 		<br>
 		<div class="align_center">
@@ -144,24 +145,17 @@
 				table.deleteRow(i+2);
 				let del_cid = cid_arr.splice(i,1);
 // 				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
+				
 				// ajax 통신
 				let xhr = new XMLHttpRequest();
-				xhr.open("GET", '${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid, true);
+				xhr.open("GET", '${pageContext.request.contextPath }/payment/cartdel.pay?delcid='+del_cid, true);
 				xhr.send();
 				xhr.onreadystatechange = function(){
 					if( xhr.readyState == XMLHttpRequest.DONE 
 							&& xhr.status == 200 ){
-						alert(xhr.responseText);
+						//alert(xhr.responseText);
 						console.log(xhr.responseText);
-// 						if(xhr.responseText.trim() == "ok"){
-// 							// 사용할수 있는 아이디 입니다.
-// 							document.getElementById("text").innerHTML 
-// 								= "사용할수 있는 아이디 입니다."; 
-// 						}else {
-// 							// 중복된 아이디 입니다.
-// 							document.getElementById("text").innerHTML 
-// 							= "중복된 아이디 입니다."; 
-// 						}
+						$('#ajaxed_tb').html(xhr.responseText);
 					}			
 				}
 			}
