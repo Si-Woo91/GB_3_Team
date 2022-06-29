@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="goods">
+	
+	<select id="getgoodsList"  parameterType="string" resultType="goodsdto">
+		SELECT * FROM goods where gCatg =#{gCatg}
+	</select>
+	
+	<select id="getgoodsDetail"  parameterType="int" resultType="goodsdto">
+		SELECT * FROM goods WHERE gID = #{gID}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

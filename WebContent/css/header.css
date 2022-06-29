@@ -1,0 +1,52 @@
+@charset "UTF-8";
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family :'GowunDodum-Regular';
+	
+}
+
+@font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+div .login_search{
+	position: fixed; 
+	top : 0%;
+	width: 100%;
+	line-height: 100%; 
+	z-index:9999;
+	background-color : #FFFFF0;
+	margin-bottom : 30%;
+}
+
+.search1{
+	position : relative;
+	bottom : 0%;
+	margin-bottom: 0%;
+}
+
+.logo img{
+	height:auto;
+	width: 12%;
+	margin: 0.6% 0 0 2%;
+}
+
+#wrap{
+	min-height : 100vh;
+	position : relative;
+	width : 100%;
+}
+
+li {
+	list-style: none;
+}

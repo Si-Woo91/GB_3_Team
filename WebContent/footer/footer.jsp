@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- 	<link rel="stylesheet" type="text/css" href="../css/main_css.css"> -->
+<!--  	<link rel="stylesheet" type="text/css" href="../css/footer.css"> -->
 </head>
 <body>
 	<!-- footer -->
@@ -18,10 +18,10 @@
 			<span>사업자등록번호 : 000-00-0000</span><br/>
 			<span>Copyright 2022. cocoder. All Rights Reserved.</span>
 		</p>
-			<a href="" target='blank'>사이트관리자</a>
-			<a href="" target='blank'>회사소개</a>
-			<a href="#" onclick="location.href='../main/map.jsp'"> 찾아오시는 길</a>
-			<a href="#" onclick="location.href='../main/personalinfrom.jsp'"> 개인정보처리방침</a>
+			<a  href=""   target='blank'>사이트관리자</a>
+			<a  href=""   target='blank'>회사소개</a>
+			<a  href="#"  onclick="location.href='../main/map.jsp'"> 찾아오시는 길</a>
+			<a  href="#"  onclick="location.href='../main/personalinfrom.jsp'"> 개인정보처리방침</a>
 	</footer>
 	
 	<script>

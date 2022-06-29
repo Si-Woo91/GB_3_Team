@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family :'GowunDodum-Regular';
+	
+}
+
+@font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* table css */
+
+h1{
+	margin-left: 18%;
+}
+
+
+
+div.member-container{
+	min-height: 500px;
+	height: 800px;
+	width: 100%;
+	padding: 50px;
+	padding-top: 250px;
+}
+
+.UserModify-table {
+	border-collapse: collapse;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+	border-top: 2px solid #969696;
+	margin: auto;
+}
+
+.UserModify-table th{
+	background-color: #eef1f8;
+	width: 150px;
+	line-height: 30px;
+}
+
+tr {
+	border-top: 1px solid #ddd;
+}
+
+td{
+	width: 1020px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.usermodify-submit{
+	margin-top: 3%;
+	text-align: center;
+	background-color: orange;
+	color: #fff;
+	border-color: orange;
+	height: 30px;
+	width: 50px;
+}
+
+.usermodify-cancel{
+	margin-top: 3%;
+	text-align: center;
+	background-color: orange;
+	color: #fff;
+	border-color: orange;
+	height: 30px;
+	width: 50px;
+	}
+
+.usermodify-btn{
+	text-align: center;
+}
+
+input[type=password]{
+	margin-left: 10px;
+}

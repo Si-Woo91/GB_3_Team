@@ -3,8 +3,8 @@ package com.gushipsam.shoppingmall;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.gushipsam.shoppingmall.action.Action;
-import com.gushipsam.shoppingmall.action.ActionForward;
+import com.gushipsam.action.Action;
+import com.gushipsam.action.ActionForward;
 
 public class MainGoodsSelectAction implements Action{
 

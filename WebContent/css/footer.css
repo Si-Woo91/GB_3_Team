@@ -1,0 +1,51 @@
+@charset "UTF-8";
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family :'GowunDodum-Regular';
+	
+}
+footer {
+	width : 100%;
+	padding-top : 0.5%;
+	color : #FFFFFF;
+	font-size : 18px;
+	display: flex;
+	background-color : #383b40;
+	margin: auto;
+	justify-content: space-evenly;
+}
+
+footer a {
+	display : inline-block;
+	margin : 0 0 0 1%;
+	color : #808080; 
+	font-size: 17px;
+}
+
+footer a:visited{
+	color:#808080;
+}
+
+footer p{
+	width : 60%;
+	margin-top : 0;
+	margin-bottom:0;
+	margin-left: 10%;
+	
+}
+footer p span{
+	display: inline-block;
+<<<<<<< HEAD
+	margin : 0% 10% 1% 15%;
+=======
+	margin : 0% 1% 0% 14%;
+	
+	
+>>>>>>> refs/heads/master
+}
+
+footer nav{
+	text-align: right;
+}

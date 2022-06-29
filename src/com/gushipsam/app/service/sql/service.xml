@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Service">
+	
+	<select id="getServiceList" resultType="servicedto" parameterType="hashmap">
+<!-- 		SELECT * FROM SERVICE ORDER BY SERVICENUM DESC -->
+	
+	SELECT *
+	FROM (SELECT rownum R, D.* 
+		FROM	(SELECT * FROM SERVICE ORDER BY SERVICENUM DESC) D)B
+	WHERE B.R BETWEEN #{startRow} AND #{endRow}
+	
+	</select>
+	
+	<select id="getServiceCnt" resultType="_int">
+		SELECT COUNT(*) FROM SERVICE
+	</select>
+	
+	<insert id="insertService" parameterType="servicedto">
+		INSERT INTO SERVICE VALUES (SERVICE_SEQ.NEXTVAL,#{servicename},SYSDATE,#{servicetitle},#{servicecontent}, 0)
+	</insert>
+	
+	<select id="getDetail" parameterType="_int" resultType="servicedto">
+		SELECT * FROM SERVICE WHERE SERVICENUM = #{servicenum}
+	</select>
+	
+	 <!-- 안쓸수도잇음 -->
+	<update id="updateReadCount" parameterType="_int">
+		UPDATE SERVICE SET SERVICEREADCOUNT = SERVICEREADCOUNT  + 1 WHERE SERVICENUM = #{servicenum}
+	</update> 
+	
+	<select id="getSeq" resultType="_int">
+		SELECT service_seq.CURRVAL FROM dual
+	</select>
+	
+	<insert id="addReply" parameterType="Replydto">
+		INSERT INTO SERVICE_REPLY
+		VALUES (reply_seq.nextval, #{replycontent}, #{servicename}, #{password}, #{servicenum})
+	</insert>
+	
+	<select id="getReplys" parameterType="_int" resultType="Replydto">
+		SELECT * FROM SERVICE_REPLY WHERE SERVICENUM = #{servicenum}
+	</select>
+	
+	<update id="updateReply" parameterType="hashmap">
+		UPDATE SERVICE_REPLY SET REPLYCONTENT = #{replycontent} WHERE REPLYNUM = #{replynum}
+	</update>
+	
+	<delete id="deleteReply" parameterType="_int">
+		delete from SERVICE_REPLY where REPLYNUM = #{replynum}
+	</delete> 
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

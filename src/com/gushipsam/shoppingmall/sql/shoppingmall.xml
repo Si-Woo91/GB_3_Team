@@ -3,20 +3,62 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shoppingmall">
+	<insert id="join" parameterType="shoppingmalldto">
+		INSERT INTO MEMBERS VALUES (#{userid}, #{userpw}, #{username}, #{userphone}, #{userdata}, #{useremail})
+	</insert>
 
-
+	<select id="checkId" parameterType="string" resultType="_int">
+      SELECT count(*) FROM MEMBERS WHERE USERID = #{userid}
+   </select>
+   
+   <select id="login" parameterType="hashmap" resultType="_int">
+		SELECT count(*) FROM MEMBERS WHERE USERID = #{userid} AND USERPW = #{userpw}
+	</select>
+	
+	<select id="id" parameterType="hashmap" resultType="String">
+		SELECT userid FROM MEMBERS WHERE USERNAME = #{username} AND USERPHONE = #{userphone} AND USEREMAIL = #{useremail}
+	</select>
+	
+	<select id="pw" parameterType="hashmap" resultType="String">
+		SELECT userpw FROM MEMBERS WHERE  USERID = #{userid} AND USERNAME = #{username} AND USERPHONE = #{userphone} AND USEREMAIL = #{useremail}
+	</select>
+   
+   
+   <!-- order -->
+   <!-- parameterType: 외부에서 받아올 값의 타입  -->
+	<!-- resultType: 리턴받을 값의 타입 -->
+	
+	<!-- shopdto에 select문의 결과를 담아서 보냄 -->
+	<select id="getRecentList" resultType="shoppingmalldto" parameterType="string">
+	<!-- SELECT * FROM(SELECT * FROM ORDERS WHERE mID = 'ksh') WHERE rownum <= 3 ORDER BY oID DESC -->
+<!-- 		SELECT o.#{oDate} ,o.#{oPAYMENT} ,g.#{gName} FROM ORDERS o INNER JOIN GOODS g ON g.GID = o.GID ORDER BY OID DESC; -->
+		SELECT o.oDATE ,o.oPAYMENT ,g.gNAME ,gIMG FROM ORDERS o INNER JOIN GOODS g ON g.GID = o.GID ORDER BY o.ODATE DESC
+	</select>
+	
+	<!-- 상품 관려된 모든 데이터 select-->
+	<select id="getGoodsList" resultType="shoppingmalldto" parameterType="string">
+		SELECT * FROM GOODS
+	</select>
+	
+	<!-- 상품 추가 -->
+	<insert id="insertGoods" parameterType="shoppingmalldto">
+		INSERT INTO GOODS (gId,gIMG,gNAME,gBrand,gPRICE,gSTOCK)VALUES (Good_Seq.nextval, #{gIMG}, #{gNAME}, #{gBrand}, #{gPRICE}, #{gSTOCK})
+	</insert>
+	
+	<select id="selectGoods" resultType="shoppingmalldto" parameterType="shoppingmalldto">
+		SELECT * FROM GOODS
+	</select>
+	
+	<select id="getSearchList"  parameterType="shoppingmalldto" resultType="shoppingmalldto">
+	SELECT * FROM goods
+	WHERE GNAME LIKE '%${searchtext}%' OR GBRAND LIKE '%${searchtext}%'
+	</select>
+	
+<!-- 	<select id="getGoods_seq"> -->
+<!-- 		SELECT Good_seq.currval FROM GOODS -->
+<!-- 	</select> -->
+   
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
