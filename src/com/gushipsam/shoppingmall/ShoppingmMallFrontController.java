@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gushipsam.action.ActionForward;
+import com.gushipsam.shoppingmall.user.UserJoinAction;
+import com.gushipsam.shoppingmall.user.UserLoginOkAction;
+
 
 
 @WebServlet("*.spm")
@@ -32,15 +35,63 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			throws ServletException, IOException {
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
+		System.out.println("requestURI : " + requestURI);
 		
 		switch (requestURI) {
-		case "SAMSUNG":
-			forward = new MainGoodsSelectAction().execute(req, resp);;
+		case "/IDPW/login.spm" :
+			forward = new UserJoinAction().execute(req, resp);
 			break;
-		default:
+			
+		case "/main/main.spm" : 
+			try {
+				forward = new UserLoginOkAction().execute(req, resp);
+			} catch (Exception e) {
+			}
+			break;
+		case "/IDPW/id.spm" :
+			try {
+				forward = new UseridAction().execute(req, resp);
+			} catch (Exception e) {
+			}
+			break;
+			
+		case "/IDPW/pw.spm" :
+			System.out.println("userpw 11111");
+			forward = new UserpwAction().execute(req, resp);
+			System.out.println("userpw 22222");
+			break;
+			// 마이페이지 로비
+		case "/shoppingmall/mypage.spm":
+			System.out.println("/shoppingmall/mypage.spm 도착");
+			forward = new MypageAction().execute(req, resp);
+			break;
+
+		// 관리자 상품관리
+		case "/admin/Goodslist.spm":
+			System.out.println("/AD-Page/Goodslist.spm 도착");
+			forward = new ADGoodsListAction().execute(req, resp);
+			break;
+
+		// 관리자 상품관리에서 상품 추가 페이지로 이동
+		case "/AD-Page/ADDgoods.spm":
+			System.out.println("/AD-Page/ADDgoods.spm 도착");
+			forward = new ActionForward(true, req.getContextPath() + "/AD-Page/ADDgoods.jsp");
+			break;
+
+		// 관리자 상품관리에서 상품 추가
+		case "/AD-Page/ADDgoodsOk.spm":
+			System.out.println("/AD-Page/ADDgoodsOk.spm 도착");
+			forward = new AddGoodsOkAction().execute(req, resp);
+			break;
+
+		case "/goods/SearchGoods.spm":
+			System.out.println("front도착");
+			forward = new SearchGoodsAction().execute(req, resp);
 			break;
 		} 
 		
+		
+		// 일괄처리
 		if( forward != null ) {
 			if( forward.isRedirect() ) {	// redirect
 				resp.sendRedirect(forward.getPath());

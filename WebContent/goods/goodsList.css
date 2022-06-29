@@ -1,0 +1,51 @@
+@charset "UTF-8";
+* {
+	margin : 0;
+	padding : 0;
+ }
+.content{
+	margin-top: 4%;
+	padding-bottom: 12%;
+    padding-left: 14%;
+    padding-right: 14%;
+    padding-top: 12%;
+}
+
+ li {
+ 	list-style: none;
+ }
+.img_prod {
+ 	width : 91%;
+ 	height: 110%;
+ 	display: block;
+ 	margin:auto;
+ }
+ /* 상품 목록 */
+h2 {
+	text-align: center;
+	font-size: 30px;
+	margin: 20px 0 20px 0;
+ }	
+ hr {
+ 	border: double 4px orange;
+ 	margin: 0 5.5% 0 2%;
+ }
+ /* 상품 사진 + 이름 + 가격 */
+.items {
+	width: 28%;
+	float: left;
+ 	margin: 4% 2% 10% 2%; 
+ 	border: 1px solid #ddd;
+ 	border-radius: 8px;
+ 	box-shadow: 2px 3px 2px 0 #d8d8d8;
+ 	padding: 3px;
+}
+.name {
+	font-weight: bold;
+	margin-top: 20px;
+	text-align: center;
+}
+.price {
+	text-align: center;
+	padding: 5px;
+}

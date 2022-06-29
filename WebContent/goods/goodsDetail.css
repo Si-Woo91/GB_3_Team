@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+/*-------공통 스타일 시작 ------------------------*/
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-family :'GowunDodum-Regular';
+	
+}
+
+@font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*-------------------공통 스타일 끝-----------------------------------*/
+/*-------------------상품상세페이지 스타일 시작---------------------------*/
+section {
+	width: 1200px;
+	margin:  auto;
+}
+
+.photo {
+	text-align: center; 
+}
+
+#skeleton{
+	margin: auto;
+}
+
+#skeleton #details_td{
+	width: 700px;
+}
+
+.details{
+	text-align: left;
+}
+
+.name{
+	text-align: left;
+	padding: 10px 30px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#name2_table{
+	text-align: left;
+	padding: 10px 0px 10px 30px;
+}
+
+
+.name2{
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	display: inline-block;	
+}
+
+.name2 th, td{
+	text-align: left; 
+	padding: 10px 20px 8px 15px;
+}
+
+.name2 td{
+	width: 490px;
+	
+}
+.quantity{
+	text-align: center;
+	font-size: 15px;
+}
+
+.quantity #qty_title{
+	margin-bottom:10px;
+	font-size:15px;	
+}
+
+.quantity button {
+	height: 30px;
+	width: 30px;
+	font-size: 15px;
+	line-height: 15px ;
+	text-align: center;
+}
+
+.quantity input{
+	border: none;
+	width: 30px;
+	text-align: center;
+	padding: 3px;
+	display:inline-block;
+}
+
+.payment{
+	text-align: center;
+	height: 80px;
+}
+
+.payment .btn1{
+	display: inline-block; 
+	margin: 25px 10px 0 0;
+ 	padding: 0 25px; 
+ 	line-height: 40px;
+	height: 40px;
+	font-size: 20px;
+	border: none;
+	border-radius: 25px;	
+	background-color: orange;
+
+}
+
+.payment .btn1>a, .payment .btn2>a{
+	color: white;
+	font-weight: bold;
+}
+
+.payment .btn2{
+	display: inline-block;
+	margin-bottom: 50px;
+	padding: 0 25px ;
+	line-height: 40px;
+	height: 40px;
+	font-size: 20px;
+	border: none;
+	border-radius: 25px;	
+	background-color: orange;
+
+}
+
+.extra_detail {
+	font-size: 15px;
+	cursor: pointer;
+	text-align: center;
+}
+/*-------------------상품상세페이지 스타일 끝---------------------------*/
+
+
+

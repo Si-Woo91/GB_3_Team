@@ -2,40 +2,60 @@ package com.gushipsam.payment.dao;
 
 public class MemberDTO {
 	
-	private String mID;
-	private String mPW;
-	private String mNICKNAME;
-	private String mEMAIL;
-	private String mPHONE;
-	public String getmID() {
-		return mID;
+	private String userid;	
+	private String userpw;
+	private String username;
+	private String userphone;
+	private String userdata;
+	private String useremail;
+	
+	public MemberDTO(String userid, String userpw, String username, String userphone, String userdata,
+			String useremail) {
+		super();
+		this.userid = userid;
+		this.userpw = userpw;
+		this.username = username;
+		this.userphone = userphone;
+		this.userdata = userdata;
+		this.useremail = useremail;
 	}
-	public void setmID(String mID) {
-		this.mID = mID;
+	
+	
+	public String getUserid() {
+		return userid;
 	}
-	public String getmPW() {
-		return mPW;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	public void setmPW(String mPW) {
-		this.mPW = mPW;
+	public String getUserpw() {
+		return userpw;
 	}
-	public String getmNICKNAME() {
-		return mNICKNAME;
+	public void setUserpw(String userpw) {
+		this.userpw = userpw;
 	}
-	public void setmNICKNAME(String mNICKNAME) {
-		this.mNICKNAME = mNICKNAME;
+	public String getUsername() {
+		return username;
 	}
-	public String getmEMAIL() {
-		return mEMAIL;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public void setmEMAIL(String mEMAIL) {
-		this.mEMAIL = mEMAIL;
+	public String getUserphone() {
+		return userphone;
 	}
-	public String getmPHONE() {
-		return mPHONE;
+	public void setUserphone(String userphone) {
+		this.userphone = userphone;
 	}
-	public void setmPHONE(String mPHONE) {
-		this.mPHONE = mPHONE;
+	public String getUserdata() {
+		return userdata;
+	}
+	public void setUserdata(String userdata) {
+		this.userdata = userdata;
+	}
+	public String getUseremail() {
+		return useremail;
+	}
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
 	}
 	
 	

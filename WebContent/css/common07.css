@@ -1,0 +1,135 @@
+@charset "UTF-8";
+/*----------------------공통 설정 시작------------------------*/
+
+#checkout * {
+	font-family: 'GowunDodum-Regular';
+	box-sizing: content-box;
+}
+
+@font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*body 기본 설정*/
+body {
+	margin: 0 auto;
+}
+
+/* section 기본설정 */
+section#checkout {
+	width: 1000px;
+	margin:  auto;
+}
+
+/* 테이블 기본설정 */
+#checkout table{
+/* 	넓이  */
+	width: 100%;
+/* 	표의 테두리와 셀의 테두리 사이의 간격 설정 : 간격 없음 겹치는 부분을 한 줄로 나타냄 */
+    border-collapse: collapse;
+/*  border-spacing은 border-collapse의 값이 separate일 때만 적용됩니다. */
+    border-spacing: 0;
+/* 	 테이블 고정  : 셀안의 데이터가 길어서 지정한 너비 이상으로 셀을 밀어버리는 것을 방지 */
+    table-layout: fixed;
+}
+
+/* 모든 li태그의 리스트 스타일을 기본적으로 지움 */
+#checkout li {
+	list-style: none;
+}
+
+/* a태그에 텍스트 밑줄을 지우고 폰트색을 검은색인 것을 기본으로 하기 */
+#checkout a {
+	text-decoration: none;
+	color: black;
+}
+
+/*중앙정렬용 class*/
+#checkout .align_center{
+	text-align: center;
+}
+
+/* 대형 제목 스타일 */
+#checkout #title_big{
+	line-height:100px;
+	width: 700px;
+	margin: 230px auto 30px auto;  /*header 때문에 맨 위 margin 크게 잡아야 전체화면이 보임.*/
+	border: 1px solid orange;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#checkout .title{
+	font-size: 16px;
+	font-weight: bold;
+	margin: 30px 0px 10px 0px;
+	border: 1px solid orange;
+  	width: 150px;
+  	height: 30px;
+  	line-height: 30px;
+  	text-align: center;
+  	border-radius: 5px;
+}
+
+#checkout #order_tb{
+	padding: 12px 0;
+    font-size: 14px;
+}
+
+#checkout .real_top{
+	 border-bottom: 1px solid black !important;
+}
+
+#checkout #order_tb .table_top td{
+	height: 40px;
+	background-color: #F5F5F5;
+	border-top: 1px solid #e1e1e1;
+}
+
+#checkout #order_tb>tbody>tr>td{
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    height: 60px;
+}
+
+
+#checkout #order_tb>tbody>tr>td:first-child, #order_tb>tbody>tr>td:nth-child(2), #order_tb>tbody>tr>td:last-child{
+	border-left: none;
+	border-right: none;
+	padding: revert;
+}
+
+#checkout .goods_tb tr:first-child>td:first-child{
+	padding: 10px;
+}
+
+#checkout .goods_tb tr:first-child>td:last-child{
+	height:50px;
+	vertical-align:bottom;
+	padding-bottom: 2px;
+	font-weight: bold;
+	color: grey;
+
+}
+
+#checkout .goods_tb tr:last-child>td:last-child{
+	height: 70px;
+	vertical-align:top;
+	padding-top: 2px;
+	padding-right: 10px;
+	font-size: 15px;	
+	font-weight: bold;
+	word-break:break-all;	
+}
+/*----------------------공통 설정 끝------------------------*/

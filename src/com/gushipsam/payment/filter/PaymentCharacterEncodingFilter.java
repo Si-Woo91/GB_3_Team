@@ -10,7 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter("*.pay")
+@WebFilter("*.sv")
 public class PaymentCharacterEncodingFilter implements Filter {
 
 	@Override

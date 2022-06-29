@@ -15,12 +15,10 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="shortcut icon" href="gu_icon.ico">
-<link rel="stylesheet" type="text/css" href="common06.css">
-<link rel="stylesheet" type="text/css" href="cart06.css">
 </head>
-<body>
 	<header> <%@ include file= "../header/header.jsp" %> </header>
-	<section>
+<body>
+	<section id='cart'>
 		<br>
 		<div id="title_big">장바구니</div>
 		<br>
@@ -182,5 +180,5 @@
 	}
 //------------brandarr 배열 사용하는 함수 및 자바스크립트 모음 끝-----------------------//
 </script>
-<script src="cart06.js"></script>
+<script src="../js/cart06.js"></script>
 </html>

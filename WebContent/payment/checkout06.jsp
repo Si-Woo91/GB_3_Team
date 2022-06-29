@@ -24,12 +24,10 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="shortcut icon" href="gu_icon.ico">	
-<link rel="stylesheet" type="text/css" href="common06.css">
-<link rel="stylesheet" type="text/css" href="checkout06.css">
 </head>
 <body>
 	<header> <%@ include file= "../header/header.jsp" %> </header>
-	<section>
+	<section id='checkout'>
 		<br>
 		<div id="title_big">주문/결제</div>
 		<br>
@@ -118,8 +116,7 @@
 						</colgroup>
 						<tr>
 						<%
-							String name = memberInfo.getmNICKNAME(), phone = memberInfo.getmPHONE();
-							String[] phonearr = phone.split("-");
+							String name = memberInfo.getUsername(), phone = memberInfo.getUserphone();
 						%>
 							<td>	받는분	</td>
 							<td>
@@ -131,7 +128,7 @@
 							<td>	연락처1	</td>
 							<td>	
 								<span style="color:red; font-weight:bold">*</span>
-								<input type="number" id="phone1" value="<%= phonearr[0] %>" style="width:80px"> - <input type="number" id="phone2" value="<%= phonearr[1] %>" style="width:80px"> - <input type="number" id="phone3" value="<%= phonearr[2] %>" style="width:80px">	
+								<input type="number" id="phone1" value="<%= phone.substring(0,3) %>" style="width:80px"> - <input type="number" id="phone2" value="<%= phone.substring(3,7)  %>" style="width:80px"> - <input type="number" id="phone3" value="<%= phone.substring(7,11)  %>" style="width:80px">	
 							</td>
 						</tr>	
 						<tr>
@@ -335,7 +332,7 @@
 	<div style="height:130px"></div>
 	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
-<script src="checkout06.js"></script>
+<script src="../js/checkout06.js"></script>
 <script>
 	function checkoutnpay(){
 		
@@ -351,8 +348,8 @@
 			cid_arr.push("${cID}");
 		<%}%>
 		
-		let ophone = $('#phone1').val() + '-' + $('#phone2').val() + '-' + $('#phone3').val();
-		let oaddress = $('#sample6_address').val() +" "+ $('#sample6_detailAddress').val() +" "+ $('#sample6_extraAddress').val();
+		let ophone = $('#phone1').val() + $('#phone2').val() + $('#phone3').val();
+		let oaddress = $('#sample6_address').val() +" "+ $('#sample6_detailAddress').val() + $('#sample6_extraAddress').val();
 			
 		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress;
 	}

@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="com.gushipsam.shoppingmall.dao.ShoppingmMallDTO" alias="shoppingmalldto"/>
+		<typeAlias type="com.gushipsam.shoppingmall.dao.ShoppingMallDTO" alias="shoppingmalldto"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -22,5 +22,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	
 	<mappers>
 		<mapper resource="/com/gushipsam/shoppingmall/sql/shoppingmall.xml"/>
+						  
 	</mappers>
+	
 </configuration>

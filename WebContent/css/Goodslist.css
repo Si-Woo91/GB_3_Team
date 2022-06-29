@@ -1,0 +1,115 @@
+/* 페이지 전체 영역  */
+
+/* 페이지 전체 넓이 설정 */
+#wrap {
+	width: 100%;
+}
+
+/* body(전체) 넓이 및 가운데 정렬(마진) */
+body {
+	width: 1000px;
+	margin: 0 auto
+}
+/* 재고 관리 part css 시작 */
+
+/* menu태그 css 시작 */
+
+/* 메뉴 전체 css	 */
+menu {
+	/* 	가로 정렬 */
+	float: left;
+	/* 	넓이 설정 */
+	width: 1000px;
+	/* 	높이 설정 */
+	height: 40px;
+	/* 	텍스트 높이 설정 */
+	line-height: 10px;
+	/* 	메뉴 상/하단 선(디자인) */
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	/* 	배경색 */
+	background-color: #ffcc76;
+	/* 	가운데 정렬 */
+	margin: auto;
+	/* 	왼쪽으로 붙히려고 왼쪽 padding값 0 */
+	padding-left: 0;
+}
+
+/* 가로 정렬로 보이기 */
+menu ul {
+	display: flex;
+	padding-left: 0;
+}
+
+menu ul li {
+	list-style: none;
+	border-right: 1px solid black;
+	padding: 0 10px;
+	/* 	호버 시 마우스 커서의 모양을 pointer로 변경 */
+	cursor: pointer;
+	font-size: 10px;
+}
+
+/* 메뉴 마지막 텍스트 오른쪽에 border효과를 지움 */
+menu ul li:last-child {
+	border-right: 0;
+}
+
+/*  menu태그 css 끝 */
+
+
+.textBar {
+	/* 	위 영역과 간격 조정 */
+	margin-top: 7px;
+}
+
+/* 표 css 시작부분 */
+
+/* table의 title행 css */
+.stock-list {
+	width: 100%;
+	border: 2px solid powderblue;
+	/* 	경계선이 두줄이라면 합쳐서 하나의 선으로 만들어준다 */
+	border-collapse: collapse;
+	margin: auto;
+}
+
+/* table 내부 구분선 */
+.stock-list th {
+	border: 2px solid powderblue;
+}
+
+/* table 1행 텍스트 정렬 */
+.list-title-tr {
+	text-align: center;
+}
+
+.selectbox {
+	
+}
+
+/* 수정가능한 셀안에 input태그 위치 */
+.update-cell {
+	width: 90%;
+}
+
+/* table 1행 세로  */
+.editable {
+	border: 2px solid powderblue;
+}
+
+/* table의 1열(상품명) css */
+.list1-1 {
+	text-align: left;
+}
+
+/* table 수정가능 부분 css */
+.table-edit-part {
+	background-color: #ffeccd;
+	text-align: center;
+}
+
+/* 재고 관리 part css 끝 */
+.btn {
+	text-align: center;
+}

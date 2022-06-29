@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family :'GowunDodum-Regular';
+	
+}
+
+@font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+
+.wrap{
+	margin: auto;
+	margin-top: 250px;
+	margin-bottom: 20px;
+	width: 70%;
+	height: 600px;
+	border: 2px solid #d4d4d4;
+}
+
+.secession-title{
+	margin: auto;
+	border-bottom: 1px solid #d4d4d4;
+	width: 90%;
+	padding-top: 50px;
+	padding-bottom: 10px;
+}
+
+.secession-text{
+	margin: auto;
+	width: 90%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 15px;
+}
+
+.secession-box{
+	margin: auto;
+	border: 1px solid #666;
+	width: 90%;
+}
+
+section h1{
+	padding:20px 0 5px 20px;
+}
+
+section li{
+	padding-left: 20px;
+	
+}
+
+.secession-box-text{
+	font-size: 15px;
+	
+}
+
+.secession-confirm{
+	margin-top: 10px;
+	border-top: 1px solid #666;
+	width: 100%;
+	padding: 0;
+	background-color: #eae0ed;
+	padding: 10px 0 10px 20px;
+	font-size: 15px;
+	
+}
+
+.secession-confirm-checkbox{
+	margin: auto;
+	text-align: left;
+}
+
+.secession-checkbox{
+	width: 15px;
+	margin: auto;
+	
+}
+
+.secession-validate-user{
+
+	border: 1px solid #d4d4d4;
+	background-color: #eae0ed;
+	width: 90%;
+	margin: auto;
+	margin-top: 30px;
+	padding: 20px 20px 0 20px;
+}
+
+
+/* secession css end*/
+
+
+
+
+
+
+/* section { */
+/* 	padding-bottom : 130px; footer height 값이랑 동일해야한다 */
+/* 	padding-left : 100px; */
+/* 	padding-right : 100px; */
+/* 	padding-top: 0px; */
+/* } */
+
+
+
+
+

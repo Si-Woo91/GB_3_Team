@@ -2,6 +2,7 @@ package com.gushipsam.payment;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
@@ -11,16 +12,15 @@ public class CartListAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
-		System.out.println("CartListAction 도착");
 		ActionForward forward = new ActionForward();
 		PaymentDAO pdao = new PaymentDAO();
 
-		String mID = "test1234";
-		//String mID = req.getParameter("mID"); 으로 변경 예정
+		String userid = "test1";
 		
-		req.setAttribute("cartList", pdao.getCartList(mID));
-		System.out.println("조회완료");
+//		HttpSession session = req.getSession();
+//		userid = (String) session.getAttribute("sessionId");
 		
+		req.setAttribute("cartList", pdao.getCartList(userid));
 	
 		forward.setRedirect(false);
 		forward.setPath(req.getContextPath() + "/payment/cart06.jsp");

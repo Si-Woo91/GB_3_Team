@@ -3,7 +3,7 @@ package com.gushipsam.payment.dao;
 public class OrderDTO {
 	
 	private int oID;
-	private String mID;
+	private String userid;
 	private int gID;
 	private int oQTY;
     private String oDATE;
@@ -17,11 +17,11 @@ public class OrderDTO {
 	public void setoID(int oID) {
 		this.oID = oID;
 	}
-	public String getmID() {
-		return mID;
+	public String getUserid() {
+		return userid;
 	}
-	public void setmID(String mID) {
-		this.mID = mID;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	public int getgID() {
 		return gID;

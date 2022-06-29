@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+
+* {											/* 전체 초기화 */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family :'GowunDodum-Regular';
+	
+}
+
+@font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* modify table css */
+
+/* body박스 크기 조정 */
+.body-wrap{
+	margin: auto;
+/* 	높이 고정 */
+	min-height: 600px;
+	width: 60%;
+	padding-top: 15%;
+	padding-bottom: 7%;
+	
+
+}
+
+
+.usermodify-title{
+	margin-bottom: 10px;
+	font-size: 30px;
+	font-weight: bold;
+    color: rgb(51, 51, 51);
+    letter-spacing: -1px;
+}
+
+.usermodify-table{
+/* 	테이블 넓이 */
+	width: 100%;
+	border-top: 2px solid #969696;
+	border-bottom: 1px solid #eef1f8;
+/* 	구분선이 겹치면 하나로 합쳐서 표시 */
+    border-collapse: collapse;
+}
+
+tbody{
+/* 	표 본문처럼 표시 */
+	display: table-row-group;
+/* 	글자 세로로 가운데정렬 */
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+
+.usermodify-table th{
+	background-color: #eef1f8;
+	min-width: 150px;
+	max-width: 150px;
+	line-height: 30px;
+}
+
+input[type=password]{
+	margin: auto;
+	padding: 3px;
+	
+}
+
+tr {
+	border-top: 1px solid #ddd;
+}
+
+td{
+	width: 1000px;
+	text-align: left;
+	padding-left: 20px;
+}
+
+.usermodify-input-table th{
+	text-align: center;
+	height: 50px;
+	
+}
+
+.usermodify-input-table {
+	width: 500px;
+}
+
+.usermodify-input-table th{
+	background-color: #fff;
+	font-size: 16px;
+	text-align: left;
+}
+
+.usermodify-input-table td{
+	text-align: left;
+}
+
+.usermodify-secession {
+    margin-top: 10px;
+    text-align: right;
+    color: #97979f;
+}
+
+.usermodify-cancel{
+	margin: auto;
+}
+
+.usermodify-foot{
+	text-align: center;
+}
+
