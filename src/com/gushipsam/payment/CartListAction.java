@@ -14,17 +14,19 @@ public class CartListAction implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
 		PaymentDAO pdao = new PaymentDAO();
+		
+		HttpSession session = req.getSession();
+		String userid = (String) session.getAttribute("sessionId");
+		
+		if( userid == null || userid.equals("")) {
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/IDPW/login.jsp");
+		} else {
+			req.setAttribute("cartList", pdao.getCartList(userid));
+			forward.setRedirect(false);
+			forward.setPath(req.getContextPath() + "/payment/cart06.jsp");
+		}
 
-		String userid = "test1";
-		
-//		HttpSession session = req.getSession();
-//		userid = (String) session.getAttribute("sessionId");
-		
-		req.setAttribute("cartList", pdao.getCartList(userid));
-	
-		forward.setRedirect(false);
-		forward.setPath(req.getContextPath() + "/payment/cart06.jsp");
-		
 		return forward;
 	}
 

@@ -2,6 +2,7 @@ package com.gushipsam.payment;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
@@ -14,13 +15,12 @@ public class CartDelAction implements Action{
 		ActionForward forward = new ActionForward();
 		PaymentDAO pdao = new PaymentDAO();
 
-		String userid = "test1234";
-//		HttpSession session = req.getSession();
-//		userid = (String) session.getAttribute("sessionId"); 로 변경 예정
+		HttpSession session = req.getSession();
+		String userid = (String) session.getAttribute("sessionId");
 		
 		String[] del_cIDs = req.getParameter("delcids").split(",");
 		
-		if(pdao.deleteCartItem(userid,del_cIDs)) {
+		if(pdao.deleteCartItem(del_cIDs)) {
 			
 			req.setAttribute("cartList", pdao.getCartList(userid));
 
@@ -31,7 +31,7 @@ public class CartDelAction implements Action{
 		} else {
 			req.setAttribute("cartList", pdao.getCartList(userid));
 
-			forward.setRedirect(true);
+			forward.setRedirect(false);
 			forward.setPath(req.getContextPath() + "/payment/cart_ajax_tb.jsp");
 			System.out.println("CART 삭제 실패!");
 		}

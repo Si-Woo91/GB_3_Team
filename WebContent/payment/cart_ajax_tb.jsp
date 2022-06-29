@@ -1,8 +1,9 @@
 <%@page import="com.gushipsam.payment.dao.CartDTO"%>
 <%@page import="java.util.List"%>
-<%@page import="java.text.DecimalFormat"%> 	
-<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page import="java.text.DecimalFormat"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	DecimalFormat df = new DecimalFormat("###,###");
 %>
@@ -61,8 +62,36 @@
 						<col width="80%">
 					</colgroup>
 					<tr>
-						<td rowspan="2"><a href="# "><img src="#"
-								style="width: 100%"></a></td>
+						<td rowspan="2">
+							<%
+								String foldername = null;
+									String catg = item.getgCATG();
+									String img = item.getgIMGS();
+
+									switch (catg) {
+									case "냉장고":
+										foldername = "fridge";
+										break;
+									case "세탁기":
+										foldername = "washer";
+										break;
+									case "TV":
+										foldername = "tv";
+										break;
+									case "에어컨":
+										foldername = "ac";
+										break;
+									case "컴퓨터":
+										foldername = "pc";
+										break;
+									}
+							%> <a
+							href="${pageContext.request.contextPath }/goodsDetail.goods?gID=<%=item.getgID() %>">
+								<img
+								src="${pageContext.request.contextPath }/img/<%=foldername %>/<%=img %>"
+								style="width: 100%">
+						</a>
+						</td>
 						<td id="brand"><%=item.getgBRAND()%></td>
 					</tr>
 					<tr>
@@ -71,7 +100,7 @@
 				</table>
 			</td>
 			<%
-				int price = item.getgPrice();
+				int price = item.getgPRICE();
 					int qty = item.getcQTY();
 			%>
 			<td>
@@ -98,4 +127,4 @@
 	</tbody>
 </table>
 
-<script src="cart06.js"></script>
+<script src="${pageContext.request.contextPath }/js/cart06.js"></script>

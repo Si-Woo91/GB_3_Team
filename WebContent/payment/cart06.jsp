@@ -5,6 +5,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	DecimalFormat df = new DecimalFormat("###,###"); 						// df.format(숫자)로 콤마 보이게 가능
+	
+	
+	List<CartDTO> cartList = (List) request.getAttribute("cartList");
+
 %>
 
 <!DOCTYPE html>
@@ -12,9 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <title>구심삽 장바구니</title>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="shortcut icon" href="gu_icon.ico">
 </head>
 	<header> <%@ include file= "../header/header.jsp" %> </header>
 <body id="payment">
@@ -57,7 +59,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% List<CartDTO> cartList = (List) request.getAttribute("cartList"); %>
 					<% for (CartDTO item : cartList) { %>
 					<tr>
 						<td>
@@ -71,7 +72,22 @@
 								</colgroup>
 								<tr>
 									<td rowspan="2">
-										<a href="# "><img src="#" style="width:100%"></a>
+										<%
+										String foldername = null;
+										String catg = item.getgCATG();
+										String img = item.getgIMGS();
+										
+										switch (catg) {
+										case "냉장고" : foldername= "fridge"; break;
+										case "세탁기" : foldername= "washer"; break;
+										case "TV" : foldername= "tv"; break;
+										case "에어컨" : foldername= "ac"; break;
+										case "컴퓨터" : foldername= "pc"; break;
+										}
+										%>
+										<a href="${pageContext.request.contextPath }/goodsDetail.goods?gID=<%=item.getgID() %>">
+											<img src="${pageContext.request.contextPath }/img/<%=foldername %>/<%=img %>" style="width:100%">
+										</a>
 									</td>
 									<td id="brand"><%=item.getgBRAND()%></td>
 								</tr>
@@ -80,7 +96,7 @@
 								</tr>
 							</table>
 						</td>
-						<% int price = item.getgPrice(); int qty = item.getcQTY(); %>
+						<% int price = item.getgPRICE(); int qty = item.getcQTY(); %>
 						<td>
 							<div class="align_center"><%= df.format(price) %></div>
 						</td>
@@ -131,7 +147,7 @@
 		if (confirm("선택된 상품을 삭제하시겠습니까?") == false){    
 			return false;
 		}
-// 		let table = document.getElementById('order_tb');
+		
 		checks = $('input[name="chk"]');
 		let len = checks.length;
 		let del_cids=[];
@@ -140,11 +156,10 @@
 		for( var i = len-1; i >= 0  ; i--) {		//1부터 시작하면 중간에 테이블 길이 줄어들어서 index가 맞지 않아 에러남
 			if( checks[i].checked == true){
 				count++;
-//				table.deleteRow(i+2);
 				del_cids.push(cid_arr.splice(i,1));
-// 				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
 			}
 		}
+		
 		if(count==0){
 			alert("상품을 선택해주세요.");
 		} else {
@@ -155,14 +170,15 @@
 			xhr.onreadystatechange = function(){
 				if( xhr.readyState == XMLHttpRequest.DONE 
 						&& xhr.status == 200 ){
-					//alert(xhr.responseText);
-					console.log(xhr.responseText);
-					$('#ajaxed_tb').html(xhr.responseText);
+// 					alert(xhr.responseText);
+// 					console.log(xhr.responseText);
+					$('#ajaxed_span').html(xhr.responseText);
 				}			
 			}
 		}
 	
 	}	
+	
 	// 선택한 상품의 브랜드만 파라미터로 전송하기
 	function jumpPageSome(){
 		checks = $('input[name="chk"]');
@@ -178,6 +194,7 @@
 			location.href='${pageContext.request.contextPath }/payment/checkout.pay?cids='+cid_arr_checked;
 		}
 	}	
+	
 	// 모든 상품의 브랜드를 파라미터로 전송하기
 	function jumpPageAll(){
 		var exist = $("input[name=chk]").length;

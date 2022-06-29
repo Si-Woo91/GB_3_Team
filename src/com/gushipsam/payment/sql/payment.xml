@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Payment">
 
 	<select id="getCheckoutDirect" parameterType="hashmap" resultType="cartdto">
-		SELECT 0 , GID , #{gQTY}, GNAME , GBRAND , GPRICE 
+		SELECT 0 , GID , #{gQTY}, GNAME , GBRAND , GPRICE, GIMGS, GCATG 
 		FROM GOODS
 		WHERE GID = #{gID}
 	</select>
@@ -15,21 +15,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="getCartList" parameterType="string" resultType="cartdto">
-		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
+		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE , g.GIMGS, g.GCATG
 		FROM CART c 
-			LEFT OUTER JOIN MEMBERS m 	ON c.USERID = m.USERID 
 			LEFT OUTER JOIN GOODS g 	ON c.GID = g.GID 
 		WHERE c.USERID = #{userid}
 		ORDER BY cID DESC
 	</select>
 	
 	<select id="getCheckoutList" parameterType="hashmap" resultType="cartdto">
-		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE 
+		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE , g.GIMGS, g.GCATG
 		FROM CART c 
 			LEFT OUTER JOIN MEMBERS m 	ON c.USERID = m.userid 
 			LEFT OUTER JOIN GOODS g 	ON c.GID = g.GID 
-		WHERE c.USERID = #{userid}
-		AND 	c.CID IN 
+		WHERE 	c.CID IN 
 		<foreach collection="cIDs" item="cID" open="(" separator="," close=")">
 				#{cID}
 		</foreach>
@@ -43,14 +41,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="deleteCartItem" parameterType="hashmap">
 		DELETE FROM CART
-		WHERE USERID = #{userid}
-		AND cID = #{del_cID}
+		WHERE cID IN
+		<foreach collection="del_cIDs" item="del_cID" open="(" separator="," close=")">
+				#{del_cID}
+		</foreach>
 	</select>
 	
 	<select id="getCartItem" parameterType="string" resultType="cartdto">
-		SELECT *
-		FROM CART
-		WHERE cID = #{cID}
+		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE , g.GIMGS, g.GCATG
+		FROM CART c 
+			LEFT OUTER JOIN GOODS g 	ON c.GID = g.GID 
+		WHERE c.CID = #{cID}
+		ORDER BY cID DESC
 	</select>
 	
 	<insert id="insertOrder" parameterType="orderdto">
@@ -60,8 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="deleteCartItemAll" parameterType="hashmap">
 		DELETE FROM CART
-		WHERE USERID = #{userid}
-		AND 	CID IN 
+		WHERE 	CID IN 
 		<foreach collection="cIDs" item="cID" open="(" separator="," close=")">
 				#{cID}
 		</foreach>

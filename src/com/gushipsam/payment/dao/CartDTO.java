@@ -6,7 +6,10 @@ public class CartDTO {
 	private int cQTY;
 	private String gNAME;
 	private String gBRAND;
-	private int gPrice;
+	private int gPRICE;
+	private String gIMGS;
+	private String gCATG;
+
 	
 	public int getcID() {
 		return cID;
@@ -38,12 +41,25 @@ public class CartDTO {
 	public void setgBRAND(String gBRAND) {
 		this.gBRAND = gBRAND;
 	}
-	public int getgPrice() {
-		return gPrice;
+	public int getgPRICE() {
+		return gPRICE;
 	}
-	public void setgPrice(int gPrice) {
-		this.gPrice = gPrice;
+	public void setgPRICE(int gPrice) {
+		this.gPRICE = gPrice;
 	}
+	public String getgIMGS() {
+		return gIMGS;
+	}
+	public void setgIMGS(String gIMGS) {
+		this.gIMGS = gIMGS;
+	}
+	public String getgCATG() {
+		return gCATG;
+	}
+	public void setgCATG(String gCATG) {
+		this.gCATG = gCATG;
+	}
+	
 	
 	
 	
