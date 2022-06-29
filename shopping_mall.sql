@@ -35,7 +35,7 @@ CREATE TABLE GOODS(						-- 상품 정보
     gEtc	VARCHAR2(100),				-- 상품 기타정보
     gImgs	VARCHAR2(300),				-- 상품 이미지1
     gImgl	VARCHAR2(300),				-- 상품 이미지2
-    gDATE	DATE NOT NULL 				-- 상품 등록일
+    gDATE	DATE NOT NULL, 				-- 상품 등록일
     gStock	NUMBER(4)					-- 상품 재고	
 );
 
@@ -181,4 +181,3 @@ SELECT * FROM MEMBERS;
 SELECT * FROM GOODS;
 SELECT * FROM CART;
 SELECT * FROM ORDERS;
-SELECT * FROM ImageFile;
