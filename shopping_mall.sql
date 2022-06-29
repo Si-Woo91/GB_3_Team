@@ -80,8 +80,8 @@ CREATE TABLE ORDERS(							-- 주문내역
     oADDRESS VARCHAR2(500),						-- 주소				
 --    oPAYMENT NUMBER(20),						-- 결제금액(GOODS join해서 계산하면 되므로 필요x)
 --    oINVOICE NUMBER(10),						-- 송장번호
-CONSTRAINT fk_ord_mem FOREIGN KEY(mID) 
-REFERENCES MEMBERS(mID),
+CONSTRAINT fk_ord_mem FOREIGN KEY(userid) 
+REFERENCES MEMBERS(userid),
 CONSTRAINT fk_ord_goods FOREIGN KEY(gID) 
 REFERENCES GOODS(gID)
 );
