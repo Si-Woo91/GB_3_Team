@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/slick.css">
 	<link rel="stylesheet" type="text/css" href="../css/common06.css">
 	<link rel="stylesheet" type="text/css" href="../css/cart06.css">
-	<link rel="stylesheet" type="text/css" href="../css/common07.css">
 	<link rel="stylesheet" type="text/css" href="../css/checkout06.css">
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">

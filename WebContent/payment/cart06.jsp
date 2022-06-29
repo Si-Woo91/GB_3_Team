@@ -17,90 +17,90 @@
 <link rel="shortcut icon" href="gu_icon.ico">
 </head>
 	<header> <%@ include file= "../header/header.jsp" %> </header>
-<body>
+<body id="payment">
 	<section id='cart'>
 		<br>
 		<div id="title_big">장바구니</div>
 		<br>
-		<table id="order_tb">
-			<colgroup>
-				<col width="2.5%">
-				<col width="60%">
-				<col width="15%">
-				<col width="7.5%">
-				<col width="15%">
-			</colgroup>
-			<thead>
-				<tr>
-					<td colspan="5">
-						<h3 class="title">구십삼 주문상품</h3>
-						<div style="height:10px"></div>
-					</td>
-				</tr>
-				<tr class="table_top">
-					<td>
-						<div class="align_center"><input type="checkbox" name="chk_all" id="chk_all"></div>
-					</td>
-					<td>
-						<div class="align_center">상품정보</div>
-					</td>
-					<td>
-						<div class="align_center">판매가</div>
-					</td>
-					<td>
-						<div class="align_center">수량</div>
-					</td>
-					<td>
-						<div class="align_center">구매가</div>
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-<%-- 				<c:set var="cartList" value="${requestScope.cartList }"/> --%>
-				<% List<CartDTO> cartList = (List) request.getAttribute("cartList"); %>
-				<% for (CartDTO item : cartList) { %>
-				<tr>
-					<td>
-						<div class="align_center"><input type="checkbox" name="chk"></div>
-					</td>
-					<td>
-						<table class="goods_tb">
-							<colgroup>
-								<col width="20%">
-								<col width="80%">
-							</colgroup>
-							<tr>
-								<td rowspan="2">
-									<a href="# "><img src="#" style="width:100%"></a>
-								</td>
-								<td id="brand"><%=item.getgBRAND()%></td>
-							</tr>
-							<tr>
-								<td><%=item.getgNAME()%></td>
-							</tr>
-						</table>
-					</td>
-					<% int price = item.getgPrice(); int qty = item.getcQTY(); %>
-					<td>
-						<div class="align_center"><%= df.format(price) %></div>
-					</td>
-					<td>
-						<div class="align_center"><%= qty %></div>
-					</td>
-					<td>
-						<div class="align_center"><%= df.format(price*qty) %></div>
-					</td>
-				</tr>
-				<% } %>
-				<tr>
-					<td colspan="5" style="height: 150px" id="zerocart">
-						<div class="align_center" style="font-size:30px">¯\_(ツ)_/¯</div>
-						<div class="align_center" style="font-size:17px; font-weight:bold;">장바구니에 저장된 상품이 없습니다.</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		
+		<span id="ajaxed_span">
+			<table id="order_tb">
+				<colgroup>
+					<col width="2.5%">
+					<col width="60%">
+					<col width="15%">
+					<col width="7.5%">
+					<col width="15%">
+				</colgroup>
+				<thead>
+					<tr>
+						<td colspan="5">
+							<h3 class="title">구십삼 주문상품</h3>
+							<div style="height:10px"></div>
+						</td>
+					</tr>
+					<tr class="table_top">
+						<td>
+							<div class="align_center"><input type="checkbox" name="chk_all" id="chk_all"></div>
+						</td>
+						<td>
+							<div class="align_center">상품정보</div>
+						</td>
+						<td>
+							<div class="align_center">판매가</div>
+						</td>
+						<td>
+							<div class="align_center">수량</div>
+						</td>
+						<td>
+							<div class="align_center">구매가</div>
+						</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% List<CartDTO> cartList = (List) request.getAttribute("cartList"); %>
+					<% for (CartDTO item : cartList) { %>
+					<tr>
+						<td>
+							<div class="align_center"><input type="checkbox" name="chk"></div>
+						</td>
+						<td>
+							<table class="goods_tb">
+								<colgroup>
+									<col width="20%">
+									<col width="80%">
+								</colgroup>
+								<tr>
+									<td rowspan="2">
+										<a href="# "><img src="#" style="width:100%"></a>
+									</td>
+									<td id="brand"><%=item.getgBRAND()%></td>
+								</tr>
+								<tr>
+									<td><%=item.getgNAME()%></td>
+								</tr>
+							</table>
+						</td>
+						<% int price = item.getgPrice(); int qty = item.getcQTY(); %>
+						<td>
+							<div class="align_center"><%= df.format(price) %></div>
+						</td>
+						<td>
+							<div class="align_center"><%= qty %></div>
+						</td>
+						<td>
+							<div class="align_center"><%= df.format(price*qty) %></div>
+						</td>
+					</tr>
+					<% } %>
+					<tr>
+						<td colspan="5" style="height: 150px" id="zerocart">
+							<div class="align_center" style="font-size:30px">¯\_(ツ)_/¯</div>
+							<div class="align_center" style="font-size:17px; font-weight:bold;">장바구니에 저장된 상품이 없습니다.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</span>
 		<p><form><input type="button" class="select_button" id="select_button" value=" 선택상품 삭제  " onclick="deleteTableRow();"></form></p>
 		<br>
 		<div class="align_center">
@@ -113,12 +113,12 @@
 	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
 <script>
-//------------brandarr 배열 사용하는 함수 및 자바스크립트 모음 시작-----------------------//
+//------------cid_arr 배열 사용하는 함수 모음 시작-----------------------//
 	
 	//결제페이지에 전달할 파라미터 저장 배열 (현재 브랜드 저장하며, 나중에는 상품id 전달할 예정)
 	let cid_arr = [];
 	
-	//brandarr 최초 생성
+	//cid_arr 최초 생성
 	<% for (CartDTO item : cartList ) {
 		pageContext.setAttribute("cID",item.getcID());
 	%>
@@ -131,27 +131,38 @@
 		if (confirm("선택된 상품을 삭제하시겠습니까?") == false){    
 			return false;
 		}
-	
-		let table = document.getElementById('order_tb');
+// 		let table = document.getElementById('order_tb');
 		checks = $('input[name="chk"]');
 		let len = checks.length;
+		let del_cids=[];
 		let count = 0;
+		
 		for( var i = len-1; i >= 0  ; i--) {		//1부터 시작하면 중간에 테이블 길이 줄어들어서 index가 맞지 않아 에러남
 			if( checks[i].checked == true){
 				count++;
-				table.deleteRow(i+2);
-				let del_cid = cid_arr.splice(i,1);
-				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
+//				table.deleteRow(i+2);
+				del_cids.push(cid_arr.splice(i,1));
+// 				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
 			}
 		}
 		if(count==0){
 			alert("상품을 선택해주세요.");
+		} else {
+			// ajax 통신
+			let xhr = new XMLHttpRequest();
+			xhr.open("GET", '${pageContext.request.contextPath }/payment/cartdel.pay?delcids='+del_cids, true);
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				if( xhr.readyState == XMLHttpRequest.DONE 
+						&& xhr.status == 200 ){
+					//alert(xhr.responseText);
+					console.log(xhr.responseText);
+					$('#ajaxed_tb').html(xhr.responseText);
+				}			
+			}
 		}
-		
-		reset();
 	
 	}	
-
 	// 선택한 상품의 브랜드만 파라미터로 전송하기
 	function jumpPageSome(){
 		checks = $('input[name="chk"]');
@@ -167,7 +178,6 @@
 			location.href='${pageContext.request.contextPath }/payment/checkout.pay?cids='+cid_arr_checked;
 		}
 	}	
-
 	// 모든 상품의 브랜드를 파라미터로 전송하기
 	function jumpPageAll(){
 		var exist = $("input[name=chk]").length;
@@ -178,7 +188,7 @@
 			location.href='${pageContext.request.contextPath }/payment/checkout.pay?cids='+cid_arr;
 		}
 	}
-//------------brandarr 배열 사용하는 함수 및 자바스크립트 모음 끝-----------------------//
+//------------cid_arr 배열 사용하는 함수 모음 끝-----------------------//
 </script>
-<script src="../js/cart06.js"></script>
+<script src="${pageContext.request.contextPath }/js/cart06.js"></script>
 </html>

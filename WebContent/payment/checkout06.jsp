@@ -25,7 +25,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="shortcut icon" href="gu_icon.ico">	
 </head>
-<body>
+<body id="payment">
 	<header> <%@ include file= "../header/header.jsp" %> </header>
 	<section id='checkout'>
 		<br>
@@ -155,14 +155,14 @@
 							<td>
 								<span style="color:transparent; font-weight:bold">*</span>
 								<input type="text" id="sample6_detailAddress" placeholder="상세주소" style="width:250px">
-								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:250px">
+								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:150px">
 							</td>
 						</tr>
 						<tr>
 							<td>	배송요청사항	</td>
 							<td>	
 								<span style="color:transparent; font-weight:bold">*</span>
-								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:550px">	
+								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:450px">	
 							</td>
 						</tr>
 					</table>	
@@ -332,7 +332,6 @@
 	<div style="height:130px"></div>
 	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
-<script src="../js/checkout06.js"></script>
 <script>
 	function checkoutnpay(){
 		
@@ -355,4 +354,5 @@
 	}
 
 </script>
+<script src="${pageContext.request.contextPath }/js/checkout06.js"></script>
 </html>

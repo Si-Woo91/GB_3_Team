@@ -10,21 +10,30 @@ import com.gushipsam.payment.dao.PaymentDAO;
 public class CartDelAction implements Action{
 
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp ) {
+		System.out.println("CartDelAction 도착");
 		ActionForward forward = new ActionForward();
 		PaymentDAO pdao = new PaymentDAO();
 
 		String userid = "test1234";
-		//String userid = req.getParameter("userid"); 으로 변경 예정
-		String del_cID_ = req.getParameter("delcid");
-		int del_cID = Integer.parseInt(del_cID_);
+//		HttpSession session = req.getSession();
+//		userid = (String) session.getAttribute("sessionId"); 로 변경 예정
 		
-		if(pdao.deleteCartItem(userid,del_cID)) {
-			forward.setRedirect(true);
-			forward.setPath(null);
+		String[] del_cIDs = req.getParameter("delcids").split(",");
+		
+		if(pdao.deleteCartItem(userid,del_cIDs)) {
+			
+			req.setAttribute("cartList", pdao.getCartList(userid));
+
+			forward.setRedirect(false);
+			forward.setPath(req.getContextPath() + "/payment/cart_ajax_tb.jsp");
+			System.out.println("삭제완료");
 
 		} else {
+			req.setAttribute("cartList", pdao.getCartList(userid));
+
 			forward.setRedirect(true);
-			forward.setPath(null);
+			forward.setPath(req.getContextPath() + "/payment/cart_ajax_tb.jsp");
+			System.out.println("CART 삭제 실패!");
 		}
 	
 		
@@ -32,11 +41,3 @@ public class CartDelAction implements Action{
 	}
 
 }
-
-
-
-
-
-
-
-
