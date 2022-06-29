@@ -5,6 +5,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	DecimalFormat df = new DecimalFormat("###,###"); 						// df.format(숫자)로 콤마 보이게 가능
+	String[] img = { "fridge/fridge1.png", "washer/washer1.png", "tv/tv1.png"};
+	int i =0;
 %>
 
 <!DOCTYPE html>
@@ -19,7 +21,7 @@
 <link rel="stylesheet" type="text/css" href="cart06.css">
 </head>
 <body>
-	<header> <%@ include file= "../header/header.jsp" %> </header>
+<%-- 	<header> <%@ include file= "../header/header.jsp" %> </header> --%>
 	<section>
 		<br>
 		<div id="title_big">장바구니</div>
@@ -74,7 +76,7 @@
 							</colgroup>
 							<tr>
 								<td rowspan="2">
-									<a href="# "><img src="#" style="width:100%"></a>
+									<a href="# "><img src="${pageContext.request.contextPath }/imgs/<%=img[i]%>" style="width:100%"></a>
 								</td>
 								<td id="brand"><%=item.getgBRAND()%></td>
 							</tr>
@@ -94,7 +96,7 @@
 						<div class="align_center"><%= df.format(price*qty) %></div>
 					</td>
 				</tr>
-				<% } %>
+				<% i++; } %>
 				<tr>
 					<td colspan="5" style="height: 150px" id="zerocart" >
 						<div class="align_center" style="font-size:30px">¯\_(ツ)_/¯</div>
@@ -113,7 +115,7 @@
 		
 	</section>
 	<div style="height:100px"></div>
-	<footer><%@ include file= "../footer/footer.jsp" %></footer>
+<%-- 	<footer><%@ include file= "../footer/footer.jsp" %></footer> --%>
 </body>
 <script>
 //------------brandarr 배열 사용하는 함수 및 자바스크립트 모음 시작-----------------------//
@@ -134,37 +136,36 @@
 		if (confirm("선택된 상품을 삭제하시겠습니까?") == false){    
 			return false;
 		}
-	
-		let table = document.getElementById('order_tb');
+// 		let table = document.getElementById('order_tb');
 		checks = $('input[name="chk"]');
 		let len = checks.length;
+		let del_cids=[];
 		let count = 0;
+		
 		for( var i = len-1; i >= 0  ; i--) {		//1부터 시작하면 중간에 테이블 길이 줄어들어서 index가 맞지 않아 에러남
 			if( checks[i].checked == true){
 				count++;
-				table.deleteRow(i+2);
-				let del_cid = cid_arr.splice(i,1);
+//				table.deleteRow(i+2);
+				del_cids.push(cid_arr.splice(i,1));
 // 				location.href='${pageContext.request.contextPath }/payment/cart.pay?delcid='+del_cid;
-				
-				// ajax 통신
-				let xhr = new XMLHttpRequest();
-				xhr.open("GET", '${pageContext.request.contextPath }/payment/cartdel.pay?delcid='+del_cid, true);
-				xhr.send();
-				xhr.onreadystatechange = function(){
-					if( xhr.readyState == XMLHttpRequest.DONE 
-							&& xhr.status == 200 ){
-						//alert(xhr.responseText);
-						console.log(xhr.responseText);
-						$('#ajaxed_tb').html(xhr.responseText);
-					}			
-				}
 			}
 		}
 		if(count==0){
 			alert("상품을 선택해주세요.");
+		} else {
+			// ajax 통신
+			let xhr = new XMLHttpRequest();
+			xhr.open("GET", '${pageContext.request.contextPath }/payment/cartdel.pay?delcids='+del_cids, true);
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				if( xhr.readyState == XMLHttpRequest.DONE 
+						&& xhr.status == 200 ){
+					//alert(xhr.responseText);
+					console.log(xhr.responseText);
+					$('#ajaxed_tb').html(xhr.responseText);
+				}			
+			}
 		}
-		
-		reset();
 	
 	}	
 

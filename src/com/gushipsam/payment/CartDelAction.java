@@ -18,13 +18,14 @@ public class CartDelAction implements Action{
 //		HttpSession session = req.getSession();
 //		userid = (String) session.getAttribute("sessionId"); 로 변경 예정
 		
+		String[] del_cIDs = req.getParameter("delcids").split(",");
 		
-		String del_cID_ = req.getParameter("delcid");
-		int del_cID = Integer.parseInt(del_cID_);
-		
-		if(pdao.deleteCartItem(userid,del_cID)) {
-			forward.setRedirect(true);
-			forward.setPath(null);
+		if(pdao.deleteCartItem(userid,del_cIDs)) {
+			
+			req.setAttribute("cartList", pdao.getCartList(userid));
+
+			forward.setRedirect(false);
+			forward.setPath(req.getContextPath() + "/payment/cart_tb.jsp");
 			System.out.println("삭제완료");
 
 		} else {

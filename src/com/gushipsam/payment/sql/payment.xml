@@ -10,6 +10,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 		FROM GOODS -->
 <!-- 		WHERE GID = #{gID} -->
 <!-- 	</select> -->
+
+<!-- 	<select id="insertCart" parameterType="hashmap"> -->
+<!-- 		INSERT INTO ORDERS VALUES(cart_seq.nextval,#{userid},#{gID},#{gQTY}) -->
+<!-- 	</select> -->
 	
 <!-- ///////////////////////////////////////////////////////////////////////////// -->
 	
@@ -57,7 +61,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="deleteCartItem" parameterType="hashmap">
 		DELETE FROM CART
 		WHERE USERID = #{userid}
-		AND cID = #{del_cID}
+		AND 	CID IN 
+		<foreach collection="del_cIDs" item="del_cID" open="(" separator="," close=")">
+				#{del_cID}
+		</foreach>
 	</select>
 	
 	<select id="getCartItem" parameterType="string" resultType="cartdto">

@@ -26,5 +26,18 @@
 	font-weight: bold;
 }
 
+.select_button{
+	background-color: orange;
+	border-radius: 2px;
+	border: 1px solid orange;
+	cursor:pointer;
+	font-size: 13px;
+	width:100px;
+	height:25px;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}
+
 /*----------------------장바구니만의 설정 끝------------------------*/
 

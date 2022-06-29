@@ -15,6 +15,8 @@
 	
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
 	
+	String[] img = { "fridge/fridge1.png", "washer/washer1.png", "tv/tv1.png"};
+	int i =0;
 %>
 <!DOCTYPE html>
 <html>
@@ -28,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="checkout06.css">
 </head>
 <body>
-	<header> <%@ include file= "../header/header.jsp" %> </header>
+<%-- 	<header> <%@ include file= "../header/header.jsp" %> </header> --%>
 	<section>
 		<br>
 		<div id="title_big">주문/결제</div>
@@ -73,7 +75,7 @@
 							</colgroup>
 							<tr>
 								<td rowspan="2">
-									<a href="#"><img src="#" style="width:100%"></a>
+									<a href="#"><img src="${pageContext.request.contextPath }/imgs/<%=img[i]%>" style="width:100%"></a>
 								</td>
 								<td><%=item.getgBRAND()%></td>
 							</tr>
@@ -93,14 +95,14 @@
 						<div class="align_center"><%= df.format(price*qty) %></div>
 					</td>
 				</tr>
-				<% } %>
+				<% i++; } %>
 			</tbody>
 		</table>		
 		<br>
 	
 		<table id="pay_tb">
 			<colgroup>
-				<col width="700">
+				<col width="600">
 				<col width="*">
 			</colgroup>
 			<thead>
@@ -157,14 +159,14 @@
 							<td>
 								<span style="color:transparent; font-weight:bold">*</span>
 								<input type="text" id="sample6_detailAddress" placeholder="상세주소" style="width:250px">
-								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:250px">
+								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:150px">
 							</td>
 						</tr>
 						<tr>
 							<td>	배송요청사항	</td>
 							<td>	
 								<span style="color:transparent; font-weight:bold">*</span>
-								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:550px">	
+								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:450px">	
 							</td>
 						</tr>
 					</table>	
@@ -332,7 +334,7 @@
 		</table>
 	</section>
 	<div style="height:130px"></div>
-	<footer><%@ include file= "../footer/footer.jsp" %></footer>
+<%-- 	<footer><%@ include file= "../footer/footer.jsp" %></footer> --%>
 </body>
 <script src="checkout06.js"></script>
 <script>

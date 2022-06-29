@@ -22,7 +22,7 @@ public class CartInsertAction implements Action{
 		int gID = Integer.parseInt(req.getParameter("gid"));
 		int gQTY = Integer.parseInt(req.getParameter("gqty"));
 		
-		if(pdao.cartInsert(userid,gID,gQTY)) {
+		if(pdao.insertCart(userid,gID,gQTY)) {
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/payment/cart_tb.jsp");
 			System.out.println("cartInsert 완료");

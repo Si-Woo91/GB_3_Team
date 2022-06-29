@@ -1,8 +1,10 @@
-<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.gushipsam.payment.dao.CartDTO"%>
 <%@page import="java.util.List"%>
+<%@page import="java.text.DecimalFormat"%> 	
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
-	DecimalFormat df = new DecimalFormat("###,###"); 						// df.format(숫자)로 콤마 보이게 가능
+	DecimalFormat df = new DecimalFormat("###,###");
 %>
 <table id="order_tb">
 	<colgroup>
@@ -40,7 +42,6 @@
 		</tr>
 	</thead>
 	<tbody>
-		<%-- 				<c:set var="cartList" value="${requestScope.cartList }"/> --%>
 		<%
 			List<CartDTO> cartList = (List) request.getAttribute("cartList");
 		%>
@@ -96,3 +97,5 @@
 		</tr>
 	</tbody>
 </table>
+
+<script src="cart06.js"></script>

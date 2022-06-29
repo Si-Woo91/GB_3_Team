@@ -53,13 +53,13 @@ public class PaymentDAO {
 		return memberInfo;
 	}
 
-	public boolean deleteCartItem(String userid, int del_cID){
+	public boolean deleteCartItem(String userid, String[] del_cIDs){
 		System.out.println("deleteCartItem 도착");
 		boolean result = false;
 		
 		HashMap<String, Object> datas = new HashMap<>();
 		datas.put("userid", userid);
-		datas.put("del_cID", del_cID);
+		datas.put("del_cIDs", del_cIDs);
 		
 		if(sqlsession.delete("Payment.deleteCartItem",datas) != 0) {
 			result = true;
@@ -118,6 +118,21 @@ public class PaymentDAO {
 		return checkoutItem;
 	}
 	
+	public boolean insertCart(String userid, int gID, int gQTY) {
+		System.out.println("insertCart 도착");
+		boolean result = false;
+		
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("userid", userid);
+		datas.put("gID", gID);
+		datas.put("gQTY", gQTY);
+		
+		if(sqlsession.insert("Payment.insertCart", datas) == 1) {
+			result = true;
+		}
+		
+		return result;
+	}
 	
 }
 
