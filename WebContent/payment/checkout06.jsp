@@ -15,6 +15,8 @@
 	
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
 	
+	if(checkoutList.size() == 0) response.sendRedirect(request.getContextPath() + "/main/main.jsp");
+
 %>
 <!DOCTYPE html>
 <html>
@@ -23,9 +25,8 @@
 <title>구심삽 주문결제</title>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="shortcut icon" href="gu_icon.ico">	
 </head>
-<body>
+<body id="payment">
 	<header> <%@ include file= "../header/header.jsp" %> </header>
 	<section id='checkout'>
 		<br>
@@ -71,7 +72,22 @@
 							</colgroup>
 							<tr>
 								<td rowspan="2">
-									<a href="#"><img src="#" style="width:100%"></a>
+									<%
+										String foldername = null;
+										String catg = item.getgCATG();
+										String img = item.getgIMGS();
+										
+										switch (catg) {
+										case "냉장고" : foldername= "fridge"; break;
+										case "세탁기" : foldername= "washer"; break;
+										case "TV" : foldername= "tv"; break;
+										case "에어컨" : foldername= "ac"; break;
+										case "컴퓨터" : foldername= "pc"; break;
+										}
+									%>
+									<a href="${pageContext.request.contextPath }/goodsDetail.goods?gID=<%=item.getgID() %>">
+										<img src="${pageContext.request.contextPath }/img/<%=foldername %>/<%=img %>" style="width:100%">
+									</a>
 								</td>
 								<td><%=item.getgBRAND()%></td>
 							</tr>
@@ -80,7 +96,7 @@
 							</tr>
 						</table>
 					</td>
-					<% int price = item.getgPrice(); int qty = item.getcQTY(); %>
+					<% int price = item.getgPRICE(); int qty = item.getcQTY(); %>
 					<td>
 						<div class="align_center"><%= df.format(price) %></div>
 					</td>
@@ -98,7 +114,7 @@
 	
 		<table id="pay_tb">
 			<colgroup>
-				<col width="700">
+				<col width="600">
 				<col width="*">
 			</colgroup>
 			<thead>
@@ -155,14 +171,14 @@
 							<td>
 								<span style="color:transparent; font-weight:bold">*</span>
 								<input type="text" id="sample6_detailAddress" placeholder="상세주소" style="width:250px">
-								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:250px">
+								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:150px">
 							</td>
 						</tr>
 						<tr>
 							<td>	배송요청사항	</td>
 							<td>	
 								<span style="color:transparent; font-weight:bold">*</span>
-								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:550px">	
+								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:450px">	
 							</td>
 						</tr>
 					</table>	
@@ -170,7 +186,7 @@
 				<td rowspan="3" style="text-align:right">
 					<% int checkoutSum = 0;	
 					for (CartDTO item : checkoutList ) { 
-						checkoutSum += item.getgPrice() * item.getcQTY();
+						checkoutSum += item.getgPRICE() * item.getcQTY();
 					} %>
 					<h2>최종 결제금액 : <%= df.format(checkoutSum+shippingCost)%> 원</h2>
 					<h3>상품금액 : <%= df.format(checkoutSum) %> 원 </h3>
@@ -332,7 +348,6 @@
 	<div style="height:130px"></div>
 	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
-<script src="../js/checkout06.js"></script>
 <script>
 	function checkoutnpay(){
 		
@@ -353,6 +368,6 @@
 			
 		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress;
 	}
-
 </script>
+<script src="${pageContext.request.contextPath }/js/checkout06.js"></script>
 </html>

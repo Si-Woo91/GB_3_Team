@@ -37,6 +37,3 @@
 		$("input[name=chk]").prop("checked", true);
 		reset();
 	});
-	
-	
-	

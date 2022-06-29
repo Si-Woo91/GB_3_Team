@@ -2,6 +2,7 @@ package com.gushipsam.payment;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
@@ -14,11 +15,12 @@ public class CheckoutListAction implements Action{
 		ActionForward forward = new ActionForward();
 		PaymentDAO pdao = new PaymentDAO();
 
-		String userid = "test1";
-		//String userid = req.getParameter("userid"); 으로 변경 예정
+		HttpSession session = req.getSession();
+		String userid = (String) session.getAttribute("sessionId");
+		
 		String[] cIDs = req.getParameter("cids").split(",");
 		
-		req.setAttribute("checkoutList", pdao.getCheckoutList(userid, cIDs));
+		req.setAttribute("checkoutList", pdao.getCheckoutList(cIDs));
 		req.setAttribute("memberInfo", pdao.getMemberInfo(userid));
 	
 		forward.setRedirect(false);
