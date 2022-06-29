@@ -110,6 +110,10 @@ CONSTRAINT fk_cart_goods FOREIGN KEY(gID)
 REFERENCES GOODS(gID)
 );
 
+CREATE SEQUENCE cart_seq
+START WITH 1
+INCREMENT BY 1;
+
 --fridge
 INSERT INTO GOODS
 VALUES (seq_gidx.nextVal, '냉장고', 'LG', 'LG 디오스 오브제컬렉션 빌트인 타입', 'M623GTB052', 3550000, '914X186X69.8cm', '610L', 'fridge1.png', 'fridge1_spec1.png', sysdate );
