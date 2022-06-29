@@ -96,7 +96,7 @@ MAXVALUE 1000
 MINVALUE 1
 nocycle;
 
-ALTER TABLE GOODS add(gIMG varchar2(100));
+--ALTER TABLE GOODS add(gIMG varchar2(100));
 
 --CART 테이블 fk 조건 추가 완료(찬우, 2022.06.24)
 CREATE TABLE CART(								-- 장바구니
