@@ -67,7 +67,7 @@
 		<hr><br>
 			<form action="${pageContext.request.contextPath}/service/AddReply.sv" name="replyForm" method="post">
 			<input type="hidden" name="servicenum" value="${service.servicenum }">
-			<table border="3" cellspacing="1" bordercolor="#C3BDBB">
+			<table border="1" cellspacing="1" style=" background: #eeeeee">
 				<tr>
 					<td align="center" width="200px" >
 						댓글<br>
