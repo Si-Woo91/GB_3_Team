@@ -45,11 +45,15 @@
 				<% for (goodsDTO g : goodsList ){ %>
 					<li class="items" border="1" align="center">
 					<!-- gID값을 상세페이지로 넘겨줌 -->
-						<a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%= g.getgID() %>" >
-							<img src="${pageContext.request.contextPath }/imgs/<%=foldername %>/<%= g.getgImgs()%>" class="img_prod" width="300" height="300"><br>
+					<a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%= g.getgID() %>" >
+							<img src="../uploadimg/${search.gImgs }" class="img_prod" width="300" height="300"><br>
+							<span class="name">${search.gName }</span><br>
+							<span class="price">${search.gPRICE } 원</span><br>
+						<%-- <a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%= g.getgID() %>" >
+							<img src="${pageContext.request.contextPath }/img/<%=foldername %>/<%= g.getgImgs()%>" class="img_prod" width="300" height="300"><br>
 							<span class="name"><%= g.getgName() %></span><br>
 							<span class="price"><%= df.format(g.getgPRICE()) %> 원</span><br>
-						</a>
+						</a> --%>
 					</li>
 				<% } %>
 				
