@@ -34,7 +34,7 @@
 <link rel="stylesheet" type="text/css" href="goodsDetail.css">
 <link rel="shortcut icon" href="gu_icon.ico">
 </head>
-<%@ include file="../header/header.jsp" %>
+<%-- <%@ include file="../header/header.jsp" %> --%>
 <body>
    <div style="height: 220px;"></div>
    <section>
@@ -98,7 +98,7 @@
       </table>
       <div style="height:100px"></div>
    </section>
-   <%@ include file= "../footer/footer.jsp" %>
+<%--    <%@ include file= "../footer/footer.jsp" %> --%>
 </body>
 <script>
    
