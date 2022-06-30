@@ -38,5 +38,4 @@ public class ReplyDTO {
 		this.servicenum = servicenum;
 	}
 	
-	
 }

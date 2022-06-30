@@ -45,6 +45,5 @@ public class ServiceListAction implements Action{
 		forward.setPath(req.getContextPath() + "/service/minsu1.jsp");
 		
 		return forward;
-	}
-	
+}
 }

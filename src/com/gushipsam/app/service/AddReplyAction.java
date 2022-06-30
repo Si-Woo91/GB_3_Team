@@ -30,7 +30,7 @@ public class AddReplyAction implements Action {
 		} 
 		
 		return forward;
-	}
+}
 
 }
 

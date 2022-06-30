@@ -88,6 +88,7 @@
 		</table>
 	</div>
 </div>
-			<%@ include file= "../footer/footer.jsp" %>
+		<%@ include file= "../footer/footer.jsp" %>
 </body>
+
 </html>
