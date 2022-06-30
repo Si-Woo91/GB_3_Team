@@ -31,9 +31,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- (관리자 페이지)상품 추가 -->
 	<insert id="insertGoods" parameterType="goodsdto">
-		INSERT INTO GOODS
-		(gID,gImgs,gName,gBrand,gPRICE,gSTOCK)VALUES (seq_gidx.nextval,
-		#{gImgs}, #{gName}, #{gBrand}, #{gPRICE}, #{gSTOCK})
+<!-- 		INSERT INTO GOODS -->
+<!-- 		(gID,gImgs,gName,gBrand,gPRICE,gSTOCK)VALUES (seq_gidx.nextval, -->
+<!-- 		#{gImgs}, #{gName}, #{gBrand}, #{gPRICE}, #{gSTOCK}) -->
+		INSERT INTO GOODS (gImgs,gName,gBrand,gPRICE,gSTOCK)
+      	VALUES (#{gImgs},#{gName},#{gBrand},#{gPRICE},#{gSTOCK})
 	</insert>
 	
 	<!-- 상품 삭제 -->
@@ -43,30 +45,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<foreach collection="delgids" item="gID" open="(" separator="," close=")">
 			#{gID}
 		</foreach>
-	</delete>	
-	
+	</delete>
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

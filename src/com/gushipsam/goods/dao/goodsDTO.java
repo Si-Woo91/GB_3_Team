@@ -16,7 +16,6 @@ public class goodsDTO {
 	private int		gSTOCK;
 	
 
-	
 
 	public int getgID() {
 		return gID;

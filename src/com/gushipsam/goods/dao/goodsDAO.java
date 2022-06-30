@@ -77,7 +77,7 @@ public class goodsDAO {
 	
 	// (관리자 페이지) 상품 리스트
 	public List<ShoppingMallDTO> getGoodslist() {
-		List<ShoppingMallDTO> goodlist = sqlsession.selectList("goods.selectGoods");
+		List<ShoppingMallDTO> goodlist = sqlsession.selectList("goods.insertGoods");
 		return goodlist;
 	}
 	

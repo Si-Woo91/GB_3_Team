@@ -30,7 +30,7 @@ public class PaymentPushAction implements Action{
 			
 		if( cIDs[0].equals("0") ) {					// CART에 안 넣고 바로 결제하는 경우
 			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/shoppingmall/mypage.spm");
+			forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
 		} else {									// CART를 거쳐  결제하는 경우
 			
 			for(String cID : cIDs) {
@@ -49,10 +49,10 @@ public class PaymentPushAction implements Action{
 			
 			if( pdao.deleteCartItemAll(cIDs) ) {
 				forward.setRedirect(true);
-				forward.setPath(req.getContextPath() + "/shoppingmall/mypage.spm");
+				forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
 			} else {
 				forward.setRedirect(true);
-				forward.setPath(req.getContextPath() + "/shoppingmall/mypage.spm");
+				forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
 			}
 		}
 		

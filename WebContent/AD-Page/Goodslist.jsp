@@ -187,13 +187,13 @@ function delgid(){
         xhr.onreadystatechange = function(){
            if( xhr.readyState == XMLHttpRequest.DONE 
                  && xhr.status == 200 ){
-              alert(xhr.responseText);
               
               if(xhr.responseText.trim() == "not_ok"){
                  alert("해당 상품은 주문대기중이라 삭제 실패");
                  return false;
               } else {
               $('#ajax_goodslist').html(xhr.responseText);
+              alert("선택한 상품이 성공적으로 제거되었습니다.");
             }
          }  
       }
