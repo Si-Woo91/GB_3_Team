@@ -28,26 +28,56 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <!-- parameterType: 외부에서 받아올 값의 타입  -->
 	<!-- resultType: 리턴받을 값의 타입 -->
 	
+
+	
+	<!-- 회원 정보 불러옴 -->
+	<select id="getMemberList" resultType="shoppingmalldto"
+		parameterType="string">
+		SELECT * FROM MEMBERS
+	</select>
+
+	<!-- 총 회원 수 -->
+	<select id="getMemberCnt" resultType="_int">
+		SELECT COUNT(*)	FROM MEMBERS
+	</select>
+
+<!-- 	<select id="getGoodsCnt" resultType="_int"> -->
+<!-- 		SELECT COUNT(*) FROM GOODS -->
+<!-- 	</select> 	총 상품 수 -->
+
+	<!-- 총 주문 갯수 -->
+	<select id="getOrderCnt" resultType="_int">
+		SELECT COUNT(*) FROM ORDERS
+	</select>
+
 	<!-- shopdto에 select문의 결과를 담아서 보냄 -->
-	<select id="getRecentList" resultType="shoppingmalldto" parameterType="string">
-	<!-- SELECT * FROM(SELECT * FROM ORDERS WHERE mID = 'ksh') WHERE rownum <= 3 ORDER BY oID DESC -->
-<!-- 		SELECT o.#{oDate} ,o.#{oPAYMENT} ,g.#{gName} FROM ORDERS o INNER JOIN GOODS g ON g.GID = o.GID ORDER BY OID DESC; -->
-		SELECT o.oDATE ,o.oPAYMENT ,g.gNAME ,gIMG FROM ORDERS o INNER JOIN GOODS g ON g.GID = o.GID ORDER BY o.ODATE DESC
+	<select id="getRecentList" resultType="shoppingmalldto"
+		parameterType="string">
+<!-- 		SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE FROM ORDERS o INNER JOIN GOODS g ON o.GID = g.GID WHERE o.USERID = #{userid} -->
+		<![CDATA[SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE, g.gCatg 
+		FROM ORDERS o 
+		INNER JOIN GOODS g ON o.GID = g.GID 
+		WHERE USERID = #{userid}
+		AND rownum <= 3
+		ORDER BY ODATE DESC]]>
 	</select>
-	
-	<!-- 상품 관려된 모든 데이터 select-->
-	<select id="getGoodsList" resultType="shoppingmalldto" parameterType="string">
-		SELECT * FROM GOODS
+
+	<!-- 주문목록 페이지 페이징 처리 -->
+	<select id="getOrderList" resultType="shoppingmalldto"
+		parameterType="hashmap">
+		<!-- SELECT * -->
+		<!-- FROM(SELECT rownum R, D.* -->
+		<!-- FROM (SELECT * FROM ORDERS ORDER BY OID DESC) D) B -->
+		<!-- WHERE B.R BETWEEN #{startRow} AND #{endRow} -->
+		SELECT *
+		FROM(SELECT rownum R, D.*
+		FROM (SELECT * FROM ORDERS o INNER JOIN GOODS g ON o.gid
+		= g.GID
+		ORDER BY OID DESC) D) B
+		WHERE B.R BETWEEN 1 AND 10
 	</select>
+
 	
-	<!-- 상품 추가 -->
-	<insert id="insertGoods" parameterType="shoppingmalldto">
-		INSERT INTO GOODS (gId,gIMG,gNAME,gBrand,gPRICE,gSTOCK)VALUES (Good_Seq.nextval, #{gIMG}, #{gNAME}, #{gBrand}, #{gPRICE}, #{gSTOCK})
-	</insert>
-	
-	<select id="selectGoods" resultType="shoppingmalldto" parameterType="shoppingmalldto">
-		SELECT * FROM GOODS
-	</select>
 	
 	<select id="getSearchList"  parameterType="shoppingmalldto" resultType="shoppingmalldto">
 	SELECT * FROM goods

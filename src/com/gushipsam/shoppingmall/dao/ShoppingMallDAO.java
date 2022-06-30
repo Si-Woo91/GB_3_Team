@@ -80,50 +80,60 @@ public class ShoppingMallDAO {
 		return user_pw;
 	}
 	
-	// mypage 최근 주문 리스트
-	public List<ShoppingMallDTO> getRecentList() {
-		System.out.println("getRecentList 도착");
 
-		List<ShoppingMallDTO> recentList = sqlsession.selectList("shoppingmall.getRecentList");
-		System.out.println("recentList 조회");
-
-		return recentList;
-	}
-
-	// 관리자 상품리스트
-	public List<ShoppingMallDTO> getGoodsList() {
-		System.out.println("getGoodsList 도착");
-
-		List<ShoppingMallDTO> goodsList = sqlsession.selectList("shoppingmall.getGoodsList");
-		System.out.println("goodsList 조회");
-
-		return goodsList;
-	}
-
-	// 관리자 상품추가
-	public boolean insertGoods(ShoppingMallDTO shop) {
-		boolean result = false;
-
-		// insert 성공시
-		if (sqlsession.insert("shoppingmall.insertGoods", shop) == 1) {
-			result = true;
-		}
-
-		System.out.println("result : " + result);
-
-		return result;
-	}
 
 	// goods_seq
 	public int getGoods_seq() {
 		return sqlsession.selectOne("shoppingmall.getGoods_seq");
 	}
 
-	public List<ShoppingMallDTO> getGoodslist() {
-		List<ShoppingMallDTO> goodlist = sqlsession.selectList("shoppingmall.selectGoods");
-		return goodlist;
-	}
+	
+	// (mypage) 최근(3건만) 주문 리스트(상품가격
+	public List<ShoppingMallDTO> getRecentList(String userid) {
+		System.out.println("getRecentList 도착");
 
+		List<ShoppingMallDTO> recentList = sqlsession.selectList("shoppingmall.getRecentList", userid);
+		System.out.println("recentList 조회");
+
+		return recentList;
+	}
+	
+	
+
+	// 관리자 회원 리스트
+		public List<ShoppingMallDTO> getMemberList() {
+			System.out.println("getMemberList 도착");
+
+			List<ShoppingMallDTO> memberList = sqlsession.selectList("shoppingmall.getMemberList");
+			System.out.println("memberList 조회");
+
+			return memberList;
+		}
+
+		// 관리자 회원 수
+		public int getMemberCnt() {
+			return sqlsession.selectOne("shoppingmall.getMemberCnt");
+		}
+
+
+
+		// (주문 페이지) 주문 수
+		public int getOrderCnt() {
+			return sqlsession.selectOne("shoppingmall.getOrderCnt");
+		}
+
+		public List<ShoppingMallDTO> getOrderList(int startRow, int endRow) {
+			HashMap<String, Integer> datas = new HashMap<>();
+			datas.put("startRow", startRow);
+			datas.put("endRow", endRow);
+
+			List<ShoppingMallDTO> orderList = sqlsession.selectList("shoppingmall.getOrderList", datas);
+			System.out.println("orderList 조회성공");
+			return orderList;
+		}	
+
+
+	
 	// search 메서드(상품명,브랜드)
 	public List<ShoppingMallDTO> getSearchList(String searchtext) {
 		System.out.println("getSearchList 메서드 dao 에용");

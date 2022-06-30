@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /*-------공통 스타일 시작 ------------------------*/
 * {											/* 전체 초기화 */
 	margin: 0 auto;
@@ -8,8 +7,21 @@
 	font-family :'GowunDodum-Regular';
 	
 }
-
 @font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+@charset "UTF-8";
+
+/*-------공통 스타일 시작 ------------------------*/
+* {                                 /* 전체 초기화 */
+   margin: 0 auto;
+   padding: 0;
+   text-decoration: none;
+   font-family :'GowunDodum-Regular';
+   
+}
+
+@font-face {                           /* 폰트 설정 (회의후 변경예정) */
     font-family: 'GowunDodum-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
     font-weight: normal;
@@ -24,62 +36,175 @@
 /*-------------------공통 스타일 끝-----------------------------------*/
 /*-------------------상품상세페이지 스타일 시작---------------------------*/
 section {
-	width: 1200px;
-	margin: auto;
+   width: 1200px;
+   margin: auto;
 }
 
 .photo {
-	text-align: center; 
+   text-align: center; 
 }
 
 #skeleton{
-	margin: auto;
+   margin: auto;
 }
 
 #skeleton #details_td{
-	width: 700px;
+   width: 700px;
 }
 
 .details{
-	text-align: left;
+   text-align: left;
 }
 
+.name{
+   text-align: left;
+   padding: 10px 30px;
+   font-weight: bold;
+   font-size: 25px;
+}
+
+#name2_table{
+   text-align: left;
+   padding: 10px 0px 10px 30px;
+}
+
+
+.name2{
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+   display: inline-block;   
+}
+
+.name2 td{
+   text-align: left; 
+   padding: 10px 20px 8px 15px;
+   width: 510px;
+}
+
+.quantity{
+   text-align: center;
+   font-size: 15px;
+}
+
+.quantity #qty_title{
+   margin-bottom:10px;
+   font-size:15px;   
+   font-weight: bold;
+}
+
+.quantity button {
+   height: 30px;
+   width: 30px;
+   font-size: 15px;
+   line-height: 15px ;
+   text-align: center;
+   border-radius: 20px;
+   font-weight: bold;
+   cursor: pointer;
+   
+}
+
+.quantity input{
+   border: none;
+   width: 30px;
+   text-align: center;
+   padding: 3px;
+   display:inline-block;
+   text-weight: bold;
+   font-size: 15px;
+}
+
+.payment{
+   text-align: center;
+   height: 80px;
+}
+
+
+.payment #checkout_btn, .payment #cart_btn{
+   cursor: pointer;
+   line-height: 17px;
+   height: 40px;
+   font-size: 17px;
+   border: none;
+   border-radius: 25px;   
+   background-color: orange;
+   color: white;
+   font-weight: bold;
+   width:120px;
+   margin-top: 20px;
+}
+
+.payment #checkout_btn:hover, .payment #cart_btn:hover{
+   background-color: #F28C28;
+}
+
+.extra_detail {
+   font-size: 15px;
+   cursor: pointer;
+   text-align: center;
+   width:150px;
+   color: #170e05;
+   font-weight: bold;
+}
+
+.extra_detail:hover {
+   color: black;
+}
+/*-------------------상품상세페이지 스타일 끝---------------------------*/    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunBatang-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*-------------------공통 스타일 끝-----------------------------------*/
+/*-------------------상품상세페이지 스타일 시작---------------------------*/
+section {
+	width: 1200px;
+	margin: auto;
+}
+.photo {
+	text-align: center; 
+}
+#skeleton{
+	margin: auto;
+}
+#skeleton #details_td{
+	width: 700px;
+}
+.details{
+	text-align: left;
+}
 .name{
 	text-align: left;
 	padding: 10px 30px;
 	font-weight: bold;
 	font-size: 25px;
 }
-
 #name2_table{
 	text-align: left;
 	padding: 10px 0px 10px 30px;
 }
-
-
 .name2{
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	display: inline-block;	
 }
-
 .name2 td{
 	text-align: left; 
 	padding: 10px 20px 8px 15px;
 	width: 510px;
 }
-
 .quantity{
 	text-align: center;
 	font-size: 15px;
 }
-
 .quantity #qty_title{
 	margin-bottom:10px;
 	font-size:15px;	
 	font-weight: bold;
 }
-
 .quantity button {
 	height: 30px;
 	width: 30px;
@@ -91,7 +216,6 @@ section {
 	cursor: pointer;
 	
 }
-
 .quantity input{
 	border: none;
 	width: 30px;
@@ -101,13 +225,10 @@ section {
 	text-weight: bold;
 	font-size: 15px;
 }
-
 .payment{
 	text-align: center;
 	height: 80px;
 }
-
-
 .payment #checkout_btn, .payment #cart_btn{
 	cursor: pointer;
 	line-height: 17px;
@@ -121,21 +242,19 @@ section {
 	width:120px;
 	margin-top: 20px;
 }
-
 .payment #checkout_btn:hover, .payment #cart_btn:hover{
 	background-color: #F28C28;
 }
-
 .extra_detail {
 	font-size: 15px;
 	cursor: pointer;
 	text-align: center;
 	width:150px;
-	color: #5E5E5E;
+	color: #170e05;
 	font-weight: bold;
 }
 
 .extra_detail:hover {
 	color: black;
 }
-/*-------------------상품상세페이지 스타일 끝---------------------------*/
+/*-------------------상품상세페이지 스타일 끝---------------------------*/ 

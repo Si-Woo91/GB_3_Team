@@ -15,9 +15,11 @@
 	<link rel="stylesheet" type="text/css" href="../css/cart06.css">
 	<link rel="stylesheet" type="text/css" href="../css/checkout06.css">
 	<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
-<!-- 	<link rel="stylesheet" type="text/css" href="../css/Mypage.css">
+	<link rel="stylesheet" type="text/css" href="../css/Mypage.css">
+	<link rel="stylesheet" type="text/css" href="../css/User-Info.css">
 	<link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css">
-	<link rel="stylesheet" type="text/css" href="../css/OrderList-Page.css"> -->
+	<link rel="stylesheet" type="text/css" href="../css/OrderList-Page.css">
+	<link rel="stylesheet" type="text/css" href="../css/secession.css">
 	<script type="text/javascript" src="../js/slick.min.js"></script> 
 	<script type="text/javascript" src="../js/slide.js"></script> 
 </head>
@@ -40,7 +42,7 @@
 					</c:when>
 				<c:otherwise>
 						<li class= login>
-							<a href="${pageContext.request.contextPath}/lobby/Mypage.jsp">마이페이지</a>
+							<a href="${pageContext.request.contextPath}/lobby/mypage.spm">마이페이지</a>
 						</li>
 						<li class= login>
 							${sessionId}님 환영합니다.&nbsp;&nbsp;&nbsp;
@@ -52,7 +54,7 @@
 			<!-- 검색창 -->
 		<div class="search1">
 			<form action="${pageContext.request.contextPath}/goods/SearchGoods.spm" method="post" name="searchForm">
-				<input placeholder="Search" class= search name="searchtext">
+				<input placeholder="Search" class= 'search_main' name="searchtext">
 				<a class="btn" href="javascript:document.searchForm.submit()" role="button">
 					<img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 				</a>

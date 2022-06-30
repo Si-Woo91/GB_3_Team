@@ -25,7 +25,7 @@
 /* modify table css */
 
 /* body박스 크기 조정 */
-.body-wrap{
+.ifup-body-wrap{
 	margin: auto;
 /* 	높이 고정 */
 	min-height: 600px;
@@ -37,7 +37,7 @@
 }
 
 
-.usermodify-title{
+.ifup-usermodify-title{
 	margin-bottom: 10px;
 	font-size: 30px;
 	font-weight: bold;
@@ -45,7 +45,7 @@
     letter-spacing: -1px;
 }
 
-.usermodify-table{
+.ifup-usermodify-table{
 /* 	테이블 넓이 */
 	width: 100%;
 	border-top: 2px solid #969696;
@@ -63,7 +63,7 @@ tbody{
 }
 
 
-.usermodify-table th{
+.ifup-usermodify-table th{
 	background-color: #eef1f8;
 	min-width: 150px;
 	max-width: 150px;
@@ -76,47 +76,39 @@ input[type=password]{
 	
 }
 
-tr {
+.ifup-usermodify-table tr {
 	border-top: 1px solid #ddd;
 }
 
-td{
+.ifup-usermodify-table td{
 	width: 1000px;
 	text-align: left;
 	padding-left: 20px;
 }
 
-.usermodify-input-table th{
-	text-align: center;
-	height: 50px;
-	
-}
 
-.usermodify-input-table {
+.ifup-usermodify-input-table {
 	width: 500px;
 }
 
-.usermodify-input-table th{
+.ifup-usermodify-input-table th{
 	background-color: #fff;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: left;
 }
 
-.usermodify-input-table td{
-	text-align: left;
-}
 
-.usermodify-secession {
+.ifup-usermodify-secession {
     margin-top: 10px;
     text-align: right;
     color: #97979f;
 }
 
-.usermodify-cancel{
+.ifup-usermodify-cancel{
 	margin: auto;
 }
 
-.usermodify-foot{
+.ifup-usermodify-foot{
 	text-align: center;
 }
 

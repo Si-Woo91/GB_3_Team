@@ -22,68 +22,41 @@ public class PaymentPushAction implements Action{
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("sessionId");
 		
-		if( userid == null || userid.equals("")) {
-			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/IDPW/login.jsp");
-		} else {
-			String[] cIDs = req.getParameter("cids").split(",");
-			String oPHONE = req.getParameter("ophone");
-			String oADDRESS = req.getParameter("oaddress");
-			int directgID = Integer.parseInt(req.getParameter("directgID"));
-			int directoQTY = Integer.parseInt(req.getParameter("directoQTY"));
+		String[] cIDs = req.getParameter("cids").split(",");
+		String oPHONE = req.getParameter("ophone");
+		String oADDRESS = req.getParameter("oaddress");
 		
-			if( cIDs[0].equals("0") ) {					// CART에 안 넣고 바로 결제하는 경우
+		
+			
+		if( cIDs[0].equals("0") ) {					// CART에 안 넣고 바로 결제하는 경우
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
+		} else {									// CART를 거쳐  결제하는 경우
+			
+			for(String cID : cIDs) {
+				cdto = pdao.getCartItem(cID);
 				
 				odto.setoID(0);
 				odto.setUserid(userid);
-				odto.setgID(directgID);
-				odto.setoQTY(directoQTY);
+				odto.setgID(cdto.getgID());
+				odto.setoQTY(cdto.getcQTY());
 				odto.setoDATE(null);
 				odto.setoPHONE(oPHONE);
 				odto.setoADDRESS(oADDRESS);
 				
 				pdao.insertOrder(odto);
-				
+			}
+			
+			if( pdao.deleteCartItemAll(cIDs) ) {
 				forward.setRedirect(true);
 				forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
-			} else {									// CART를 거쳐  결제하는 경우
-				
-				for(String cID : cIDs) {
-					cdto = pdao.getCartItem(cID);
-					
-					odto.setoID(0);
-					odto.setUserid(userid);
-					odto.setgID(cdto.getgID());
-					odto.setoQTY(cdto.getcQTY());
-					odto.setoDATE(null);
-					odto.setoPHONE(oPHONE);
-					odto.setoADDRESS(oADDRESS);
-					
-					pdao.insertOrder(odto);
-				}
-				
-				if( pdao.deleteCartItemAll(cIDs) ) {
-					forward.setRedirect(true);
-					forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
-				} else {
-					forward.setRedirect(true);
-					forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
-				}
+			} else {
+				forward.setRedirect(true);
+				forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
 			}
 		}
-		
-		
-
 		
 		return forward;
 	}
 
 }
-
-
-
-
-
-
-
-

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gushipsam.action.ActionForward;
+import com.gushipsam.app.service.DeleteAction;
 
 @WebServlet("*.sv")
 public class ServiceFrontController extends HttpServlet{
@@ -59,7 +60,9 @@ public class ServiceFrontController extends HttpServlet{
 				System.out.println("16");
 				forward = new DeleteReplyAction().execute(req, resp);
 				break;
-				
+			case"/service/Delete.sv":
+				forward = new DeleteAction().execute(req,resp);
+				break;
 		}
 		
 		
@@ -71,8 +74,7 @@ public class ServiceFrontController extends HttpServlet{
 			}else {
 				RequestDispatcher disp = req.getRequestDispatcher(forward.getPath());
 				disp.forward(req, resp);
-				System.out.println("18");
-			}
+				}
 		}
 	}
 }

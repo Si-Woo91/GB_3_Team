@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* 페이지 전체 영역  */
+
+/* 페이지 전체 넓이 설정 */
+#wrap {
+	width: 100%;
+}
+
+/* body(전체) 넓이 및 가운데 정렬(마진) */
+body {
+	width: 1000px;
+	margin: 0 auto
+}
+
+/* 회원 관리 part css 시작 */
+
+.member-list{
+	width: 100%;
+	border: 1px solid powderblue;
+	border-collapse: collapse;
+	margin: auto;
+}
+
+.member-list th, td, tr{
+	border: 2px solid powderblue;
+}
+
+.member-list-thead{
+	text-align: center;
+}

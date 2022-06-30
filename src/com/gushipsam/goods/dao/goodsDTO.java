@@ -13,7 +13,9 @@ public class goodsDTO {
 	private String 	gImgs;		// 상품 이미지1(메인)
 	private String 	gImgl;		// 상품 이미지2(상세)
 	private String 	gDATE;		// 상품 등록일
+	private int		gSTOCK;
 	
+
 
 	public int getgID() {
 		return gID;
@@ -103,7 +105,13 @@ public class goodsDTO {
 		this.gDATE = gDATE;
 	}
 	
-	
+	public int getgSTOCK() {
+		return gSTOCK;
+	}
+
+	public void setgSTOCK(int gSTOCK) {
+		this.gSTOCK = gSTOCK;
+	}
 	
 	
 }
