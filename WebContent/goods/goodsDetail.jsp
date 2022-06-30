@@ -32,22 +32,19 @@
 <meta charset="UTF-8">
 <title>구심삽 주문결제</title>
 <script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="goodsDetail.css">
 <link rel="shortcut icon" href="gu_icon.ico">
 </head>
-		<header> <%@ include file="../header/header.jsp" %> </header>
+<%@ include file="../header/header.jsp" %>
 <body>
-	<div style="height: 200px;"></div>
-
+	<div style="height: 220px;"></div>
 	<section>
 		<table id="skeleton">
 			<tr>
 				<td>
 					<div class="photo">
-						<img src="${pageContext.request.contextPath }/img/<%=foldername %>/${goodsDetail.gImgs }" width="500" height="500">
+						<img src="${pageContext.request.contextPath }/img/<%=foldername %>/${goodsDetail.gImgs }" width="450" height="450">
 					</div>
 
 				</td>
@@ -82,10 +79,11 @@
 						</div>
 					</div>
 					<div class="quantity">
-						<div id="qty_title">주문수량</div>
+						<span id="qty_title">주문수량</span>
+						&nbsp; &nbsp;
 						<span class=btn>
 							<button type="button" id="mbtn">-</button>
-								<input type="text"id="qty" readonly value="1">
+								<input type="text" id="qty" readonly value="1">
 							<button type="button" id="pbtn">+</button>
 						</span>
 					</div>
@@ -102,7 +100,7 @@
 		</table>
 		<div style="height:100px"></div>
 	</section>
-		<footer><%@ include file= "../footer/footer.jsp" %></footer>
+	<%@ include file= "../footer/footer.jsp" %>
 </body>
 <script>
 	

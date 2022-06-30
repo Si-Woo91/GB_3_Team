@@ -65,8 +65,8 @@ section#cart, section#checkout {
 /* 대형 제목 스타일 */
 #cart #title_big, #checkout #title_big {
 	line-height: 100px;
-	width: 700px;
-	margin: 230px auto 30px auto;
+	width: 600px;
+	margin: 220px auto 0px auto;
 	/*header 때문에 맨 위 margin 크게 잡아야 전체화면이 보임.*/
 	border: 1px solid orange;
 	border-radius: 10px;
@@ -100,6 +100,7 @@ section#cart, section#checkout {
 	height: 40px;
 	background-color: #F5F5F5;
 	border-top: 1px solid #e1e1e1;
+	font-weight: bold;
 }
 
 #cart #order_tb>tbody>tr>td, #checkout #order_tb>tbody>tr>td {

@@ -8,13 +8,13 @@
 <title>구십삼</title>
 	<link rel="stylesheet" type="text/css" href="../css/main_css.css">
 	<link rel="stylesheet" type="text/css" href="../css/slick.css">
-	<link rel="stylesheet" type="text/css" href="../css/common06.css">
-	<link rel="stylesheet" type="text/css" href="../css/cart06.css">
-	<link rel="stylesheet" type="text/css" href="../css/common07.css">
-	<link rel="stylesheet" type="text/css" href="../css/checkout06.css">
 	<link rel="stylesheet" type="text/css" href="../css/header.css">
 	<link rel="stylesheet" type="text/css" href="../css/footer.css">
 	<link rel="stylesheet" type="text/css" href="../css/minsu.css">
+	<link rel="stylesheet" type="text/css" href="../css/common06.css">
+	<link rel="stylesheet" type="text/css" href="../css/cart06.css">
+	<link rel="stylesheet" type="text/css" href="../css/checkout06.css">
+	<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 <!-- 	<link rel="stylesheet" type="text/css" href="../css/Mypage.css">
 	<link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css">
 	<link rel="stylesheet" type="text/css" href="../css/OrderList-Page.css"> -->
@@ -31,7 +31,7 @@
  			<!-- 로그인, 로그아웃, 장바구니, 고객센터 -->
  			<ul class = nav1>
 						<li class= service><a href= "../service/minsu1.sv">고객센터 </a></li>
-						<li class= basket><a href= "${pageContext.request.contextPath }/payment/cart06.jsp">장바구니 </a></li>
+						<li class= basket><a href= "${pageContext.request.contextPath }/payment/cart.pay">장바구니 </a></li>
 				<c:choose>
 					<c:when test="${sessionId eq null}">
 						<li class= login>

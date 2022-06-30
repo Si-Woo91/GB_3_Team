@@ -137,4 +137,19 @@ public class PaymentDAO {
 		return result;
 	}
 	
+	public boolean updateCart(int samecID, int gQTY) {
+		System.out.println("updateCart 도착");
+		boolean result = false;
+		
+		HashMap<String, Integer> datas = new HashMap<>();
+		datas.put("samecID", samecID);
+		datas.put("gQTY", gQTY);
+		
+		if(sqlsession.insert("Payment.updateCart", datas) == 1) {
+			result = true;
+		}
+		
+		return result;
+	}
+	
 }

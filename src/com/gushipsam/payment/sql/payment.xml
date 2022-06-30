@@ -13,6 +13,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="insertCart" parameterType="hashmap">
 		INSERT INTO CART VALUES(cart_seq.nextval,#{userid},#{gID},#{gQTY})
 	</select>
+	
+	<select id="updateCart" parameterType="hashmap">
+		UPDATE CART
+			SET CQTY = #{gQTY}
+		WHERE CID = #{samecID}
+	</select>
 
 	<select id="getCartList" parameterType="string" resultType="cartdto">
 		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE , g.GIMGS, g.GCATG

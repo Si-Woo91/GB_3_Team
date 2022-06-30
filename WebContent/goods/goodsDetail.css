@@ -2,7 +2,7 @@
 
 /*-------공통 스타일 시작 ------------------------*/
 * {											/* 전체 초기화 */
-	margin: 0;
+	margin: 0 auto;
 	padding: 0;
 	text-decoration: none;
 	font-family :'GowunDodum-Regular';
@@ -25,7 +25,7 @@
 /*-------------------상품상세페이지 스타일 시작---------------------------*/
 section {
 	width: 1200px;
-	margin:  auto;
+	margin: auto;
 }
 
 .photo {
@@ -48,7 +48,7 @@ section {
 	text-align: left;
 	padding: 10px 30px;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 #name2_table{
@@ -58,20 +58,17 @@ section {
 
 
 .name2{
-	border-top: 1px solid #000;
-	border-bottom: 1px solid #000;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 	display: inline-block;	
 }
 
-.name2 th, td{
+.name2 td{
 	text-align: left; 
 	padding: 10px 20px 8px 15px;
+	width: 510px;
 }
 
-.name2 td{
-	width: 490px;
-	
-}
 .quantity{
 	text-align: center;
 	font-size: 15px;
@@ -80,6 +77,7 @@ section {
 .quantity #qty_title{
 	margin-bottom:10px;
 	font-size:15px;	
+	font-weight: bold;
 }
 
 .quantity button {
@@ -88,6 +86,10 @@ section {
 	font-size: 15px;
 	line-height: 15px ;
 	text-align: center;
+	border-radius: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	
 }
 
 .quantity input{
@@ -96,6 +98,8 @@ section {
 	text-align: center;
 	padding: 3px;
 	display:inline-block;
+	text-weight: bold;
+	font-size: 15px;
 }
 
 .payment{
@@ -104,11 +108,11 @@ section {
 }
 
 
-.payment #checkout_btn, #cart_btn{
+.payment #checkout_btn, .payment #cart_btn{
 	cursor: pointer;
-	line-height: 40px;
+	line-height: 17px;
 	height: 40px;
-	font-size: 20px;
+	font-size: 17px;
 	border: none;
 	border-radius: 25px;	
 	background-color: orange;
@@ -116,12 +120,22 @@ section {
 	font-weight: bold;
 	width:120px;
 	margin-top: 20px;
+}
 
+.payment #checkout_btn:hover, .payment #cart_btn:hover{
+	background-color: #F28C28;
 }
 
 .extra_detail {
 	font-size: 15px;
 	cursor: pointer;
 	text-align: center;
+	width:150px;
+	color: orange;
+	font-weight: bold;
+}
+
+.extra_detail:hover {
+	color: #F28C28;
 }
 /*-------------------상품상세페이지 스타일 끝---------------------------*/

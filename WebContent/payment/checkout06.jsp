@@ -26,8 +26,8 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+<%@ include file= "../header/header.jsp" %>
 <body id="payment">
-	<header> <%@ include file= "../header/header.jsp" %> </header>
 	<section id='checkout'>
 		<br>
 		<div id="title_big">주문/결제</div>
@@ -42,7 +42,6 @@
 				<tr>
 					<td colspan="4">
 						<h3 id="title">구십삼 배송상품</h3>
-						<div style="height:10px"></div>
 					</td>
 				</tr>
 				<tr class="table_top">
@@ -136,7 +135,7 @@
 							<td>	받는분	</td>
 							<td>
 								<span style="color:red; font-weight:bold">*</span>
-								<input type="text" value="<%= name %>" style="width:300px">
+								<input type="text" id="receiver" value="<%= name %>" style="width:300px">
 							</td>
 						</tr>
 						<tr>
@@ -162,22 +161,25 @@
 						</tr>
 						<tr>
 							<td>
-								<span style="color:white; font-weight:bold">*</span>
+								<span style="color:red;; font-weight:bold">*</span>
 								<input type="text" id="sample6_address" placeholder="주소" style="width:400px">
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<span style="color:transparent; font-weight:bold">*</span>
+								<span style="color:red; font-weight:bold">*</span>
 								<input type="text" id="sample6_detailAddress" placeholder="상세주소" style="width:250px">
 								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:150px">
 							</td>
 						</tr>
 						<tr>
-							<td>	배송요청사항	</td>
+							<td>
+							</td>
 							<td>	
-								<span style="color:transparent; font-weight:bold">*</span>
-								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:450px">	
+								<span style="color:red; font-weight:bold">* 필수작성란</span>
+							
+<!-- 								<span style="color:transparent; font-weight:bold">*</span> -->
+<!-- 								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:450px">	 -->
 							</td>
 						</tr>
 					</table>	
@@ -294,7 +296,7 @@
 						</tr>
 						<tr>
 							<td>	입금자명	</td>
-							<td>	<input type="text" value="김찬우" style="width:100px"></td>
+							<td>	<input type="text" value="<%= name %>" style="width:100px"></td>
 						</tr>					
 					</table>
 					<table id="account_tb"  class="sub_tb">
@@ -314,9 +316,9 @@
 					</table>
 					<table id="naverpay_tb"  class="sub_tb">
 						<tr>
-							<td>
+							<td>				
 								<ul id="explain3">
-									<li style="font-weight:bold;"> &lt;네이버페이 유의사항&gt;</li>
+									<li style="font-weight:bold; list-style-type:none;"> &lt;네이버페이 유의사항&gt;</li>
 									<li>주문 변경 시 카드사 혜택 및 할부 적용 여부는 해당 카드사 정책에 따라 변경될 수 있습니다.</li>
 									<li>네이버페이로 결제 시, 제휴카드 할인/적립(CJ카드, 임직원할인 포함)이 적용되지 않습니다.</li>
 									<li>현금영수증 확인은 네이버페이 홈페이지에서 확인 가능합니다. (네이버페이 홈 > 결제내역)</li>
@@ -345,14 +347,34 @@
 		</table>
 	</section>
 	<div style="height:130px"></div>
-	<footer><%@ include file= "../footer/footer.jsp" %></footer>
+	<%@ include file= "../footer/footer.jsp" %>
 </body>
 <script>
 	function checkoutnpay(){
 		
+		//필수 입력란
+		let checkout_inputs = [$('#phone1').val(), $('#phone2').val(), $('#phone3').val(),
+									$('#sample6_address').val(), $('#sample6_detailAddress').val(), $('#receiver').val(), $('#sample6_postcode').val()];
+		
+		let ophone = checkout_inputs[0] + checkout_inputs[1] + checkout_inputs[2];
+		let oaddress = checkout_inputs[3] +" "+ checkout_inputs[4] + $('#sample6_extraAddress').val();
+		
+		for(let input of checkout_inputs){
+			if(input==null || input==""){
+				alert("배송정보를 정확히 입력해주세요.");
+				return false;
+			}
+		}
+		
 		let total_amount = "<%= df.format(checkoutSum+shippingCost)%>";
-		if(! confirm("해당 상품을 주문하고자 " + total_amount + " 원을 결제하시겠습니까?") ) {
+		let paymethod = $('input[name="paymethod"]:checked').val();
+		let postposition ="를";
+		if(paymethod =="무통장입금") postposition = "을";
+		
+		if(! confirm( paymethod + postposition + " 사용하여 " + total_amount + " 원을 결제하시겠습니까?") ) {
 			return false;
+		} else {
+			alert('주문/결제가 완료되었습니다.');
 		}
 		
 		let cid_arr = [];
@@ -361,10 +383,7 @@
 		%>
 			cid_arr.push("${cID}");
 		<%}%>
-		
-		let ophone = $('#phone1').val() + $('#phone2').val() + $('#phone3').val();
-		let oaddress = $('#sample6_address').val() +" "+ $('#sample6_detailAddress').val() + $('#sample6_extraAddress').val();
-			
+					
 		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress;
 	}
 </script>

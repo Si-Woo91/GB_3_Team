@@ -18,7 +18,7 @@
 <title>구심삽 장바구니</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-	<header> <%@ include file= "../header/header.jsp" %> </header>
+<%@ include file= "../header/header.jsp" %>
 <body id="payment">
 	<section id='cart'>
 		<br>
@@ -36,7 +36,6 @@
 					<tr>
 						<td colspan="5">
 							<h3 id="title">구십삼 주문상품</h3>
-							<div style="height:10px"></div>
 						</td>
 					</tr>
 					<tr class="table_top">
@@ -125,7 +124,7 @@
 		
 	</section>
 	<div style="height:100px"></div>
-	<footer><%@ include file= "../footer/footer.jsp" %></footer>
+	<%@ include file= "../footer/footer.jsp" %>
 </body>
 <script>
 //------------cid_arr 배열 사용하는 함수 모음 시작-----------------------//

@@ -9,10 +9,13 @@
 	border-radius: 5px;
 	border: 1px solid green;
 	cursor:pointer;
-	font-size:14px;
+	font-size:13px;
 	width:100px;
 	color: green;
-/* 	font-weight: bold; */
+}
+
+#checkout #address_button:hover{
+	background-color: #FAF9F7;
 }
 
 #checkout #pay_button{
@@ -27,6 +30,9 @@
 	font-weight: bold;
 }
 
+#checkout #pay_button:hover{
+	background-color: #F28C28;	
+}
 
 #checkout #pay_tb{
     font-size: 14px;
