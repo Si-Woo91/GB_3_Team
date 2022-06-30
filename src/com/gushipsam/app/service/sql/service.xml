@@ -52,6 +52,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from SERVICE_REPLY where REPLYNUM = #{replynum}
 	</delete> 
 	
+	
+	<delete id="delser" parameterType="_int">
+		DELETE FROM SERVICE WHERE SERVICENUM = #{svnum}
+	</delete>
 </mapper>
 
 

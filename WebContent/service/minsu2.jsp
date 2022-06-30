@@ -11,6 +11,7 @@
 </head>
 <%@ include file= "../header/header.jsp" %>
 <body>
+<div style="height:50px;"></div>
 <div id='service'>
 	<div class="title">문의하기</div>
 		<form action="${pageContext.request.contextPath }/service/minsu2Ok.sv" method="post" name="serviceForm">

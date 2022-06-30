@@ -17,6 +17,7 @@
 <%@ include file= "../header/header.jsp" %>
 <!-- <link href="minsu.css" rel="stylesheet" type="text/css"> -->
 <body>
+<div style="height:50px;"></div>
 <div id = 'service'>
 	<c:set var="service" value="${requestScope.service }"/>
 	<c:set var="replylist" value="${requestScope.replylist }"/>
@@ -58,6 +59,8 @@
 				<br><br>
 					<!-- 목록 : boardlist.jsp -->
 					<a href="${pageContext.request.contextPath}/service/minsu1.sv">[목록]</a>
+					<a href="${pageContext.request.contextPath}/service/Delete.sv?svnum=${service.servicenum}" 
+						onclick="alert('게시물이 삭제 되었습니다');">[삭제]</a>
 				</td>
 			</tr>
 		</table>   
@@ -80,14 +83,15 @@
 			
 		 	<!-- 댓글 리스트 -->
 		
-			<table border="1">
+			<table border="1" cellspacing="1" style="background: #eeeeee;">
 				<c:choose>
 					<c:when test="${replylist != null and fn:length(replylist) > 0 }">
 						<c:forEach var="reply" items="${replylist }">
 							<tr>
 								<td align="center" width="200px;">${reply.servicename }</td>
 								<td valign="top" style="padding-left: 10px;">
-									<textarea id="reply${reply.replynum }" name="reply${reply.replynum }" style="text-align: left; border: 0px;width: 680px;height: 85px;resize: none;" readonly>${reply.replycontent }</textarea><br>
+									<textarea id="reply${reply.replynum }" name="reply${reply.replynum }" 
+									style="background: #eeeeee; text-align: left; border: 0px;width: 680px;height: 85px;resize: none;" readonly>${reply.replycontent }</textarea><br>
 									<a href="javascript:updateReply(${reply.password },${reply.replynum } );">[수정]</a>
 									&nbsp;&nbsp;&nbsp;
 									<a href="javascript:updateReadonlyReply(${reply.replynum });">[수정하기]</a>
@@ -95,7 +99,7 @@
 									<a href="javascript:deleteReply(${reply.password },${reply.replynum });">[삭제]</a>
 								</td>
 							</tr>
-						</c:forEach>
+						</c:forEach> 
 					</c:when>	
 					<c:otherwise>
 						<tr><br>
@@ -115,7 +119,7 @@
 	function deleteReply(password, replynum){
 		let pw = prompt("댓글 비밀번호를 입력하세요.");
 		if(pw == password){
-			document.replyForm.action = "${pageContext.request.contextPath}/app/service/DeleteReply.sv?replynum="+replynum;
+			document.replyForm.action = "${pageContext.request.contextPath}/service/DeleteReply.sv?replynum="+replynum;
 			document.replyForm.submit();
 		}
 		
@@ -124,7 +128,7 @@
 	function updateReply(password, replynum){
 		let pw = prompt("댓글 비밀번호를 입력해주세요!");
 		if( pw == password ){
-			document.replyForm.action = "${pageContext.request.contextPath}/app/service/UpdateReply.sv?replynum="+replynum;
+			document.replyForm.action = "${pageContext.request.contextPath}/service/UpdateReply.sv?replynum="+replynum;
 			document.replyForm.submit();			
 		}
 	}

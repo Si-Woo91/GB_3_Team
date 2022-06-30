@@ -88,10 +88,19 @@ public class ServiceDAO {
 		if(sqlsession.delete("Service.deleteReply", replynum) == 1) {
 			result = true;
 		}
-		
 		return result;
 	}
+	public boolean delservice(int svnum) {
+		boolean result = false;
+				
+		
+		if (sqlsession.delete("Service.delser", svnum) != 0) {
+			result = true;
+			
+		}
+		return result;
 
+}
 }
 
 	
