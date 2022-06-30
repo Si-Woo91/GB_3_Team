@@ -5,7 +5,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	DecimalFormat df = new DecimalFormat("###,###");
+	DecimalFormat df = new DecimalFormat("###,###"); 					
+	List<CartDTO> cartList = (List) request.getAttribute("cartList");
+
 %>
 <table id="order_tb">
 	<colgroup>
@@ -18,8 +20,7 @@
 	<thead>
 		<tr>
 			<td colspan="5">
-				<h3 class="title">구십삼 주문상품</h3>
-				<div style="height: 10px"></div>
+				<h3 id="title">구십삼 주문상품</h3>
 			</td>
 		</tr>
 		<tr class="table_top">
@@ -43,9 +44,6 @@
 		</tr>
 	</thead>
 	<tbody>
-		<%
-			List<CartDTO> cartList = (List) request.getAttribute("cartList");
-		%>
 		<%
 			for (CartDTO item : cartList) {
 		%>
@@ -86,7 +84,7 @@
 										break;
 									}
 							%> <a
-							href="${pageContext.request.contextPath }/goodsDetail.goods?gID=<%=item.getgID() %>">
+							href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%=item.getgID() %>">
 								<img
 								src="${pageContext.request.contextPath }/img/<%=foldername %>/<%=img %>"
 								style="width: 100%">

@@ -23,16 +23,15 @@ public class PaymentPushAction implements Action{
 		String userid = (String) session.getAttribute("sessionId");
 		
 		if( userid == null || userid.equals("")) {
-			
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/IDPW/login.jsp");
 		} else {
 			String[] cIDs = req.getParameter("cids").split(",");
 			String oPHONE = req.getParameter("ophone");
 			String oADDRESS = req.getParameter("oaddress");
 			int directgID = Integer.parseInt(req.getParameter("directgID"));
 			int directoQTY = Integer.parseInt(req.getParameter("directoQTY"));
-			
-			
-				
+		
 			if( cIDs[0].equals("0") ) {					// CART에 안 넣고 바로 결제하는 경우
 				
 				odto.setoID(0);
@@ -46,7 +45,7 @@ public class PaymentPushAction implements Action{
 				pdao.insertOrder(odto);
 				
 				forward.setRedirect(true);
-				forward.setPath(req.getContextPath() + "/shoppingmall/mypage.spm");
+				forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
 			} else {									// CART를 거쳐  결제하는 경우
 				
 				for(String cID : cIDs) {
@@ -65,10 +64,10 @@ public class PaymentPushAction implements Action{
 				
 				if( pdao.deleteCartItemAll(cIDs) ) {
 					forward.setRedirect(true);
-					forward.setPath(req.getContextPath() + "/shoppingmall/mypage.spm");
+					forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
 				} else {
 					forward.setRedirect(true);
-					forward.setPath(req.getContextPath() + "/shoppingmall/mypage.spm");
+					forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
 				}
 			}
 		}
