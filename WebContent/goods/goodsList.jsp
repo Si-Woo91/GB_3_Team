@@ -3,7 +3,6 @@
 <%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <%-- <c:set var="goodsList" value="${requestScope.goodsList }"/> --%>
 <%
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
@@ -59,5 +58,4 @@
 	</section>
 	 <footer><%@ include file= "/footer/footer.jsp" %></footer>
 </body>
-
 </html>
