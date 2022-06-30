@@ -131,11 +131,11 @@ section {
 	cursor: pointer;
 	text-align: center;
 	width:150px;
-	color: orange;
+	color: #170e05;
 	font-weight: bold;
 }
 
 .extra_detail:hover {
-	color: #F28C28;
+	color: black;
 }
 /*-------------------상품상세페이지 스타일 끝---------------------------*/
