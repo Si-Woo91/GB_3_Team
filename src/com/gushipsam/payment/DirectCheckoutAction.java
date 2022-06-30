@@ -21,9 +21,9 @@ public class DirectCheckoutAction implements Action{
 		
 		int gID = Integer.parseInt(req.getParameter("gid"));
 		int gQTY = Integer.parseInt(req.getParameter("gqty"));
-		
+
 		//장바구니 넣지 않고 바로 주문결제 페이지에 넣을 attribute 생성 및 할당
-		req.setAttribute("checkoutItem", pdao.getCheckoutDirect(gID, gQTY));
+		req.setAttribute("checkoutList", pdao.getCheckoutDirect(gID, gQTY));
 		req.setAttribute("memberInfo", pdao.getMemberInfo(userid));
 		System.out.println("조회완료");
 		
