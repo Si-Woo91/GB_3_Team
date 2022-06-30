@@ -352,11 +352,11 @@ ul li a {
 /* 슬라이드 끝 */
 
 .main_popular {
-	left : 50%;
-	top : 50%;
-	display : flex;
-	margin-top : 100px;
-	justify-content: center;
+	left: 50%;
+    top: 50%;
+    display: flex;
+    margin-top: 100px;
+    flex-wrap: nowrap;
 }
 
 .main_popular-item{

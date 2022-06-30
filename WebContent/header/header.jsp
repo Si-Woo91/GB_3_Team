@@ -59,40 +59,40 @@
 			</form>
 		</div>
 			<!-- 카테고리 -->
-			<div class="category">
-				<div class= nav2> 
+	<div class="category">
+		<div class= nav2> 
+			<ul>
+				<li><a href= "${pageContext.request.contextPath}/goods/goodsList.spm?searchtext=냉장고" class="a">냉장고</a>
 					<ul>
-						<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=냉장고" class="a">냉장고</a>
-							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-							</ul>
-						</li>
-						<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=세탁기" class="a">세탁기</a>
-							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-							</ul></li>
-						<li><a  href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=TV" class="a">TV</a>
-							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-							</ul></li>
-						<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=에어컨" class="a">에어컨</a>
-							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-								<li><a href="상품페이지 경로" style="color:black;">WINIA</a></li>
-							</ul></li>
-		
-						<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=컴퓨터" class="a">컴퓨터</a>
-							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-								<li><a href="상품페이지 경로" style="color:black;">APPLE</a></li>
-							</ul>
-						</li>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=냉장고&brand=삼성" style="color:blue;">SAMSUNG</a></li>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=냉장고&brand=lg" style="color:red;">LG</a></li>
 					</ul>
+				</li>
+				<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=세탁기" class="a">세탁기</a>
+					<ul>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=세탁기&brand=삼성" style="color:blue;">SAMSUNG</a></li>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=세탁기&brand=lg" style="color:red;">LG</a></li>
+					</ul></li>
+				<li><a href="${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=TV" class="a">TV</a>
+					<ul>
+						<li><a href="${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=TV&brand=삼성" style="color:blue;">SAMSUNG</a></li>
+						<li><a href="${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=TV&brand=lg" style="color:red;">LG</a></li>
+					</ul></li>
+				<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=에어컨" class="a">에어컨</a>
+					<ul>
+						<li><a href="${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=에어컨&brand=삼성" style="color:blue;">SAMSUNG</a></li>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=에어컨&brand=lg" style="color:red;">LG</a></li>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=에어컨&brand=winia" style="color:black;">WINIA</a></li>
+					</ul></li>
+
+				<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=컴퓨터" class="a">컴퓨터</a>
+					<ul>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=컴퓨터&brand=삼성" style="color:blue;">SAMSUNG</a></li>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=컴퓨터&brand=lg" style="color:red;">LG</a></li>
+						<li><a href= "${pageContext.request.contextPath }/goods/goodsList.spm?searchtext=컴퓨터&brand=apple" style="color:black;">APPLE</a></li>
+					</ul>
+				</li>
+			</ul>
 				</div>
 			</div>
 		</div>

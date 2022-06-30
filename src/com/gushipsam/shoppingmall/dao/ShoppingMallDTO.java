@@ -25,9 +25,37 @@ public class ShoppingMallDTO {
     private int gPRICE;					
     private int gSTOCK;
     private String gDATE;
-    private String gIMG;
-    
-    // cart
+    private String  gImgs	;
+    private String gImgl;	
+    private String gModel;
+    private String gSize;
+    private String gEtc;
+    private String gCatg;
+	public String getgModel() {
+		return gModel;
+	}
+	public void setgModel(String gModel) {
+		this.gModel = gModel;
+	}
+	public String getgSize() {
+		return gSize;
+	}
+	public void setgSize(String gSize) {
+		this.gSize = gSize;
+	}
+	public String getgEtc() {
+		return gEtc;
+	}
+	public void setgEtc(String gEtc) {
+		this.gEtc = gEtc;
+	}
+	public String getgCatg() {
+		return gCatg;
+	}
+	public void setgCatg(String gCatg) {
+		this.gCatg = gCatg;
+	}
+	// cart
     private int cID;
     private int cQTY;
     
@@ -173,12 +201,7 @@ public class ShoppingMallDTO {
 	public void setgSTOCK(int gSTOCK) {
 		this.gSTOCK = gSTOCK;
 	}
-	public String getgIMG() {
-		return gIMG;
-	}
-	public void setgIMG(String gIMG) {
-		this.gIMG = gIMG;
-	}
+
 	public int getgPRICE() {
 		return gPRICE;
 	}
@@ -196,6 +219,18 @@ public class ShoppingMallDTO {
 	}
 	public void setgDATE(String gDATE) {
 		this.gDATE = gDATE;
+	}
+	public String getgImgs() {
+		return gImgs;
+	}
+	public void setgImgs(String gImgs) {
+		this.gImgs = gImgs;
+	}
+	public String getgImgl() {
+		return gImgl;
+	}
+	public void setgImgl(String gImgl) {
+		this.gImgl = gImgl;
 	}
 }
     

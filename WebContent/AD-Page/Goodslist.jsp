@@ -75,7 +75,7 @@
 							<c:forEach var="goodsdata" items="${goodsList }">
 								<tr>
 									<th><input class="selectbox" type="checkbox" name="checkcel"></th>
-									<th><img src="../testimg/${goodsdata.gIMG }"></th>
+									<th><img src="../testimg/${goodsdata.gImgs }"></th>
 									<th>${goodsdata.gNAME }</th>
 									<th>${goodsdata.gBrand }</th>
 									<th>${goodsdata.gPRICE }</th>

@@ -41,8 +41,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 상품 추가 -->
-	<insert id="insertGoods" parameterType="shoppingmalldto">
-		INSERT INTO GOODS (gId,gIMG,gNAME,gBrand,gPRICE,gSTOCK)VALUES (Good_Seq.nextval, #{gIMG}, #{gNAME}, #{gBrand}, #{gPRICE}, #{gSTOCK})
+		<insert id="insertGoods" parameterType="shoppingmalldto">
+		INSERT INTO GOODS 
+		VALUES (seq_gidx.nextVal,#{gCatg},#{gBrand},#{gNAME},#{gModel},#{gPRICE},#{gSize},#{gEtc},#{gImgs},#{gImgl},#{gSTOCK})
 	</insert>
 	
 	<select id="selectGoods" resultType="shoppingmalldto" parameterType="shoppingmalldto">
@@ -52,6 +53,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getSearchList"  parameterType="shoppingmalldto" resultType="shoppingmalldto">
 	SELECT * FROM goods
 	WHERE GNAME LIKE '%${searchtext}%' OR GBRAND LIKE '%${searchtext}%'
+	</select>
+	<select id="getNavList"  parameterType="shoppingmalldto" resultType="shoppingmalldto">
+	SELECT * FROM goods
+	WHERE GCATG = '${searchtext}' 
+	</select>
+		<select id="getNavList2"  parameterType="hashmap" resultType="shoppingmalldto">
+	SELECT * FROM goods
+	WHERE GCATG = '${searchtext}'
+	AND gBRAND = '${brand}'
 	</select>
 	
 <!-- 	<select id="getGoods_seq"> -->

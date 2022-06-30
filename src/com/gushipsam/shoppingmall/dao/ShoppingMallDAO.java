@@ -140,7 +140,36 @@ public class ShoppingMallDAO {
 
 		return searchlist;
 	}
+	public List<ShoppingMallDTO> getNavList(String searchtext) {
+		System.out.println("getNavList 메서드 dao 에용");
+		System.out.println(searchtext);
+		/*
+		 * HashMap<String, String> datas = new HashMap<>();
+		 * datas.put("searchtext",searchtext);
+		 */
+		List<ShoppingMallDTO> searchlist = new ArrayList<>();
+		System.out.println("arraylist 생성!");
+		System.out.println(sqlsession.selectList("shoppingmall.getNavList", searchtext));
+		searchlist.addAll(sqlsession.selectList("shoppingmall.getNavList", searchtext));
+		System.out.println("select 실행햇어용");
+
+		return searchlist;
+
+	}
 	
+	public List<ShoppingMallDTO> getNavList2(String brand,String searchtext) {
+		System.out.println("getNavList2 메서드 dao 에용");
+		System.out.println(brand);
+		
+		  HashMap<String, String> datas = new HashMap<>();
+		  datas.put("brand",brand);
+		  datas.put("searchtext",searchtext);
+		  
+		  List<ShoppingMallDTO> searchlist= sqlsession.selectList("shoppingmall.getNavList2",datas);
+		  
+		return searchlist;
+		
+	}
 	
 	
 }
