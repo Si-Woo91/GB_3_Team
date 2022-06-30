@@ -28,6 +28,6 @@ public class minsu3Action implements Action{
 		
 		
 		return forward;
-	}
+}
 	 
 }

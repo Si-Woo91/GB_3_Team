@@ -50,7 +50,7 @@
 						<a href="${pageContext.request.contextPath}/service/minsu1.sv">[목록]</a>
 					</td>
 			</tr>
-	</div>
+		</div>
 		</form>
 	</div>
 	<%@ include file= "../footer/footer.jsp" %>
