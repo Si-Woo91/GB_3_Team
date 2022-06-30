@@ -5,13 +5,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Payment">
 
 	<select id="getCheckoutDirect" parameterType="hashmap" resultType="cartdto">
-		SELECT 0 , GID , #{gQTY}, GNAME , GBRAND , GPRICE, GIMGS, GCATG 
+		SELECT 0 AS CID, GID , #{gQTY} AS CQTY, GNAME , GBRAND , GPRICE, GIMGS, GCATG 
 		FROM GOODS
 		WHERE GID = #{gID}
 	</select>
 
 	<select id="insertCart" parameterType="hashmap">
-		INSERT INTO ORDERS VALUES(cart_seq.nextval,#{userid},#{gID},#{gQTY})
+		INSERT INTO CART VALUES(cart_seq.nextval,#{userid},#{gID},#{gQTY})
 	</select>
 
 	<select id="getCartList" parameterType="string" resultType="cartdto">

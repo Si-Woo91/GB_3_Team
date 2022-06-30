@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*----------------------장바구니만의 설정 시작------------------------*/
 
-#cart .order_button1{
+#cart #order_button1{
 	background-color: white;
 	border-radius: 5px;
 	border: 1px solid orange;
@@ -11,10 +11,11 @@
 	width:170px;
 	color: orange;
 	font-weight: bold;
+	margin:0px;
 	
 }
 
-#cart .order_button2{
+#cart #order_button2{
 	background-color: orange;
 	border-radius: 5px;
 	border: 1px solid orange;
@@ -24,9 +25,10 @@
 	width:170px;
 	color: white;
 	font-weight: bold;
+	margin:0px;
 }
 
-.select_button{
+#cart #select_button{
 	background-color: orange;
 	border-radius: 2px;
 	border: 1px solid orange;
@@ -37,6 +39,8 @@
 	color: white;
 	text-align: center;
 	font-weight: bold;
+	padding: 1px 6px;
+	margin: 20px 0px 0px 0px;
 }
 /*----------------------장바구니만의 설정 끝------------------------*/
 

@@ -23,7 +23,6 @@
 	<section id='cart'>
 		<br>
 		<div id="title_big">장바구니</div>
-		<br>
 		<span id="ajaxed_span">
 			<table id="order_tb">
 				<colgroup>
@@ -36,7 +35,7 @@
 				<thead>
 					<tr>
 						<td colspan="5">
-							<h3 class="title">구십삼 주문상품</h3>
+							<h3 id="title">구십삼 주문상품</h3>
 							<div style="height:10px"></div>
 						</td>
 					</tr>
@@ -85,7 +84,7 @@
 										case "컴퓨터" : foldername= "pc"; break;
 										}
 										%>
-										<a href="${pageContext.request.contextPath }/goodsDetail.goods?gID=<%=item.getgID() %>">
+										<a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%=item.getgID() %>">
 											<img src="${pageContext.request.contextPath }/img/<%=foldername %>/<%=img %>" style="width:100%">
 										</a>
 									</td>
@@ -117,7 +116,7 @@
 				</tbody>
 			</table>
 		</span>
-		<p><form><input type="button" class="select_button" id="select_button" value=" 선택상품 삭제  " onclick="deleteTableRow();"></form></p>
+		<input type="button" class="select_button" id="select_button" value=" 선택상품 삭제  " onclick="deleteTableRow();">
 		<br>
 		<div class="align_center">
 				<input type="button" class="order_button1" id="order_button1" value="선택주문" onclick="jumpPageSome();"> &nbsp;
