@@ -107,18 +107,18 @@ public class PaymentDAO {
 	
 	//////////////////////////////////////////////////////////////////////////////////////
 	
-	public CartDTO getCheckoutDirect(int gID, int gQTY){
+	public List<CartDTO> getCheckoutDirect(int gID, int gQTY){
 		System.out.println("directCheckout 도착");
-		
+
 		HashMap<String, Integer> datas = new HashMap<>();
 		datas.put("gID", gID);
 		datas.put("gQTY", gQTY);
 		
-		CartDTO checkoutItem = sqlsession.selectOne("Payment.getCheckoutDirect",datas);
-		
+		List<CartDTO> checkoutList = sqlsession.selectList("Payment.getCheckoutDirect",datas);
+				
 		System.out.println("checkoutItem 받음 완료");
 		
-		return checkoutItem;
+		return checkoutList;
 	}
 	
 	public boolean insertCart(String userid, int gID, int gQTY) {
