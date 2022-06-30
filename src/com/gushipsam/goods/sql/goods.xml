@@ -11,6 +11,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getgoodsDetail"  parameterType="int" resultType="goodsdto">
 		SELECT * FROM goods WHERE gID = #{gID}
 	</select>
+
+	<!-- (관리자 페이지)상품 데이터 -->
+	<select id="selectGoods" resultType="goodsdto"
+		parameterType="goodsdto">
+		SELECT * FROM GOODS
+	</select>
+	
+	<!-- (관리자 페이지) 총 상품 수 -->
+	<select id="getGoodsCnt" resultType="_int">
+		SELECT COUNT(*) FROM GOODS
+	</select>
+	
+	<!-- (관리자 페이지)상품 관려된 모든 데이터 select -->
+	<select id="getGoodsList" resultType="goodsdto"
+		parameterType="string">
+		SELECT * FROM GOODS
+	</select>
+	
+	<!-- (관리자 페이지)상품 추가 -->
+	<insert id="insertGoods" parameterType="goodsdto">
+		INSERT INTO GOODS
+		(gID,gImgs,gName,gBrand,gPRICE,gSTOCK)VALUES (seq_gidx.nextval,
+		#{gImgs}, #{gName}, #{gBrand}, #{gPRICE}, #{gSTOCK})
+	</insert>
+	
+	<!-- 상품 삭제 -->
+	<delete id="delGoodItem" parameterType="hashmap">
+		DELETE FROM GOODS
+		WHERE GID IN
+		<foreach collection="delgids" item="gID" open="(" separator="," close=")">
+			#{gID}
+		</foreach>
+	</delete>	
+	
 </mapper>
 
 

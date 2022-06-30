@@ -25,13 +25,14 @@
 
 /* table css */
 
-h1{
+.info-usermodify-auth-title{
 	margin-left: 18%;
+	margin-top: 3%;
 }
 
 
 
-div.member-container{
+.info-member-container{
 	min-height: 500px;
 	height: 800px;
 	width: 100%;
@@ -39,7 +40,7 @@ div.member-container{
 	padding-top: 250px;
 }
 
-.UserModify-table {
+.info-UserModify-table {
 	border-collapse: collapse;
 	text-align: center;
 	border-bottom: 1px solid #ddd;
@@ -47,23 +48,23 @@ div.member-container{
 	margin: auto;
 }
 
-.UserModify-table th{
+.info-UserModify-table th{
 	background-color: #eef1f8;
 	width: 150px;
 	line-height: 30px;
 }
 
-tr {
+.info-UserModify-table tr {
 	border-top: 1px solid #ddd;
 }
 
-td{
+.info-UserModify-table td{
 	width: 1020px;
 	text-align: left;
 	padding-left: 10px;
 }
 
-.usermodify-submit{
+.info-usermodify-submit{
 	margin-top: 3%;
 	text-align: center;
 	background-color: orange;
@@ -73,7 +74,7 @@ td{
 	width: 50px;
 }
 
-.usermodify-cancel{
+.info-usermodify-cancel{
 	margin-top: 3%;
 	text-align: center;
 	background-color: orange;
@@ -83,7 +84,7 @@ td{
 	width: 50px;
 	}
 
-.usermodify-btn{
+.info-usermodify-btn{
 	text-align: center;
 }
 
