@@ -9,10 +9,13 @@
 	border-radius: 5px;
 	border: 1px solid green;
 	cursor:pointer;
-	font-size:14px;
+	font-size:13px;
 	width:100px;
 	color: green;
-/* 	font-weight: bold; */
+}
+
+#checkout #address_button:hover{
+	background-color: #FAF9F7;
 }
 
 #checkout #pay_button{
@@ -27,6 +30,9 @@
 	font-weight: bold;
 }
 
+#checkout #pay_button:hover{
+	background-color: #F28C28;	
+}
 
 #checkout #pay_tb{
     font-size: 14px;
@@ -50,10 +56,20 @@
     border: 0px !important;
 }
 
-#checkout ul.explain>li{
+#checkout ul#explain1, #checkout ul#explain2, #checkout ul#explain3, #checkout ul#explain4{
+
+	padding: 0px 0px 0px 40px;
+}
+
+#checkout ul#explain1>li, #checkout ul#explain2>li, #checkout ul#explain3>li, #checkout ul#explain4>li{
 	list-style: initial;
 	color: grey;
+/* 	padding: 0px 0px 0px 40px; */
 }
+
+#checkout h2#margin_fix1, #checkout h3#margin_fix2, #checkout h3#margin_fix3, #checkout p#margin_fix4{
+	margin: 16px 0px;
+} 
 /*----------------------주문결제만의 설정 끝------------------------*/
 
 
