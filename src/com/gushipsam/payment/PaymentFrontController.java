@@ -33,39 +33,24 @@ public class PaymentFrontController extends HttpServlet{
 		ActionForward forward = null;
 		
 		switch (requestURI) {
-			//특정 회원에 대한 장바구니 조회
 			case "/payment/cart.pay":
 				System.out.println("/payment/cart.pay 도착");
+				
+				String del_cID_ = req.getParameter("delcid");
+				if (! (del_cID_ == null || del_cID_ == "" ) )  		forward = new CartDelAction().execute(req, resp);
+				
 				forward = new CartListAction().execute(req, resp);
+
 				break;
 				
-			//체크한 장바구니 품목을 주문결제페이지로 보내기	
 			case "/payment/checkout.pay":
 				System.out.println("/payment/checkout.pay 도착");
 				forward = new CheckoutListAction().execute(req, resp);
 				break;
-			
-			//주문결제 완료 후 마이페이지 과거 주문 조회 페이지로 보내기
+				
 			case "/payment/payresult.pay":
 				System.out.println("/payment/payresult.pay 도착");
 				forward = new PaymentPushAction().execute(req, resp);
-				break;
-			
-			//"선택삭제" 버튼 누르면 장바구니 테이블에서도 삭제한 후 최신화된 테이블로 보내기(해서 그걸 ajax 응답으로 본보내기)
-			case "/payment/cartdel.pay":
-				System.out.println("/payment/cartdel.pay 도착");
-				forward = new CartDelAction().execute(req, resp);
-				break;
-				
-
-			case "/payment/checkoutdirect.pay":
-				System.out.println("/payment/checkoutdirect.pay 도착");
-				forward = new DirectCheckoutAction().execute(req, resp);
-				break;
-				
-			case "/payment/cartinsert.pay":
-				System.out.println("/payment/cartinsert.pay 도착");
-				forward = new CartInsertAction().execute(req, resp);
 				break;
 		}
 	
@@ -83,3 +68,17 @@ public class PaymentFrontController extends HttpServlet{
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

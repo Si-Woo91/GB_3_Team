@@ -30,7 +30,7 @@
 	<section id="container">
 		<!-- 제품설명 -->
 		<div class="prod_img">
-			<img src="${pageContext.request.contextPath }/img/<%=foldername %>/<%= gImgl%>" width="750">
+			<img src="${pageContext.request.contextPath }/imgs/<%=foldername %>/<%= gImgl%>" width="750">
 		</div>
 	</section>
 </body>

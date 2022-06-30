@@ -47,7 +47,7 @@
 			<tr>
 				<td>
 					<div class="photo">
-						<img src="${pageContext.request.contextPath }/img/<%=foldername %>/${goodsDetail.gImgs }" width="500" height="500">
+						<img src="${pageContext.request.contextPath }/imgs/<%=foldername %>/${goodsDetail.gImgs }" width="500" height="500">
 					</div>
 
 				</td>
@@ -90,8 +90,13 @@
 						</span>
 					</div>
 					<div class="payment">
-						<input type="button" value="바로구매" id="checkout_btn" onclick="jumpToCheckout();"> &nbsp;
-						<input type="button" value="장바구니" id="cart_btn" onclick="insertCart();">
+						<div class="btn1">
+							<a href="${pageContext.request.contextPath }/payment/cart.pay">바로구매</a>
+						</div>
+						<div class="btn2">
+							<a
+								href="${pageContext.request.contextPath }/payment/checkout.pay">장바구니</a>
+						</div>
 					</div>
 					<div class="extra_detail">
 						<a onclick="window.open('explanation.jsp?gCatg=${goodsDetail.gCatg}&gImgl=${goodsDetail.gImgl}', '제품상세설명',
@@ -105,58 +110,19 @@
 		<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
 <script>
-	
-	//수량 감소 버튼
-	$('#mbtn').on("click",function(){
-		let qty = $('#qty').val();
-		if (qty >= 2) {
-			$('#qty').val(Number(qty)-1);
+	/* input값 */
+	var gcnt = document.getElementById('qty');
+	/* 버튼 클릭시 변동값 */
+	var mbtn = document.getElementById('mbtn');
+	var pbtn = document.getElementById('pbtn');
+
+	mbtn.addEventListener('click', function() {
+		if (qty.value >= 2) {
+			qty.value = Number(qty.value) - 1;
 		}
 	});
-	
-	//수량 증가 버튼
-	$('#pbtn').on("click",function(){
-		let qty = $('#qty').val();
-		$('#qty').val(Number(qty)+1);
-
+	pbtn.addEventListener('click', function() {
+		qty.value = Number(qty.value) + 1;
 	});
-	
-	
-	
-	function jumpToCheckout(){
-		if(!confirm("바로 구매를 진행하시겠습니까?")) return false
-
-		let gQTY = $('#qty').val();
-		let gID = '${goodsDetail.gID}';
-		
-		location.href='${pageContext.request.contextPath }/payment/checkoutdirect.pay?gid='+gID+'&gqty='+gQTY;
-	}
-	
-	
-	function insertCart(){
-
-		let gQTY = $('#qty').val();
-		let gID = '${goodsDetail.gID}';
-
-		userid = '<%= session.getAttribute("sessionId") %>';
-		if(userid == null || userid == '') {
-			location.href='${pageContext.request.contextPath }/IDPW/login.jsp';
-			return false;
-		}
-			
-		// ajax 통신
-		let xhr = new XMLHttpRequest();
-		xhr.open("GET", '${pageContext.request.contextPath }/payment/cartinsert.pay?gid='+gID+'&gqty='+gQTY, true);
-		xhr.send();
-		xhr.onreadystatechange = function(){
-			if( xhr.readyState == XMLHttpRequest.DONE 
-					&& xhr.status == 200 ){
-				console.log(xhr.responseText);
-			}			
-		}
-		if(confirm("해당 상품이 장바구니에 추가되었습니다!\n장바구니로 이동하시겠습니까?")) location.href='${pageContext.request.contextPath }/payment/cart.pay';
-
-
-	}
 </script>
 </html>

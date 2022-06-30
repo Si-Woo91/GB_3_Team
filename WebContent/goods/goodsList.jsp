@@ -1,105 +1,63 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@page import="java.util.List"%>
+<%@page import="com.gushipsam.goods.dao.goodsDTO"%>
+<%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%-- <c:set var="goodsList" value="${requestScope.goodsList }"/> --%>
+<%
+	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
+	List<goodsDTO> goodsList = (List<goodsDTO>) request.getAttribute("goodsList"); 
+	
+	String foldername = null;
+	
+	
+	if (goodsList.get(0).getgCatg().equals("냉장고")){
+		foldername= "fridge";
+	} else if (goodsList.get(0).getgCatg().equals("세탁기")){
+		foldername= "washer";
+	} else if (goodsList.get(0).getgCatg().equals("TV")){
+		foldername= "tv";
+	} else if (goodsList.get(0).getgCatg().equals("에어컨")){
+		foldername= "ac";
+	} else if (goodsList.get(0).getgCatg().equals("컴퓨터")){
+		foldername= "pc";
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>구심삽 </title>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="shortcut icon" href="gu_icon.ico">	
+<link rel="stylesheet" type="text/css" href="goodsList.css">
 </head>
-<style>
-* {
-	margin : 0;
-	padding : 0;
-	padding-bottom : 130px;
- }
-.content{
-	margin-top: 14%;
-	padding-bottom: 12%;
-    padding-left: 14%;
-    padding-right: 14%;
-    padding-top: 12%;
-    height : 550px;
-}
-
- li {
- 	list-style: none;
- }
-.img_prod {
- 	width : 91%;
- 	height: 110%;
- 	display: block;
- 	margin:auto;
- }
-h2 {
-	text-align: center;
-	font-size: 30px;
-	margin: 20px 0 20px 0;
- }	
- hr {
- 	border: double 4px orange;
- 	margin: 0 7% 0 7%;
- }
-/* .items {
-	width: 28%;
-	float: left;
- 	margin: 4% 2% 10% 2%; 
- 	border: 1px solid #ddd;
- 	border-radius: 8px;
- 	box-shadow: 2px 3px 2px 0 #d8d8d8;
- 	padding: 3px;
-} */
-.name {
-	font-weight: bold;
-	margin-top: 20px;
-	text-align: center;
-}
-.price {
-	text-align: center;
-	padding: 5px;
-}
-</style>
+  	<header> <%@ include file= "../header/header.jsp" %> </header>
 <body>
-	<%@ include file= "../header/header.jsp" %>
-	
-	<c:set var="searchlist" value="${requestScope.searchlist }"/>
-	
-	<div class="content">
-		<%-- <h2 >${searchtext} 에 대한 검색결과</h2> --%>
-			<br/>
-			<div class="catg">
-		<c:choose>
-			<c:when test="${searchlist != null and fn:length(searchlist) > 0 }">
-			<!--  검색결과가 있을 때 -->
-				<c:forEach var="search" items="${searchlist }">
-			<ul class="items">
-				<li class="items" border="1" align="center">
+	<section>	
+		<div class="content">
+			<div id="catg">
+				<h2> <%= goodsList.get(0).getgCatg()%></h2>
+				<hr/>
+				 
+				<% for (goodsDTO g : goodsList ){ %>
+					<li class="items" border="1" align="center">
 					<!-- gID값을 상세페이지로 넘겨줌 -->
-						<a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=${search.gID}" >
-							<img src="../uploadimg/${search.gImgs }" class="img_prod" width="300" height="300"><br>
-							<span class="name">${search.gName }</span><br>
-							<span class="price">${search.gPRICE } 원</span><br>
+						<a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%= g.getgID() %>" >
+							<img src="${pageContext.request.contextPath }/imgs/<%=foldername %>/<%= g.getgImgs()%>" class="img_prod" width="300" height="300"><br>
+							<span class="name"><%= g.getgName() %></span><br>
+							<span class="price"><%= df.format(g.getgPRICE()) %> 원</span><br>
 						</a>
 					</li>
-				<%-- <li><a href=""><img src="../uploadimg/${search.gImgs}" class="img_prod" alt="" 
-					width="280" height="280"></a></li>
-				<li class="name"> ${search.gName } </li>
-				<li class="brand"> ${search.gBrand } </li>
-				<li class="price">${search.gPRICE }원</li> --%>
-			</ul>
-				</c:forEach>
+				<% } %>
 				
-				</c:when>
-					<c:otherwise>
-					<!-- 게시글 작성 : 글이 없는 경우 -->
-					<tr style="height: 50px">
-						<td colspan="5" style="text-align: center;">등록된 게시물이 없습니다.</td>
-					</tr>
-				</c:otherwise>
-		</c:choose>
-		</div>
-	</div>
-		<%@ include file= "../footer/footer.jsp" %>
+			</div>
+		</div>		
+		<br>
+	</section>
+	 <footer><%@ include file= "/footer/footer.jsp" %></footer>
 </body>
+
 </html>

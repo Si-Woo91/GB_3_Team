@@ -17,7 +17,7 @@ import com.gushipsam.shoppingmall.dao.ShoppingMallDAO;
 import com.gushipsam.shoppingmall.dao.ShoppingMallDTO;
 
 @MultipartConfig(
-		location = "C:\\Users\\Gram\\Desktop\\myjava\\workspace\\nine_three2\\WebContent\\uploadimg",
+		location = "D:\\0900_GB_KSW\\jsp\\workspace\\loginout\\WebContent\\uploadimg",
 		maxFileSize = -1,
 		maxRequestSize = -1,
 		fileSizeThreshold = 1024
@@ -26,7 +26,7 @@ import com.gushipsam.shoppingmall.dao.ShoppingMallDTO;
 public class AddGoodsOkAction implements Action{
 
 	private static final String CHARSET = "utf-8";
-	private static final String ATTACHES_DIR = "C:\\Users\\Gram\\Desktop\\myjava\\workspace\\whynot\\WebContent\\uploadimg";
+	private static final String ATTACHES_DIR = "D:\\0900_GB_KSW\\jsp\\workspace\\loginout\\WebContent\\uploadimg";
 	
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -41,7 +41,6 @@ public class AddGoodsOkAction implements Action{
 		}
 		System.out.println("인코딩");
 		ActionForward forward = new ActionForward();
-		System.out.println("action 객체생성");
 		// 데이터 받아올 객체
 		ShoppingMallDAO shopDAO = new ShoppingMallDAO();
 		
@@ -67,7 +66,7 @@ public class AddGoodsOkAction implements Action{
 			for (Part part : parts) {
 				System.out.printf("파라미터 명 : %s, contnetType : %s, size : %d bytes \n", part.getName(),
 						part.getContentType(), part.getSize());
-				
+
 				if (part.getHeader("Content-Disposition").contains("filename=")) {
 					fileName = extractFileName(part.getHeader("Content-Disposition"));
 					
@@ -87,47 +86,35 @@ public class AddGoodsOkAction implements Action{
 						}
 
 					}
-				
 				} else {
 					String formValue = req.getParameter(part.getName());
 					System.out.printf("name : %s, value : %s \n", part.getName(), formValue);
 
 				}
-				if(part.getName().equals("file1")) {
-					String gImgs = fileName;
-					shopDTO.setgImgs(gImgs);
-					System.out.println("dto" +gImgs);
-				}if(part.getName().equals("file2")) {
-					String gImgl = fileName;
-					shopDTO.setgImgl(gImgl);
-					System.out.println("dto" +gImgl);
-				}
-				System.out.println(fileName);
-				
 			}
 
-			
+			//out.println("<h1>업로드완료</h1>");
+			System.out.println("<h1>업로드완료</h1>");
 		} else {
 			//out.println("<h1>enctype이 multipart/form-data가 아님 </h1>");
 			System.out.println("<h1>enctype이 multipart/form-data가 아님 </h1>");
 		}
 		
-		//out.println("<h1>업로드완료</h1>");
-		System.out.println("<h1>업로드완료</h1>");
-		//String gImgs = fileName;
+		
+		
+		
+		
+		
+
+		String gImg = fileName;
 		String gName = req.getParameter("description");
 		String gBrand = req.getParameter("brand");
 		int gPrice = Integer.parseInt(req.getParameter("price"));
 		int gSTOCK = Integer.parseInt(req.getParameter("stock"));
-		String gModel = req.getParameter("model");
-		String gSize = req.getParameter("size");
-		String gEtc = req.getParameter("etc");
-		String gCatg = req.getParameter("catg");
 		
 		
-		/*
-		 * shopDTO.setgImgs(gImgs); System.out.println(gImgs);
-		 *///
+		shopDTO.setgIMG(gImg);
+		System.out.println(gImg);	//
 		shopDTO.setgName(gName);
 		System.out.println(gName);	//
 		shopDTO.setgBrand(gBrand);
@@ -136,29 +123,22 @@ public class AddGoodsOkAction implements Action{
 		System.out.println(gPrice);	//
 		shopDTO.setgSTOCK(gSTOCK);
 		System.out.println(gSTOCK);	//
-		shopDTO.setgModel(gModel);
-		System.out.println(gModel);
-		shopDTO.setgSize(gSize);
-		System.out.println(gSize);
-		shopDTO.setgEtc(gEtc);
-		System.out.println(gEtc);
-		shopDTO.setgCatg(gCatg);
-		System.out.println(gCatg);
+
+		System.out.println("shopDTO.객체");
 		
-		
-		
-		//	req.setAttribute("searchlist", shopDAO.getGoodslist());
+		req.setAttribute("searchlist", shopDAO.getGoodslist());
 		forward.setRedirect(true);
 		
 		if(shopDAO.insertGoods(shopDTO)) { // 성공시
-			
+//			int Goods_seq = shopDAO.getGoods_seq();
 			forward.setPath(req.getContextPath() + "/admin/Goodslist.spm");
 			System.out.println("상품 추가 성공");
 		} else {
 			forward.setPath(req.getContextPath() + "/AD-Page/ADDgoods.spm");
 			System.out.println("상품 추가 실패");
 		}
-			
+		
+		
 		
 		return forward;
 	}
@@ -170,7 +150,6 @@ public class AddGoodsOkAction implements Action{
 				String fileName = cd.substring(cd.indexOf("=") + 1).trim().replace("\"","");;
 				int index = fileName.lastIndexOf(File.separator);
 				System.out.println(fileName.substring(index + 1));
-			
 				return fileName.substring(index + 1);
 				
 			}

@@ -103,19 +103,34 @@ section {
 	height: 80px;
 }
 
+.payment .btn1{
+	display: inline-block; 
+	margin: 25px 10px 0 0;
+ 	padding: 0 25px; 
+ 	line-height: 40px;
+	height: 40px;
+	font-size: 20px;
+	border: none;
+	border-radius: 25px;	
+	background-color: orange;
 
-.payment #checkout_btn, #cart_btn{
-	cursor: pointer;
+}
+
+.payment .btn1>a, .payment .btn2>a{
+	color: white;
+	font-weight: bold;
+}
+
+.payment .btn2{
+	display: inline-block;
+	margin-bottom: 50px;
+	padding: 0 25px ;
 	line-height: 40px;
 	height: 40px;
 	font-size: 20px;
 	border: none;
 	border-radius: 25px;	
 	background-color: orange;
-	color: white;
-	font-weight: bold;
-	width:120px;
-	margin-top: 20px;
 
 }
 
@@ -125,3 +140,6 @@ section {
 	text-align: center;
 }
 /*-------------------상품상세페이지 스타일 끝---------------------------*/
+
+
+

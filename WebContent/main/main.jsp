@@ -29,14 +29,12 @@
 
 	<!-- 인기제품목록  -->
 	<div class="main_popular">
-	<div class="main_popular-item"><a href=""><img src="../img/ac2.png"></a></div>BESPOKE 무풍에어컨 갤러리
-	<div class="main_popular-item"><a href=""><img src="../img/tv1.png"></a></div><br>Neo QLED 4K TV (55인치)
-	</div>
-	<div class="main_popular">
-	<div class="main_popular-item"><a href=""><img src="../img/pc1.png"> </a></div><br>LG gram 16
-	<div class="main_popular-item"><a href=""><img src="../img/washer2.png"></a><br></div>그랑데 AI[올인원컨트롤]
+	<div class="main_popular-item"><a href=""><img src="../img/ac2.png"></a></div>
+	<div class="main_popular-item"><a href=""><img src="../img/pc1.png"></a></div>
+	<div class="main_popular-item"><a href=""><img src="../img/tv1.png"></a></div>
+	<div class="main_popular-item"><a href=""><img src="../img/washer2.png"></a></div>
 	</div>
 	</section>
 		<%@ include file= "../footer/footer.jsp" %>
-</body> 
+</body>
 </html>

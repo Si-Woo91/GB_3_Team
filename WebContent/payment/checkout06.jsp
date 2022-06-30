@@ -15,8 +15,6 @@
 	
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
 	
-	if(checkoutList.size() == 0) response.sendRedirect(request.getContextPath() + "/main/main.jsp");
-
 %>
 <!DOCTYPE html>
 <html>
@@ -25,12 +23,14 @@
 <title>구심삽 주문결제</title>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="shortcut icon" href="gu_icon.ico">	
 </head>
-<body id="payment">
+<body>
 	<header> <%@ include file= "../header/header.jsp" %> </header>
 	<section id='checkout'>
 		<br>
 		<div id="title_big">주문/결제</div>
+		<br>
 		<table id="order_tb">
 			<colgroup>
 				<col width="62.5%">
@@ -41,7 +41,7 @@
 			<thead>
 				<tr>
 					<td colspan="4">
-						<h3 id="title">구십삼 배송상품</h3>
+						<h3 class="title">구십삼 배송상품</h3>
 						<div style="height:10px"></div>
 					</td>
 				</tr>
@@ -71,22 +71,7 @@
 							</colgroup>
 							<tr>
 								<td rowspan="2">
-									<%
-										String foldername = null;
-										String catg = item.getgCATG();
-										String img = item.getgIMGS();
-										
-										switch (catg) {
-										case "냉장고" : foldername= "fridge"; break;
-										case "세탁기" : foldername= "washer"; break;
-										case "TV" : foldername= "tv"; break;
-										case "에어컨" : foldername= "ac"; break;
-										case "컴퓨터" : foldername= "pc"; break;
-										}
-									%>
-									<a href="${pageContext.request.contextPath }/goodsDetail.goods?gID=<%=item.getgID() %>">
-										<img src="${pageContext.request.contextPath }/img/<%=foldername %>/<%=img %>" style="width:100%">
-									</a>
+									<a href="#"><img src="#" style="width:100%"></a>
 								</td>
 								<td><%=item.getgBRAND()%></td>
 							</tr>
@@ -95,7 +80,7 @@
 							</tr>
 						</table>
 					</td>
-					<% int price = item.getgPRICE(); int qty = item.getcQTY(); %>
+					<% int price = item.getgPrice(); int qty = item.getcQTY(); %>
 					<td>
 						<div class="align_center"><%= df.format(price) %></div>
 					</td>
@@ -113,13 +98,13 @@
 	
 		<table id="pay_tb">
 			<colgroup>
-				<col width="600">
+				<col width="700">
 				<col width="*">
 			</colgroup>
 			<thead>
 				<tr>
-					<td class="real_top" style="border-right: 20px solid transparent;"><h3 id="title1">배송지정보</h3></td>
-					<td class="real_top"><h3 id="title2">최종 결제정보</h3></td>
+					<td class="real_top" style="border-right: 20px solid transparent;"><h3 class="title">배송지정보</h3></td>
+					<td class="real_top"><h3 class="title">최종 결제정보</h3></td>
 				</tr>
 			</thead>
 			<tr>
@@ -157,7 +142,7 @@
 							<td>	
 								<span style="color:red; font-weight:bold">*</span> 
 								<input type="text" id="sample6_postcode" placeholder="우편번호" style="width:80px">
-								<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="width:100px">
+									<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="width:100px">
 							</td>
 						</tr>
 						<tr>
@@ -170,14 +155,14 @@
 							<td>
 								<span style="color:transparent; font-weight:bold">*</span>
 								<input type="text" id="sample6_detailAddress" placeholder="상세주소" style="width:250px">
-								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:150px">
+								<input type="text" id="sample6_extraAddress" placeholder="참고항목" style="width:250px">
 							</td>
 						</tr>
 						<tr>
 							<td>	배송요청사항	</td>
 							<td>	
 								<span style="color:transparent; font-weight:bold">*</span>
-								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:450px">	
+								<input type="text" placeholder="배송메세지를 입력해주세요" style="width:550px">	
 							</td>
 						</tr>
 					</table>	
@@ -185,21 +170,21 @@
 				<td rowspan="3" style="text-align:right">
 					<% int checkoutSum = 0;	
 					for (CartDTO item : checkoutList ) { 
-						checkoutSum += item.getgPRICE() * item.getcQTY();
+						checkoutSum += item.getgPrice() * item.getcQTY();
 					} %>
-					<h2 id="margin_fix1">최종 결제금액 : <%= df.format(checkoutSum+shippingCost)%> 원</h2>
-					<h3 id="margin_fix2">상품금액 : <%= df.format(checkoutSum) %> 원 </h3>
-					<h3 id="margin_fix3">배송비 : <%= df.format(shippingCost) %> 원</h3>
+					<h2>최종 결제금액 : <%= df.format(checkoutSum+shippingCost)%> 원</h2>
+					<h3>상품금액 : <%= df.format(checkoutSum) %> 원 </h3>
+					<h3>배송비 : <%= df.format(shippingCost) %> 원</h3>
 					<br>
 					<input type="button" id="pay_button" value="결제하기" onclick="checkoutnpay();">
 				</td>
 			</tr>
 			<tr>
-				<td class="real_top"><h3 id="title3">결제수단 선택</h3></td>
+				<td class="real_top"><h3 class="title">결제수단 선택</h3></td>
 			</tr>
 			<tr>
 				<td style="border-right: 20px solid transparent; height:150px">
-					<p id="margin_fix4">
+					<p>
 						<input type="radio" name="paymethod" value="신용카드" checked>신용카드 &nbsp;
 						<input type="radio" name="paymethod" value="무통장입금">무통장입금 &nbsp;
 						<input type="radio" name="paymethod" value="계좌이체">계좌이체 &nbsp;
@@ -255,7 +240,7 @@
 						</tr>
 						<tr>
 							<td colspan="2">
-								<ul id="explain1">
+								<ul class="explain">
 									<li>&lt;카카오뱅크 체크카드 혜택&gt;</li>
 									<li>3만원 이상 결제 시 <span style="color:#F27370">2천원 캐시백</span></li>
 									<li>온/오프라인에서 <span style="color:#F27370">월 1회 사용 가능</span></li>
@@ -305,7 +290,7 @@
 						<tr>
 							<td style="vertical-align: middle;"> 결제안내	</td>
 							<td>
-								<ul id="explain2">
+								<ul class="explain">
 									<li>계좌이체로 결제 완료시 본인 계좌에서 즉시 이체 처리됩니다.</li>
 									<li>실시간 계좌이체는 은행별 이용시간이 다를 수 있습니다.</li>
 								</ul>
@@ -315,7 +300,7 @@
 					<table id="naverpay_tb"  class="sub_tb">
 						<tr>
 							<td>
-								<ul id="explain3">
+								<ul class="explain">
 									<li style="font-weight:bold;"> &lt;네이버페이 유의사항&gt;</li>
 									<li>주문 변경 시 카드사 혜택 및 할부 적용 여부는 해당 카드사 정책에 따라 변경될 수 있습니다.</li>
 									<li>네이버페이로 결제 시, 제휴카드 할인/적립(CJ카드, 임직원할인 포함)이 적용되지 않습니다.</li>
@@ -333,7 +318,7 @@
 						<tr>
 							<td style="vertical-align: middle;"> 결제안내	</td>
 							<td>
-								<ul id="explain4">
+								<ul class="explain">
 									<li>휴대폰 결제는 100만원까지 결제가 가능합니다.</li>
 									<li>한도문의는 모빌리언스(1600-0523), 다날(1566-3355), 페이레터(1599-7591)로 문의주시기 바랍니다.</li>
 								</ul>
@@ -347,6 +332,7 @@
 	<div style="height:130px"></div>
 	<footer><%@ include file= "../footer/footer.jsp" %></footer>
 </body>
+<script src="../js/checkout06.js"></script>
 <script>
 	function checkoutnpay(){
 		
@@ -367,6 +353,6 @@
 			
 		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress;
 	}
+
 </script>
-<script src="${pageContext.request.contextPath }/js/checkout06.js"></script>
 </html>

@@ -88,10 +88,6 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			System.out.println("front도착");
 			forward = new SearchGoodsAction().execute(req, resp);
 			break;
-		case "/goods/goodsList.spm":
-			System.out.println("front도착");
-			forward = new NavbarAction().execute(req, resp);
-			break;
 		} 
 		
 		

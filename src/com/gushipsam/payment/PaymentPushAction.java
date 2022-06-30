@@ -2,7 +2,6 @@ package com.gushipsam.payment;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
@@ -19,9 +18,8 @@ public class PaymentPushAction implements Action{
 		OrderDTO odto = new OrderDTO();
 		CartDTO cdto = new CartDTO();
 
-		HttpSession session = req.getSession();
-		String userid = (String) session.getAttribute("sessionId");
-		
+		String userid = "test1";
+		//String userid = req.getParameter("userid"); 으로 변경 예정
 		String[] cIDs = req.getParameter("cids").split(",");
 		String oPHONE = req.getParameter("ophone");
 		String oADDRESS = req.getParameter("oaddress");
@@ -42,12 +40,12 @@ public class PaymentPushAction implements Action{
 			pdao.insertOrder(odto);
 		}
 		
-		if(pdao.deleteCartItemAll(cIDs) ) {
+		if(pdao.deleteCartItemAll(userid,cIDs) ) {
 			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/MyPage/OrderList/OrderList-Page.jsp");	//~.spm으로 변경 예정
+			forward.setPath(req.getContextPath() + "/MyPage/OrderList/OrderList-Page.jsp");
 		} else {
 			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/MyPage/OrderList/OrderList-Page.jsp");	//~.spm으로 변경 예정
+			forward.setPath(req.getContextPath() + "/MyPage/OrderList/OrderList-Page.jsp");
 		}
 		
 		return forward;
