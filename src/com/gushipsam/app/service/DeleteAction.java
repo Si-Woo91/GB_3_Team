@@ -22,5 +22,5 @@ public class DeleteAction implements Action{
 		forward = new ServiceListAction().execute(req, resp); 
 	}
 		return forward;
-		}
+	} 
 	}

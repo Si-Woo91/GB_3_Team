@@ -74,7 +74,7 @@ public class ServiceFrontController extends HttpServlet{
 			}else {
 				RequestDispatcher disp = req.getRequestDispatcher(forward.getPath());
 				disp.forward(req, resp);
-			}
+		}
 		}
 	}
 }
