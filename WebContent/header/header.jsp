@@ -42,7 +42,7 @@
 					</c:when>
 				<c:otherwise>
 						<li class= login>
-							<a href="${pageContext.request.contextPath}/lobby/Mypage.spm">마이페이지</a>
+							<a href="${pageContext.request.contextPath}/lobby/mypage.spm">마이페이지</a>
 						</li>
 						<li class= login>
 							${sessionId}님 환영합니다.&nbsp;&nbsp;&nbsp;

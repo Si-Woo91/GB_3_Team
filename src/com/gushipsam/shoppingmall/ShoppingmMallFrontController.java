@@ -62,7 +62,7 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			break;
 			
 		// 마이페이지 로비
-		case "/lobby/Mypage.spm":
+		case "/lobby/mypage.spm":
 			System.out.println("/lobby/Mypage.spm 도착");
 			forward = new MypageAction().execute(req, resp);
 			break;

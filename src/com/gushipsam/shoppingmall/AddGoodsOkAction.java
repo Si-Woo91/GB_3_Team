@@ -1,5 +1,6 @@
 package com.gushipsam.shoppingmall;
 
+import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -15,8 +16,6 @@ import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.goods.dao.goodsDAO;
 import com.gushipsam.goods.dao.goodsDTO;
-import com.gushipsam.shoppingmall.dao.ShoppingMallDAO;
-import com.gushipsam.shoppingmall.dao.ShoppingMallDTO;
 
 @MultipartConfig(
 		location = "C:\\Users\\ksh98\\git\\GB_3_Team\\WebContent\\img",
@@ -48,13 +47,13 @@ public class AddGoodsOkAction implements Action{
 		// 데이터 받아올 객체
 		goodsDAO gDAO = new goodsDAO();
 		
-		// ShoppingMallDTO에 담아서 넘김
+		// goodsDTO에 담아서 넘김
 		goodsDTO gDTO = new goodsDTO();
 		String fileName = null;
 
 		
 		// 이미지관련
-	//	PrintWriter out = resp.getWriter();
+		//	PrintWriter out = resp.getWriter();
 		String contentType = req.getContentType();
 		System.out.println("contype");
 
@@ -88,12 +87,10 @@ public class AddGoodsOkAction implements Action{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-
 					}
 				} else {
 					String formValue = req.getParameter(part.getName());
 					System.out.printf("name : %s, value : %s \n", part.getName(), formValue);
-
 				}
 			}
 
@@ -104,8 +101,8 @@ public class AddGoodsOkAction implements Action{
 			System.out.println("<h1>enctype이 multipart/form-data가 아님 </h1>");
 		}
 		
-		
 
+		
 		String gImgs = fileName;
 		String gName = req.getParameter("description");
 		String gBrand = req.getParameter("brand");
@@ -127,22 +124,18 @@ public class AddGoodsOkAction implements Action{
 		System.out.println("shopDTO.객체");
 		
 		req.setAttribute("searchlist", gDAO.getGoodslist());
+		
 		forward.setRedirect(true);
 		
 		if(gDAO.insertGoods(gDTO)) { // 성공시
-//			int Goods_seq = shopDAO.getGoods_seq();
 			forward.setPath(req.getContextPath() + "/admin/Goodslist.spm");
 			System.out.println("상품 추가 성공");
 		} else {
 			forward.setPath(req.getContextPath() + "/AD-Page/ADDgoods.spm");
 			System.out.println("상품 추가 실패");
 		}
-		
-		
-		
 		return forward;
 	}
-	
 	private String extractFileName (String partHeader) {
 		System.out.println("파일이름메서드 ㅎㅇ");
 		for(String cd : partHeader.split(";")) {
@@ -151,7 +144,6 @@ public class AddGoodsOkAction implements Action{
 				int index = fileName.lastIndexOf(File.separator);
 				System.out.println(fileName.substring(index + 1));
 				return fileName.substring(index + 1);
-				
 			}
 		}
 		return null;
