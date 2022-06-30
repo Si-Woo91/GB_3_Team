@@ -3,21 +3,32 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family :'GowunDodum-Regular';
+/* 	font-family :'GowunDodum-Regular'; */
 	
 }
-
-@font-face {									/* 폰트 설정 (회의후 변경예정) */
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+ @font-face {									/* 폰트 설정 (회의후 변경예정) */
     font-family: 'GowunDodum-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
+/*@font-face {
     font-family: 'GowunBatang-Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+} */
+
+.search1{
+	position : relative;
+	bottom : 0%;
+	margin-bottom: 0%;
 }
 div .login_search{
 	position: fixed; 
@@ -27,13 +38,9 @@ div .login_search{
 	z-index:9999;
 	background-color : #FFFFF0;
 	margin-bottom : 30%;
+	font-family: 'ONE-Mobile-POP';
 }
 
-.search1{
-	position : relative;
-	bottom : 0%;
-	margin-bottom: 0%;
-}
 
 .logo img{
 	height:auto;

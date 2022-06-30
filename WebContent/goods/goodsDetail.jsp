@@ -36,7 +36,7 @@
 </head>
 <%@ include file="../header/header.jsp" %>
 <body>
-   <div style="height: 220px;"></div>
+   <div style="height: 300px;"></div>
    <section>
       <table id="skeleton">
          <tr>
@@ -96,7 +96,7 @@
             </td>
          </tr>
       </table>
-      <div style="height:100px"></div>
+      <div style="height:220px"></div>
    </section>
    <%@ include file= "../footer/footer.jsp" %>
 </body>

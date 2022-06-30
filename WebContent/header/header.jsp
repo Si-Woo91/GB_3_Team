@@ -54,7 +54,7 @@
 			<!-- 검색창 -->
 		<div class="search1">
 			<form action="${pageContext.request.contextPath}/goods/SearchGoods.spm" method="post" name="searchForm">
-				<input placeholder="Search" class= search name="searchtext">
+				<input placeholder="Search" class= 'search_main' name="searchtext">
 				<a class="btn" href="javascript:document.searchForm.submit()" role="button">
 					<img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 				</a>
