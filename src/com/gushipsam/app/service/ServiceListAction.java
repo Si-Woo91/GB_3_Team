@@ -46,5 +46,4 @@ public class ServiceListAction implements Action{
 		
 		return forward;
 }
-	
 }

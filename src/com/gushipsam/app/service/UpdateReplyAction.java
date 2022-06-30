@@ -25,7 +25,6 @@ public class UpdateReplyAction implements Action {
 		
 		return forward;
 }
-
 }
 
 

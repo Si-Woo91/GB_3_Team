@@ -24,7 +24,6 @@ public class DeleteReplyAction implements Action {
 		
 		return forward;
 }
-	
 }
 
 

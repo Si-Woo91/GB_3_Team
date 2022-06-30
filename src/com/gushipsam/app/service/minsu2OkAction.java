@@ -35,5 +35,4 @@ public class minsu2OkAction implements Action {
 		
 		return forward;
 }
-
 }
