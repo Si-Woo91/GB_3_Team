@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/secession.css">
+<!-- <link rel="stylesheet" type="text/css" href="../css/secession.css"> -->
 </head>
 <body>
 	<header> <jsp:include page="../header/header.jsp"/> </header>
-	
+	<span class="secession">
 	<div class="wrap">
 		<header class="secession-title"> <h1 class="title-text">회원 탈퇴</h1> </header>
 		<div class="secession-text">
@@ -63,7 +63,7 @@
             <button type="submit" class="secession-validate-user-submit">본인확인 & 회원탈퇴</button>
         </div>
 	</div>
-	
+	</span>
 
 	<footer> <jsp:include page="../footer/footer.jsp"/> </footer>
 </body>

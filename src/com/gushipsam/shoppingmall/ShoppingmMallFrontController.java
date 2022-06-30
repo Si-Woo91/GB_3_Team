@@ -60,12 +60,19 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			forward = new UserpwAction().execute(req, resp);
 			System.out.println("userpw 22222");
 			break;
-			// 마이페이지 로비
-		case "/shoppingmall/mypage.spm":
-			System.out.println("/shoppingmall/mypage.spm 도착");
+			
+		// 마이페이지 로비
+		case "/lobby/Mypage.spm":
+			System.out.println("/lobby/Mypage.spm 도착");
 			forward = new MypageAction().execute(req, resp);
 			break;
 
+		// 주문목록 페이지 이동
+		case "/OrderList/OrderList.spm":
+			 System.out.println("/OrderList/OrderList.spm 도착");
+			 forward = new OrderListAction().execute(req, resp);
+			 break;
+			
 		// 관리자 상품관리
 		case "/admin/Goodslist.spm":
 			System.out.println("/AD-Page/Goodslist.spm 도착");
@@ -84,6 +91,30 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			forward = new AddGoodsOkAction().execute(req, resp);
 			break;
 
+		// 관리자 상품관리에서 상품 삭제
+		case "/AD-Page/DELgoodsOk.spm":
+			 System.out.println("/AD-Page/cart.spm 도착");
+			 try {
+				forward = new DelGoodsOkAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+				forward.setRedirect(true);
+				forward.setPath(req.getContextPath() + "/AD-Page/exception.jsp");
+			}
+			 break;
+			 
+		// 관리자 회원 리스트
+		case "/admin/Memberlist.spm":
+			 System.out.println("/admin/Memberlist.spm 도착");
+			 forward = new ADMemberListAction().execute(req, resp);
+			 break;
+			 
+		// 관리자 홈으로
+		case "/AD-Page/adHome.spm":
+			 System.out.println("/AD-Page/adHome.spm 도착");
+			 forward = new ADHomeAction().execute(req, resp);
+			 break;			
+			
 		case "/goods/SearchGoods.spm":
 			System.out.println("front도착");
 			forward = new SearchGoodsAction().execute(req, resp);
