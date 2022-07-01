@@ -24,7 +24,7 @@ public class UserLoginOkAction implements Action {
 
 		forward.setRedirect(true);
 
-		if (userid.equals("adminid")) {
+		if (userid.equals("adminid") && userpw.equals("adminpw")) {
 			forward.setRedirect(true);
 			forward.setPath("/AD-Page/adHome.spm");
 		} else {

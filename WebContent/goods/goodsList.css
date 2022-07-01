@@ -49,3 +49,16 @@ h2 {
 	text-align: center;
 	padding: 5px;
 }
+
+.itemlink{
+	color: black;
+}
+
+.itemlink:visited{
+	color: black;
+}
+
+.itemlink:active{
+	color: orange;
+}
+

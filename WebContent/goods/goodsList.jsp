@@ -33,7 +33,7 @@
 <link rel="shortcut icon" href="gu_icon.ico">	
 <link rel="stylesheet" type="text/css" href="goodsList.css">
 </head>
-  	<header> <%@ include file= "../header/header.jsp" %> </header>
+<%@ include file= "../header/header.jsp" %>
 <body>
 	<section>	
 		<div class="content">
@@ -44,7 +44,7 @@
 				<% for (goodsDTO g : goodsList ){ %>
 					<li class="items" border="1" align="center">
 					<!-- gID값을 상세페이지로 넘겨줌 -->
-						<a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%= g.getgID() %>" >
+						<a class="itemlink" href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%= g.getgID() %>" >
 							<img src="${pageContext.request.contextPath }/img/<%=foldername %>/<%= g.getgImgs()%>" class="img_prod" width="300" height="300"><br>
 							<span class="name"><%= g.getgName() %></span><br>
 							<span class="price"><%= df.format(g.getgPRICE()) %> 원</span><br>
@@ -56,6 +56,6 @@
 		</div>		
 		<br>
 	</section>
-	 <footer><%@ include file= "/footer/footer.jsp" %></footer>
+	 <%@ include file= "/footer/footer.jsp" %>
 </body>
 </html>

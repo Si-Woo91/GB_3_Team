@@ -101,7 +101,6 @@
    <%@ include file= "../footer/footer.jsp" %>
 </body>
 <script>
-   
    //수량 감소 버튼
    $('#mbtn').on("click",function(){
       let qty = $('#qty').val();
@@ -122,15 +121,21 @@
       if(!confirm("바로 구매를 진행하시겠습니까?")) return false
       let gQTY = $('#qty').val();
       let gID = '${goodsDetail.gID}';
-      
+      userid = '${sessionId}';
+      if(userid == null || userid == '') {
+         location.href='${pageContext.request.contextPath }/IDPW/login.jsp';
+         return false;
+      }
       location.href='${pageContext.request.contextPath }/payment/checkoutdirect.pay?gid='+gID+'&gqty='+gQTY;
    }
    
    
    function insertCart(){
+	  if(!confirm("해당 상품을 장바구니에 추가하시겠습니까?")) return false
+
       let gQTY = $('#qty').val();
       let gID = '${goodsDetail.gID}';
-      userid = '<%= session.getAttribute("sessionId") %>';
+      userid = '${sessionId}';
       if(userid == null || userid == '') {
          location.href='${pageContext.request.contextPath }/IDPW/login.jsp';
          return false;
