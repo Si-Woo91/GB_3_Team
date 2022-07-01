@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>구십삼 내 주문목록</title>
 </head>
 <body>
 	<c:set var="orderList" value="${requestScope.orderList }"/>

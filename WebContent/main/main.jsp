@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구십삼</title>
+<title>구십삼 메인</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/slick.min.js"></script> 
 	<script type="text/javascript" src="../js/slide.js"></script> 

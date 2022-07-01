@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자</title>
 <link rel="stylesheet" type="text/css" href="../css/adHome.css">
 </head>
 <body>

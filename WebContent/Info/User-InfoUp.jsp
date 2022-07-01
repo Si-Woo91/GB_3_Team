@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>연매출구십3조-구십삼-회원정보수정</title>
+<title>구십삼 회원정보수정</title>
 <!-- <link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css"> -->
 </head>
  <jsp:include page="../header/header.jsp"/> 

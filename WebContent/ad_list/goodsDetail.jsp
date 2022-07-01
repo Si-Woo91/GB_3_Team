@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품상세</title>
 <link rel="stylesheet" type="text/css" href="goodsDetail.css">
 <body>
 	<%@ include file= "../header/header.jsp" %>

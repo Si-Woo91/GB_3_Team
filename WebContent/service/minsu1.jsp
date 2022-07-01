@@ -9,7 +9,7 @@
 <!-- <link href="../../header/header.jsp" rel="stylesheet" type="text/css">
  -->
  <meta charset="UTF-8">
-<title>고객센터</title>
+<title>구십삼 고객센터</title>
 </head>
 <%@ include file= "../header/header.jsp" %>
 <body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>첨부 업로드</title>
+<title>상품 업로드</title>
 </head>
 <body>
  <form action="${pageContext.request.contextPath }/AD-Page/ADDgoodsOk.spm" method="post" name="listForm" enctype="multipart/form-data"> 

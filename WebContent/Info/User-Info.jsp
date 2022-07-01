@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>구십삼 회원정보</title>
 <!-- <link rel="stylesheet" type="text/css" href="../css/User-Info.css"> -->
 </head>
 <jsp:include page="../header/header.jsp"/>

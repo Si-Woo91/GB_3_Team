@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>구십삼 아이디/비밀번호 찾기</title>
 </head>
 <link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 <link href="../css/id.css" rel ="stylesheet" type="text/css">

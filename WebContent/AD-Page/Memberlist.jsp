@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자-회원리스트</title>
+<title>관리자 - 회원목록</title>
 <link rel="stylesheet" type="text/css" href="../css/Memberlist.css">
 </head>
 <body>

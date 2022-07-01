@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>연매출구심3조-구십삼-마이로비</title>
+<title>구십삼 마이페이지</title>
 <!-- <link rel="stylesheet" type="text/css" href="../css/Mypage.css"> -->
 </head>
 <jsp:include page="../header/header.jsp" />

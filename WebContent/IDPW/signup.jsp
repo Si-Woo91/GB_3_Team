@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>구십삼 회원가입</title>
 <link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 
 </head>

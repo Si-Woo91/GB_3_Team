@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>구십삼</title>
+<title>구십삼 개인정보처리방침</title>
 <link rel="stylesheet" type="text/css" href="../css/personalinfrom.css">
 </head>
 	<%@ include file= "../header/header.jsp" %>
