@@ -28,13 +28,13 @@
 	</div>
 
 	<!-- 인기제품목록  -->
-	<div class="main_popular">
+	<div class="main_popular1">
 	<div class="main_popular-item"><a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=17" ><img src="../img/ac2.png">BESPOKE 무풍에어컨 갤러리</a></div>
 	<div class="main_popular-item"><a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=11" ><img src="../img/tv1.png">Neo QLED 4K TV (55인치)</a></div><br>
 	</div>
-	<div class="main_popular">
+	<div class="main_popular2">
 	<div class="main_popular-item"><a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=21" ><img src="../img/pc1.png">LG gram 16 </a></div><br>
-	<div class="main_popular-item"><a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=7" ><img src="../img/washer2.png">그랑데 AI[올인원컨트롤]</a><br></div>
+	<div class="main_popular-item"><a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=7" ><img src="../img/washer2.png">그랑데 AI[올인원컨트롤]</a></div>
 	</div>
 	</section>
 		<%@ include file= "../footer/footer.jsp" %>

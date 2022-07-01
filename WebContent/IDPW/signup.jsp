@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
+
 </head>
 <link href="../css/id.css" rel ="stylesheet" type="text/css">
 

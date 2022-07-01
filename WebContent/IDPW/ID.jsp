@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 <link href="../css/id.css" rel ="stylesheet" type="text/css">
 <body>
 <c:set var="mag" value="${requestScope.mag }" />
@@ -63,22 +64,32 @@
 <form action="${pageContext.request.contextPath }/IDPW/pw.spm" method="POST" name="PWform">
 <div class = second>
    <div class = two>
-   <h2>비밀번호 찾기</h2>   
-   <div class="textForm2">
-      <input name="userid" type="text" class="userid" placeholder="아이디">
-   </div>
-   <div class="textForm2">
-      <input name="username" type="text" class="username" placeholder="이름">
-   </div>
-   <div class="textForm2">
-      <input name="userphone" type="number" class="userphone" placeholder="전화번호">
-   </div>
-   <div class="textForm2">
-      <input name="useremail" type="text" class="useremail" placeholder="이메일">
-   </div>
-<input type="button" id="pw-btn" class="btn" value="비밀번호 찾기" onclick="pw_search()">
+	   <h2>비밀번호 찾기</h2>   
+	   <div class="textForm2">
+	      <input name="userid" type="text" class="userid" placeholder="아이디">
+	   </div>
+	   <div class="textForm2">
+	      <input name="username" type="text" class="username" placeholder="이름">
+	   </div>
+	   <div class="textForm2">
+	      <input name="userphone" type="number" class="userphone" placeholder="전화번호">
+	   </div>
+	   <div class="textForm2">
+	      <input name="useremail" type="text" class="useremail" placeholder="이메일">
+	   </div>
+		<input type="button" id="pw-btn" class="btn" value="비밀번호 찾기" onclick="pw_search()">
+	</div>
 </div>
 </form>
+<div style="text-align: center; margin: 620px auto 50px auto;">
+			<div>
+				<a class="goback_btn" href= "${pageContext.request.contextPath }/main/main.jsp">메인페이지</a>
+				&nbsp;
+				&nbsp;
+				<a class="goback_btn" id="href= "${pageContext.request.contextPath }/IDPW/login.jsp">로그인</a>
+			</div>
+			
+</div>
    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
    <script src="../js/user1.js"></script>
 </body>

@@ -7,8 +7,9 @@
 <title>연매출구십3조-구십삼-회원정보수정</title>
 <!-- <link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css"> -->
 </head>
+ <jsp:include page="../header/header.jsp"/> 
+
 <body>
-	<header> <jsp:include page="../header/header.jsp"/> </header>
 
 <!-- 본문 포장지 -->
 	<div class="ifup-body-wrap">
@@ -98,7 +99,7 @@
     </div>
 	</div>
 	
-	<footer> <jsp:include page="../footer/footer.jsp"/> </footer>
+<jsp:include page="../footer/footer.jsp"/>
 	
 	
 </body>

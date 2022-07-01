@@ -36,7 +36,7 @@ public class ShoppingMallDTO {
 	private String oDate;
 	private String oPHONE;
 	private String oADDRESS;
-	private int oPAYMENT;
+	private int oQTY;
 
 	// imagefile
 	private int iID;
@@ -188,12 +188,12 @@ public class ShoppingMallDTO {
 		this.oDate = oDate;
 	}
 
-	public int getoPAYMENT() {
-		return oPAYMENT;
+	public int getoQTY() {
+		return oQTY;
 	}
 
-	public void setoPAYMENT(int oPAYMENT) {
-		this.oPAYMENT = oPAYMENT;
+	public void setoQTY(int oQTY) {
+		this.oQTY = oQTY;
 	}
 
 	public String getgBrand() {

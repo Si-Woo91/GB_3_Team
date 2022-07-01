@@ -53,13 +53,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- shopdto에 select문의 결과를 담아서 보냄 -->
 	<select id="getRecentList" resultType="shoppingmalldto"
 		parameterType="string">
-<!-- 		SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE FROM ORDERS o INNER JOIN GOODS g ON o.GID = g.GID WHERE o.USERID = #{userid} -->
-		<![CDATA[SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE, g.gCatg 
+<!-- 		SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE, o.GID FROM ORDERS o INNER JOIN GOODS g ON o.GID = g.GID WHERE o.USERID = #{userid} -->
+		<![CDATA[SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE, g.gCatg , o.GID, o.OQTY
 		FROM ORDERS o 
 		INNER JOIN GOODS g ON o.GID = g.GID 
 		WHERE USERID = #{userid}
-		AND rownum <= 3
-		ORDER BY ODATE DESC]]>
+		AND oid > (SELECT MAX(o2.OID) FROM ORDERS O2 WHERE USERID = #{userid}) -3]]>
 	</select>
 
 	<!-- 주문목록 페이지 페이징 처리 -->

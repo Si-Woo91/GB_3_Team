@@ -5,6 +5,7 @@
 <html>
 <head>
 <link href="${pageContext.request.contextPath }../css/id.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

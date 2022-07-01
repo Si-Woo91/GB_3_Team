@@ -261,6 +261,7 @@
 									<li>&lt;카카오뱅크 체크카드 혜택&gt;</li>
 									<li>3만원 이상 결제 시 <span style="color:#F27370">2천원 캐시백</span></li>
 									<li>온/오프라인에서 <span style="color:#F27370">월 1회 사용 가능</span></li>
+									<li>자세한 내용은 이벤트 탭에서 확인해주세요</li>
 									<li>신용/체크카드 결제금액이 30만원 이상인 경우 공인인증서가 필요합니다.</li>
 								</ul>
 							</td>
@@ -349,7 +350,7 @@
 	<%@ include file= "../footer/footer.jsp" %>
 </body>
 <script>
-	function checkoutnpay2(){
+	function checkoutnpay(){
 		
 		//필수 입력란
 		let checkout_inputs = [$('#phone1').val(), $('#phone2').val(), $('#phone3').val(),
@@ -376,19 +377,20 @@
 		} else {
 			alert('주문/결제가 완료되었습니다.');
 		}
-
+		
+		let cid_arr = [];
 		<% for (CartDTO item : checkoutList ) {
 			pageContext.setAttribute("cID",item.getcID());
 			pageContext.setAttribute("directgID",item.getgID());
 			pageContext.setAttribute("directoQTY",item.getcQTY());
- 		%>  
-			cid_arr.push('${cID}'');
-			let directgID = '${directgID}';
-			let directoQTY = '${directoQTY}';
+		%>
+			cid_arr.push("${cID}");
+			let directgID = "${directgID}";
+			let directoQTY = "${directoQTY}";
 		<%}%>
 					
 		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress
-																							+'&directgID='+directgID+'&directoQTY='+directoQTY;
+																					+'&directgID='+directgID+'&directoQTY='+directoQTY;
 	}
 </script>
 <script src="${pageContext.request.contextPath }/js/checkout06.js"></script>

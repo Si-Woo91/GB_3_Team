@@ -355,10 +355,19 @@ ul li a {
 }
 /* 슬라이드 끝 */
 
-.main_popular {
+.main_popular1 {
     margin: 0 auto;
     display: flex;
-    margin-top: 100px;
+    margin-top: 70px;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
+.main_popular2 {
+    margin: 0 auto;
+    display: flex;
+    margin-top: 5px;
     flex-wrap: nowrap;
     justify-content: center;
 }
@@ -373,6 +382,7 @@ ul li a {
     border-radius: 20px;
     position: relative;
     overflow: hidden;
+    padding : 20px;
 }
 
 .main_popular-item img{
@@ -390,4 +400,21 @@ ul li a {
     padding-left: 14%;
     padding-right: 14%;
     padding-top: 12%;
+}
+
+.main_popular-item a{
+	color: black;
+	
+}
+
+.main_popular-item a:hover{
+	font-weight: bold;
+}
+
+.main_popular-item a:visited{
+	color: black;
+}
+
+.main_popular-item a:active{
+	color: orange;
 }

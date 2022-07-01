@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 <!-- <link rel="stylesheet" type="text/css" href="../css/User-Info.css"> -->
 </head>
+<jsp:include page="../header/header.jsp"/>
 <body>
-	<header> <jsp:include page="../header/header.jsp"/> </header>
 	
 	<div class="info-member-container">
 		<h1 class="info-usermodify-auth-title">회원정보확인</h1>
@@ -41,6 +41,6 @@
 			<button type="button" class="info-usermodify-cancel">취소</button>		</div>
 
 	</div>
-	<footer> <jsp:include page="../footer/footer.jsp"/> </footer>
+<jsp:include page="../footer/footer.jsp"/>
 </body>
 </html>

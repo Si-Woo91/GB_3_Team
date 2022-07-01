@@ -1,7 +1,23 @@
 @charset "UTF-8";
+
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+ @font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
   margin: 0px;
   padding: 0px;
+  	font-family :'GowunDodum-Regular';
+  
 }
 
 body {
@@ -134,7 +150,7 @@ body {
   position:absolute;
   background-color:#FFFFFF;
   text-align:center;
-  top:25%;
+  top:18%;
   left:35%;
   transform: translateX(-50%);
   border-radius: 15px;
@@ -143,7 +159,7 @@ body {
   position:absolute;
   background-color:#FFFFFF;
   text-align:center;
-  top:15%;
+  top: 7%;
   left:65%;
   transform: translateX(-50%);
   border-radius: 15px;
@@ -353,4 +369,19 @@ h2 {
 
 .btn:hover {
   background-position: right;
+  background-color: #F28C28;
+}
+
+.goback_btn{
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.goback_btn:hover{
+	font-weight: bold;
+}
+
+.goback_btn:active{
+	font-weight: bold;
+	color: orange;
 }
