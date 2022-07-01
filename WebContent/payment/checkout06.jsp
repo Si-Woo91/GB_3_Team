@@ -349,7 +349,7 @@
 	<%@ include file= "../footer/footer.jsp" %>
 </body>
 <script>
-	function checkoutnpay(){
+	function checkoutnpay2(){
 		
 		//필수 입력란
 		let checkout_inputs = [$('#phone1').val(), $('#phone2').val(), $('#phone3').val(),
@@ -382,9 +382,9 @@
 			pageContext.setAttribute("directgID",item.getgID());
 			pageContext.setAttribute("directoQTY",item.getcQTY());
  		%>  
-			cid_arr.push("${cID}");
-			let directgID = "${directgID}";
-			let directoQTY = "${directoQTY}";
+			cid_arr.push('${cID}'');
+			let directgID = '${directgID}';
+			let directoQTY = '${directoQTY}';
 		<%}%>
 					
 		location.href='${pageContext.request.contextPath }/payment/payresult.pay?cids='+cid_arr+'&ophone='+ophone+'&oaddress='+oaddress
