@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.app.service.DeleteAction;
@@ -38,7 +39,7 @@ public class ServiceFrontController extends HttpServlet{
 				forward = new ServiceListAction().execute(req, resp); 
 				break;
 			case "/service/minsu2.sv":
-				forward = new ActionForward(true, req.getContextPath() + "/service/minsu2.jsp");
+				forward = new WriteServiceAction().execute(req, resp); 
 				break;
 			case "/service/minsu2Ok.sv":
 				System.out.println("12");

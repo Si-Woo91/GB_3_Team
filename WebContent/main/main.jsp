@@ -7,7 +7,7 @@
 <title>구십삼 메인</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/slick.min.js"></script> 
-	<script type="text/javascript" src="../js/slide.js"></script> 
+	<script type="text/javascript" src="../js/slide.js"></script>
 </head>
 	<%@ include file= "../header/header.jsp" %>
 <body>
@@ -19,6 +19,9 @@
 			<div class="banner_img">
 				<div>
 					<img src="../img/slide1.png">
+				</div>
+				<div>
+					<img src="../img/slide2.png">
 				</div>
 				<div>
 					<img src="../img/slide2.png">

@@ -44,7 +44,7 @@
 					<td height="23px;">${service.servicename }</td>
 					<td height="23px;">${service.servicedate }</td>
 					<td height="23px;">
-						<a href="${pageContext.request.contextPath }/service/minsu3.sv?servicenum=${service.servicenum}">
+						<a class="link" href="${pageContext.request.contextPath }/service/minsu3.sv?servicenum=${service.servicenum}">
 							${service.servicetitle }
 						</a>
 					</td>
@@ -65,25 +65,25 @@
 			<tr align="center" valign="middle">
 				<td>
 					<c:if test="${nowPage > 1 }">
-						<a href="${pageContext.request.contextPath }/service/minsu1.sv?page=${nowPage-1}">[&lt;]</a>
+						<a class="link" href="${pageContext.request.contextPath }/service/minsu1.sv?page=${nowPage-1}">[&lt;]</a>
 					</c:if>
 					<c:forEach var="i" begin="${startPage }" end="${endPage }">
 						<c:choose>
-							<c:when test="${i == nowPage }">[${i }]</c:when>
+							<c:when test="${i == nowPage }"><b>[${i }]</b></c:when>
 							<c:otherwise>
-								<a href="${pageContext.request.contextPath }/service/minsu1.sv?page=${i}">[${i }]</a>
+								<a class="link" href="${pageContext.request.contextPath }/service/minsu1.sv?page=${i}">[${i }]</a>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>					
 					<c:if test="${nowPage < totalPage }">
-						<a href="${pageContext.request.contextPath }/service/minsu1.sv?page=${nowPage+1}">[&gt;]</a>
+						<a class="link" href="${pageContext.request.contextPath }/service/minsu1.sv?page=${nowPage+1}">[&gt;]</a>
 					</c:if>
 				</td>
 			</tr>
 		</table>
 		<table style="border: 0px; width: 70%;">
 			<tr align="right" valign="middle">
-				<td><a href="${pageContext.request.contextPath }/service/minsu2.sv">[글쓰기]</a></td>
+				<td><a class="link" href="${pageContext.request.contextPath }/service/minsu2.sv">[글쓰기]</a></td>
 			</tr>
 		</table>
 	</div>

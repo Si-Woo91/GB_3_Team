@@ -20,8 +20,6 @@
 	<link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css">
 	<link rel="stylesheet" type="text/css" href="../css/OrderList-Page.css">
 	<link rel="stylesheet" type="text/css" href="../css/secession.css">
-	<script type="text/javascript" src="../js/slick.min.js"></script> 
-	<script type="text/javascript" src="../js/slide.js"></script> 
 </head>
 <body>
 	<c:set var="userID" value="${sessionScope.sessionId}" />
@@ -32,21 +30,21 @@
 			<a href="#"onclick="location.href='../main/main.jsp'" class= logo><img src= ../img/logo.png></a>
  			<!-- 로그인, 로그아웃, 장바구니, 고객센터 -->
  			<ul class = nav1>
-						<li class= service><a href= "../service/minsu1.sv">고객센터 </a></li>
-						<li class= basket><a href= "${pageContext.request.contextPath }/payment/cart.pay">장바구니 </a></li>
+						<li class="service"><a class="link" href= "../service/minsu1.sv">고객센터 </a></li>
+						<li class= basket><a class="link" href= "${pageContext.request.contextPath }/payment/cart.pay">장바구니 </a></li>
 				<c:choose>
 					<c:when test="${sessionId eq null}">
 						<li class= login>
-							<a id="log_change" href="${pageContext.request.contextPath}/IDPW/login.jsp">로그인</a>
+							<a class="link" id="log_change" href="${pageContext.request.contextPath}/IDPW/login.jsp">로그인</a>
 						</li>
 					</c:when>
 				<c:otherwise>
 						<li class= login>
-							<a href="${pageContext.request.contextPath}/lobby/mypage.spm">마이페이지</a>
+							<a class="link" href="${pageContext.request.contextPath}/lobby/mypage.spm">마이페이지</a>
 						</li>
 						<li class= login>
 							${sessionId}님 환영합니다.&nbsp;&nbsp;&nbsp;
-							<a href="#" onclick= "location.href='${pageContext.request.contextPath}/main/sessionInitialization.jsp'">로그아웃</a>
+							<a class="link" href="#" onclick= "location.href='${pageContext.request.contextPath}/main/sessionInitialization.jsp'">로그아웃</a>
 						</li>
 				</c:otherwise>
 				</c:choose>
@@ -64,30 +62,37 @@
 			<div class="category">
 				<div class= nav2> 
 					<ul>
-						<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=냉장고" class="a">냉장고</a>
+						<li>
+							<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=냉장고" class="a">냉장고</a>
 							<ul>
 								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
 								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
 							</ul>
 						</li>
-						<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=세탁기" class="a">세탁기</a>
+						<li>
+							<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=세탁기" class="a">세탁기</a>
 							<ul>
 								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
 								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-							</ul></li>
-						<li><a  href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=TV" class="a">TV</a>
+							</ul>
+						</li>
+						<li>
+							<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=TV" class="a">TV</a>
 							<ul>
 								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
 								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-							</ul></li>
-						<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=에어컨" class="a">에어컨</a>
+							</ul>
+						</li>
+						<li>
+							<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=에어컨" class="a">에어컨</a>
 							<ul>
 								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
 								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
 								<li><a href="상품페이지 경로" style="color:black;">WINIA</a></li>
-							</ul></li>
-		
-						<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=컴퓨터" class="a">컴퓨터</a>
+							</ul>
+						</li>
+						<li>
+								<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=컴퓨터" class="a">컴퓨터</a>
 							<ul>
 								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
 								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>

@@ -29,6 +29,7 @@
 	position : relative;
 	bottom : 0%;
 	margin-bottom: 0%;
+	text-align: center;
 }
 div .login_search{
 	position: fixed; 
@@ -43,8 +44,8 @@ div .login_search{
 
 
 .logo img{
-	height:auto;
-	width: 12%;
+	height: auto;
+	width: 10%;
 	margin: 0.6% 0 0 2%;
 }
 
@@ -57,3 +58,15 @@ div .login_search{
 li {
 	list-style: none;
 }
+
+.fullclick{
+	display:inline-block;
+	width: 100%;
+	height:100%;
+}
+
+
+.link{ color: black; }
+.link:hover{ font-weight: bold; }
+.link:visited{ color: black; }
+.link:active{ color: orange; }

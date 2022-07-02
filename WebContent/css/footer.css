@@ -10,7 +10,7 @@ footer {
 	width : 100%;
 	padding-top : 0.5%;
 	color : #FFFFFF;
-	font-size : 18px;
+	font-size : 15px;
 	display: flex;
 	background-color : #383b40;
 	margin: auto;
@@ -19,13 +19,9 @@ footer {
 
 footer a {
 	display : inline-block;
-	margin : 0 0 0 1%;
+	margin : 0 0.5% 0 0.5%;
 	color : #808080; 
-	font-size: 17px;
-}
-
-footer a:visited{
-	color:#808080;
+	font-size: 15px;
 }
 
 footer p{
@@ -37,13 +33,6 @@ footer p{
 }
 footer p span{
 	display: inline-block;
-<<<<<<< HEAD
-	margin : 0% 10% 1% 15%;
-=======
-	margin : 0% 1% 0% 14%;
-	
-	
->>>>>>> refs/heads/master
 }
 
 footer nav{

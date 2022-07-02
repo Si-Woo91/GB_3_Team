@@ -49,16 +49,11 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			}
 			break;
 		case "/IDPW/id.spm" :
-			try {
-				forward = new UseridAction().execute(req, resp);
-			} catch (Exception e) {
-			}
+			forward = new UseridAction().execute(req, resp);
 			break;
 			
 		case "/IDPW/pw.spm" :
-			System.out.println("userpw 11111");
 			forward = new UserpwAction().execute(req, resp);
-			System.out.println("userpw 22222");
 			break;
 			
 		// 마이페이지 로비

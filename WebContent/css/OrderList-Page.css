@@ -41,6 +41,10 @@ a {
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
 	margin-left: 9%;
+	
+	width: 150px;
+	text-align: center;
+	font-weight: bold;
 }
 
 .order {
@@ -80,7 +84,7 @@ a {
 .order-order_tb td {
 	padding: 13px 0;
 	border-bottom: 1px solid #e6e6e6;
-	font-size: 13px;
+	font-size: 15px;
 	font-weight: 400;
 	vertical-align: middle;
 }
@@ -89,3 +93,4 @@ a {
 	margin: auto;
 	margin-bottom: 14.5%;
 }
+

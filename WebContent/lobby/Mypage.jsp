@@ -31,7 +31,7 @@
 				style="cursor: pointer;">주문내역</a></li>
 			<!-- 					onclick="window.open('shopping_basket.html', '장바구니','width=1200, height=800, left=0, top=0');"-->
 			<li><a href="${pageContext.request.contextPath }/payment/cart.pay">장바구니 </a></li>
-			<li><a href="#" style="cursor: pointer;">상품리뷰</a></li>
+			<li><a href="#" style="cursor: pointer;" onclick="alert('미구현 상태입니다.');">상품리뷰</a></li>
 			<li><a onclick="location.href='${pageContext.request.contextPath }/lobby/mypage.spm'"
 				style="cursor: pointer;">회원정보수정</a></li>
 		</ul>
@@ -42,12 +42,10 @@
 	<br>
 
 	<div class="my-order">
-		<h2 class="my-h3"
-			style="width: 150px; text-align: center; font-weight: bold;">최근
-			주문 목록</h2>
+		<h3 class="my-h3">최근 주문내역</h3>
 		<a class="more_view"
-			onclick="location.href='../OrderList/OrderList-Page.jsp'"
-			style="font-size: 13px; cursor: pointer;">더보기 +</a>
+			onclick="location.href='${pageContext.request.contextPath }/OrderList/OrderList.spm';">
+		더보기 +</a>
 	</div>
 	<table class="my-order_tb" summary="주문일자, 상품명, 결제금액, 주문상세"
 		style="border-top: 1px solid black;">
@@ -106,7 +104,11 @@
 									src="${pageContext.request.contextPath }/img/<%=foldername %>/<%= g.getgIMGS()%>">
 							</a>
 						</td>
-						<td><%=g.getgName()%></td>
+						<td>
+							<a class="link" href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%=g.getgID() %>">
+								<%=g.getgName()%>
+							</a>
+						</td>
 						<td><%=df.format(g.getgPRICE())%>원</td>
 						<td><%=g.getoQTY()%></td>
 						<td><%=g.getoDate()%></td>

@@ -56,6 +56,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="delser" parameterType="_int">
 		DELETE FROM SERVICE WHERE SERVICENUM = #{svnum}
 	</delete>
+	
+	<select id="getUsername" parameterType="string" resultType="string">
+		SELECT USERNAME FROM MEMBERS WHERE USERID = #{userid}
+	</select>
 </mapper>
 
 

@@ -75,13 +75,17 @@
 /* 주문 목록 부분 css */
 .my-h3 {
 	height: 5% ;
-	font-size: 20px;
+	font-size: 23px;
 	margin-block-end: 1em;
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
 	margin-left: 9%;
 	margin-bottom: 0;
 	padding-bottom: 0;
+	
+	width: 150px;
+	text-align: center;
+	font-weight: bold;
 }
 
 .my-order {
@@ -131,3 +135,14 @@
 	text-align: center;
 	
 }
+
+.more_view{
+	font-size: 13px;
+	cursor: pointer;
+	color: black;
+}
+
+.more_view{ color: black; }
+.more_view:hover { font-weight: bold; }
+.more_view:visited { color: black; }
+.more_view:active { color: orange; }

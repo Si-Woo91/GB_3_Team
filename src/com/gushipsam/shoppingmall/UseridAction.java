@@ -1,5 +1,7 @@
 package com.gushipsam.shoppingmall;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,26 +13,31 @@ import com.gushipsam.shoppingmall.dao.ShoppingMallDTO;
 public class UseridAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp){
 		ShoppingMallDAO udao = new ShoppingMallDAO();
-		ShoppingMallDTO user = new ShoppingMallDTO();
 		ActionForward forward = new ActionForward();
 		
 		String username = req.getParameter("username");
 		String userphone = req.getParameter("userphone");
 		String useremail = req.getParameter("useremail");
 		
-		String user_id = udao.id(username, userphone, useremail);
 		
-		req.setAttribute("user_id", user_id);
+		List<ShoppingMallDTO> user_id = udao.id(username, userphone, useremail);
+		System.out.println(user_id);
 		
-		if(udao.id(username, userphone, useremail) != null) {
-			forward.setPath("/IDPW/ID.jsp?flagid2=false");
-			req.setAttribute("mag", "아이디는 " + user_id + "입니다.");
-			System.out.println(user_id);
-			
-		} else {
+		if( user_id == null || user_id.size() ==0 ) {								//해당 회원이 존재하지 않는 경우
+			System.out.println("해당 회원이 존재하지 않는 경우");
 			forward.setPath("/IDPW/ID.jsp?flagid=false");
+			
+		} else if ( user_id.size() > 1){					//해당 회원이 2명 이상 존재하는 경우
+			System.out.println("해당 회원이 2명 이상 존재하는 경우");
+			forward.setPath("/IDPW/ID.jsp?flagid2=false");
+			
+		} else {											//해당 회원이 1명 존재하는 경우
+			System.out.println("해당 회원이 1명 존재하는 경우");
+			forward.setPath("/IDPW/ID.jsp?flagid3=false");
+			req.setAttribute("mag", "귀하의 아이디는 " + user_id.get(0).getUserid() + "입니다.");
+			System.out.println(user_id);
 		}
 		
 		forward.setRedirect(false);

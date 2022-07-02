@@ -25,10 +25,6 @@ function sendit(){
       return false;
    }
    
-//   if (checkId(frm.userid.value) == 0) {
-//      alert("중복확인을 눌러주세요");
-//      return false;
-//   }
    
    // 비밀번호 없을때
    if( userpw.value == "" ){
@@ -52,10 +48,6 @@ function sendit(){
       return false;
    }
    
-//   if( userpw.value !==  userpw_two.value){
-//      alert("비밀번호와 비밀번호확인이 같지않습니다.")
-//      return false;
-//   }
 
    if( username.value == "" ){
       alert("이름을 입력하세요!");
@@ -106,7 +98,8 @@ function sendit(){
       useremail.focus();
       return false;
    }
-      
+
+   
    frm.submit();
 }
 
@@ -206,8 +199,15 @@ function pw_search() {
                // alert(xhr.responseText);
 
                if (xhr.responseText.trim() == "ok") {
-                  // 사용할수 있는 아이디 입니다.
-                  document.getElementById("text").innerHTML = "<p style='color:blue; margin-bottom:0;'>사용할수 있는 아이디 입니다.</p>";
+            	   
+            	  if(userid == "adminid") {
+            		  //관리자 아이디이므로 사용 불가능합니다.
+            		  document.getElementById("text").innerHTML =	"<p style='color:red; margin-bottom:0;'>중복된 아이디 입니다.</p>";
+                      $('#join-btn').attr("disabled","disabled");
+            	  } else{
+	                  // 사용할수 있는 아이디 입니다.
+	                  document.getElementById("text").innerHTML = "<p style='color:blue; margin-bottom:0;'>사용할수 있는 아이디 입니다.</p>";
+            	  }
                } else {
                   // 중복된 아이디 입니다.
                   document.getElementById("text").innerHTML = "<p style='color:red; margin-bottom:0;'>중복된 아이디 입니다.";

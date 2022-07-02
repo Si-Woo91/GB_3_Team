@@ -14,7 +14,7 @@
     <c:if test="${not empty param.flag }">
       <c:if test="${not param.flag }">
          <script>
-            alert("로그인 실패");
+            alert("아이디 또는 비밀번호를 잘못 입력했습니다.\n입력하신 내용을 다시 확인해주세요.");
             location.href='/IDPW/login.jsp';
          </script>
       </c:if>
@@ -34,10 +34,10 @@
 				</div>
 				<div class="login_etc">
 					<div class="signup">
-						<a href="signup.jsp">회원가입</a>
+						<a class="link" href="signup.jsp">회원가입</a>
 					</div>
 					<div class="forgot_id">
-						<a href="ID.jsp">아이디/비밀번호찾기</a>
+						<a class="link" href="ID.jsp">아이디/비밀번호찾기</a>
 					</div>
 				</div>
 				<br>

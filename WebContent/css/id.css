@@ -372,16 +372,7 @@ h2 {
   background-color: #F28C28;
 }
 
-.goback_btn{
-	font-size: 20px;
-	cursor: pointer;
-}
-
-.goback_btn:hover{
-	font-weight: bold;
-}
-
-.goback_btn:active{
-	font-weight: bold;
-	color: orange;
-}
+.link{ color: black; 	cursor: pointer; }
+.link:hover{ font-weight: bold; }
+.link:visited{ color: black; }
+.link:active{ color: orange; }

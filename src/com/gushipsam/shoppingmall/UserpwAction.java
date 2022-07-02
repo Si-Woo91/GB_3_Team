@@ -30,7 +30,7 @@ public class UserpwAction implements Action {
 		
 		if(udao.pw(userid, username, userphone, useremail) != null) {
 			forward.setPath("/IDPW/ID.jsp?flagpw2=false");
-			req.setAttribute("mag2", "비밀번호는 " + user_pw + "입니다.");
+			req.setAttribute("mag2", "귀하의 비밀번호는 " + user_pw + "입니다.");
 			System.out.println(user_pw);
 			
 		} else {

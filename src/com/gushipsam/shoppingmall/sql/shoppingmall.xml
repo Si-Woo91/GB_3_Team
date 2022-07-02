@@ -15,11 +15,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT count(*) FROM MEMBERS WHERE USERID = #{userid} AND USERPW = #{userpw}
 	</select>
 	
-	<select id="id" parameterType="hashmap" resultType="String">
+	<select id="id" parameterType="hashmap" resultType="shoppingmalldto">
 		SELECT userid FROM MEMBERS WHERE USERNAME = #{username} AND USERPHONE = #{userphone} AND USEREMAIL = #{useremail}
 	</select>
 	
-	<select id="pw" parameterType="hashmap" resultType="String">
+	<select id="pw" parameterType="hashmap" resultType="string">
 		SELECT userpw FROM MEMBERS WHERE  USERID = #{userid} AND USERNAME = #{username} AND USERPHONE = #{userphone} AND USEREMAIL = #{useremail}
 	</select>
    
@@ -54,11 +54,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getRecentList" resultType="shoppingmalldto"
 		parameterType="string">
 <!-- 		SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE, o.GID FROM ORDERS o INNER JOIN GOODS g ON o.GID = g.GID WHERE o.USERID = #{userid} -->
-		<![CDATA[SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE, g.gCatg , o.GID, o.OQTY
-		FROM ORDERS o 
-		INNER JOIN GOODS g ON o.GID = g.GID 
+		SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE, g.gCatg , o.GID, o.OQTY
+		FROM (SELECT * FROM ORDERS ORDER BY ODATE DESC) o
+		LEFT OUTER JOIN GOODS g ON o.GID = g.GID 
 		WHERE USERID = #{userid}
-		AND oid > (SELECT MAX(o2.OID) FROM ORDERS O2 WHERE USERID = #{userid}) -3]]>
+		<![CDATA[AND ROWNUM <= 3]]>
+		ORDER BY ODATE DESC
 	</select>
 
 	<!-- 주문목록 페이지 페이징 처리 -->

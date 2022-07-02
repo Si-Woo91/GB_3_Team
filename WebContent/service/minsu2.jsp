@@ -23,7 +23,7 @@
 					제목
 				</th>
 				<td>
-					<input name="servicetitle"  placeholder="제목을 입력하세요">
+					<input name="servicetitle"  placeholder="제목을 입력하세요" style="width:200px; font-size:16px;">
 				</td>
 			</tr>
 			<tr class="a">
@@ -31,23 +31,22 @@
 					작성자
 				</th>
 				<td>
-					<input name="servicename"  placeholder="이름을 입력하세요">
+					<input name="servicename"  value="${username}" style="width:200px; font-size:16px;" readonly>
 				</td>
 			</tr>
-
 			<tr class="b">
 				<th class="table_title">
 					내용
 				</th>
 				<td>
-					<textarea name="servicecontent" cols= "70" rows="20" placeholder="내용"></textarea>
+					<textarea name="servicecontent" cols= "70" rows="20" placeholder="내용" style="font-size:16px;"></textarea>
 				<td>
 			</tr>
 		</table>
 			<tr class="c">	
 					<td>
-						<a href="javascript:document.serviceForm.submit()">[등록]</a>&nbsp;&nbsp;&nbsp;
-						<a href="${pageContext.request.contextPath}/service/minsu1.sv">[목록]</a>
+						<a class="link" href="javascript:document.serviceForm.submit()">[등록]</a>&nbsp;&nbsp;&nbsp;
+						<a class="link" href="${pageContext.request.contextPath}/service/minsu1.sv">[목록]</a>
 					</td>
 			</tr>
 		</div>

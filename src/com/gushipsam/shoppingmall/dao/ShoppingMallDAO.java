@@ -55,14 +55,14 @@ public class ShoppingMallDAO {
 		return result;
 	}
 	
-	public String id(String username, String userphone, String useremail) {
+	public List<ShoppingMallDTO> id(String username, String userphone, String useremail) {
 		
 		HashMap<String, String> datas = new HashMap<>();
 		datas.put("username", username);
 		datas.put("userphone", userphone);
 		datas.put("useremail", useremail);
 		
-		String user_id = sqlsession.selectOne("shoppingmall.id", datas);
+		List<ShoppingMallDTO> user_id = sqlsession.selectList("shoppingmall.id", datas);
 		
 		return user_id;
 	}

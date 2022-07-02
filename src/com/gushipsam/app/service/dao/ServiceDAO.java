@@ -101,6 +101,12 @@ public class ServiceDAO {
 		return result;
 
 }
+
+	public String getUsername(String userid) {
+		String username = null;
+		username = sqlsession.selectOne("Service.getUsername", userid);
+		return username;
+	}
 }
 
 	
