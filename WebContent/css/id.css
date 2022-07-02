@@ -372,6 +372,26 @@ h2 {
   background-color: #F28C28;
 }
 
+h5{
+	color: grey;
+}
+
+.roundblock {
+  position:absolute;
+  width:35%;
+  height:30%;
+  background-color:#FFFFFF;
+  text-align:center;
+  top:20%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+.roundblock #joincheckresult{
+    border-radius: 10px;
+  border: solid 2px #e0e0e0;
+}
+
 .link{ color: black; 	cursor: pointer; }
 .link:hover{ font-weight: bold; }
 .link:visited{ color: black; }

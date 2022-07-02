@@ -38,20 +38,31 @@ public class ShoppingmMallFrontController extends HttpServlet{
 		System.out.println("requestURI : " + requestURI);
 		
 		switch (requestURI) {
+		
+		//회원가입 여부 체크 실행, 가입 기록 없으면 회원가입페이지로 이동
+		case "/IDPW/signupcheck.spm":
+			forward = new SignupCheckAction().execute(req, resp);
+			break;
+			
+		//회원가입 실행, 성공시 로그인페이지로 이동
 		case "/IDPW/login.spm" :
 			forward = new UserJoinAction().execute(req, resp);
 			break;
 			
+		//로그인 실행, 성공시 메인페이지로 이동
 		case "/main/main.spm" : 
 			try {
 				forward = new UserLoginOkAction().execute(req, resp);
 			} catch (Exception e) {
 			}
 			break;
+		
+		//아이디찾기 실행, 성공 및 실패시 팝업창 뜸
 		case "/IDPW/id.spm" :
 			forward = new UseridAction().execute(req, resp);
 			break;
-			
+		
+		//비번찾기 실행, 성공 및 실패시 팝업창 뜸
 		case "/IDPW/pw.spm" :
 			forward = new UserpwAction().execute(req, resp);
 			break;

@@ -1,3 +1,31 @@
+function signup_search() { 
+	   let f = document.frm;
+	   let username = f.username;
+	   let userphone = f.userphone;
+	   let useremail = f.useremail;
+	   
+	   if (username.value == "") {
+	      alert("이름을 입력해주세요");
+	      username.focus();
+	      return false;
+	   }
+	   
+	   if (userphone.value == "") {
+	      alert("전화번호를 입력해주세요");
+	      userphone.focus();
+	      return false;
+	   }
+	   
+	   if (useremail.value == "") {
+	      alert("이메일을 입력해주세요");
+	      useremail.focus();
+	      return false;
+	   }
+	   
+	   f.submit();
+	}
+
+
 
 function sendit(){
    let frm = document.frm;
@@ -219,7 +247,6 @@ function pw_search() {
       }
    }
    
-   $(function () {
    $('#userpw').keyup(function () {
       $('#text2').html('');
    });
@@ -236,16 +263,8 @@ function pw_search() {
          $('#join-btn').removeAttr("disabled");
       }
    });
-});
 
 
-   //   $(function() {
-//      if($("#userpw").val() != $("#userpw_two").val()){
-//         alert("비밀번호가 일치하지 않습니다.");
-//         return false;
-//      }
-//   });
-//   
 
 
    

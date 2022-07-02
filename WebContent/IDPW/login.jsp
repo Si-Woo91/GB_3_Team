@@ -8,9 +8,9 @@
 <link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 <meta charset="UTF-8">
 <title>구십삼 로그인</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-
     <c:if test="${not empty param.flag }">
       <c:if test="${not param.flag }">
          <script>
@@ -34,7 +34,7 @@
 				</div>
 				<div class="login_etc">
 					<div class="signup">
-						<a class="link" href="signup.jsp">회원가입</a>
+						<a class="link" href="signupcheck.jsp">회원가입</a>
 					</div>
 					<div class="forgot_id">
 						<a class="link" href="ID.jsp">아이디/비밀번호찾기</a>

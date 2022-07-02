@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>구십삼 아이디/비밀번호 찾기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 <link href="../css/id.css" rel ="stylesheet" type="text/css">
@@ -98,7 +99,6 @@
 			</div>
 			
 </div>
-   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
    <script src="../js/user1.js"></script>
 </body>
 </html>

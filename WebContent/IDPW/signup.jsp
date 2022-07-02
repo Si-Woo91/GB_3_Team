@@ -7,11 +7,19 @@
 <meta charset="UTF-8">
 <title>구십삼 회원가입</title>
 <link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <link href="../css/id.css" rel ="stylesheet" type="text/css">
-
 <body>
+
+<c:if test="${not empty param.result }">
+      <c:if test="${param.result } = "notjoined">
+         <script>
+            alert("회원가입 기록이 없습니다. 회원가입 창으로 이동합니다.");
+         </script>
+      </c:if>
+ </c:if>
+
 <form action="${pageContext.request.contextPath }/IDPW/login.spm" method="POST" name="frm" class="joinForm">
        
        <div class = "join">                                                                                    
@@ -43,7 +51,6 @@
       <input type="button" id="join-btn" class="btn" value="회원가입완료" onclick="sendit()">
       </div>
 </form>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="../js/user1.js"></script>
 </body>
 </html>
