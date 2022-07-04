@@ -10,7 +10,7 @@ import com.gushipsam.goods.dao.goodsDAO;
 public class DelGoodsOkAction implements Action{
 
 	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		System.out.println("DelGoodsOkAction 도착");
 		ActionForward forward = new ActionForward();
 		goodsDAO gDAO = new goodsDAO();

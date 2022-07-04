@@ -100,13 +100,7 @@ public class ShoppingmMallFrontController extends HttpServlet{
 		// 관리자 상품관리에서 상품 삭제
 		case "/AD-Page/DELgoodsOk.spm":
 			 System.out.println("/AD-Page/cart.spm 도착");
-			 try {
-				forward = new DelGoodsOkAction().execute(req, resp);
-			} catch (Exception e) {
-				e.printStackTrace();
-				forward.setRedirect(true);
-				forward.setPath(req.getContextPath() + "/AD-Page/exception.jsp");
-			}
+			 forward = new DelGoodsOkAction().execute(req, resp);
 			 break;
 			 
 		// 관리자 회원 리스트

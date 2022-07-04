@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -11,6 +12,10 @@
 </head>
 <%@ include file= "../header/header.jsp" %>
 <body>
+<%
+	HashMap<String, String> userdata = (HashMap) request.getAttribute("userdata");
+	String username = userdata.get("USERNAME");
+%>
 <div style="height:50px;"></div>
 <div id='service'>
 	<div class="title">문의하기</div>
@@ -31,7 +36,7 @@
 					작성자
 				</th>
 				<td>
-					<input name="servicename"  value="${username}" style="width:200px; font-size:16px;" readonly>
+					<input name="servicename"  value="<%=username %>(${sessionScope.sessionId})" style="width:200px; font-size:16px;" readonly>
 				</td>
 			</tr>
 			<tr class="b">

@@ -1,4 +1,22 @@
 /* 페이지 전체 영역  */
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+ @font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  	font-family :'GowunDodum-Regular';
+}
+
+
 
 /* 페이지 전체 넓이 설정 */
 #wrap {
@@ -28,7 +46,7 @@ menu {
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
 	/* 	배경색 */
-	background-color: #ffcc76;
+	background-color: #92B1F0;
 	/* 	가운데 정렬 */
 	margin: auto;
 	/* 	왼쪽으로 붙히려고 왼쪽 padding값 0 */
@@ -42,12 +60,16 @@ menu ul {
 }
 
 menu ul li {
+	color: white;
 	list-style: none;
-	border-right: 1px solid black;
+	border-right: 1px solid white;
 	padding: 0 10px;
 	/* 	호버 시 마우스 커서의 모양을 pointer로 변경 */
+	font-size: 13px;
+}
+
+menu ul li:first-child {
 	cursor: pointer;
-	font-size: 10px;
 }
 
 /* 메뉴 마지막 텍스트 오른쪽에 border효과를 지움 */
@@ -68,7 +90,7 @@ menu ul li:last-child {
 /* table의 title행 css */
 .stock-list {
 	width: 100%;
-	border: 2px solid powderblue;
+	border: 2px solid #92B1F0;
 	/* 	경계선이 두줄이라면 합쳐서 하나의 선으로 만들어준다 */
 	border-collapse: collapse;
 	margin: auto;
@@ -76,7 +98,7 @@ menu ul li:last-child {
 
 /* table 내부 구분선 */
 .stock-list th {
-	border: 2px solid powderblue;
+	border: 2px solid #92B1F0;
 }
 
 /* table 1행 텍스트 정렬 */
@@ -95,7 +117,7 @@ menu ul li:last-child {
 
 /* table 1행 세로  */
 .editable {
-	border: 2px solid powderblue;
+	border: 2px solid #92B1F0;
 }
 
 /* table의 1열(상품명) css */
@@ -105,7 +127,7 @@ menu ul li:last-child {
 
 /* table 수정가능 부분 css */
 .table-edit-part {
-	background-color: #ffeccd;
+	background-color: #92B1F0;
 	text-align: center;
 }
 
@@ -118,3 +140,35 @@ menu ul li:last-child {
 	text-align: center;
 	
 }
+
+
+#edit_btn, #delete_btn{
+	background-color: #92B1F0;
+	border-radius: 5px;
+	border: 1px solid #92B1F0;
+	cursor:pointer;
+	padding: 3px 0px;
+	font-size:15px;
+	width:80px;
+	color: white;
+	margin:0px;
+}
+
+#add_btn{
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #92B1F0;
+	cursor:pointer;
+	padding: 3px 0px;
+	font-size:15px;
+	width:80px;
+	color: #92B1F0;
+	margin:0px;
+}
+
+#edit_btn:hover, #delete_btn:hover{ background-color: #84A0D9; }
+#add_btn:hover{ background-color: #FAF9F7; }
+
+.adminlink{ text-decoration:none; }
+.adminlink:hover{ font-weight: bold; }
+.adminlink:visited{ color: white; }

@@ -28,8 +28,9 @@
 .search1{
 	position : relative;
 	bottom : 0%;
-	margin-bottom: 0%;
-	text-align: center;
+	margin: 2% 0% 1% 0%;
+	flex: auto;
+	text-align:center;
 }
 div .login_search{
 	position: fixed; 
@@ -44,9 +45,10 @@ div .login_search{
 
 
 .logo img{
-	height: auto;
-	width: 10%;
-	margin: 0.6% 0 0 2%;
+/* 	height: auto; */
+/* 	margin: 0.6% 0 0 2%; */
+	width: 140px;
+	vertical-align: middle;
 }
 
 #wrap{
@@ -63,6 +65,20 @@ li {
 	display:inline-block;
 	width: 100%;
 	height:100%;
+}
+
+.searchForm{
+	width: 50%;
+	margin: 0% 8.5%;
+}
+
+div#headerlogo{
+	float: left;
+	margin: 4px 0px 0px 8.5%;
+}
+
+div#headersearchbar{
+	float: none;
 }
 
 

@@ -20,6 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css">
 	<link rel="stylesheet" type="text/css" href="../css/OrderList-Page.css">
 	<link rel="stylesheet" type="text/css" href="../css/secession.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<c:set var="userID" value="${sessionScope.sessionId}" />
@@ -27,7 +28,6 @@
 	<div>
 		<!-- 로고 -->
 		<div class="login_search">
-			<a href="#"onclick="location.href='../main/main.jsp'" class= logo><img src= ../img/logo.png></a>
  			<!-- 로그인, 로그아웃, 장바구니, 고객센터 -->
  			<ul class = nav1>
 						<li class="service"><a class="link" href= "../service/minsu1.sv">고객센터 </a></li>
@@ -49,14 +49,20 @@
 				</c:otherwise>
 				</c:choose>
 			</ul>
+			
 			<!-- 검색창 -->
 		<div class="search1">
-			<form action="${pageContext.request.contextPath}/goods/SearchGoods.spm" method="post" name="searchForm">
+			<div id="headerlogo">
+			<a href="#"onclick="location.href='../main/main.jsp'" class= logo><img src= ../img/logo.png></a>
+			</div>
+			<div id ="headersearchbar">
+			<form class="searchForm" action="${pageContext.request.contextPath}/goods/SearchGoods.spm" method="post" name="searchForm">
 				<input placeholder="Search" class= 'search_main' name="searchtext">
-				<a class="btn" href="javascript:document.searchForm.submit()" role="button">
+				<a id="searchbtn" href="javascript:document.searchForm.submit()" role="button">
 					<img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 				</a>
 			</form>
+			</div>
 		</div>
 			<!-- 카테고리 -->
 			<div class="category">

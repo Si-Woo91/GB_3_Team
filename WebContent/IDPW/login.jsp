@@ -23,6 +23,12 @@
 	<form action="${pageContext.request.contextPath }/main/main.spm" method="POST" name="loginform">
 	<div class="wrap">
 			<div class="login">
+				<div style="height: 50px;">
+					<a href="${pageContext.request.contextPath}/main/main.jsp"> <img
+						src="${pageContext.request.contextPath}/img/logo.png"
+						style="height: 100%">
+					</a>
+				</div>
 				<h2>Log-in</h2>
 				<div class="login_id">
 					<h4>아이디</h4>

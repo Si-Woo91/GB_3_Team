@@ -16,6 +16,12 @@
 		method="POST" name="frm" class="joinForm">
 
 		<div class="join">
+			<div style="height: 50px; margin-top: 40px;">
+				<a href="${pageContext.request.contextPath}/main/main.jsp"> <img
+					src="${pageContext.request.contextPath}/img/logo.png"
+					style="height: 100%">
+				</a>
+			</div>
 			<h2>회원가입 여부 안내</h2>
 			<h5>
 				기존 회원가입 정보와 일치하는 정보를 입력하셔야<br> 회원가입 여부를 정확하게 확인하실 수 있습니다.

@@ -94,7 +94,7 @@ public class ServiceDAO {
 		boolean result = false;
 				
 		
-		if (sqlsession.delete("Service.delser", svnum) != 0) {
+		if (sqlsession.delete("Service.deleteService", svnum) != 0) {
 			result = true;
 			
 		}
@@ -102,10 +102,16 @@ public class ServiceDAO {
 
 }
 
-	public String getUsername(String userid) {
-		String username = null;
-		username = sqlsession.selectOne("Service.getUsername", userid);
-		return username;
+	public HashMap<String,String> getUserdata(String userid) {
+		HashMap<String, String> userdata = new HashMap<>();
+		userdata = sqlsession.selectOne("Service.getUserdata", userid);
+		return userdata;
+	}
+
+	public boolean deleteReplyAll(int svnum, int replycount) {
+		boolean result  = false;
+		if(sqlsession.delete("Service.deleteReplyAll", svnum) == replycount) result = true;
+		return result;
 	}
 }
 

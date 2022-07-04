@@ -22,7 +22,8 @@
 	<c:set var="totalPage" value="${requestScope.totalPage }"/>
 	<c:set var="startPage" value="${requestScope.startPage }"/>
 	<c:set var="endPage" value="${requestScope.endPage }"/>
-
+	<c:set var="servicelen" value="${ 1 + (nowPage-1)*10 }"/>
+	
 		<div class="div_basic">
 			문의내역
 		</div>
@@ -30,25 +31,26 @@
 	<div>
 		<table class="table_main1" border="3" cellspacing="2" bordercolor="#eeeeee">
 			<tr>
-				<th style="background-color:#eeeeee; text-align: center; width: 50px;">번호</th>			
-				<th style="background-color:#eeeeee; text-align: center; width: 100px;">작성자</th>			
-				<th style="background-color:#eeeeee; text-align: center; width: 200px;">날짜</th>			
-				<th style="background-color:#eeeeee; text-align: center; width: 500px;">제목</th>			
+				<th style="background-color:#eeeeee; text-align: center; width: 60px; height:30px;">번호</th>			
+				<th style="background-color:#eeeeee; text-align: center; width: 120px;">작성자</th>			
+				<th style="background-color:#eeeeee; text-align: center; width: 470px;">제목</th>	
+				<th style="background-color:#eeeeee; text-align: center; width: 200px;">날짜</th>				
 			</tr>
 		<c:choose>
 			<c:when test="${serviceList != null and fn:length(serviceList) > 0 }">	
 			<!-- 게시글 작성 : 글이 있는 경우 -->
 			<c:forEach var="service" items="${serviceList }">
 				<tr align="center" valign="middle">
-					<td height="23px;">${service.servicenum }</td>
-					<td height="23px;">${service.servicename }</td>
-					<td height="23px;">${service.servicedate }</td>
-					<td height="23px;">
+					<td height="30px;">${servicelen }</td>
+					<td>${service.servicename }</td>
+					<td>
 						<a class="link" href="${pageContext.request.contextPath }/service/minsu3.sv?servicenum=${service.servicenum}">
 							${service.servicetitle }
 						</a>
 					</td>
-					</tr>
+					<td>${service.servicedate }</td>
+				</tr>
+					<c:set var="servicelen" value="${ servicelen + 1 }"/>
 			</c:forEach>
 			</c:when>
 			<c:otherwise>

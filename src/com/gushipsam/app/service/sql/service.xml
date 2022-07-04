@@ -52,13 +52,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from SERVICE_REPLY where REPLYNUM = #{replynum}
 	</delete> 
 	
+	<delete id="deleteReplyAll" parameterType="_int">
+		delete from SERVICE_REPLY where SERVICENUM = #{svnum}
+	</delete> 
 	
-	<delete id="delser" parameterType="_int">
+	<delete id="deleteService" parameterType="_int">
 		DELETE FROM SERVICE WHERE SERVICENUM = #{svnum}
 	</delete>
 	
-	<select id="getUsername" parameterType="string" resultType="string">
-		SELECT USERNAME FROM MEMBERS WHERE USERID = #{userid}
+	<select id="getUserdata" parameterType="string" resultType="hashmap">
+		SELECT USERNAME, USERPW FROM MEMBERS WHERE USERID = #{userid}
 	</select>
 </mapper>
 

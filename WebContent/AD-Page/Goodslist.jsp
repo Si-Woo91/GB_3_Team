@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="com.gushipsam.goods.dao.goodsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,7 +7,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <%
-   List<goodsDTO> goodsList = (List<goodsDTO>) request.getAttribute("goodsList"); 
+	DecimalFormat df = new DecimalFormat("###,###");
+	List<goodsDTO> goodsList = (List<goodsDTO>) request.getAttribute("goodsList"); 
 %>
 <!DOCTYPE html>
 <html>
@@ -16,6 +18,7 @@
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/Goodslist.css">
+<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 </head>
 
 <body>
@@ -34,7 +37,7 @@
 
          <menu>
             <ul>
-               <li><a href="${pageContext.request.contextPath}/AD-Page/adHome.spm">홈</a></li>
+               <li><a class="adminlink" href="${pageContext.request.contextPath}/AD-Page/adHome.spm">홈</a></li>
                <li>전체 상품 갯수 : ${goodCnt }</li>
             </ul>
          </menu>
@@ -55,12 +58,12 @@
             <colgroup>
                <!-- 테이블   의 각 열의 크기 조절 가능 -->
                <col width="50">
-               <col width="300">
                <col width="200">
+               <col width="550">
+               <col width="150">
                <col width="200">
-               <col width="200">
-               <col width="300">
-               <col width="300">
+               <col width="150">
+               <col width="250">
             </colgroup>
 
             <thead>
@@ -71,7 +74,7 @@
                   <td class="editable">브랜드</td>
                   <td class="editable">가격</td>
                   <td class="editable">재고</td>
-                  <td class="editable" style="background-color: #ffeccd;">재고수정</td>
+                  <td class="editable" style="background-color: #92B1F0; color:white;">재고수정</td>
                </tr>
             </thead>
 
@@ -103,7 +106,7 @@
                            src="${pageContext.request.contextPath }/img/<%=foldername %>/<%= g.getgImgs()%>"></th>
                         <th><%= g.getgName() %></th>
                         <th><%= g.getgBrand() %></th>
-                        <th><%= g.getgPRICE() %></th>
+                        <th><%= df.format(g.getgPRICE()) %></th>
                         <th><%= g.getgSTOCK() %></th>
                         <th class="edit-part"><input class="update-cell" type="text"></th>
                      </tr>
@@ -126,10 +129,12 @@
 
          <div>
             <form class="btn">
-               <input type="button" value="일괄수정">
-               <a href="${pageContext.request.contextPath}/AD-Page/ADDgoods.spm">[상품추가]</a>
-               <button type="button" class="delect_btn" onclick="delgid();">상품삭제</button>
+               <input type="button" id="edit_btn" value="일괄수정"> &nbsp;
+               <input type="button" id="add_btn" value="상품추가"
+               		onclick="location.href='${pageContext.request.contextPath}/AD-Page/ADDgoods.spm'"> &nbsp;
+               <button type="button" id="delete_btn" onclick="delgid();">상품삭제</button>
             </form>
+            <div style="height:50px;"></div>
          </div>
       </div>
    </div>

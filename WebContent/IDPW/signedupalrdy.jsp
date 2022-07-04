@@ -19,7 +19,7 @@
 			<div style="height: 50px"></div>
 			<div style="height: 50px;">
 				<a href="${pageContext.request.contextPath}/main/main.jsp"> <img
-					src="${pageContext.request.contextPath}/img/logo_short.png"
+					src="${pageContext.request.contextPath}/img/logo.png"
 					style="height: 100%">
 				</a>
 			</div>
@@ -29,7 +29,7 @@
 				회원으로 등록되어 있습니다.
 			</div>
 			<div style="height: 20px"></div>
-			<div style="color: grey; font-weight: bold; font-size: 18px;">
+			<div style="color: grey; font-weight: bold; font-size: 18px; margin: 0px 5px;">
 				회원아이디(
 				<% List<ShoppingMallDTO> user_id = (List) request.getAttribute("user_id");
 					int listlen = user_id.size();
@@ -51,6 +51,11 @@
 				}%>
 
 				)로 로그인하시거나<br> 아이디 찾기를 진행해주세요.
+			</div>
+			<div id="after_buttons">
+				<button id="id_find_btn" onclick="location.href='${pageContext.request.contextPath }/IDPW/ID.jsp'">아이디찾기</button>
+				&nbsp; &nbsp;
+				<button id="login_btn" onclick="location.href='${pageContext.request.contextPath }/IDPW/login.jsp'">로그인</button>
 			</div>
 			<div style="height: 50px"></div>
 		</div>

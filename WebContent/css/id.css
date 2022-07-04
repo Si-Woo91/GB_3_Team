@@ -40,8 +40,9 @@ body {
 }
 
 .joinForm h2 {
-  text-align: center;
-  margin: 30px 30px 40px 30px;
+    color: orange;
+    font-size: 38px;
+    margin: 0 0 5% 0;
 }
 
 .joinForm .join{
@@ -303,21 +304,21 @@ li {
 
 h2 {
   color: orange;
-  font-size: 2.5em;
+  font-size: 38px;
     margin: 0 0 5% 0;
 }
 
 
 .login_id {
   border-bottom: 2px solid #adadad;
-  margin-top: 20px;
+/*   margin-top: 20px; */
   width: 80%;
 }
 
 .login_id input {
-  width: 100%;
+  width: 90%;
   height: 50px;
-  margin-top: 10px;
+/*   margin-top: 10px; */
   padding: 0px 20px;
   border: none;
   outline: none;
@@ -330,9 +331,9 @@ h2 {
 }
 
 .login_pw input {
-  width: 100%;
+  width: 90%;
   height: 50px;
-  margin-top: 10px;
+/*   margin-top: 10px; */
   padding: 0px 20px;
   border: none;
   outline: none;
@@ -376,6 +377,7 @@ h5{
 	color: grey;
 }
 
+
 .roundblock {
   position:absolute;
   width:35%;
@@ -396,3 +398,42 @@ h5{
 .link:hover{ font-weight: bold; }
 .link:visited{ color: black; }
 .link:active{ color: orange; }
+
+#after_buttons{
+	margin-top: 50px;
+}
+
+#after_buttons #id_find_btn{
+	background-color: white;
+	border-radius: 30px;
+	border: 1px solid orange;
+	cursor:pointer;
+	padding: 10px 0px;
+	font-size:17px;
+	width:170px;
+	color: orange;
+	font-weight: bold;
+	margin:0px;
+	
+}
+
+#after_buttons #login_btn{
+	background-color: orange;
+	border-radius: 30px;
+	border: 1px solid orange;
+	cursor:pointer;
+	padding: 10px 0px;
+	font-size:17px;
+	width:170px;
+	color: white;
+	font-weight: bold;
+	margin:0px;
+}
+
+#after_buttons #id_find_btn:hover{
+	background-color: #FAF9F7;
+}
+
+#after_buttons #login_btn:hover{
+	background-color: #F28C28;	
+}

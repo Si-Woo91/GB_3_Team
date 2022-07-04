@@ -23,7 +23,7 @@ public class WriteServiceAction implements Action {
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/IDPW/login.jsp");
 		} else {
-			req.setAttribute("username", sdao.getUsername(userid));
+			req.setAttribute("userdata", sdao.getUserdata(userid));
 			forward.setRedirect(false);
 			forward.setPath(req.getContextPath() + "/service/minsu2.jsp");
 		}

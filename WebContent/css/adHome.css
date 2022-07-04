@@ -70,3 +70,8 @@ body {
 	text-decoration: none;
 	padding-left: 10px;
 }
+
+
+.adminlink{ color: #92B1F0; }
+.adminlink:hover{ font-weight: bold; }
+.adminlink:visited{ color: #92B1F0; }
