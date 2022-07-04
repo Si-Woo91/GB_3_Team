@@ -25,14 +25,14 @@ public class DelGoodsOkAction implements Action{
 			req.setAttribute("goodsCnt", gDAO.getGoodsCnt());
 			
 			forward.setRedirect(false);
-			forward.setPath(req.getContextPath() + "/AD-Page/goods_tb.jsp");
+			forward.setPath(req.getContextPath() + "/AD-Page/Goodslist.jsp");
 		} else {
 			
 			req.setAttribute("goodsList", gDAO.getGoodsList());
 			req.setAttribute("goodsCnt", gDAO.getGoodsCnt());
 			
 			forward.setRedirect(false);
-			forward.setPath(req.getContextPath() + "/AD-Page/goods_tb.jsp");
+			forward.setPath(req.getContextPath() + "/AD-Page/Goodslist.jsp");
 		}
 		
 		return forward;

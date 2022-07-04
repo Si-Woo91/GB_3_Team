@@ -1,5 +1,21 @@
 @charset "UTF-8";
 /* 페이지 전체 영역  */
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+ @font-face {									/* 폰트 설정 (회의후 변경예정) */
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  	font-family :'GowunDodum-Regular';
+}
 
 /* 페이지 전체 넓이 설정 */
 #wrap {
@@ -16,15 +32,70 @@ body {
 
 .member-list{
 	width: 100%;
-	border: 1px solid powderblue;
+	border: 1px solid #84A0D9;
 	border-collapse: collapse;
 	margin: auto;
 }
 
 .member-list th, td, tr{
-	border: 2px solid powderblue;
+	border: 2px solid #84A0D9;
+	font-size: 16px;
 }
 
 .member-list-thead{
 	text-align: center;
 }
+
+
+/* menu태그 css 시작 */
+
+/* 메뉴 전체 css	 */
+menu {
+	/* 	가로 정렬 */
+	float: left;
+	/* 	넓이 설정 */
+	width: 1000px;
+	/* 	높이 설정 */
+	height: 40px;
+	/* 	텍스트 높이 설정 */
+	line-height: 10px;
+	/* 	메뉴 상/하단 선(디자인) */
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+	/* 	배경색 */
+	background-color: #92B1F0;
+	/* 	가운데 정렬 */
+	margin: auto;
+	/* 	왼쪽으로 붙히려고 왼쪽 padding값 0 */
+	padding-left: 0;
+}
+
+/* 가로 정렬로 보이기 */
+menu ul {
+	display: flex;
+	padding-left: 0;
+}
+
+menu ul li {
+	color: white;
+	list-style: none;
+	border-right: 1px solid white;
+	padding: 0 10px;
+	/* 	호버 시 마우스 커서의 모양을 pointer로 변경 */
+	font-size: 16px;
+}
+
+menu ul li:first-child {
+	cursor: pointer;
+}
+
+/* 메뉴 마지막 텍스트 오른쪽에 border효과를 지움 */
+menu ul li:last-child {
+	border-right: 0;
+}
+
+/*  menu태그 css 끝 */
+
+.adminlink{ color:white; text-decoration:none;}
+.adminlink:hover{ font-weight: bold; }
+.adminlink:visited{ color: white; }

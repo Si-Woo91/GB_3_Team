@@ -20,11 +20,10 @@
 	<link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css">
 	<link rel="stylesheet" type="text/css" href="../css/OrderList-Page.css">
 	<link rel="stylesheet" type="text/css" href="../css/secession.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<c:set var="userID" value="${sessionScope.sessionId}" />
-
+	<c:set var="adminid" value="adminid" />
 	<div>
 		<!-- 로고 -->
 		<div class="login_search">
@@ -33,11 +32,16 @@
 						<li class="service"><a class="link" href= "../service/minsu1.sv">고객센터 </a></li>
 						<li class= basket><a class="link" href= "${pageContext.request.contextPath }/payment/cart.pay">장바구니 </a></li>
 				<c:choose>
-					<c:when test="${sessionId eq null}">
-						<li class= login>
-							<a class="link" id="log_change" href="${pageContext.request.contextPath}/IDPW/login.jsp">로그인</a>
-						</li>
-					</c:when>
+				<c:when test="${sessionId eq null}">
+					<li class= login>
+						<a class="link" id="log_change" href="${pageContext.request.contextPath}/IDPW/login.jsp">로그인</a>
+					</li>
+				</c:when>
+				<c:when test="${sessionId eq adminid}">
+					<script>
+						location.href='${pageContext.request.contextPath }/AD-Page/adHome.spm';
+					</script>
+				</c:when>
 				<c:otherwise>
 						<li class= login>
 							<a class="link" href="${pageContext.request.contextPath}/lobby/mypage.spm">마이페이지</a>

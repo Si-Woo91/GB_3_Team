@@ -16,9 +16,15 @@
 	
 	<div class="wrap">
 		<div class="box">
-			<h3>회원 리스트</h3><br>
+			<h3>회원 리스트</h3>
 			
-			<h5>회원 수 : ${memberCnt }명</h5>
+			<menu>
+	            <ul>
+	               <li><a class="adminlink" href="${pageContext.request.contextPath}/AD-Page/adHome.spm">홈</a></li>
+	               <li><a class="adminlink" href="#" onclick="logout();">로그아웃</a></li>
+	               <li>회원 : ${memberCnt }명</li>
+	            </ul>
+         	</menu>
 			
 			<hr>
 			
@@ -62,11 +68,14 @@
 					</c:choose>
 				</tbody>
 			</table>
-		
-			<a href="${pageContext.request.contextPath}/AD-Page/adHome.spm">나가기</a>
-		
-		
 		</div>
 	</div>
 </body>
+<script>
+//로그아웃
+function logout(){
+	alert('로그아웃되었습니다.');
+	location.href='${pageContext.request.contextPath}/main/sessionInitialization.jsp'
+}
+</script>
 </html>

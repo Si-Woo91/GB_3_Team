@@ -3,25 +3,12 @@
 <%@page import="java.text.DecimalFormat"%> 	<!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%-- <c:set var="goodsList" value="${requestScope.goodsList }"/> --%>
 <%
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
 	List<goodsDTO> goodsList = (List<goodsDTO>) request.getAttribute("goodsList"); 
 	
-	String foldername = null;
-	
-	
-	if (goodsList.get(0).getgCatg().equals("냉장고")){
-		foldername= "fridge";
-	} else if (goodsList.get(0).getgCatg().equals("세탁기")){
-		foldername= "washer";
-	} else if (goodsList.get(0).getgCatg().equals("TV")){
-		foldername= "tv";
-	} else if (goodsList.get(0).getgCatg().equals("에어컨")){
-		foldername= "ac";
-	} else if (goodsList.get(0).getgCatg().equals("컴퓨터")){
-		foldername= "pc";
-	}
 %>
 <!DOCTYPE html>
 <html>
@@ -36,12 +23,30 @@
 <%@ include file= "../header/header.jsp" %>
 <body>
 	<section>	
+		<c:choose>
+        <c:when test="${goodsList != null and fn:length(goodsList) > 0 }">
 		<div class="content">
 			<div id="catg">
 				<h2> <%= goodsList.get(0).getgCatg()%></h2>
 				<hr/>
-				 
-				<% for (goodsDTO g : goodsList ){ %>
+
+				<%
+				String foldername = null;
+				
+				if (goodsList.get(0).getgCatg().equals("냉장고")){
+					foldername= "fridge";
+				} else if (goodsList.get(0).getgCatg().equals("세탁기")){
+					foldername= "washer";
+				} else if (goodsList.get(0).getgCatg().equals("TV")){
+					foldername= "tv";
+				} else if (goodsList.get(0).getgCatg().equals("에어컨")){
+					foldername= "ac";
+				} else if (goodsList.get(0).getgCatg().equals("컴퓨터")){
+					foldername= "pc";
+				}
+				
+				for (goodsDTO g : goodsList ){
+				%>
 					<li class="items" border="1" align="center">
 					<!-- gID값을 상세페이지로 넘겨줌 -->
 						<a class="itemlink" href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=<%= g.getgID() %>" >
@@ -51,9 +56,14 @@
 						</a>
 					</li>
 				<% } %>
-				
 			</div>
-		</div>		
+		</div>	
+		</c:when>
+		<c:otherwise>
+			<div style="height:340px;"></div>
+			<div style="height:190px; text-align:center; font-size:30px; font-weight:bold;">현재 상품 준비중입니다.</div>
+		</c:otherwise>
+		</c:choose>	
 		<br>
 	</section>
 	 <%@ include file= "/footer/footer.jsp" %>

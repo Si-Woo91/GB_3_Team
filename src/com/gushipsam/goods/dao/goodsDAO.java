@@ -53,8 +53,10 @@ public class goodsDAO {
 	}
 	
 	// (관리자 페이지) 상품 삭제
-	public boolean delGoodItem(String[] delgids) throws Exception{
+	public boolean delGoodItem(String[] delgids){
 		boolean result = false;
+		int deletecount = 0;
+		
 		System.out.println("delgooditem 도착");
 
 		for (int i = 0; i < delgids.length; i++) {
@@ -63,11 +65,14 @@ public class goodsDAO {
 
 		HashMap<String, Object> deldata = new HashMap<>();
 		deldata.put("delgids", delgids);
-
-		if (sqlsession.delete("goods.delGoodItem", deldata) != 0) {
+		
+		deletecount = sqlsession.delete("goods.delGoodFromCart", deldata)
+						+ sqlsession.delete("goods.delGoodFromOrders", deldata)
+						+ sqlsession.delete("goods.delGoodFromGoods", deldata);
+		
+		if (deletecount != 0) {
 			result = true;
 			System.out.println("delgooditem sql문 돌림 성공");
-
 		}
 		System.out.println("delgooditem 끝");
 
@@ -93,6 +98,32 @@ public class goodsDAO {
 
 		System.out.println("result : " + result);
 
+		return result;
+	}
+
+	public boolean searchCartForDel(String[] delgids) {
+		boolean result = false;
+		int searchcount = 0;
+		HashMap<String, Object> deldata = new HashMap<>();
+		deldata.put("delgids", delgids);
+		
+		searchcount = sqlsession.selectOne("goods.searchCartForDel", deldata);
+		
+		if(searchcount != 0) result = true;
+		
+		return result;
+	}
+	
+	public boolean searchOrdersForDel(String[] delgids) {
+		boolean result = false;
+		int searchcount = 0;
+		HashMap<String, Object> deldata = new HashMap<>();
+		deldata.put("delgids", delgids);
+		
+		searchcount = sqlsession.selectOne("goods.searchOrdersForDel", deldata);
+		
+		if(searchcount != 0) result = true;
+		
 		return result;
 	}
 

@@ -38,12 +38,52 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       	VALUES (#{gImgs},#{gName},#{gBrand},#{gPRICE},#{gSTOCK})
 	</insert>
 	
-	<!-- 상품 삭제 -->
-	<delete id="delGoodItem" parameterType="hashmap">
+	<!-- 장바구니에 존재하는 삭제 예정인 상품 개수 세기 -->
+	<select id="searchCartForDel" parameterType="hashmap" resultType="_int">
+		SELECT COUNT(*)
+		FROM CART
+		WHERE GID IN
+		<foreach collection="delgids" item="gID" open="(" separator="," close=")">
+			#{gID}
+		</foreach>
+	</select>
+	
+	<!-- 주문내역에 존재하는 삭제 예정인 상품 개수 세기 -->
+	<select id="searchOrdersForDel" parameterType="hashmap" resultType="_int">
+		SELECT COUNT(*)
+		FROM ORDERS
+		WHERE GID IN
+		<foreach collection="delgids" item="gID" open="(" separator="," close=")">
+			#{gID}
+		</foreach>
+	</select>
+	
+	<!-- 장바구니테이블에서 상품 삭제 -->
+	<delete id="delGoodFromCart" parameterType="hashmap">
+		DELETE FROM CART
+		WHERE GID IN
+		<foreach collection="delgids" item="gID" open="(" separator="," close=")">
+			#{gID}
+		</foreach>
+	</delete>
+	
+	<!-- 주문내역테이블에서 상품 삭제 -->
+	<delete id="delGoodFromOrders" parameterType="hashmap">
+		DELETE FROM ORDERS
+		WHERE GID IN
+		<foreach collection="delgids" item="gID" open="(" separator="," close=")">
+			#{gID}
+		</foreach>
+	</delete>
+	
+	<!-- 상품테이블에서 상품 삭제 -->
+	<delete id="delGoodFromGoods" parameterType="hashmap">
 		DELETE FROM GOODS
 		WHERE GID IN
 		<foreach collection="delgids" item="gID" open="(" separator="," close=")">
 			#{gID}
 		</foreach>
 	</delete>
+	
+	
 </mapper>

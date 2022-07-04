@@ -97,11 +97,17 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			forward = new AddGoodsOkAction().execute(req, resp);
 			break;
 
+		// 관리자 상품관리에서 상품 삭제하기 전 장바구니/주문내역에 있는지 확인
+		case "/AD-Page/DELgoodsConfirm.spm":
+			 System.out.println("/AD-Page/cart.spm 도착");
+			 forward = new DelGoodConfirmAction().execute(req, resp);
+			 break;
+			
 		// 관리자 상품관리에서 상품 삭제
 		case "/AD-Page/DELgoodsOk.spm":
-			 System.out.println("/AD-Page/cart.spm 도착");
-			 forward = new DelGoodsOkAction().execute(req, resp);
-			 break;
+			System.out.println("/AD-Page/cart.spm 도착");
+			forward = new DelGoodsOkAction().execute(req, resp);
+			break;
 			 
 		// 관리자 회원 리스트
 		case "/admin/Memberlist.spm":
@@ -115,8 +121,8 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			 forward = new ADHomeAction().execute(req, resp);
 			 break;			
 			
-		case "/goods/SearchGoods.spm":
-			System.out.println("front도착");
+		case "/AD-Page/SearchGoods.spm":
+			System.out.println("/AD-Page/SearchGoods.spm 도착");
 			forward = new SearchGoodsAction().execute(req, resp);
 			break;
 		} 

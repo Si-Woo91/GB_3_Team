@@ -23,7 +23,6 @@
 
 <body>
    <c:set var="goodsList" value="${requestScope.goodsList }"/>
-   <c:set var="sarchlist" value="${requestScope.searchlist}"/>
    <c:set var="gID" value="${requestScope.Goods_seq }"/>
    <c:set var="goodCnt" value="${requestScope.goodsCnt }"/>
    
@@ -38,6 +37,7 @@
          <menu>
             <ul>
                <li><a class="adminlink" href="${pageContext.request.contextPath}/AD-Page/adHome.spm">홈</a></li>
+               <li><a class="adminlink" href="#" onclick="logout();">로그아웃</a></li>
                <li>전체 상품 갯수 : ${goodCnt }</li>
             </ul>
          </menu>
@@ -46,9 +46,11 @@
          <br> <br>
 
          <!-- 검색창 -->
-         <div class="search">
-            <input type="text" class="textBar"> <i class="fas fa-search"></i>
-         </div>
+           <input type="text" id="searchtext" placeholder="상품 검색">
+           &nbsp;
+           <input type="button" id="search_btn" value="검색" onclick="searchgoods()">
+           &nbsp;
+           <input type="button" id="return_btn" value="전체 보기" onclick="returngoods()">
          <!-- 검색창 끝 -->
          <br>
 
@@ -140,6 +142,12 @@
    </div>
 </body>
 <script>
+//로그아웃
+function logout(){
+	alert('로그아웃되었습니다.');
+	location.href='${pageContext.request.contextPath}/main/sessionInitialization.jsp'
+}
+
 // 전체선택
 $("#allCheck").click(function(){
     var chk = $("#allCheck").prop("checked");
@@ -153,7 +161,18 @@ $("#allCheck").click(function(){
  $(".chBox").click(function(){
   $("#allCheck").prop("checked", false);
  });
- 
+
+//상품 검색
+function searchgoods(){
+	let searchtext = $('#searchtext').val();
+	
+	searchtext = searchtext.split(' ');
+	
+	location.href='${pageContext.request.contextPath}/AD-Page/SearchGoods.spm?searchtext='+searchtext;
+	
+}
+
+
  // 선택된 상품 삭제
 let gid_arr = [];
  
@@ -185,24 +204,35 @@ function delgid(){
       alert("제거할 상품을 선택해주세요");
       return false;
    } else {                  //하나라도 존재한다면
-      // ajax 통신
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", '${pageContext.request.contextPath }/AD-Page/DELgoodsOk.spm?delgids='+del_gids, true);
-        xhr.send();
-        xhr.onreadystatechange = function(){
-           if( xhr.readyState == XMLHttpRequest.DONE 
-                 && xhr.status == 200 ){
-              
-              if(xhr.responseText.trim() == "not_ok"){
-                 alert("해당 상품은 주문대기중이라 삭제 실패");
-                 return false;
-              } else {
-              $('#ajax_goodslist').html(xhr.responseText);
-              alert("선택한 상품이 성공적으로 제거되었습니다.");
-            }
-         }  
-      }
+	   // ajax 통신
+	    let xhr = new XMLHttpRequest();
+	    xhr.open("GET", '${pageContext.request.contextPath }/AD-Page/DELgoodsConfirm.spm?delgids='+del_gids, true);
+	    xhr.send();
+	    xhr.onreadystatechange = function (){
+	       if( xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200 ){
+	          if( xhr.responseText.trim() == "exist"){
+	     		 alert("존재함");
+	        	  if(! confirm('삭제하려는 상품 중 장바구니 및 주문내역에 존재하는 상품이 있습니다.\n삭제를 계속 진행하시겠습니까?')){
+		         	  //존재하므로 삭제 승인 불허
+	        		  return false;
+	        	 } else {
+	         		 //존재해도 삭제 승인
+	      		   	 alert('선택한 상품이 성공적으로 삭제되었습니다.');
+	    		   	 location.href = '${pageContext.request.contextPath }/AD-Page/DELgoodsOk.spm?delgids='+del_gids;
+	        	 }
+	          } else if ( xhr.responseText.trim() == "nonexist") {
+	      		//존재하지 않으므로 삭제 승인
+	 		   	alert('선택한 상품이 성공적으로 삭제되었습니다.');
+			  	location.href = '${pageContext.request.contextPath }/AD-Page/DELgoodsOk.spm?delgids='+del_gids;
+	          }
+	       }
+	    };
+   	
+
    }
 }
+
+
+
 </script>
 </html>

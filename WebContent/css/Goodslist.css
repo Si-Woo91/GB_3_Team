@@ -65,7 +65,7 @@ menu ul li {
 	border-right: 1px solid white;
 	padding: 0 10px;
 	/* 	호버 시 마우스 커서의 모양을 pointer로 변경 */
-	font-size: 13px;
+	font-size: 16px;
 }
 
 menu ul li:first-child {
@@ -80,10 +80,16 @@ menu ul li:last-child {
 /*  menu태그 css 끝 */
 
 
-.textBar {
+#searchtext {
 	/* 	위 영역과 간격 조정 */
-	margin-top: 7px;
+	margin: 20px 0px;
+	font-size: 16px;
+	width: 200px;
+	border-color: #92B1F0;
+	border-radius: 5px;
+	padding: 5px;
 }
+
 
 /* 표 css 시작부분 */
 
@@ -166,9 +172,33 @@ menu ul li:last-child {
 	margin:0px;
 }
 
-#edit_btn:hover, #delete_btn:hover{ background-color: #84A0D9; }
-#add_btn:hover{ background-color: #FAF9F7; }
+#search_btn{
+	background-color: #92B1F0;
+	border-radius: 5px;
+	border: 1px solid #92B1F0;
+	cursor:pointer;
+	padding: 3px 0px;
+	font-size:16px;
+	width: 70px;
+	color: white;
+	padding: 5px;
+}
 
-.adminlink{ text-decoration:none; }
+#return_btn{
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid #92B1F0;
+	cursor:pointer;
+	padding: 3px 0px;
+	font-size:16px;
+	width: 80px;
+	color: #92B1F0;
+	padding: 5px;
+}
+
+#edit_btn:hover, #delete_btn:hover, #search_btn:hover{ background-color: #84A0D9; }
+#add_btn:hover, #return_btn:hover{ background-color: #FAF9F7; }
+
+.adminlink{ color:white; text-decoration:none;}
 .adminlink:hover{ font-weight: bold; }
 .adminlink:visited{ color: white; }
