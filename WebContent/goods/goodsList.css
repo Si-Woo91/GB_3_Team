@@ -3,13 +3,17 @@
 	margin : 0;
 	padding : 0;
  }
+ 
+section{
+ 	width: 900px;
+	margin: 200px auto 100px auto;
+ }
+ 
 .content{
-	margin-top: 4%;
-	padding-bottom: 12%;
-    padding-left: 14%;
-    padding-right: 14%;
-    padding-top: 12%;
-}
+	margi: 0px auto 100px auto;
+ 	border-bottom: double 10px orange;
+ }
+
 
  li {
  	list-style: none;
@@ -26,15 +30,12 @@ h2 {
 	font-size: 30px;
 	margin: 20px 0 20px 0;
  }	
- hr {
- 	border: double 4px orange;
- 	margin: 0 5.5% 0 2%;
- }
+
  /* 상품 사진 + 이름 + 가격 */
 .items {
 	width: 28%;
 	float: left;
- 	margin: 4% 2% 10% 2%; 
+ 	margin: 4% 2.6% 4% 2.6%; 
  	border: 1px solid #ddd;
  	border-radius: 8px;
  	box-shadow: 2px 3px 2px 0 #d8d8d8;

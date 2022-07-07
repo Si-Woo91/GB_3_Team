@@ -7,7 +7,7 @@ import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.goods.dao.goodsDAO;
 
-public class goodsListAction implements Action{
+public class GoodsListAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -15,13 +15,18 @@ public class goodsListAction implements Action{
 		goodsDAO gdao = new goodsDAO();
 
 		String gCatg = req.getParameter("gCatg");
+		String gBrand = req.getParameter("gBrand");
 		
-		req.setAttribute("goodsList", gdao.getgoodsList(gCatg));
+		if(gBrand == null || gBrand.equals("")) {
+			req.setAttribute("goodsList", gdao.getgoodsList(gCatg));
+			forward.setPath(req.getContextPath() + "/goods/goodsList.jsp");
+
+		} else {
+			req.setAttribute("goodsList", gdao.getgoodsList(gCatg,gBrand));
+			forward.setPath(req.getContextPath() + "/goods/goodsList.jsp");
+		}
 		
-	
 		forward.setRedirect(false);
-		forward.setPath(req.getContextPath() + "/goods/goodsList.jsp");
-		
 		return forward;
 	}
 

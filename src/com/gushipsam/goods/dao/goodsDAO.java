@@ -20,10 +20,22 @@ public class goodsDAO {
 		sqlsession = factory.openSession(true);
 	}
 
-	// 제품 목록
+	// 제품 목록 (카테고리만 제한)
 	public List<goodsDTO> getgoodsList(String gCatg){
 		
 		List<goodsDTO> goodsList = sqlsession.selectList("goods.getgoodsList", gCatg);
+		
+		return goodsList;
+	}
+	
+	// 제품 목록 (카테고리+브랜드 제한, 오버로딩)
+	public List<goodsDTO> getgoodsList(String gCatg, String gBrand){
+		
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("gCatg", gCatg);
+		datas.put("gBrand", gBrand);
+		
+		List<goodsDTO> goodsList = sqlsession.selectList("goods.getgoodsListwBrand", datas);
 		
 		return goodsList;
 	}
@@ -43,12 +55,33 @@ public class goodsDAO {
 	}
 	
 	// (관리자) 상품리스트 데이터
-	public List<ShoppingMallDTO> getGoodsList() {
+	public List<goodsDTO> getGoodsList() {
 		System.out.println("getGoodsList 도착");
 
-		List<ShoppingMallDTO> goodsList = sqlsession.selectList("goods.getGoodsList");
+		List<goodsDTO> goodsList = sqlsession.selectList("goods.getGoodsList");
 		System.out.println("goodsList 조회");
 
+		return goodsList;
+	}
+	
+	// (관리자 페이지)검색내용 반영한 상품 수 (오버로딩)
+	public int getGoodsCnt(String[] searchtext) {
+		System.out.println("검색내용 반영하는 getGoodsCnt 도착");
+		HashMap<String, Object> searchdata = new HashMap<>();
+		searchdata.put("searchtext", searchtext);
+		
+		return sqlsession.selectOne("goods.getGoodsCntSearch", searchdata);
+	}
+	
+	// (관리자) 검색내용 반영한 상품리스트 데이터  (오버로딩)
+	public List<goodsDTO> getGoodsList(String[] searchtext) {
+		System.out.println("검색내용 반영하는 getGoodsList 도착");
+		HashMap<String, Object> searchdata = new HashMap<>();
+		searchdata.put("searchtext", searchtext);
+		
+		List<goodsDTO> goodsList = sqlsession.selectList("goods.getGoodsListSearch",searchdata);
+		System.out.println("검색내용 반영한 goodsList 조회");
+		
 		return goodsList;
 	}
 	

@@ -1,7 +1,5 @@
-package com.gushipsam.shoppingmall;
+package com.gushipsam.goods;
 
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,14 +8,13 @@ import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.goods.dao.goodsDAO;
 
-public class SearchGoodsAction implements Action{
+public class GoodsSearchMainAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		System.out.println("SearchGoodsAction 도착");
 		ActionForward forward = new ActionForward();
 		goodsDAO gdao = new goodsDAO();		
-
 		
 		String searchtext_str = req.getParameter("searchtext").trim();
 		
@@ -26,7 +23,7 @@ public class SearchGoodsAction implements Action{
 			req.setAttribute("goodsCnt", 0);
 			req.setAttribute("searchtext", null);
 		} else {
-			String[] searchtext = req.getParameter("searchtext").split(" ");
+			String[] searchtext = searchtext_str.split(" ");
 			//"GCATG","GBRAND","GNAME","GMODEL","GSIZE","GETC","GIMGS" 컬럼에 대해서 검색한다.
 			
 			//번역 등 기능
@@ -48,9 +45,11 @@ public class SearchGoodsAction implements Action{
 			
 			req.setAttribute("goodsList", gdao.getGoodsList(searchtext));
 			req.setAttribute("goodsCnt", gdao.getGoodsCnt(searchtext));
+			req.setAttribute("searchtext", req.getParameter("searchtext"));
 		}
+
 		forward.setRedirect(false);
-		forward.setPath( req.getContextPath() + "/AD-Page/Goodslist.jsp" );
+		forward.setPath( req.getContextPath() + "/goods/goodsListSearchResult.jsp" );
 		
 		return forward;
 	}

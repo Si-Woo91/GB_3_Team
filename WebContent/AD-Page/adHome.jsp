@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>관리자</title>
 <link rel="stylesheet" type="text/css" href="../css/adHome.css">
-<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
+<link rel="shortcut icon" href="../img/admin_icon.ico">
 </head>
 <body>
 	<!-- 전체 포장지 -->

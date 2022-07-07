@@ -8,6 +8,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM goods where gCatg =#{gCatg}
 	</select>
 	
+	<select id="getgoodsListwBrand"  parameterType="hashmap" resultType="goodsdto">
+		SELECT * FROM goods where gCatg =#{gCatg} and gBrand = #{gBrand} 
+	</select>
+	
 	<select id="getgoodsDetail"  parameterType="int" resultType="goodsdto">
 		SELECT * FROM goods WHERE gID = #{gID}
 	</select>
@@ -24,9 +28,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- (관리자 페이지)상품 관려된 모든 데이터 select -->
-	<select id="getGoodsList" resultType="goodsdto"
-		parameterType="string">
+	<select id="getGoodsList" resultType="goodsdto" parameterType="string">
 		SELECT * FROM GOODS
+	</select>
+	
+	<!-- (관리자 페이지) 검색내용 반영한 총 상품 수. 다중LIKE 위해 REGEXP 사용, 중간 공백 제거 위해 REGEXP_REPLACE 사용 -->
+	<select id="getGoodsCntSearch" parameterType="hashmap" resultType="_int">
+		SELECT COUNT(*) FROM GOODS
+		WHERE REGEXP_LIKE(GCATG,
+		REGEXP_REPLACE(
+			REGEXP_REPLACE(
+			<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">
+				'${text}' || '|' || 
+			</foreach>
+			,'(^[[:space:]]*|[[:space:]]*$)')
+		,'|END','')
+		,'i')
+		OR REGEXP_LIKE(GBRAND, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GNAME, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GMODEL, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GSIZE, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GETC, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GIMGS, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+	</select>
+	
+	<!-- (관리자 페이지) 검색내용 반영한 상품 관려된 모든 데이터 select. 다중LIKE 위해 REGEXP 사용, 중간 공백 제거 위해 REGEXP_REPLACE 사용 -->
+	<select id="getGoodsListSearch" resultType="goodsdto" parameterType="hashmap">
+		SELECT * FROM GOODS
+		WHERE REGEXP_LIKE(GCATG,
+		REGEXP_REPLACE(
+			REGEXP_REPLACE(
+			<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">
+				'${text}' || '|' || 
+			</foreach>
+			,'(^[[:space:]]*|[[:space:]]*$)')
+		,'|END','')
+		,'i')
+		OR REGEXP_LIKE(GBRAND, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GNAME, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GMODEL, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GSIZE, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GETC, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
+		OR REGEXP_LIKE(GIMGS, REGEXP_REPLACE(REGEXP_REPLACE(<foreach collection="searchtext" item="text" open="(" separator="" close=" 'END')">'${text}' || '|' || </foreach>,'(^[[:space:]]*|[[:space:]]*$)'),'|END',''),'i')
 	</select>
 	
 	<!-- (관리자 페이지)상품 추가 -->

@@ -18,12 +18,11 @@
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/Goodslist.css">
-<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
+<link rel="shortcut icon" href="../img/admin_icon.ico">	
 </head>
 
 <body>
    <c:set var="goodsList" value="${requestScope.goodsList }"/>
-   <c:set var="gID" value="${requestScope.Goods_seq }"/>
    <c:set var="goodCnt" value="${requestScope.goodsCnt }"/>
    
    <!-- 포장 시작 -->
@@ -46,11 +45,11 @@
          <br> <br>
 
          <!-- 검색창 -->
-           <input type="text" id="searchtext" placeholder="상품 검색">
+           <input type="text" id="searchtext" placeholder="상품 검색" onkeyup="if(event.keyCode==13){searchgoods();}">
            &nbsp;
            <input type="button" id="search_btn" value="검색" onclick="searchgoods()">
            &nbsp;
-           <input type="button" id="return_btn" value="전체 보기" onclick="returngoods()">
+           <input type="button" id="return_btn" value="전체 보기" onclick="returntogoods()">
          <!-- 검색창 끝 -->
          <br>
 
@@ -164,14 +163,18 @@ $("#allCheck").click(function(){
 
 //상품 검색
 function searchgoods(){
-	let searchtext = $('#searchtext').val();
-	
-	searchtext = searchtext.split(' ');
-	
+	let searchtext = $('#searchtext').val().trim();	
+	if(searchtext == null || searchtext == ''){
+		location.href='${pageContext.request.contextPath}/admin/Goodslist.spm';
+	} else {
 	location.href='${pageContext.request.contextPath}/AD-Page/SearchGoods.spm?searchtext='+searchtext;
-	
+	}
 }
 
+//전체 상품 다시 조회
+function returntogoods(){
+	location.href='${pageContext.request.contextPath}/admin/Goodslist.spm';
+}
 
  // 선택된 상품 삭제
 let gid_arr = [];

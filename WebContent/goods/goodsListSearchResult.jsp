@@ -7,7 +7,18 @@
 <%-- <c:set var="goodsList" value="${requestScope.goodsList }"/> --%>
 <%
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
-	List<goodsDTO> goodsList = (List<goodsDTO>) request.getAttribute("goodsList"); 
+	List<goodsDTO> goodsList = (List<goodsDTO>) request.getAttribute("goodsList");
+	
+	//검색결과 중 줄이 두줄인 상품은 맨 아래로 보내기
+	for ( int i = 0; i < goodsList.size(); i++){
+		goodsDTO g_ = goodsList.get(i);
+		if( goodsList.get(i).getgName().length() >= 18){
+			goodsList.remove(i);
+			goodsList.add(g_);
+		}
+	}
+	int goodsCnt = (Integer) request.getAttribute("goodsCnt"); 
+	String searchtext = (String) request.getAttribute("searchtext"); 
 %>
 <!DOCTYPE html>
 <html>
@@ -16,6 +27,7 @@
 <title>구십삼 상품목록</title>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="shortcut icon" href="gu_icon.ico">	
 <link rel="stylesheet" type="text/css" href="goodsList.css">
 </head>
 <%@ include file= "../header/header.jsp" %>
@@ -25,34 +37,21 @@
         <c:when test="${goodsList != null and fn:length(goodsList) > 0 }">
 		<div class="content">
 			<div id="catg">
-				<% boolean brand_same = true;
-				String first = goodsList.get(0).getgBrand();
-				for (goodsDTO g : goodsList ){
-					String now = g.getgBrand();
-					if(! first.equals(now) ) brand_same = false;
-				}
-				if (brand_same) { %>
-				<h2> <%= goodsList.get(0).getgCatg()%> / <%= goodsList.get(0).getgBrand()%> </h2>
-				<% } else { %>
-				<h2> <%= goodsList.get(0).getgCatg()%> / 전체 </h2>
-				<% } %>
+				<h2> <em><%=searchtext %></em> 검색결과 (<%=goodsCnt%>개)</h2>
 
 				<%
-				String foldername = null;
-				
-				if (goodsList.get(0).getgCatg().equals("냉장고")){
-					foldername= "fridge";
-				} else if (goodsList.get(0).getgCatg().equals("세탁기")){
-					foldername= "washer";
-				} else if (goodsList.get(0).getgCatg().equals("TV")){
-					foldername= "tv";
-				} else if (goodsList.get(0).getgCatg().equals("에어컨")){
-					foldername= "ac";
-				} else if (goodsList.get(0).getgCatg().equals("컴퓨터")){
-					foldername= "pc";
-				}
-				
 				for (goodsDTO g : goodsList ){
+					
+					String foldername = null;
+					
+					switch( g.getgCatg() ){
+						case "냉장고": foldername = "fridge"; break;
+						case "세탁기": foldername = "washer"; break;
+						case "TV": foldername = "tv"; break;
+						case "에어컨": foldername = "ac"; break;
+						case "컴퓨터": foldername = "pc"; break;
+					}
+					
 				%>
 					<li class="items" border="1" align="center">
 					<!-- gID값을 상세페이지로 넘겨줌 -->
@@ -67,12 +66,22 @@
 		</div>
 		</c:when>
 		<c:otherwise>
-			<div style="height:340px;"></div>
-			<div style="height:190px; text-align:center; font-size:30px; font-weight:bold;">현재 상품 준비중입니다.</div>
+			<div class="content">
+			<div id="catg">
+				<h2> 검색결과 (0개)</h2>
+			</div>
+		</div>
+		<div style="margin-top: 50px; text-align:center; font-size:30px; font-weight:bold;">
+				검색 결과가 없습니다.</div>
 		</c:otherwise>
 		</c:choose>	
 		<br>
 	</section>
 	 <%@ include file= "/footer/footer.jsp" %>
 </body>
+<script>
+$(document).ready(function() {
+	$('#searchtext').val( '${requestScope.searchtext}');
+});
+</script>
 </html>

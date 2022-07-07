@@ -13,7 +13,7 @@ import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 
 @WebServlet("*.goods")
-public class goodsFrontController extends HttpServlet{
+public class GoodsFrontController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
@@ -35,13 +35,18 @@ public class goodsFrontController extends HttpServlet{
 		switch (requestURI) {
 			// 제품 목록
 			case "/goods/goodsList.goods":
-				forward = new goodsListAction().execute(req, resp);
+				forward = new GoodsListAction().execute(req, resp);
 				break;
 	
 			// 제품 상세	
 			case "/goods/goodsDetail.goods":
-			forward = new goodsDetailAction().execute(req, resp);
+			forward = new GoodsDetailAction().execute(req, resp);
 			break;
+			
+			// 제품 검색
+			case "/goods/SearchGoodsMain.goods":
+				forward = new GoodsSearchMainAction().execute(req, resp);
+				break;
 		}
 
 		

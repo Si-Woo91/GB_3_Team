@@ -14,12 +14,12 @@
 	<link rel="stylesheet" type="text/css" href="../css/common06.css">
 	<link rel="stylesheet" type="text/css" href="../css/cart06.css">
 	<link rel="stylesheet" type="text/css" href="../css/checkout06.css">
-	<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 	<link rel="stylesheet" type="text/css" href="../css/Mypage.css">
 	<link rel="stylesheet" type="text/css" href="../css/User-Info.css">
 	<link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css">
 	<link rel="stylesheet" type="text/css" href="../css/OrderList-Page.css">
 	<link rel="stylesheet" type="text/css" href="../css/secession.css">
+	<link rel="shortcut icon" href="../img/gushipsam_icon.ico">	
 </head>
 <body>
 	<c:set var="userID" value="${sessionScope.sessionId}" />
@@ -60,8 +60,8 @@
 			<a href="#"onclick="location.href='../main/main.jsp'" class= logo><img src= ../img/logo.png></a>
 			</div>
 			<div id ="headersearchbar">
-			<form class="searchForm" action="${pageContext.request.contextPath}/goods/SearchGoods.spm" method="post" name="searchForm">
-				<input placeholder="Search" class= 'search_main' name="searchtext">
+			<form class="searchForm" action="${pageContext.request.contextPath}/goods/SearchGoodsMain.goods" method="post" name="searchForm">
+				<input placeholder="상품 검색" class="search_main" name="searchtext" id="searchtext" onkeyup="if(event.keyCode==13){document.searchForm.submit();}">
 				<a id="searchbtn" href="javascript:document.searchForm.submit()" role="button">
 					<img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 				</a>
@@ -73,40 +73,40 @@
 				<div class= nav2> 
 					<ul>
 						<li>
-							<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=냉장고" class="a">냉장고</a>
+							<a class="link_17px fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=냉장고" class="a">냉장고</a>
 							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=냉장고&gBrand=LG">LG</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=냉장고&gBrand=삼성">삼성</a></li>
+							</ul>
+						</li>
+						<li style="border-width:2px; border-color: black;">
+							<a class="link_17px fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=세탁기" class="a">세탁기</a>
+							<ul>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=세탁기&gBrand=LG">LG</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=세탁기&gBrand=삼성">삼성</a></li>
 							</ul>
 						</li>
 						<li>
-							<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=세탁기" class="a">세탁기</a>
+							<a class="link_17px fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=TV" class="a">TV</a>
 							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=TV&gBrand=LG">LG</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=TV&gBrand=삼성">삼성</a></li>
 							</ul>
 						</li>
 						<li>
-							<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=TV" class="a">TV</a>
+							<a class="link_17px fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=에어컨" class="a">에어컨</a>
 							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=에어컨&gBrand=LG">LG</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=에어컨&gBrand=삼성">삼성</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=에어컨&gBrand=위니아">위니아</a></li>
 							</ul>
 						</li>
 						<li>
-							<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=에어컨" class="a">에어컨</a>
+								<a class="link_17px fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=컴퓨터" class="a">컴퓨터</a>
 							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-								<li><a href="상품페이지 경로" style="color:black;">WINIA</a></li>
-							</ul>
-						</li>
-						<li>
-								<a class="link fullclick" href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=컴퓨터" class="a">컴퓨터</a>
-							<ul>
-								<li><a href="상품페이지 경로" style="color:blue;">SAMSUNG</a></li>
-								<li><a href="상품페이지 경로" style="color:red;">LG</a></li>
-								<li><a href="상품페이지 경로" style="color:black;">APPLE</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=컴퓨터&gBrand=LG">LG</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=컴퓨터&gBrand=삼성">삼성</a></li>
+								<li><a href="${pageContext.request.contextPath }/goods/goodsList.goods?gCatg=컴퓨터&gBrand=애플">애플</a></li>
 							</ul>
 						</li>
 					</ul>

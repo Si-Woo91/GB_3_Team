@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>관리자 - 회원목록</title>
 <link rel="stylesheet" type="text/css" href="../css/Memberlist.css">
+<link rel="shortcut icon" href="../img/admin_icon.ico">
 </head>
 <body>
 	<c:set var="memberList" value="${requestScope.memberList }"/>

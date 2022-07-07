@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 업로드</title>
+<link rel="shortcut icon" href="../img/admin_icon.ico">
 </head>
 <body>
  <form action="${pageContext.request.contextPath }/AD-Page/ADDgoodsOk.spm" method="post" name="listForm" enctype="multipart/form-data"> 

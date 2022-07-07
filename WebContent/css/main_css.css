@@ -61,6 +61,18 @@ body {
 	width: 70%;
 }
 
+.search_main:focus{
+	border: 1px solid orange;
+	outline: none;
+	border-radius: 8px;
+	box-shadow: 0px 4px 9px 0px #F2F2F2;
+}
+
+input:focus::-webkit-input-placeholder{
+	color:transparent;
+}
+
+
 /* 검색아이콘 */
 #searchbtn img{
 	width: 20px;
@@ -114,12 +126,6 @@ body {
 	display: block;
 }
 
-/* 선택중인 메뉴 표시 */
-.nav2>ul>li>ul>li:hover {
-	/* 하위 메뉴를 호버시 1초에 걸쳐서 색이 주황색으로 바뀌게 설정 */
-	background: orange;
-	transition: ease 1s;
-}
 
 /* 슬라이드 */
 /* 슬라이드 사진 */

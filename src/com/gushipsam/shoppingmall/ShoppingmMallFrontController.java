@@ -121,6 +121,7 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			 forward = new ADHomeAction().execute(req, resp);
 			 break;			
 			
+		// 관리자 - 전체 상품 중 검색
 		case "/AD-Page/SearchGoods.spm":
 			System.out.println("/AD-Page/SearchGoods.spm 도착");
 			forward = new SearchGoodsAction().execute(req, resp);
