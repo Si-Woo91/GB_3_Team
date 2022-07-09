@@ -1,6 +1,5 @@
 package com.gushipsam.shoppingmall;
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -14,53 +13,48 @@ import com.gushipsam.action.ActionForward;
 import com.gushipsam.shoppingmall.user.UserJoinAction;
 import com.gushipsam.shoppingmall.user.UserLoginOkAction;
 
-
-
 @WebServlet("*.spm")
-public class ShoppingmMallFrontController extends HttpServlet{
-	
+public class ShoppingmMallFrontController extends HttpServlet {
+
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
 	}
-	
+
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doProcess(req, resp);
 	}
-	
-	protected void doProcess(HttpServletRequest req, HttpServletResponse resp)  
-			throws ServletException, IOException {
+
+	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String requestURI = req.getRequestURI();
 		ActionForward forward = null;
 		System.out.println("requestURI : " + requestURI);
-		
+
 		switch (requestURI) {
-		case "/IDPW/login.spm" :
+		case "/IDPW/login.spm":
 			forward = new UserJoinAction().execute(req, resp);
 			break;
-			
-		case "/main/main.spm" : 
+
+		case "/main/main.spm":
 			try {
 				forward = new UserLoginOkAction().execute(req, resp);
 			} catch (Exception e) {
 			}
 			break;
-		case "/IDPW/id.spm" :
+		case "/IDPW/id.spm":
 			try {
 				forward = new UseridAction().execute(req, resp);
 			} catch (Exception e) {
 			}
 			break;
-			
-		case "/IDPW/pw.spm" :
+
+		case "/IDPW/pw.spm":
 			System.out.println("userpw 11111");
 			forward = new UserpwAction().execute(req, resp);
 			System.out.println("userpw 22222");
 			break;
-			
+
 		// 마이페이지 로비
 		case "/lobby/mypage.spm":
 			System.out.println("/lobby/Mypage.spm 도착");
@@ -69,10 +63,10 @@ public class ShoppingmMallFrontController extends HttpServlet{
 
 		// 주문목록 페이지 이동
 		case "/OrderList/OrderList.spm":
-			 System.out.println("/OrderList/OrderList.spm 도착");
-			 forward = new OrderListAction().execute(req, resp);
-			 break;
-			
+			System.out.println("/OrderList/OrderList.spm 도착");
+			forward = new OrderListAction().execute(req, resp);
+			break;
+
 		// 관리자 상품관리
 		case "/admin/Goodslist.spm":
 			System.out.println("/AD-Page/Goodslist.spm 도착");
@@ -93,63 +87,44 @@ public class ShoppingmMallFrontController extends HttpServlet{
 
 		// 관리자 상품관리에서 상품 삭제
 		case "/AD-Page/DELgoodsOk.spm":
-			 System.out.println("/AD-Page/cart.spm 도착");
-			 try {
+			System.out.println("/AD-Page/cart.spm 도착");
+			try {
 				forward = new DelGoodsOkAction().execute(req, resp);
 			} catch (Exception e) {
 				e.printStackTrace();
 				forward.setRedirect(true);
 				forward.setPath(req.getContextPath() + "/AD-Page/exception.jsp");
 			}
-			 break;
-			 
+			break;
+
 		// 관리자 회원 리스트
 		case "/admin/Memberlist.spm":
-			 System.out.println("/admin/Memberlist.spm 도착");
-			 forward = new ADMemberListAction().execute(req, resp);
-			 break;
-			 
+			System.out.println("/admin/Memberlist.spm 도착");
+			forward = new ADMemberListAction().execute(req, resp);
+			break;
+
 		// 관리자 홈으로
 		case "/AD-Page/adHome.spm":
-			 System.out.println("/AD-Page/adHome.spm 도착");
-			 forward = new ADHomeAction().execute(req, resp);
-			 break;			
-			
+			System.out.println("/AD-Page/adHome.spm 도착");
+			forward = new ADHomeAction().execute(req, resp);
+			break;
+
 		case "/goods/SearchGoods.spm":
 			System.out.println("front도착");
 			forward = new SearchGoodsAction().execute(req, resp);
 			break;
-		} 
-		
-		
+		}
+
 		// 일괄처리
-		if( forward != null ) {
-			if( forward.isRedirect() ) {	// redirect
+		if (forward != null) {
+			if (forward.isRedirect()) { // redirect
 				resp.sendRedirect(forward.getPath());
-			} else {						// forward
+			} else { // forward
 				RequestDispatcher disp = req.getRequestDispatcher(forward.getPath());
 				disp.forward(req, resp);
 			}
 		}
-		
+
 	}
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

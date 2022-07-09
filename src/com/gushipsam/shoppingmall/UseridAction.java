@@ -15,24 +15,24 @@ public class UseridAction implements Action {
 		ShoppingMallDAO udao = new ShoppingMallDAO();
 		ShoppingMallDTO user = new ShoppingMallDTO();
 		ActionForward forward = new ActionForward();
-		
+
 		String username = req.getParameter("username");
 		String userphone = req.getParameter("userphone");
 		String useremail = req.getParameter("useremail");
-		
+
 		String user_id = udao.id(username, userphone, useremail);
-		
+
 		req.setAttribute("user_id", user_id);
-		
-		if(udao.id(username, userphone, useremail) != null) {
+
+		if (udao.id(username, userphone, useremail) != null) {
 			forward.setPath("/IDPW/ID.jsp?flagid2=false");
 			req.setAttribute("mag", "아이디는 " + user_id + "입니다.");
 			System.out.println(user_id);
-			
+
 		} else {
 			forward.setPath("/IDPW/ID.jsp?flagid=false");
 		}
-		
+
 		forward.setRedirect(false);
 		return forward;
 	}

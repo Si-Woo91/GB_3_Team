@@ -30,7 +30,9 @@
 			<li><a onclick="location.href='/OrderList/OrderList.spm'"
 				style="cursor: pointer;">주문내역</a></li>
 			<!-- 					onclick="window.open('shopping_basket.html', '장바구니','width=1200, height=800, left=0, top=0');"-->
-			<li><a href="${pageContext.request.contextPath }/payment/cart.pay">장바구니 </a></li>
+			<li><a
+				href="${pageContext.request.contextPath }/payment/cart.pay">장바구니
+			</a></li>
 			<li><a href="#" style="cursor: pointer;">상품리뷰</a></li>
 			<li><a onclick="location.href='../Info/User-Info.jsp'"
 				style="cursor: pointer;">회원정보수정</a></li>

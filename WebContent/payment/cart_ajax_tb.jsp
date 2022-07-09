@@ -5,9 +5,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	DecimalFormat df = new DecimalFormat("###,###"); 					
+	DecimalFormat df = new DecimalFormat("###,###");
 	List<CartDTO> cartList = (List) request.getAttribute("cartList");
-
 %>
 <table id="order_tb">
 	<colgroup>

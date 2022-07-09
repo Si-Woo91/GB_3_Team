@@ -1,75 +1,74 @@
 @charset "UTF-8";
 /*----------------------주문결제만의 설정 시작------------------------*/
-#checkout #order_tb>tbody>tr>td:first-child{
+#checkout #order_tb>tbody>tr>td:first-child {
 	border-right: 1px solid #e1e1e1;
 }
 
-#checkout #address_button{
+#checkout #address_button {
 	background-color: white;
 	border-radius: 5px;
 	border: 1px solid green;
-	cursor:pointer;
-	font-size:13px;
-	width:100px;
+	cursor: pointer;
+	font-size: 13px;
+	width: 100px;
 	color: green;
 }
 
-#checkout #address_button:hover{
+#checkout #address_button:hover {
 	background-color: #FAF9F7;
 }
 
-#checkout #pay_button{
+#checkout #pay_button {
 	background-color: orange;
 	border-radius: 5px;
 	border: 1px solid orange;
-	cursor:pointer;
+	cursor: pointer;
 	padding: 5px 0px;
-	font-size:20px;
+	font-size: 20px;
 	width: 100%;
 	color: white;
 	font-weight: bold;
 }
 
-#checkout #pay_button:hover{
-	background-color: #F28C28;	
+#checkout #pay_button:hover {
+	background-color: #F28C28;
 }
 
-#checkout #pay_tb{
-    font-size: 14px;
-    border-bottom: 1px solid #e6e6e6;
+#checkout #pay_tb {
+	font-size: 14px;
+	border-bottom: 1px solid #e6e6e6;
 }
 
-#checkout #pay_tb td{
-    vertical-align: top;
-    border-bottom: 1px solid #e6e6e6;
+#checkout #pay_tb td {
+	vertical-align: top;
+	border-bottom: 1px solid #e6e6e6;
 }
 
-
-#checkout .sub_tb{
-    font-size: 13px !important;
-    margin-top: 20px !important;
-    margin-bottom: 10px !important;
+#checkout .sub_tb {
+	font-size: 13px !important;
+	margin-top: 20px !important;
+	margin-bottom: 10px !important;
 }
 
-#checkout  .sub_tb td{
-    padding: 5px !important;
-    border: 0px !important;
+#checkout  .sub_tb td {
+	padding: 5px !important;
+	border: 0px !important;
 }
 
-#checkout ul#explain1, #checkout ul#explain2, #checkout ul#explain3, #checkout ul#explain4{
-
+#checkout ul#explain1, #checkout ul#explain2, #checkout ul#explain3,
+	#checkout ul#explain4 {
 	padding: 0px 0px 0px 40px;
 }
 
-#checkout ul#explain1>li, #checkout ul#explain2>li, #checkout ul#explain3>li, #checkout ul#explain4>li{
+#checkout ul#explain1>li, #checkout ul#explain2>li, #checkout ul#explain3>li,
+	#checkout ul#explain4>li {
 	list-style: initial;
 	color: grey;
-/* 	padding: 0px 0px 0px 40px; */
+	/* 	padding: 0px 0px 0px 40px; */
 }
 
-#checkout h2#margin_fix1, #checkout h3#margin_fix2, #checkout h3#margin_fix3, #checkout p#margin_fix4{
+#checkout h2#margin_fix1, #checkout h3#margin_fix2, #checkout h3#margin_fix3,
+	#checkout p#margin_fix4 {
 	margin: 16px 0px;
-} 
+}
 /*----------------------주문결제만의 설정 끝------------------------*/
-
-

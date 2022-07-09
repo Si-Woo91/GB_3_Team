@@ -3,7 +3,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <!--  숫자에 콤마 붙이기 위한 숫자포맷 라이브러리 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:set var="goodsDetail" value="${requestScope.goodsDetail }" />
@@ -30,75 +30,78 @@
 <meta charset="UTF-8">
 <title>구심삽 주문결제</title>
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="goodsDetail.css">
 <link rel="shortcut icon" href="gu_icon.ico">
 </head>
-<%@ include file="../header/header.jsp" %>
+<%@ include file="../header/header.jsp"%>
 <body>
-   <div style="height: 300px;"></div>
-   <section>
-      <table id="skeleton">
-         <tr>
-            <td>
-               <div class="photo">
-                  <img src="${pageContext.request.contextPath }/img/<%=foldername %>/${goodsDetail.gImgs }" width="450" height="450">
-               </div>
+	<div style="height: 300px;"></div>
+	<section>
+		<table id="skeleton">
+			<tr>
+				<td>
+					<div class="photo">
+						<img
+							src="${pageContext.request.contextPath }/img/<%=foldername %>/${goodsDetail.gImgs }"
+							width="450" height="450">
+					</div>
 
-            </td>
-            <td id="details_td">
-               <div class="details">
-                  <div class="name">
-                     <a>${goodsDetail.gName }</a>
-                  </div>
-                  <div id="name2_table">
-                  <table class="name2">
-                     <tr>
-                        <th>브랜드</th>
-                        <td>${goodsDetail.gBrand }</td>
-                     </tr>
-                     <tr>
-                        <th>모델명</th>
-                        <td>${goodsDetail.gModel}</td>
-                     </tr>
-                     <tr>
-                        <th>판매가</th>
-                        <td><%=df.format(goodsDetail.getgPRICE())%> 원</td>
-                     </tr>
-                     <tr>
-                        <th>크기</th>
-                        <td>${goodsDetail.gSize}</td>
-                     </tr>
-                     <tr>
-                        <th>기타정보</th>
-                        <td>${goodsDetail.gEtc}</td>
-                     </tr>
-                  </table>
-                  </div>
-               </div>
-               <div class="quantity">
-                  <span id="qty_title">주문수량</span>
-                  &nbsp; &nbsp;
-                  <span class=btn>
-                     <button type="button" id="mbtn">-</button>
-                        <input type="text" id="qty" readonly value="1">
-                     <button type="button" id="pbtn">+</button>
-                  </span>
-               </div>
-               <div class="payment">
-                  <input type="button" value="바로구매" id="checkout_btn" onclick="jumpToCheckout();"> &nbsp;
-                  <input type="button" value="장바구니" id="cart_btn" onclick="insertCart();">
-               </div>
-               <div class="extra_detail">
-                  <a onclick="window.open('explanation.jsp?gCatg=${goodsDetail.gCatg}&gImgl=${goodsDetail.gImgl}', '제품상세설명',
-                                       'width=800, height=600, left=100, top=0');">제품 상세 페이지로 이동</a>
-               </div>
-            </td>
-         </tr>
-      </table>
-      <div style="height:220px"></div>
-   </section>
-   <%@ include file= "../footer/footer.jsp" %>
+				</td>
+				<td id="details_td">
+					<div class="details">
+						<div class="name">
+							<a>${goodsDetail.gName }</a>
+						</div>
+						<div id="name2_table">
+							<table class="name2">
+								<tr>
+									<th>브랜드</th>
+									<td>${goodsDetail.gBrand }</td>
+								</tr>
+								<tr>
+									<th>모델명</th>
+									<td>${goodsDetail.gModel}</td>
+								</tr>
+								<tr>
+									<th>판매가</th>
+									<td><%=df.format(goodsDetail.getgPRICE())%> 원</td>
+								</tr>
+								<tr>
+									<th>크기</th>
+									<td>${goodsDetail.gSize}</td>
+								</tr>
+								<tr>
+									<th>기타정보</th>
+									<td>${goodsDetail.gEtc}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="quantity">
+						<span id="qty_title">주문수량</span> &nbsp; &nbsp; <span class=btn>
+							<button type="button" id="mbtn">-</button> <input type="text"
+							id="qty" readonly value="1">
+							<button type="button" id="pbtn">+</button>
+						</span>
+					</div>
+					<div class="payment">
+						<input type="button" value="바로구매" id="checkout_btn"
+							onclick="jumpToCheckout();"> &nbsp; <input type="button"
+							value="장바구니" id="cart_btn" onclick="insertCart();">
+					</div>
+					<div class="extra_detail">
+						<a
+							onclick="window.open('explanation.jsp?gCatg=${goodsDetail.gCatg}&gImgl=${goodsDetail.gImgl}', '제품상세설명',
+                                       'width=800, height=600, left=100, top=0');">제품
+							상세 페이지로 이동</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div style="height: 220px"></div>
+	</section>
+	<%@ include file="../footer/footer.jsp"%>
 </body>
 <script>
    //수량 감소 버튼

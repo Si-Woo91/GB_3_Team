@@ -10,7 +10,7 @@
 <%-- 	<%@ include file= "../header/header.jsp" %> --%>
 <!-- 	<section> -->
 <%-- 	 <form action="${pageContext.request.contextPath }/AD-Page/ADDgoodsOk.spm" method="post" name="listForm" enctype="multipart/form-data"> --%>
-<!-- 	<!-- 상품사진 --> -->
+<!-- 	<!-- 상품사진 -->
 <!-- 	<div class="goodsDetail" style="margin-top: 200px;"> -->
 <!-- 			<div class="photo"> -->
 <!-- 				<img src="" alt="상품 이미지" width="500" height="500"> -->
@@ -52,15 +52,19 @@
 <!-- 	</div> -->
 <!-- 	<div class="cnt" > -->
 <!-- 		<a class=ordercnt>주문수량</a> -->
-<!-- 			<!-- 	<span class="minus"> --> -->
+<!-- 			<!-- 	<span class="minus"> -->
+-->
 <!-- 		<a class = btn> -->
 <!-- 			<button type="button" onclick="">-</button> -->
-<!-- 			<!-- 	</span> --> -->
+<!-- 			<!-- 	</span> -->
+-->
 <!-- 			<input type="text" readonly value="1"> -->
-<!-- 		<!-- 		<span class="plus"> --> -->
+<!-- 		<!-- 		<span class="plus"> -->
+-->
 <!-- 			<button type="button" onclick="">+</button> -->
 <!-- 		</a>	 -->
-<!-- 		<!-- 		</span> --> -->
+<!-- 		<!-- 		</span> -->
+-->
 <!-- 	</div> -->
 <!-- 	<div class="select_btn">			 -->
 <!-- 		<div class="btn1"> -->

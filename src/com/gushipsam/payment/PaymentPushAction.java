@@ -10,7 +10,7 @@ import com.gushipsam.payment.dao.CartDTO;
 import com.gushipsam.payment.dao.OrderDTO;
 import com.gushipsam.payment.dao.PaymentDAO;
 
-public class PaymentPushAction implements Action{
+public class PaymentPushAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -21,8 +21,8 @@ public class PaymentPushAction implements Action{
 
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("sessionId");
-		
-		if( userid == null || userid.equals("")) {
+
+		if (userid == null || userid.equals("")) {
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/IDPW/login.jsp");
 		} else {
@@ -31,9 +31,9 @@ public class PaymentPushAction implements Action{
 			String oADDRESS = req.getParameter("oaddress");
 			int directgID = Integer.parseInt(req.getParameter("directgID"));
 			int directoQTY = Integer.parseInt(req.getParameter("directoQTY"));
-										
-			if( cIDs[0].equals("0") ) {					// CART에 안 넣고 바로 결제하는 경우
-				
+
+			if (cIDs[0].equals("0")) { // CART에 안 넣고 바로 결제하는 경우
+
 				odto.setoID(0);
 				odto.setUserid(userid);
 				odto.setgID(directgID);
@@ -41,17 +41,17 @@ public class PaymentPushAction implements Action{
 				odto.setoDATE(null);
 				odto.setoPHONE(oPHONE);
 				odto.setoADDRESS(oADDRESS);
-				
+
 				pdao.insertOrder(odto);
-				
+
 				forward.setRedirect(true);
 				forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
-				
-			} else {									// CART를 거쳐  결제하는 경우
-				
-				for(String cID : cIDs) {
+
+			} else { // CART를 거쳐 결제하는 경우
+
+				for (String cID : cIDs) {
 					cdto = pdao.getCartItem(cID);
-					
+
 					odto.setoID(0);
 					odto.setUserid(userid);
 					odto.setgID(cdto.getgID());
@@ -59,11 +59,11 @@ public class PaymentPushAction implements Action{
 					odto.setoDATE(null);
 					odto.setoPHONE(oPHONE);
 					odto.setoADDRESS(oADDRESS);
-					
+
 					pdao.insertOrder(odto);
 				}
-				
-				if( pdao.deleteCartItemAll(cIDs) ) {
+
+				if (pdao.deleteCartItemAll(cIDs)) {
 					forward.setRedirect(true);
 					forward.setPath(req.getContextPath() + "/lobby/mypage.spm");
 				} else {

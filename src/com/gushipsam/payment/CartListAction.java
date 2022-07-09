@@ -8,17 +8,17 @@ import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.payment.dao.PaymentDAO;
 
-public class CartListAction implements Action{
+public class CartListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
 		PaymentDAO pdao = new PaymentDAO();
-		
+
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("sessionId");
-		
-		if( userid == null || userid.equals("")) {
+
+		if (userid == null || userid.equals("")) {
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/IDPW/login.jsp");
 		} else {
@@ -31,11 +31,3 @@ public class CartListAction implements Action{
 	}
 
 }
-
-
-
-
-
-
-
-

@@ -7,7 +7,7 @@ public class CartBean {
 	private String itemImage;
 	private int itemPrice;
 	private int itemQty;
-	
+
 	public CartBean(String itemName, String itemBrand, String itemLink, String itemImage, int itemPrice, int itemQty) {
 		super();
 		this.itemName = itemName;
@@ -25,11 +25,11 @@ public class CartBean {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	
+
 	public String getItemBrand() {
 		return itemBrand;
 	}
-	
+
 	public void setItemBrand(String itemBrand) {
 		this.itemBrand = itemBrand;
 	}
@@ -65,8 +65,5 @@ public class CartBean {
 	public void setItemQty(int itemQty) {
 		this.itemQty = itemQty;
 	}
-	
-	
-	
-	
+
 }

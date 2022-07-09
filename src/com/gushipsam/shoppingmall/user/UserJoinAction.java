@@ -16,7 +16,7 @@ public class UserJoinAction implements Action {
 		ShoppingMallDTO user = new ShoppingMallDTO();
 		ActionForward forward = new ActionForward();
 		int result;
-		
+
 		user.setUserid(req.getParameter("userid"));
 		System.out.println("0");
 		user.setUserpw(req.getParameter("userpw"));
@@ -29,23 +29,20 @@ public class UserJoinAction implements Action {
 		System.out.println("4");
 		user.setUseremail(req.getParameter("useremail"));
 		System.out.println("5");
-		
-		
 
-		result= udao.join(user);
-		
-		if( result == 1 ) {	// 회원가입 성공시
+		result = udao.join(user);
+
+		if (result == 1) { // 회원가입 성공시
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/IDPW/login.jsp");
-			
-		} else {				// 회원가입 실패시
+
+		} else { // 회원가입 실패시
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/IDPW/signup.jsp?flag=false");
-			
+
 		}
-			
+
 		return forward;
 	}
-	
-	
+
 }

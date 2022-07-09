@@ -5,22 +5,25 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="com.gushipsam.goods.dao.goodsDTO" alias="goodsdto"/>
+		<typeAlias type="com.gushipsam.goods.dao.goodsDTO"
+			alias="goodsdto" />
 	</typeAliases>
 
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
-				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+				<property name="driver"
+					value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@localhost:1521:xe" />
 				<property name="username" value="shopping" />
 				<property name="password" value="1234" />
 			</dataSource>
 		</environment>
 	</environments>
-	
+
 	<mappers>
-		<mapper resource="/com/gushipsam/goods/sql/goods.xml"/>
+		<mapper resource="/com/gushipsam/goods/sql/goods.xml" />
 	</mappers>
 </configuration>

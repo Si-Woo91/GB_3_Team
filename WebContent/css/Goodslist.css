@@ -56,8 +56,6 @@ menu ul li:last-child {
 }
 
 /*  menu태그 css 끝 */
-
-
 .textBar {
 	/* 	위 영역과 간격 조정 */
 	margin-top: 7px;
@@ -114,7 +112,6 @@ menu ul li:last-child {
 	text-align: center;
 }
 
-.ad-goodslist-text{
+.ad-goodslist-text {
 	text-align: center;
-	
 }

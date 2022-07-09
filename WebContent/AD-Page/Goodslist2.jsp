@@ -55,7 +55,7 @@
 
 				<thead>
 					<tr class="list-title-tr">
-					<td class="editable">x</td>
+						<td class="editable">x</td>
 						<td class="editable">상품 이미지</td>
 						<td class="editable">상품명</td>
 						<td class="editable">브랜드</td>
@@ -116,7 +116,7 @@
 						<th class="edit-part"><input class="update-cell" type="text">
 						</th>
 					</tr>
-					
+
 				</tbody>
 			</table>
 
@@ -126,10 +126,9 @@
 
 			<div>
 				<form class="btn">
-					<input type="button" value="일괄수정">
-					<input onclick="localtion.href='ADDgoods.jsp'" type="button" value="상품추가">
-					<input type="button" value="상품삭제"
-						onclick="deleteRow(-1)">
+					<input type="button" value="일괄수정"> <input
+						onclick="localtion.href='ADDgoods.jsp'" type="button" value="상품추가">
+					<input type="button" value="상품삭제" onclick="deleteRow(-1)">
 				</form>
 			</div>
 		</div>

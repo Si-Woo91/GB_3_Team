@@ -2,20 +2,18 @@ package com.gushipsam.goods.dao;
 
 public class goodsDTO {
 
-	private int 	gID;		// 상품 아이디
-	private String 	gCatg;		// 상품 카테고리
-	private String 	gBrand;		// 상품 브랜드명
-	private String 	gName;		// 상품 제품명
-	private String 	gModel;		// 상품 모델명
-	private int		gPRICE;		// 상품 가격
-	private String 	gSize;		// 상품 크기
-	private String 	gEtc;		// 상품 기타정보		
-	private String 	gImgs;		// 상품 이미지1(메인)
-	private String 	gImgl;		// 상품 이미지2(상세)
-	private String 	gDATE;		// 상품 등록일
-	private int		gSTOCK;
-	
-
+	private int gID; // 상품 아이디
+	private String gCatg; // 상품 카테고리
+	private String gBrand; // 상품 브랜드명
+	private String gName; // 상품 제품명
+	private String gModel; // 상품 모델명
+	private int gPRICE; // 상품 가격
+	private String gSize; // 상품 크기
+	private String gEtc; // 상품 기타정보
+	private String gImgs; // 상품 이미지1(메인)
+	private String gImgl; // 상품 이미지2(상세)
+	private String gDATE; // 상품 등록일
+	private int gSTOCK;
 
 	public int getgID() {
 		return gID;
@@ -104,7 +102,7 @@ public class goodsDTO {
 	public void setgDATE(String gDATE) {
 		this.gDATE = gDATE;
 	}
-	
+
 	public int getgSTOCK() {
 		return gSTOCK;
 	}
@@ -112,6 +110,5 @@ public class goodsDTO {
 	public void setgSTOCK(int gSTOCK) {
 		this.gSTOCK = gSTOCK;
 	}
-	
-	
+
 }

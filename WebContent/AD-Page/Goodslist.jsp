@@ -1,8 +1,8 @@
 <%@page import="java.util.List"%>
 <%@page import="com.gushipsam.goods.dao.goodsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <%
@@ -14,72 +14,75 @@
 <meta charset="UTF-8">
 <title>관리자-상품관리페이지</title>
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/Goodslist.css">
 </head>
 
 <body>
-   <c:set var="goodsList" value="${requestScope.goodsList }"/>
-   <c:set var="sarchlist" value="${requestScope.searchlist}"/>
-   <c:set var="gID" value="${requestScope.Goods_seq }"/>
-   <c:set var="goodCnt" value="${requestScope.goodsCnt }"/>
-   
-   <!-- 포장 시작 -->
-   <div class="wrap">
-      <div class=wrap1-1>
-         <!-- 타이틀 문구 -->
-         <header class="page-title">
-            <h3>상품재고관리</h3>
-         </header>
+	<c:set var="goodsList" value="${requestScope.goodsList }" />
+	<c:set var="sarchlist" value="${requestScope.searchlist}" />
+	<c:set var="gID" value="${requestScope.Goods_seq }" />
+	<c:set var="goodCnt" value="${requestScope.goodsCnt }" />
 
-         <menu>
-            <ul>
-               <li><a href="${pageContext.request.contextPath}/AD-Page/adHome.spm">홈</a></li>
-               <li>전체 상품 갯수 : ${goodCnt }</li>
-            </ul>
-         </menu>
-         <!-- 상다 메뉴 문구 끝-->
+	<!-- 포장 시작 -->
+	<div class="wrap">
+		<div class=wrap1-1>
+			<!-- 타이틀 문구 -->
+			<header class="page-title">
+				<h3>상품재고관리</h3>
+			</header>
 
-         <br> <br>
+			<menu>
+				<ul>
+					<li><a
+						href="${pageContext.request.contextPath}/AD-Page/adHome.spm">홈</a></li>
+					<li>전체 상품 갯수 : ${goodCnt }</li>
+				</ul>
+			</menu>
+			<!-- 상다 메뉴 문구 끝-->
 
-         <!-- 검색창 -->
-         <div class="search">
-            <input type="text" class="textBar"> <i class="fas fa-search"></i>
-         </div>
-         <!-- 검색창 끝 -->
-         <br>
+			<br> <br>
 
-         <!-- 표 시작 -->
-         <span id="ajax_goodslist">
-         <table id="goods_list" class="stock-list" summary="상품명, 재고 주문대기, 재고수정">
-            <colgroup>
-               <!-- 테이블   의 각 열의 크기 조절 가능 -->
-               <col width="50">
-               <col width="300">
-               <col width="200">
-               <col width="200">
-               <col width="200">
-               <col width="300">
-               <col width="300">
-            </colgroup>
+			<!-- 검색창 -->
+			<div class="search">
+				<input type="text" class="textBar"> <i class="fas fa-search"></i>
+			</div>
+			<!-- 검색창 끝 -->
+			<br>
 
-            <thead>
-               <tr class="list-title-tr">
-                  <td class="editable"><input type="checkbox" name="allCheck" id="allCheck"></td>
-                  <td class="editable">상품 이미지</td>
-                  <td class="editable">상품명</td>
-                  <td class="editable">브랜드</td>
-                  <td class="editable">가격</td>
-                  <td class="editable">재고</td>
-                  <td class="editable" style="background-color: #ffeccd;">재고수정</td>
-               </tr>
-            </thead>
+			<!-- 표 시작 -->
+			<span id="ajax_goodslist">
+				<table id="goods_list" class="stock-list"
+					summary="상품명, 재고 주문대기, 재고수정">
+					<colgroup>
+						<!-- 테이블   의 각 열의 크기 조절 가능 -->
+						<col width="50">
+						<col width="300">
+						<col width="200">
+						<col width="200">
+						<col width="200">
+						<col width="300">
+						<col width="300">
+					</colgroup>
 
-            <tbody>
-            <c:choose>
-               <c:when test="${goodsList != null and fn:length(goodsList) > 0 }">
-            
-               <%
+					<thead>
+						<tr class="list-title-tr">
+							<td class="editable"><input type="checkbox" name="allCheck"
+								id="allCheck"></td>
+							<td class="editable">상품 이미지</td>
+							<td class="editable">상품명</td>
+							<td class="editable">브랜드</td>
+							<td class="editable">가격</td>
+							<td class="editable">재고</td>
+							<td class="editable" style="background-color: #ffeccd;">재고수정</td>
+						</tr>
+					</thead>
+
+					<tbody>
+						<c:choose>
+							<c:when test="${goodsList != null and fn:length(goodsList) > 0 }">
+
+								<%
                for (goodsDTO g : goodsList){ 
                   
                   String foldername = null;
@@ -97,42 +100,41 @@
                      foldername= "pc";
                   }               
                %>
-                     <tr>
-                        <th><input type="checkbox" name="chBox" class="chBox"></th>
-                        <th><img style="height: 100px;width: 100px;"
-                           src="${pageContext.request.contextPath }/img/<%=foldername %>/<%= g.getgImgs()%>"></th>
-                        <th><%= g.getgName() %></th>
-                        <th><%= g.getgBrand() %></th>
-                        <th><%= g.getgPRICE() %></th>
-                        <th><%= g.getgSTOCK() %></th>
-                        <th class="edit-part"><input class="update-cell" type="text"></th>
-                     </tr>
-               <%} %>
-                  </c:when>
-                  <c:otherwise>
-                     <tr>
-                        <td colspan="7">
-                           <div class="ad-goodslist-text">현재 상품이 없습니다.</div>
-                        </td>
-                     </tr>
-                  </c:otherwise>
-               </c:choose>
-               
-            </tbody>
-         </table>
-         </span>
+								<tr>
+									<th><input type="checkbox" name="chBox" class="chBox"></th>
+									<th><img style="height: 100px; width: 100px;"
+										src="${pageContext.request.contextPath }/img/<%=foldername %>/<%= g.getgImgs()%>"></th>
+									<th><%= g.getgName() %></th>
+									<th><%= g.getgBrand() %></th>
+									<th><%= g.getgPRICE() %></th>
+									<th><%= g.getgSTOCK() %></th>
+									<th class="edit-part"><input class="update-cell"
+										type="text"></th>
+								</tr>
+								<%} %>
+							</c:when>
+							<c:otherwise>
+								<tr>
+									<td colspan="7">
+										<div class="ad-goodslist-text">현재 상품이 없습니다.</div>
+									</td>
+								</tr>
+							</c:otherwise>
+						</c:choose>
 
-         <br>
+					</tbody>
+				</table>
+			</span> <br>
 
-         <div>
-            <form class="btn">
-               <input type="button" value="일괄수정">
-               <a href="${pageContext.request.contextPath}/AD-Page/ADDgoods.spm">[상품추가]</a>
-               <button type="button" class="delect_btn" onclick="delgid();">상품삭제</button>
-            </form>
-         </div>
-      </div>
-   </div>
+			<div>
+				<form class="btn">
+					<input type="button" value="일괄수정"> <a
+						href="${pageContext.request.contextPath}/AD-Page/ADDgoods.spm">[상품추가]</a>
+					<button type="button" class="delect_btn" onclick="delgid();">상품삭제</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 <script>
 // 전체선택

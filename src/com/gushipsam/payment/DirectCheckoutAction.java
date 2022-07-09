@@ -8,7 +8,7 @@ import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.payment.dao.PaymentDAO;
 
-public class DirectCheckoutAction implements Action{
+public class DirectCheckoutAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -18,19 +18,18 @@ public class DirectCheckoutAction implements Action{
 
 		HttpSession session = req.getSession();
 		String userid = (String) session.getAttribute("sessionId");
-		
+
 		int gID = Integer.parseInt(req.getParameter("gid"));
 		int gQTY = Integer.parseInt(req.getParameter("gqty"));
 
-		//장바구니 넣지 않고 바로 주문결제 페이지에 넣을 attribute 생성 및 할당
+		// 장바구니 넣지 않고 바로 주문결제 페이지에 넣을 attribute 생성 및 할당
 		req.setAttribute("checkoutList", pdao.getCheckoutDirect(gID, gQTY));
 		req.setAttribute("memberInfo", pdao.getMemberInfo(userid));
 		System.out.println("조회완료");
-		
-	
+
 		forward.setRedirect(false);
 		forward.setPath(req.getContextPath() + "/payment/checkout06.jsp");
-		
+
 		return forward;
 	}
 

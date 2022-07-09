@@ -4,32 +4,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shoppingmall">
 	<insert id="join" parameterType="shoppingmalldto">
-		INSERT INTO MEMBERS VALUES (#{userid}, #{userpw}, #{username}, #{userphone}, #{userdata}, #{useremail})
+		INSERT INTO MEMBERS VALUES
+		(#{userid}, #{userpw}, #{username}, #{userphone}, #{userdata},
+		#{useremail})
 	</insert>
 
 	<select id="checkId" parameterType="string" resultType="_int">
-      SELECT count(*) FROM MEMBERS WHERE USERID = #{userid}
-   </select>
-   
-   <select id="login" parameterType="hashmap" resultType="_int">
-		SELECT count(*) FROM MEMBERS WHERE USERID = #{userid} AND USERPW = #{userpw}
+		SELECT count(*) FROM MEMBERS WHERE USERID = #{userid}
 	</select>
-	
-	<select id="id" parameterType="hashmap" resultType="String">
-		SELECT userid FROM MEMBERS WHERE USERNAME = #{username} AND USERPHONE = #{userphone} AND USEREMAIL = #{useremail}
-	</select>
-	
-	<select id="pw" parameterType="hashmap" resultType="String">
-		SELECT userpw FROM MEMBERS WHERE  USERID = #{userid} AND USERNAME = #{username} AND USERPHONE = #{userphone} AND USEREMAIL = #{useremail}
-	</select>
-   
-   
-   <!-- order -->
-   <!-- parameterType: 외부에서 받아올 값의 타입  -->
-	<!-- resultType: 리턴받을 값의 타입 -->
-	
 
-	
+	<select id="login" parameterType="hashmap" resultType="_int">
+		SELECT
+		count(*) FROM MEMBERS WHERE USERID = #{userid} AND USERPW = #{userpw}
+	</select>
+
+	<select id="id" parameterType="hashmap" resultType="String">
+		SELECT userid
+		FROM MEMBERS WHERE USERNAME = #{username} AND USERPHONE = #{userphone}
+		AND USEREMAIL = #{useremail}
+	</select>
+
+	<select id="pw" parameterType="hashmap" resultType="String">
+		SELECT userpw
+		FROM MEMBERS WHERE USERID = #{userid} AND USERNAME = #{username} AND
+		USERPHONE = #{userphone} AND USEREMAIL = #{useremail}
+	</select>
+
+
+	<!-- order -->
+	<!-- parameterType: 외부에서 받아올 값의 타입 -->
+	<!-- resultType: 리턴받을 값의 타입 -->
+
+
+
 	<!-- 회원 정보 불러옴 -->
 	<select id="getMemberList" resultType="shoppingmalldto"
 		parameterType="string">
@@ -38,12 +45,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 총 회원 수 -->
 	<select id="getMemberCnt" resultType="_int">
-		SELECT COUNT(*)	FROM MEMBERS
+		SELECT COUNT(*) FROM
+		MEMBERS
 	</select>
 
-<!-- 	<select id="getGoodsCnt" resultType="_int"> -->
-<!-- 		SELECT COUNT(*) FROM GOODS -->
-<!-- 	</select> 	총 상품 수 -->
+	<!-- <select id="getGoodsCnt" resultType="_int"> -->
+	<!-- SELECT COUNT(*) FROM GOODS -->
+	<!-- </select> 총 상품 수 -->
 
 	<!-- 총 주문 갯수 -->
 	<select id="getOrderCnt" resultType="_int">
@@ -53,7 +61,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- shopdto에 select문의 결과를 담아서 보냄 -->
 	<select id="getRecentList" resultType="shoppingmalldto"
 		parameterType="string">
-<!-- 		SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE FROM ORDERS o INNER JOIN GOODS g ON o.GID = g.GID WHERE o.USERID = #{userid} -->
+		<!-- SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE FROM ORDERS o INNER JOIN 
+			GOODS g ON o.GID = g.GID WHERE o.USERID = #{userid} -->
 		<![CDATA[SELECT g.GIMGS , g.GNAME ,g.GPRICE , o.ODATE, g.gCatg 
 		FROM ORDERS o 
 		INNER JOIN GOODS g ON o.GID = g.GID 
@@ -71,23 +80,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- WHERE B.R BETWEEN #{startRow} AND #{endRow} -->
 		SELECT *
 		FROM(SELECT rownum R, D.*
-		FROM (SELECT * FROM ORDERS o INNER JOIN GOODS g ON o.gid
+		FROM (SELECT * FROM ORDERS o INNER
+		JOIN GOODS g ON o.gid
 		= g.GID
 		ORDER BY OID DESC) D) B
-		WHERE B.R BETWEEN 1 AND 10
+		WHERE B.R BETWEEN 1
+		AND 10
 	</select>
 
-	
-	
-	<select id="getSearchList"  parameterType="shoppingmalldto" resultType="shoppingmalldto">
-	SELECT * FROM goods
-	WHERE GNAME LIKE '%${searchtext}%' OR GBRAND LIKE '%${searchtext}%'
+
+
+	<select id="getSearchList" parameterType="shoppingmalldto"
+		resultType="shoppingmalldto">
+		SELECT * FROM goods
+		WHERE GNAME LIKE '%${searchtext}%' OR GBRAND LIKE '%${searchtext}%'
 	</select>
-	
-<!-- 	<select id="getGoods_seq"> -->
-<!-- 		SELECT Good_seq.currval FROM GOODS -->
-<!-- 	</select> -->
-   
+
+	<!-- <select id="getGoods_seq"> -->
+	<!-- SELECT Good_seq.currval FROM GOODS -->
+	<!-- </select> -->
+
 </mapper>
 
 

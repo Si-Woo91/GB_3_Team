@@ -11,7 +11,7 @@
                 var addr = ''; // 주소 변수
                 var extraAddr = ''; // 참고항목 변수
 
-                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
                 if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                     addr = data.roadAddress;
                 } else { // 사용자가 지번 주소를 선택했을 경우(J)
@@ -74,7 +74,7 @@
 				$('#naverpay_tb').hide();
 				$('#phonepay_tb').hide();
 			}
-			// 계좌이체  결제 선택 시.
+			// 계좌이체 결제 선택 시.
 			else if($("input[name='paymethod']:checked").val() == '계좌이체'){
 				$('#creditcard_tb').hide();
 				$('#nobank_tb').hide();
@@ -82,7 +82,7 @@
 				$('#naverpay_tb').hide();
 				$('#phonepay_tb').hide();
 			}
-			// 네이버페이  결제 선택 시.
+			// 네이버페이 결제 선택 시.
 			else if($("input[name='paymethod']:checked").val() == '네이버페이'){
 				$('#creditcard_tb').hide();
 				$('#nobank_tb').hide();
@@ -90,7 +90,7 @@
 				$('#naverpay_tb').show();
 				$('#phonepay_tb').hide();
 			}
-			// 네이버페이  결제 선택 시.
+			// 네이버페이 결제 선택 시.
 			else if($("input[name='paymethod']:checked").val() == '휴대폰결제'){
 				$('#creditcard_tb').hide();
 				$('#nobank_tb').hide();

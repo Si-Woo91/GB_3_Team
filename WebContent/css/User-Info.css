@@ -1,38 +1,37 @@
 @charset "UTF-8";
 
-
-* {											/* 전체 초기화 */
+* { /* 전체 초기화 */
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family :'GowunDodum-Regular';
-	
+	font-family: 'GowunDodum-Regular';
 }
 
-@font-face {									/* 폰트 설정 (회의후 변경예정) */
-    font-family: 'GowunDodum-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@font-face { /* 폰트 설정 (회의후 변경예정) */
+	font-family: 'GowunDodum-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
+
 @font-face {
-    font-family: 'GowunBatang-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'GowunBatang-Bold';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Bold.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
-
 
 /* table css */
-
-.info-usermodify-auth-title{
+.info-usermodify-auth-title {
 	margin-left: 18%;
 	margin-top: 3%;
 }
 
-
-
-.info-member-container{
+.info-member-container {
 	min-height: 500px;
 	height: 800px;
 	width: 100%;
@@ -48,7 +47,7 @@
 	margin: auto;
 }
 
-.info-UserModify-table th{
+.info-UserModify-table th {
 	background-color: #eef1f8;
 	width: 150px;
 	line-height: 30px;
@@ -58,13 +57,13 @@
 	border-top: 1px solid #ddd;
 }
 
-.info-UserModify-table td{
+.info-UserModify-table td {
 	width: 1020px;
 	text-align: left;
 	padding-left: 10px;
 }
 
-.info-usermodify-submit{
+.info-usermodify-submit {
 	margin-top: 3%;
 	text-align: center;
 	background-color: orange;
@@ -74,7 +73,7 @@
 	width: 50px;
 }
 
-.info-usermodify-cancel{
+.info-usermodify-cancel {
 	margin-top: 3%;
 	text-align: center;
 	background-color: orange;
@@ -82,12 +81,12 @@
 	border-color: orange;
 	height: 30px;
 	width: 50px;
-	}
+}
 
-.info-usermodify-btn{
+.info-usermodify-btn {
 	text-align: center;
 }
 
-input[type=password]{
+input[type=password] {
 	margin-left: 10px;
 }

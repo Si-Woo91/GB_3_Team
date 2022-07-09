@@ -13,15 +13,15 @@ public class UserLogoutOk implements Action {
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		
+
 		ActionForward forward = new ActionForward();
-		
+
 		HttpSession session = req.getSession();
 		session.invalidate();
-		
+
 		forward.setRedirect(true);
 		forward.setPath(req.getContextPath() + "/main/main.spm");
-		
+
 		return forward;
 	}
 

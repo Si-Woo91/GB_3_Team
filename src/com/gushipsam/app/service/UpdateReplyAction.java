@@ -13,27 +13,16 @@ public class UpdateReplyAction implements Action {
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
 		ServiceDAO sdao = new ServiceDAO();
-		
-		int replynum = Integer.parseInt( req.getParameter("replynum") );
+
+		int replynum = Integer.parseInt(req.getParameter("replynum"));
 		String servicenum = req.getParameter("servicenum");
 		String replycontent = req.getParameter("reply" + replynum);
-		
-		if(sdao.updateReply(replynum, replycontent)) {
+
+		if (sdao.updateReply(replynum, replycontent)) {
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/service/minsu3.sv?servicenum=" + servicenum);
 		}
-		
+
 		return forward;
+	}
 }
-}
-
-
-
-
-
-
-
-
-
-
-

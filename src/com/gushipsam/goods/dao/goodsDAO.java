@@ -9,39 +9,36 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.gushipsam.goods.mybatis.SqlMapConfig;
 import com.gushipsam.shoppingmall.dao.ShoppingMallDTO;
 
-
-
 public class goodsDAO {
 	SqlSessionFactory factory = SqlMapConfig.getFactory();
 	SqlSession sqlsession;
-	
+
 	public goodsDAO() {
 		// autocommit
 		sqlsession = factory.openSession(true);
 	}
 
 	// 제품 목록
-	public List<goodsDTO> getgoodsList(String gCatg){
-		
+	public List<goodsDTO> getgoodsList(String gCatg) {
+
 		List<goodsDTO> goodsList = sqlsession.selectList("goods.getgoodsList", gCatg);
-		
+
 		return goodsList;
 	}
-	
+
 	// 제품 상세
-	public goodsDTO getgoodsDetail(int gID){
-		
+	public goodsDTO getgoodsDetail(int gID) {
+
 		goodsDTO goodsDetail = sqlsession.selectOne("goods.getgoodsDetail", gID);
-		
+
 		return goodsDetail;
 	}
 
-	
 	// (관리자 페이지)상품 수
 	public int getGoodsCnt() {
 		return sqlsession.selectOne("goods.getGoodsCnt");
 	}
-	
+
 	// (관리자) 상품리스트 데이터
 	public List<ShoppingMallDTO> getGoodsList() {
 		System.out.println("getGoodsList 도착");
@@ -51,9 +48,9 @@ public class goodsDAO {
 
 		return goodsList;
 	}
-	
+
 	// (관리자 페이지) 상품 삭제
-	public boolean delGoodItem(String[] delgids) throws Exception{
+	public boolean delGoodItem(String[] delgids) throws Exception {
 		boolean result = false;
 		System.out.println("delgooditem 도착");
 
@@ -73,15 +70,14 @@ public class goodsDAO {
 
 		return result;
 
-	}		
-	
+	}
+
 	// (관리자 페이지) 상품 리스트
 	public List<ShoppingMallDTO> getGoodslist() {
 		List<ShoppingMallDTO> goodlist = sqlsession.selectList("goods.insertGoods");
 		return goodlist;
 	}
-	
-	
+
 	// (관리자 페이지) 상품추가
 	public boolean insertGoods(goodsDTO goods) {
 		boolean result = false;
@@ -96,24 +92,4 @@ public class goodsDAO {
 		return result;
 	}
 
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

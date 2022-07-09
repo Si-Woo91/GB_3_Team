@@ -7,7 +7,7 @@ import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.shoppingmall.dao.ShoppingMallDAO;
 
-public class ADMemberListAction implements Action{
+public class ADMemberListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -16,13 +16,13 @@ public class ADMemberListAction implements Action{
 		System.out.println("ADMemberListAction 도착");
 
 		int memberCnt = shopDAO.getMemberCnt();
-		
+
 		req.setAttribute("memberCnt", memberCnt);
 		req.setAttribute("memberList", shopDAO.getMemberList());
-		
+
 		forward.setRedirect(false);
 		forward.setPath(req.getContextPath() + "/AD-Page/Memberlist.jsp");
-		
+
 		return forward;
 	}
 
