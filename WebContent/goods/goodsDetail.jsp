@@ -37,7 +37,7 @@
 <%@ include file="../header/header.jsp"%>
 <body>
 	<div style="height: 300px;"></div>
-	<section>
+	<section id="goodsDetail">
 		<table id="skeleton">
 			<tr>
 				<td>

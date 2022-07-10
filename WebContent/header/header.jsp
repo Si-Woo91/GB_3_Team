@@ -14,12 +14,14 @@
 <link rel="stylesheet" type="text/css" href="../css/common06.css">
 <link rel="stylesheet" type="text/css" href="../css/cart06.css">
 <link rel="stylesheet" type="text/css" href="../css/checkout06.css">
-<link rel="shortcut icon" href="../img/gushipsam_icon.ico">
 <link rel="stylesheet" type="text/css" href="../css/Mypage.css">
 <link rel="stylesheet" type="text/css" href="../css/User-Info.css">
 <link rel="stylesheet" type="text/css" href="../css/User-InfoUp.css">
 <link rel="stylesheet" type="text/css" href="../css/OrderList-Page.css">
 <link rel="stylesheet" type="text/css" href="../css/secession.css">
+<link rel="stylesheet" type="text/css" href="../css/goodsDetail.css">
+<link rel="stylesheet" type="text/css" href="../css/goodsList.css">
+<link rel="shortcut icon" href="../img/gushipsam_icon.ico">
 <script type="text/javascript" src="../js/slick.min.js"></script>
 <script type="text/javascript" src="../js/slide.js"></script>
 </head>
@@ -115,3 +117,4 @@
 	</div>
 </body>
 </html>
+

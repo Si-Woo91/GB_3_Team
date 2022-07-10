@@ -35,7 +35,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="shortcut icon" href="gu_icon.ico">
-<link rel="stylesheet" type="text/css" href="goodsList.css">
+
 </head>
 <%@ include file="../header/header.jsp"%>
 <body>
