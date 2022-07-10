@@ -1,13 +1,9 @@
 @charset "UTF-8";
 
-* {
-	margin: 0 auto;
-	padding: 0;
-}
-
 #service {
 	margin: 14% 0 14% 0;
 }
+
 #service>.a:link {
 	color: black;
 	text-decoration: none;

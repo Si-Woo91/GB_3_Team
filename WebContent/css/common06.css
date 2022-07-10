@@ -31,7 +31,9 @@ body#payment {
 /* section 기본설정 */
 section#cart, section#checkout {
 	width: 900px;
-	margin: auto;
+	margin: 0 auto;
+	margin-top: 8%;
+	margin-bottom: 14%;
 }
 
 /* 테이블 기본설정 */

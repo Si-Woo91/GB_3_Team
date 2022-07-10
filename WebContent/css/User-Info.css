@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-* { /* 전체 초기화 */
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'GowunDodum-Regular';
-}
-
 @font-face { /* 폰트 설정 (회의후 변경예정) */
 	font-family: 'GowunDodum-Regular';
 	src:

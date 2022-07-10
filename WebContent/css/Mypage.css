@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-* { /* 전체 초기화 */
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'GowunDodum-Regular';
-}
-
 @font-face { /* 폰트 설정 (회의후 변경예정) */
 	font-family: 'GowunDodum-Regular';
 	src:
@@ -113,7 +106,8 @@
 	border-spacing: 0;
 	/* 	 테이블 고정  : 셀안의 데이터가 길어서 지정한 너비 이상으로 셀을 밀어버리는 것을 방지 */
 	table-layout: fixed;
-	margin: auto;
+	margin: 0 auto;
+	margin-bottom: 14%;
 }
 
 .my-tab-center {

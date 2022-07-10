@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
-* { /* 전체 초기화 */
+/* * { 전체 초기화
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'GowunDodum-Regular';
-}
+} */
 
 footer {
 	width: 100%;

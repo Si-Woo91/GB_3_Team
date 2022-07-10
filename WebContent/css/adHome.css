@@ -1,13 +1,6 @@
 @charset "UTF-8";
-/* 페이지 전체 넓이 설정 */
-* { /* 전체 초기화 */
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'GowunDodum-Regular';
-}
 
-@font-face { 
+@font-face {
 	font-family: 'GowunDodum-Regular';
 	src:
 		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff')
