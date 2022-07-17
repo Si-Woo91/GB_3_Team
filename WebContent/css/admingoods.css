@@ -117,8 +117,9 @@ menu ul li:last-child {
 }
 
 /* 수정가능한 셀안에 input태그 위치 */
-.update-cell {
-	width: 90%;
+.updatecell {
+	width: 80%;
+	font-size: 16px;
 }
 
 /* table 1행 세로  */
@@ -138,36 +139,54 @@ menu ul li:last-child {
 }
 
 /* 재고 관리 part css 끝 */
-.btn {
-	text-align: center;
+.btn1 {
+	text-align: left;
+	margin-bottom: 10px;
+	float:left;
+}
+.btn2 {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.btn3 {
+	text-align: left;
+	margin-top: 10px;
+	margin-bottom: 50px;
+	float:left;
+}
+.btn4 {
+	text-align: right;
+	margin-top: 10px;
+	margin-bottom: 50px;
 }
 
 .ad-goodslist-text{
 	text-align: center;
+	margin: 50px auto;
 	
 }
 
 
-#edit_btn, #delete_btn{
+.edit_btn, .delete_btn{
 	background-color: #92B1F0;
 	border-radius: 5px;
 	border: 1px solid #92B1F0;
 	cursor:pointer;
-	padding: 3px 0px;
-	font-size:15px;
-	width:80px;
+	padding: 3px 10px;
+	font-size:14px;
+/* 	width:80px; */
 	color: white;
 	margin:0px;
 }
 
-#add_btn{
+.add_btn{
 	background-color: white;
 	border-radius: 5px;
 	border: 1px solid #92B1F0;
 	cursor:pointer;
-	padding: 3px 0px;
-	font-size:15px;
-	width:80px;
+	padding: 3px 10px;
+	font-size:14px;
 	color: #92B1F0;
 	margin:0px;
 }
@@ -177,7 +196,7 @@ menu ul li:last-child {
 	border-radius: 5px;
 	border: 1px solid #92B1F0;
 	cursor:pointer;
-	padding: 3px 0px;
+	padding: 5px 5px;
 	font-size:16px;
 	width: 70px;
 	color: white;
@@ -189,15 +208,15 @@ menu ul li:last-child {
 	border-radius: 5px;
 	border: 1px solid #92B1F0;
 	cursor:pointer;
-	padding: 3px 0px;
+	padding: 5px 5px;
 	font-size:16px;
 	width: 80px;
 	color: #92B1F0;
 	padding: 5px;
 }
 
-#edit_btn:hover, #delete_btn:hover, #search_btn:hover{ background-color: #84A0D9; }
-#add_btn:hover, #return_btn:hover{ background-color: #FAF9F7; }
+.edit_btn:hover, .delete_btn:hover, #search_btn:hover{ background-color: #84A0D9; }
+.add_btn:hover, #return_btn:hover{ background-color: #FAF9F7; }
 
 .adminlink{ color:white; text-decoration:none;}
 .adminlink:hover{ font-weight: bold; }

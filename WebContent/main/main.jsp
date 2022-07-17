@@ -21,10 +21,10 @@
 					<img src="../img/slide1.png">
 				</div>
 				<div>
-					<img src="../img/slide2.png">
+					<a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=2" ><img src="../img/slide2.png"></a>
 				</div>
 				<div>
-					<img src="../img/slide2.png">
+					<a href="${pageContext.request.contextPath }/goods/goodsDetail.goods?gID=18" ><img src="../img/slide3.png"></a>
 				</div>
 			</div>
 		</div>

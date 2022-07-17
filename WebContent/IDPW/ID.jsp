@@ -43,13 +43,14 @@
    <div class = one>
    <h2>아이디 찾기</h2>
    <div class="textForm1">
-      <input name="username" type="text" class="username" placeholder="이름">
+      <input name="username" type="text" class="username" placeholder="이름" onkeyup="if(event.keyCode==13){id_search();}">
    </div>
    <div class="textForm1">
-      <input name="userphone" type="number" class="userphone" placeholder="전화번호 ( ' - ' 없이 숫자만 입력 ex) 01012345678 )">
+      <input name="userphone" type="text" class="userphone" placeholder="전화번호 ( ' - ' 없이 숫자만 입력 ex) 01012345678 )"
+      	numberOnly onkeyup="if(event.keyCode==13){id_search();}">
    </div>
    <div class="textForm1">
-      <input name="useremail" type="text" class="useremail" placeholder="이메일">
+      <input name="useremail" type="text" class="useremail" placeholder="이메일" onkeyup="if(event.keyCode==13){id_search();}">
    </div>
    <input type="button" id="id-btn" class="btn" value="아이디 찾기" onclick="id_search()">
    </div>
@@ -75,16 +76,17 @@
    <div class = two>
 	   <h2>비밀번호 찾기</h2>   
 	   <div class="textForm2">
-	      <input name="userid" type="text" class="userid" placeholder="아이디">
+	      <input name="userid" type="text" class="userid" placeholder="아이디" onkeyup="if(event.keyCode==13){pw_search();}">
 	   </div>
 	   <div class="textForm2">
-	      <input name="username" type="text" class="username" placeholder="이름">
+	      <input name="username" type="text" class="username" placeholder="이름" onkeyup="if(event.keyCode==13){pw_search();}">
 	   </div>
 	   <div class="textForm2">
-	      <input name="userphone" type="number" class="userphone" placeholder="전화번호 ( ' - ' 없이 숫자만 입력 ex) 01012345678 )">
+	      <input name="userphone" type="text" class="userphone" placeholder="전화번호 ( ' - ' 없이 숫자만 입력 ex) 01012345678 )"
+	      	numberOnly onkeyup="if(event.keyCode==13){pw_search();}">
 	   </div>
 	   <div class="textForm2">
-	      <input name="useremail" type="text" class="useremail" placeholder="이메일">
+	      <input name="useremail" type="text" class="useremail" placeholder="이메일" onkeyup="if(event.keyCode==13){pw_search();}">
 	   </div>
 		<input type="button" id="pw-btn" class="btn" value="비밀번호 찾기" onclick="pw_search()">
 	</div>
@@ -92,7 +94,7 @@
 </form>
 <div style="text-align: center; margin: 620px auto 50px auto;">
 			<div>
-				<a class="link" href= "${pageContext.request.contextPath }/main/main.jsp">메인페이지</a>
+				<a class="link" href= "${pageContext.request.contextPath }/main/main.jsp">홈</a>
 				&nbsp;
 				&nbsp;
 				<a class="link" href= "${pageContext.request.contextPath }/IDPW/login.jsp">로그인</a>

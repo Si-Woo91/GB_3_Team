@@ -8,6 +8,17 @@
 <%
 	DecimalFormat df = new DecimalFormat("###,###"); // df.format(숫자)로 콤마 보이게 가능
 	List<goodsDTO> goodsList = (List<goodsDTO>) request.getAttribute("goodsList"); 
+	
+	//상품이름이 길어서 박스 크기가 큰 상품은 중간에 있으면 상품간격이 늘어나므로 맨 아래로 보내기
+	int maxlen = 0;
+	for ( int i = 0; i < goodsList.size(); i++){
+		goodsDTO g_ = goodsList.get(i);
+		if( g_.getgName().length() > maxlen){
+			maxlen = g_.getgName().length();
+			goodsList.remove(i);
+			goodsList.add(g_);
+		}
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -32,9 +43,9 @@
 					if(! first.equals(now) ) brand_same = false;
 				}
 				if (brand_same) { %>
-				<h2> <%= goodsList.get(0).getgCatg()%> / <%= goodsList.get(0).getgBrand()%> </h2>
+				<h2> <%= goodsList.get(0).getgCatg()%>  | <%= goodsList.get(0).getgBrand()%> </h2>
 				<% } else { %>
-				<h2> <%= goodsList.get(0).getgCatg()%> / 전체 </h2>
+				<h2> <%= goodsList.get(0).getgCatg()%> | 전체 </h2>
 				<% } %>
 
 				<%

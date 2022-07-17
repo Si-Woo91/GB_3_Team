@@ -142,20 +142,25 @@
 							<td>	연락처1	</td>
 							<td>	
 								<span style="color:red; font-weight:bold">*</span>
-								<input type="number" id="phone1" value="<%= phone.substring(0,3) %>" style="width:80px"> - <input type="number" id="phone2" value="<%= phone.substring(3,7)  %>" style="width:80px"> - <input type="number" id="phone3" value="<%= phone.substring(7,11)  %>" style="width:80px">	
+								<input type="text" id="phone1" value="<%= phone.substring(0,3) %>" style="width:80px" numberOnly>
+								- <input type="text" id="phone2" value="<%= phone.substring(3,7)  %>" style="width:80px" numberOnly>
+								- <input type="text" id="phone3" value="<%= phone.substring(7,11)  %>" style="width:80px" numberOnly>	
 							</td>
 						</tr>	
 						<tr>
 							<td>	연락처2	</td>
-							<td>										<span style="color:transparent; font-weight:bold">*</span>
-								<input type="number" style="width:80px"> - <input type="number" style="width:80px"> - <input type="number" style="width:80px">	
+							<td>
+								<span style="color:transparent; font-weight:bold">*</span>
+								<input type="text" style="width:80px" numberOnly>
+								- <input type="text" style="width:80px" numberOnly>
+								- <input type="text" style="width:80px" numberOnly>	
 							</td>
 						</tr>
 						<tr>
 							<td rowspan="3">	주소	</td>
 							<td>	
 								<span style="color:red; font-weight:bold">*</span> 
-								<input type="text" id="sample6_postcode" placeholder="우편번호" style="width:80px">
+								<input type="text" id="sample6_postcode" placeholder="우편번호" style="width:80px" numberOnly>
 								<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="width:100px">
 							</td>
 						</tr>
@@ -346,7 +351,7 @@
 			</tr>
 		</table>
 	</section>
-	<div style="height:130px"></div>
+	<div style="height:100px"></div>
 	<%@ include file= "../footer/footer.jsp" %>
 </body>
 <script>

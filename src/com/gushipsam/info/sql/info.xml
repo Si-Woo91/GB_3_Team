@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="info">
+	
+	<select id="checkMember" parameterType="hashmap" resultType="_int">
+		SELECT count(*) FROM MEMBERS WHERE USERID = #{userid} AND USERPW = #{userpw}
+	</select>
+	
+	<select id="getMember" parameterType="string" resultType="infodto">
+		SELECT * FROM MEMBERS WHERE USERID = #{userid}
+	</select>
+	
+	<update id="modifyEmail" parameterType="hashmap">
+		UPDATE MEMBERS
+		SET USEREMAIL = #{newEmail}
+		WHERE USERID = #{userid}
+	</update>
+	
+	<update id="modifyPhone" parameterType="hashmap">
+		UPDATE MEMBERS
+		SET USERPHONE = #{newPhone}
+		WHERE USERID = #{userid}
+	</update>
+	
+	<update id="modifyMembersPassword" parameterType="hashmap">
+		UPDATE MEMBERS
+		SET USERPW = #{newPassword}
+		WHERE USERID = #{userid}
+	</update>
+	
+	<update id="modifyServicePassword" parameterType="hashmap">
+		UPDATE SERVICE_REPLY
+		SET PASSWORD = #{newPassword}
+		WHERE SERVICENAME = #{username}
+	</update>
+	
+	<delete id="secession" parameterType="string">
+		DELETE FROM MEMBERS
+		WHERE USERID = #{userid}
+	</delete>
+ 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

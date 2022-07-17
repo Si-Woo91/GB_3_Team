@@ -10,15 +10,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE GID = #{gID}
 	</select>
 
-	<select id="insertCart" parameterType="hashmap">
+	<insert id="insertCart" parameterType="hashmap">
 		INSERT INTO CART VALUES(cart_seq.nextval,#{userid},#{gID},#{gQTY})
-	</select>
+	</insert>
 	
-	<select id="updateCart" parameterType="hashmap">
+	<update id="updateCart" parameterType="hashmap">
 		UPDATE CART
 			SET CQTY = #{gQTY}
 		WHERE CID = #{samecID}
-	</select>
+	</update>
 
 	<select id="getCartList" parameterType="string" resultType="cartdto">
 		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE , g.GIMGS, g.GCATG
@@ -45,13 +45,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE USERID = #{userid}
 	</select>
 	
-	<select id="deleteCartItem" parameterType="hashmap">
+	<delete id="deleteCartItem" parameterType="hashmap">
 		DELETE FROM CART
 		WHERE cID IN
 		<foreach collection="del_cIDs" item="del_cID" open="(" separator="," close=")">
 				#{del_cID}
 		</foreach>
-	</select>
+	</delete>
 	
 	<select id="getCartItem" parameterType="string" resultType="cartdto">
 		SELECT c.CID , c.GID , c.CQTY, g.GNAME , g.GBRAND , g.GPRICE , g.GIMGS, g.GCATG
@@ -66,13 +66,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	
-	<select id="deleteCartItemAll" parameterType="hashmap">
+	<delete id="deleteCartItemAll" parameterType="hashmap">
 		DELETE FROM CART
 		WHERE 	CID IN 
 		<foreach collection="cIDs" item="cID" open="(" separator="," close=")">
 				#{cID}
 		</foreach>
-	</select>
+	</delete>
 
 </mapper>
 

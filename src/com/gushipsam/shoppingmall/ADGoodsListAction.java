@@ -17,7 +17,7 @@ public class ADGoodsListAction implements Action {
 		ActionForward forward = new ActionForward();
 		ShoppingMallDAO shopDAO = new ShoppingMallDAO();
 		goodsDAO gDAO = new goodsDAO();
-
+		
 		// 회원 수
 		int memberCnt = shopDAO.getMemberCnt();
 		// 상품 수
@@ -26,7 +26,7 @@ public class ADGoodsListAction implements Action {
 		req.setAttribute("goodsList", gDAO.getGoodsList());
 		req.setAttribute("goodsCnt", gDAO.getGoodsCnt());
 		forward.setRedirect(false);
-		forward.setPath(req.getContextPath() + "/AD-Page/Goodslist.jsp");
+		forward.setPath(req.getContextPath() + "/AD-Page/admingoods.jsp");
 
 		req.setAttribute("memberCnt", memberCnt);
 		return forward;

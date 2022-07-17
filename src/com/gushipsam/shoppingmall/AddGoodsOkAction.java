@@ -1,152 +1,86 @@
 package com.gushipsam.shoppingmall;
 
-import java.io.Console;
-import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Collection;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import com.gushipsam.action.Action;
 import com.gushipsam.action.ActionForward;
 import com.gushipsam.goods.dao.goodsDAO;
 import com.gushipsam.goods.dao.goodsDTO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@MultipartConfig(
-		location = "C:\\Users\\ksh98\\git\\GB_3_Team\\WebContent\\img",
-					
-		maxFileSize = -1,
-		maxRequestSize = -1,
-		fileSizeThreshold = 1024
-		)
+public class AddGoodsOkAction implements Action {
 
-public class AddGoodsOkAction implements Action{
-
-	private static final String CHARSET = "utf-8";
-	private static final String ATTACHES_DIR = "C:\\Users\\ksh98\\git\\GB_3_Team\\WebContent\\img";
-	
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		System.out.println("AddGoodsOkAction 도착");
-		
-		resp.setContentType("text/html; charset=UTF-8");
-		try {
-			req.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		System.out.println("인코딩");
-		
 		ActionForward forward = new ActionForward();
-		// 데이터 받아올 객체
-		goodsDAO gDAO = new goodsDAO();
+		goodsDAO gdao = new goodsDAO();
+		goodsDTO gdto = new goodsDTO();
+		MultipartRequest multi = null;
+
+		// 파일 업로드 구현시 참고한 자료:
+		// https://makecodework.tistory.com/entry/JSP-cosjar-를-이용하여-eclipse-에서-파일-업로드-기능-구현하기
 		
-		// goodsDTO에 담아서 넘김
-		goodsDTO gDTO = new goodsDTO();
-		String fileName = null;
-
-		
-		// 이미지관련
-		//	PrintWriter out = resp.getWriter();
-		String contentType = req.getContentType();
-		System.out.println("contype");
-
-		if (contentType != null && contentType.toLowerCase().startsWith("multipart/")) {
-			Collection<Part> parts = null;
-			try {
-				parts = req.getParts();
-			} catch (IOException | ServletException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("parts");
-			for (Part part : parts) {
-				System.out.printf("파라미터 명 : %s, contnetType : %s, size : %d bytes \n", part.getName(),
-						part.getContentType(), part.getSize());
-
-				if (part.getHeader("Content-Disposition").contains("filename=")) {
-					fileName = extractFileName(part.getHeader("Content-Disposition"));
-					
-					if (part.getSize() > 0) {
-						System.out.printf("업로드 파일 명 : %s   \n", fileName);
-						try {
-							part.write(ATTACHES_DIR + File.separator + fileName);
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						try {
-							part.delete();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-				} else {
-					String formValue = req.getParameter(part.getName());
-					System.out.printf("name : %s, value : %s \n", part.getName(), formValue);
-				}
-			}
-
-			//out.println("<h1>업로드완료</h1>");
-			System.out.println("<h1>업로드완료</h1>");
-		} else {
-			//out.println("<h1>enctype이 multipart/form-data가 아님 </h1>");
-			System.out.println("<h1>enctype이 multipart/form-data가 아님 </h1>");
+		String category = req.getParameter("category");
+		String foldername = "";
+		switch( category ){
+			case "냉장고": foldername = "fridge"; break;
+			case "세탁기": foldername = "washer"; break;
+			case "TV": foldername = "tv"; break;
+			case "에어컨": foldername = "ac"; break;
+			case "컴퓨터": foldername = "pc"; break;
 		}
 		
+		//realpath이 원하는 디렉토리 경로로 나오지 않는다면 사용중인 Server를 멈추고 더블클릭>Overview아래>Server Options 중
+		//"Serve Models Without Publishing"을 체크해주세요.
+		//(참고: https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ksi4687&logNo=220527469366)
+		String realpath = req.getSession().getServletContext().getRealPath("/img");
+		System.out.println("real path: " + realpath);
+		String directory = realpath.replace("\\", "/") + "/" + foldername;
+		int sizeLimit = 100 * 1024 * 1024; // 100MB 제한
 
-		
-		String gImgs = fileName;
-		String gName = req.getParameter("description");
-		String gBrand = req.getParameter("brand");
-		int gPRICE = Integer.parseInt(req.getParameter("price"));
-		int gSTOCK = Integer.parseInt(req.getParameter("stock"));
-		
-		
-		gDTO.setgImgs(gImgs);
-		System.out.println(gImgs);	//
-		gDTO.setgName(gName);
-		System.out.println(gName);	//
-		gDTO.setgBrand(gBrand);
-		System.out.println(gBrand);	//
-		gDTO.setgPRICE(gPRICE);
-		System.out.println(gPRICE);	//
-		gDTO.setgSTOCK(gSTOCK);
-		System.out.println(gSTOCK);	//
+		try {
+			multi = new MultipartRequest(req, directory, sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		System.out.println("shopDTO.객체");
-		
-		req.setAttribute("searchlist", gDAO.getGoodslist());
+		String file = multi.getOriginalFileName("file");
+		String file2 = multi.getOriginalFileName("file2");
+		String name = multi.getParameter("name");
+		String catg = multi.getParameter("catg");
+		String modelcode = multi.getParameter("modelcode");
+		String brand = multi.getParameter("brand");
+		String size = multi.getParameter("size");
+		int price = Integer.parseInt(multi.getParameter("price"));
+		String etc = multi.getParameter("etc");
+		int stock = Integer.parseInt(multi.getParameter("stock"));
+
+		gdto.setgCatg(catg);
+		gdto.setgBrand(brand);
+		gdto.setgName(name);
+		gdto.setgEtc(etc);
+		gdto.setgImgs(file);
+		gdto.setgImgl(file2);
+		gdto.setgModel(modelcode);
+		gdto.setgPRICE(price);
+		gdto.setgSTOCK(stock);
+		gdto.setgSize(size);
+
+		if (gdao.insertGoods(gdto)) { // 성공시
+			System.out.println("상품 추가 성공");
+			forward.setPath(req.getContextPath() + "/admin/adminGoods.spm");
+		} else {
+			System.out.println("상품 추가 실패");
+			forward.setPath(req.getContextPath() + "/AD-Page/addgoods.jsp");
+		}
 		
 		forward.setRedirect(true);
-		
-		if(gDAO.insertGoods(gDTO)) { // 성공시
-			forward.setPath(req.getContextPath() + "/admin/Goodslist.spm");
-			System.out.println("상품 추가 성공");
-		} else {
-			forward.setPath(req.getContextPath() + "/AD-Page/ADDgoods.spm");
-			System.out.println("상품 추가 실패");
-		}
 		return forward;
 	}
-	private String extractFileName (String partHeader) {
-		System.out.println("파일이름메서드 ㅎㅇ");
-		for(String cd : partHeader.split(";")) {
-			if(cd.trim().startsWith("filename")) {
-				String fileName = cd.substring(cd.indexOf("=") + 1).trim().replace("\"","");;
-				int index = fileName.lastIndexOf(File.separator);
-				System.out.println(fileName.substring(index + 1));
-				return fileName.substring(index + 1);
-			}
-		}
-		return null;
-	}
-	
+
 }

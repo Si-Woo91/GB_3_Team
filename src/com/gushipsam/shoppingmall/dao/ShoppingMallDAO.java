@@ -136,21 +136,14 @@ public class ShoppingMallDAO {
 	
 	// search 메서드(상품명,브랜드)
 	public List<ShoppingMallDTO> getSearchList(String searchtext) {
-		System.out.println("getSearchList 메서드 dao 에용");
-		System.out.println(searchtext);
-		/*
-		 * HashMap<String, String> datas = new HashMap<>();
-		 * datas.put("searchtext",searchtext);
-		 */
+		System.out.println("getSearchList 메서드, "+searchtext);
+		
 		List<ShoppingMallDTO> searchlist = new ArrayList<>();
-		System.out.println("arraylist 생성!");
 		System.out.println(sqlsession.selectList("shoppingmall.getSearchList", searchtext));
 		searchlist.addAll(sqlsession.selectList("shoppingmall.getSearchList", searchtext));
-		System.out.println("select 실행햇어용");
 
 		return searchlist;
-	}
-	
+	}	
 	
 	
 }

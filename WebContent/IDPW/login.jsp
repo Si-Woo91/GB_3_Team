@@ -32,11 +32,11 @@
 				<h2>Log-in</h2>
 				<div class="login_id">
 					<h4>아이디</h4>
-					<input type="text" name="userid" id="userid" placeholder="">
+					<input type="text" name="userid" id="userid" placeholder="" onkeyup="if(event.keyCode==13){loginOn();}">
 				</div>
 				<div class="login_pw">
 					<h4>비밀번호</h4>
-					<input type="password" name="userpw" id="userpw" placeholder="">
+					<input type="password" name="userpw" id="userpw" placeholder="" onkeyup="if(event.keyCode==13){loginOn();}">
 				</div>
 				<div class="login_etc">
 					<div class="signup">

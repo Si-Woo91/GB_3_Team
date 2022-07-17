@@ -1,46 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>구십삼 회원정보</title>
-<!-- <link rel="stylesheet" type="text/css" href="../css/User-Info.css"> -->
 </head>
-<jsp:include page="../header/header.jsp"/>
+<jsp:include page="../header/header.jsp" />
 <body>
+	<c:set var="result" value="${requestScope.result }" />
+	<c:choose>
+		<c:when test="${ ! empty result }">
+			<script>
+				alert("잘못된 비밀번호입니다.");
+			</script>
+		</c:when>
+	</c:choose>
 	
 	<div class="info-member-container">
-		<h1 class="info-usermodify-auth-title">회원정보확인</h1>
-		<p class="usermodify-msg" style="margin-left: 18%">
-			<strong class="usermodify=mail">
-				testEmail@google.com
-			</strong>
-		"님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한번 확인 합니다.
-		</p>
-		
-		<form action="#" name="user-info-certification">
-			<table class="info-UserModify-table">
-				<tbody>
-					<tr style="height: 37px;">
-						<th scope="row">아이디(이메일)</th>
-						<td> testId </td>
-					</tr>
-					<tr>
-						<th scope="row">비밀번호</th>
-						<td>
-							<input type="password" id="testpw">
-						</td>
-					</tr>
-				
-				</tbody>
-			</table>	
-		</form>
+		<div class="my-design_part">회원정보 확인</div>
+		<div class="usermodify-msg">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번
+			확인합니다.</div>
+		<br>
+		<table class="info-UserModify-table">
+			<colgroup>
+				<col width="200">
+				<col width="*">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th scope="row">아이디</th>
+					<td>${sessionScope.sessionId}</td>
+				</tr>
+				<tr>
+					<th scope="row">비밀번호</th>
+					<td>
+						<form
+							action="${pageContext.request.contextPath }/info/confirmpw.info"
+							method="post" name="pwForm">
+							<input type="password" name="userpw" onkeyup="if(event.keyCode==13){confirmpw();}">
+						</form>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+		<br>
 		<div class="info-usermodify-btn">
-			<button type="submit" class="info-usermodify-submit" onclick="location.href='User-InfoUp.jsp'">확인</button>
-			<button type="button" class="info-usermodify-cancel">취소</button>		</div>
+			<button type="button" id="confirm_btn" onclick="confirmpw();">확인</button>
+			&nbsp;
+			<button type="button" id="goback_btn" onclick="location.href='${pageContext.request.contextPath}/lobby/mypage.spm';">마이페이지</button>
+		</div>
 
 	</div>
-<jsp:include page="../footer/footer.jsp"/>
+	<jsp:include page="../footer/footer.jsp" />
 </body>
+<script>
+	function confirmpw() {
+		let f = document.pwForm;
+		let pw = f.userpw.value;
+		if (pw == '') {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+
+		f.submit();
+	}
+</script>
 </html>

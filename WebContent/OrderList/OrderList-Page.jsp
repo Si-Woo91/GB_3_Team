@@ -25,7 +25,7 @@
 	<c:set var="endPage" value="${requestScope.endPage }"/>
 
 	
-	<div class="order" style="padding-top: 230px;">
+	<div class="order" style="padding-top: 180px;">
 			<h3 class="order-order-h3">
 				전체 주문내역</h3>
 		</div>
@@ -104,7 +104,7 @@
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="4">
+							<td colspan="5">
 	 							<div class="tab-center">주문 내역이 없습니다.</div>
 							</td>
 						</tr>

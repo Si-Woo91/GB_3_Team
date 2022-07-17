@@ -5,17 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- <link rel="stylesheet" type="text/css" href="../css/secession.css"> -->
 </head>
+<jsp:include page="../header/header.jsp"/>
 <body>
-	<header> <jsp:include page="../header/header.jsp"/> </header>
 	<span class="secession">
 	<div class="wrap">
 		<header class="secession-title"> <h1 class="title-text">회원 탈퇴</h1> </header>
 		<div class="secession-text">
 			<p><span>회원님 구십삼 서비스를 이용하는데 불편함이 있으셨나요?</span></p>
-			"1)이용 불편 및 각종 문의 사항은 고객센터로 문의주시면 성심 성의껏 답변 드리겠습니다."<br>
-			"- 전화 문의: 1577-0093 (366일 오전 10시 ~ 오후 6시)"
+			- 이용 불편 및 각종 문의 사항은 고객센터로 문의주시면 성심 성의껏 답변 드리겠습니다."<br>
+			- 전화 문의: 1577-0093 (366일 오전 10시 ~ 오후 6시)"
 		</div>
 		<div class="secession-box">
 			<div class="secession-box-text">
@@ -36,35 +38,34 @@
 						</ul>
 				</section>
 			</div>
-				<div class="secession-confirm">
-					<label class="secession-confirm-checkbox">
-						<input class="secession-checkbox" type="checkbox" name="secessioncheckbox" data-type="checked" data-err="alert" data-err-msg="탈퇴 처리사항 안내 확인에 동의해주세요.">
-						<span>상기 구십삼 회원탈퇴 시 처리사항 안내를 확인하였음에 동의합니다.</span>
-					</label>
-				</div>
-		
+			<div class="secession-confirm">
+				<input id="secession-checkbox" type="checkbox" name="secession-checkbox" data-type="checked" data-err="alert" data-err-msg="탈퇴 처리사항 안내 확인에 동의해주세요.">
+				&nbsp; 상기 구십삼 회원탈퇴 시 처리사항 안내를 확인하였음에 동의합니다.
+			</div>
 		</div>
-		<div class="secession-validate-user">
-            <p class="secession-validate-user-msg">
-                <strong>보안을 위해 회원님의 이름과 계정 이메일 및 비밀번호를 확인 합니다.</strong>
-            </p>
-            <label>
-                <span>이름 : </span>
-                <input class="secession-validate-user-name" type="text" readonly="" value="#" style="background-color: #eae0ed; border: 1px solid black;">
-            </label>
-            <label>
-                <span>이메일 : </span>
-                <input class="secession-validate-user-email" type="text" readonly="" value="ksh980326@naver.com" style="background-color: #eae0ed; border: 1px solid black;">
-            </label>
-            <label>
-                <span>비밀번호 : </span>
-                <input class="secession-validate-user-password" type="password" id="password" name="password" data-err-target="alert" data-err-msg="비밀번호를 입력하세요." >
-            </label>
-            <button type="submit" class="secession-validate-user-submit">본인확인 & 회원탈퇴</button>
-        </div>
+		<br>
+		<div class="secession-final">
+			완전한 탈퇴를 원하시면 우측의 회원탈퇴 버튼을 눌러주세요. >>> <a class="secession-final-btn" href="#"
+				onclick="secession();">회원탈퇴</a>
+		</div>
 	</div>
 	</span>
 
 	<footer> <jsp:include page="../footer/footer.jsp"/> </footer>
 </body>
+<script>
+	function secession(){
+		let checkbox = $('input[name="secession-checkbox"]')[0];
+		if( ! checkbox.checked ){
+			alert('탈퇴 처리사항 안내 확인에 동의해주세요.');
+			checkbox.focus();
+			return false;
+		}
+		
+		if(!confirm ('정말 구십삼 회원을 탈퇴하시겠습니까?') ) return false;
+		
+		alert('회원 탈퇴에 성공했습니다.');
+		location.href = '${pageContext.request.contextPath }/info/secession.info';
+	}
+</script>
 </html>

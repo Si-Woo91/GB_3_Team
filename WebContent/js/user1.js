@@ -1,3 +1,8 @@
+	// 숫자만 기입되게 하는 기능
+	$("input:text[numberOnly]").on("keyup", function() {
+		$(this).val($(this).val().replace(/[^0-9]/g, ""));
+	});
+
 function signup_search() { 
 	   let f = document.frm;
 	   let username = f.username;
@@ -5,19 +10,19 @@ function signup_search() {
 	   let useremail = f.useremail;
 	   
 	   if (username.value == "") {
-	      alert("이름을 입력해주세요");
+	      alert("이름을 입력해세요.");
 	      username.focus();
 	      return false;
 	   }
 	   
 	   if (userphone.value == "") {
-	      alert("전화번호를 입력해주세요");
+	      alert("전화번호를 입력해세요.");
 	      userphone.focus();
 	      return false;
 	   }
 	   
 	   if (useremail.value == "") {
-	      alert("이메일을 입력해주세요");
+	      alert("이메일을 입력하세요.");
 	      useremail.focus();
 	      return false;
 	   }
@@ -40,7 +45,7 @@ function sendit(){
    
    // 아이디 없을때
    if( userid.value == "" ){
-      alert("아이디를 입력하세요!");
+      alert("아이디를 입력하세요.");
       userid.focus();
       return false;
    }
@@ -48,7 +53,7 @@ function sendit(){
    var re = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{4,16}$/;
    
    if(!re.test(userid.value)){
-      alert("아이디는 4~16자리 영문,숫자 조합으로 입력해주세요.");
+      alert("아이디는 4~16자리 영문, 숫자 조합으로 입력해주세요.");
       userid.focus();
       return false;
    }
@@ -56,7 +61,7 @@ function sendit(){
    
    // 비밀번호 없을때
    if( userpw.value == "" ){
-      alert("비밀번호를 입력하세요!");
+      alert("비밀번호를 입력하세요.");
       userpw.focus();
       return false;
    }
@@ -64,27 +69,27 @@ function sendit(){
    var re1 =  /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,16}$/;
    
    if(!re1.test(userpw.value)){
-      alert("비밀번호는 8~16자 영문,숫자,특수부호 조합으로 입력해주세요.");
+      alert("비밀번호는 8~16자 영문, 숫자, 특수부호 조합으로 입력해주세요.");
       userpw.focus();
       return false;
    }
    
    
    if( userpw_two.value == "" ){
-      alert("비밀번호확인을 입력하세요!");
+      alert("비밀번호 확인을 입력하세요.");
       userpw_two.focus();
       return false;
    }
    
 
    if( username.value == "" ){
-      alert("이름을 입력하세요!");
+      alert("이름을 입력하세요.");
       username.focus();
       return false;
    }
    
    if( userphone.value == "" ){
-      alert("핸드폰번호를 입력하세요!");
+      alert("전화번호를 입력하세요.");
       userphone.focus();
       return false;
    }
@@ -93,13 +98,13 @@ function sendit(){
    var reg = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
 
    if(!reg.test(userphone.value)){
-      alert("전화번호 형식에 맞게 입력해주세요.");
+      alert("전화번호를 형식에 맞게 입력해주세요.");
       userphone.focus();
       return false;
    }
    
    if( userdata.value == "" ){
-      alert("생년월일을 입력하세요!");
+      alert("생년월일을 입력하세요.");
       userdata.focus();
       return false;
    }
@@ -114,7 +119,7 @@ function sendit(){
    }
 
    if( useremail.value == "" ){
-      alert("이메일 입력하세요!");
+      alert("이메일을 입력하세요.");
       useremail.focus();
       return false;
    }
@@ -122,7 +127,7 @@ function sendit(){
    var reg2 =/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
    
    if(!reg2.test(useremail.value)){
-      alert("이메일 형식에 맞게 입력해주세요.");
+      alert("이메일을 형식에 맞게 입력해주세요.");
       useremail.focus();
       return false;
    }
@@ -137,13 +142,13 @@ function loginOn(){
    let userpw = f.userpw;
    
    if( userid.value == "" ){
-      alert("아이디를 입력하세요!");
+      alert("아이디를 입력하세요.");
       userid.focus();
       return false;
    }
    
    if( userpw.value == "" ){
-      alert("비밀번호를 입력하세요!");
+      alert("비밀번호를 입력하세요.");
       userpw.focus();
       return false;
    }
@@ -158,19 +163,19 @@ function id_search() {
    let useremail = f.useremail;
    
    if (username.value == "") {
-      alert("이름을 입력해주세요");
+      alert("이름을 입력하세요.");
       username.focus();
       return false;
    }
    
    if (userphone.value == "") {
-      alert("전화번호를 입력해주세요");
+      alert("전화번호를 입력하세요.");
       userphone.focus();
       return false;
    }
    
    if (useremail.value == "") {
-      alert("이메일을 입력해주세요");
+      alert("이메일을 입력하세요.");
       useremail.focus();
       return false;
    }
@@ -186,25 +191,25 @@ function pw_search() {
    let useremail = f.useremail;
    
    if (userid.value == "") {
-      alert("아이디 입력해주세요");
+      alert("아이디를 입력하세요.");
       userid.focus();
       return false;
    }
    
    if (username.value == "") {
-      alert("이름을 입력해주세요");
+      alert("이름을 입력하세요.");
       username.focus();
       return false;
    }
    
    if (userphone.value == "") {
-      alert("전화번호를 입력해주세요");
+      alert("전화번호를 입력하세요.");
       userphone.focus();
       return false;
    }
    
    if (useremail.value == "") {
-      alert("이메일을 입력해주세요");
+      alert("이메일을 입력하세요.");
       useremail.focus();
       return false;
    }
@@ -215,7 +220,7 @@ function pw_search() {
    // 아이디 중복확인
    function checkId(userid) {
       if (userid == "") {
-         alert("아이디를 입력해주세요!");
+         alert("아이디를 입력하세요.");
          return false;
       } else {
          // ajax 통신
@@ -235,6 +240,7 @@ function pw_search() {
             	  } else{
 	                  // 사용할수 있는 아이디 입니다.
 	                  document.getElementById("text").innerHTML = "<p style='color:blue; margin-bottom:0;'>사용할수 있는 아이디 입니다.</p>";
+	                  $('#join-btn').removeAttr("disabled");
             	  }
                } else {
                   // 중복된 아이디 입니다.

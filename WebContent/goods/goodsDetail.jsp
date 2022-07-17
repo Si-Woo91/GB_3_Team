@@ -36,7 +36,7 @@
 </head>
 <%@ include file="../header/header.jsp" %>
 <body>
-   <div style="height: 300px;"></div>
+   <div style="height: 200px;"></div>
    <section>
       <table id="skeleton">
          <tr>
@@ -91,12 +91,12 @@
                </div>
                <div class="extra_detail">
                   <a onclick="window.open('explanation.jsp?gCatg=${goodsDetail.gCatg}&gImgl=${goodsDetail.gImgl}', '제품상세설명',
-                                       'width=800, height=600, left=100, top=0');">제품 상세 페이지로 이동</a>
+                                       'width=800, height=600, left=100, top=0');">제품 상세 설명 열기</a>
                </div>
             </td>
          </tr>
       </table>
-      <div style="height:220px"></div>
+      <div style="height:90px"></div>
    </section>
    <%@ include file= "../footer/footer.jsp" %>
 </body>

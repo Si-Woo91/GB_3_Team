@@ -133,9 +133,11 @@
 %>
 <script>
 	$(document).ready(function() {
-		if('${username}' == ''){
+		if('${username}' == null || '${username}' == ''){
 			$('#replyname').attr('disabled',true);
 			$('#pwd').attr('disabled',true);
+			$('#replycontent').text('사용하기 위해 로그인하세요.');
+			$('#replycontent').css('color','grey');
 			$('#replycontent').attr('disabled',true);
 		}
 	});
@@ -149,6 +151,8 @@
 		} else if ($('#replycontent').val() == ''){
 			alert("아무 내용도 작성하지 않았습니다.\n작성 내용을 확인해주세요."); return false;
 		}
+		
+		if( !confirm('댓글을 등록하시겠습니까?')) return false;
 		
 		alert("댓글이 등록되었습니다.");
 		f.submit();
@@ -188,7 +192,6 @@
 	
 	function deleteService( userid, servicenum ){
 		let userid_writer = $('#servicename').html();
-		userid_writer = "김연습";
 		if( userid_writer.split('(').length ==1){
 			userid_writer = userid_writer.split('(')[0];
 		} else {

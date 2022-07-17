@@ -34,10 +34,10 @@ a {
 
 .wrap{
 	margin: auto;
-	margin-top: 250px;
-	margin-bottom: 20px;
+	margin-top: 200px;
+	margin-bottom: 100px;
 	width: 70%;
-	height: 600px;
+	height: 550px;
 	border: 2px solid #d4d4d4;
 }
 
@@ -81,30 +81,37 @@ section li{
 	margin-top: 10px;
 	border-top: 1px solid #666;
 	width: 100%;
-	padding: 0;
 	background-color: #eae0ed;
 	padding: 10px 0 10px 20px;
 	font-size: 15px;
 	
 }
 
-.secession-confirm-checkbox{
+secession-confirm-checkbox{
 	margin: auto;
 	text-align: left;
 }
 
-.secession-checkbox{
+#secession-checkbox{
 	width: 15px;
-	margin: auto;
-	
+	height: 15px;
+		
 }
 
-.secession-validate-user{
-
-	border: 1px solid #d4d4d4;
-	background-color: #eae0ed;
-	width: 90%;
+.secession-final{
 	margin: auto;
-	margin-top: 30px;
-	padding: 20px 20px 0 20px;
+    width: 90%;
+    font-size: 18px;
+    text-align:right;
+    font-weight:bold;
+}
+
+
+.secession-final-btn {
+    color: red;
+    font-weight: initial;
+}
+
+.secession-final-btn:hover {
+	font-weight: bold;
 }

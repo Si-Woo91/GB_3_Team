@@ -16,7 +16,7 @@
 	HashMap<String, String> userdata = (HashMap) request.getAttribute("userdata");
 	String username = userdata.get("USERNAME");
 %>
-<div style="height:50px;"></div>
+<div style="height:200px;"></div>
 <div id='service'>
 	<div class="title">문의하기</div>
 		<form action="${pageContext.request.contextPath }/service/minsu2Ok.sv" method="post" name="serviceForm">
@@ -44,7 +44,7 @@
 					내용
 				</th>
 				<td>
-					<textarea name="servicecontent" cols= "70" rows="20" placeholder="내용" style="font-size:16px;"></textarea>
+					<textarea name="servicecontent" cols= "70" rows="13" placeholder="내용" style="font-size:16px;"></textarea>
 				<td>
 			</tr>
 		</table>

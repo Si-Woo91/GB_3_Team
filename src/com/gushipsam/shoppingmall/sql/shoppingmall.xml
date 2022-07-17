@@ -22,13 +22,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="pw" parameterType="hashmap" resultType="string">
 		SELECT userpw FROM MEMBERS WHERE  USERID = #{userid} AND USERNAME = #{username} AND USERPHONE = #{userphone} AND USEREMAIL = #{useremail}
 	</select>
-   
-   
-   <!-- order -->
-   <!-- parameterType: 외부에서 받아올 값의 타입  -->
-	<!-- resultType: 리턴받을 값의 타입 -->
-	
-
 	
 	<!-- 회원 정보 불러옴 -->
 	<select id="getMemberList" resultType="shoppingmalldto"

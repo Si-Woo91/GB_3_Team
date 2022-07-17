@@ -25,19 +25,20 @@
 
 /* table css */
 
-.info-usermodify-auth-title{
-	margin-left: 18%;
-	margin-top: 3%;
+.my-design_part {
+	line-height: 100px;
+	width: 42.4%;
+	margin: auto;
+	border-radius: 3px 5px 8px 10px;
+	text-align: center;
+	font-size: 40px;
+	padding-top: 200px;
 }
 
-
-
 .info-member-container{
-	min-height: 500px;
 	height: 800px;
-	width: 100%;
-	padding: 50px;
-	padding-top: 250px;
+	width: 850px;
+	margin:auto;
 }
 
 .info-UserModify-table {
@@ -59,35 +60,46 @@
 }
 
 .info-UserModify-table td{
-	width: 1020px;
+	width: 900px;
 	text-align: left;
-	padding-left: 10px;
+	padding: 10px;
 }
 
-.info-usermodify-submit{
-	margin-top: 3%;
+.usermodify-msg, .info-usermodify-btn{
 	text-align: center;
+}
+
+#confirm_btn{
 	background-color: orange;
-	color: #fff;
-	border-color: orange;
-	height: 30px;
-	width: 50px;
-}
-
-.info-usermodify-cancel{
-	margin-top: 3%;
+	border-radius: 5px;
+	border: 1px solid orange;
+	cursor:pointer;
+	font-size: 16px;
+	color: white;
 	text-align: center;
-	background-color: orange;
-	color: #fff;
-	border-color: orange;
-	height: 30px;
-	width: 50px;
-	}
+	font-weight: bold;
+	padding: 3px 10px;
+}
 
-.info-usermodify-btn{
+#goback_btn{
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid orange;
+	cursor:pointer;
+	font-size: 16px;
+	color: orange;
 	text-align: center;
+	font-weight: bold;
+	padding: 3px 10px;
 }
 
-input[type=password]{
-	margin-left: 10px;
+#confirm_btn:hover{
+	background-color: #F28C28;	
 }
+
+#goback_btn:hover{
+	background-color: #FAF9F7;
+}
+
+
+

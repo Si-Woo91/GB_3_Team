@@ -4,13 +4,8 @@
 	padding: 0;
 }
 #service{
-    margin: 14% 0 14% 0;
-    /* padding-left: 30px; */
+    margin-bottom: 9%;
 }
-/* #service>.oo{
-	margin: 0 auto;
-	padding-left: ;
-} */
 
 #service>.a:link{
 	color:black;
@@ -52,7 +47,7 @@
 	border-radius: 10px;
 	text-align: center;
 	width: 300px;
-	margin: 20% 14% 2% 40%;
+	margin: 13% 14% 2% 40%;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	text-decoration: none; 
 	font-size: 20px;

@@ -74,12 +74,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- (관리자 페이지)상품 추가 -->
 	<insert id="insertGoods" parameterType="goodsdto">
-<!-- 		INSERT INTO GOODS -->
-<!-- 		(gID,gImgs,gName,gBrand,gPRICE,gSTOCK)VALUES (seq_gidx.nextval, -->
-<!-- 		#{gImgs}, #{gName}, #{gBrand}, #{gPRICE}, #{gSTOCK}) -->
-		INSERT INTO GOODS (gImgs,gName,gBrand,gPRICE,gSTOCK)
-      	VALUES (#{gImgs},#{gName},#{gBrand},#{gPRICE},#{gSTOCK})
+		INSERT INTO GOODS
+      	VALUES (seq_gidx.nextVal, #{gCatg}, #{gBrand}, #{gName}, #{gModel},
+      				#{gPRICE}, #{gSize}, #{gEtc}, #{gImgs}, #{gImgl}, SYSDATE, #{gSTOCK} )
 	</insert>
+
 	
 	<!-- 장바구니에 존재하는 삭제 예정인 상품 개수 세기 -->
 	<select id="searchCartForDel" parameterType="hashmap" resultType="_int">
@@ -128,5 +127,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</delete>
 	
+	<!-- (관리자 페이지) 상품 1품목 재고량 변경 -->
+	<update id="updateStockOne" parameterType="hashmap">
+		UPDATE GOODS
+		SET GSTOCK = #{newstock}
+		WHERE GID = #{gID}
+	</update>
 	
 </mapper>

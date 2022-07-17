@@ -30,7 +30,6 @@ body {
   position:absolute;
   width:35%;
   height:30%;
-  padding: 30px, 20px;
   background-color:#FFFFFF;
   text-align:center;
   top:20%;
@@ -41,13 +40,13 @@ body {
 
 .joinForm h2 {
     color: orange;
-    font-size: 38px;
+    font-size: 35px;
     margin: 0 0 5% 0;
 }
 
 .joinForm .join{
     border-radius: 10px;
-  border: solid 2px #e0e0e0;
+  	border: solid 2px #e0e0e0;
 }
 
 .textForm {
@@ -121,31 +120,6 @@ body {
   height:25px;
   background: none;
 }
-
-
-.btn {
-  position:relative;
-  left:40%;
-  transform: translateX(-50%);
-  margin: 40px 0 20px 0;
-  width:80%;
-  height:40px;
-  background: orange;
-  background-position: left;
-  background-size: 200%;
-  color: white;
-  font-weight: bold;
-  border: 0;
-  border-radius: 40px;
-  cursor:pointer;
-  transition: 0.4s;
-  display:inline;
-}
-
-.btn:hover {
-  background-position: right;
-}
-
 
 .first {
   position:absolute;
@@ -225,29 +199,6 @@ body {
   font-size:16px;
   height:25px;
   background: none;
-}
-
-.btn {
-  position:relative;
-  left:40%;
-  transform: translateX(-50%);
-  margin-bottom: 40px;
-  width:80%;
-  height:40px;
-  background: orange;
-  background-position: left;
-  background-size: 200%;
-  color: white;
-  font-weight: bold;
-  border: 0;
-  border-radius: 40px;
-  cursor:pointer;
-  transition: 0.4s;
-  display:inline;
-}
-
-.btn:hover {
-  background-position: right;
 }
 
 .first{
@@ -353,7 +304,7 @@ h2 {
   position:relative;
   left:40%;
   transform: translateX(-50%);
-  margin-bottom: 40px;
+  margin: 40px 0 20px 0;
   width:80%;
   height:40px;
   background: orange;
@@ -371,6 +322,10 @@ h2 {
 .btn:hover {
   background-position: right;
   background-color: #F28C28;
+}
+
+.btn[disabled="disabled"]{
+	background-color:grey;
 }
 
 h5{
@@ -436,4 +391,21 @@ h5{
 
 #after_buttons #login_btn:hover{
 	background-color: #F28C28;	
+}
+
+#checkid_button{
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid orange;
+	cursor:pointer;
+	font-size: 13px;
+	color: orange;
+	width: auto;
+	text-align: center;
+	font-weight: bold;
+	padding: 5px 19px;
+}
+
+#checkid_button:hover{
+	background-color: #FAF9F7;	
 }

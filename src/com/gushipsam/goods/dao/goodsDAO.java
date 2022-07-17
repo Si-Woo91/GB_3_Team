@@ -84,6 +84,34 @@ public class goodsDAO {
 		
 		return goodsList;
 	}
+
+	// (관리자 페이지) 상품 삭제 전 장바구니 확인
+	public boolean searchCartForDel(String[] delgids) {
+		boolean result = false;
+		int searchcount = 0;
+		HashMap<String, Object> deldata = new HashMap<>();
+		deldata.put("delgids", delgids);
+		
+		searchcount = sqlsession.selectOne("goods.searchCartForDel", deldata);
+		
+		if(searchcount != 0) result = true;
+		
+		return result;
+	}
+	
+	// (관리자 페이지) 상품 삭제 전 주문내역 확인
+	public boolean searchOrdersForDel(String[] delgids) {
+		boolean result = false;
+		int searchcount = 0;
+		HashMap<String, Object> deldata = new HashMap<>();
+		deldata.put("delgids", delgids);
+		
+		searchcount = sqlsession.selectOne("goods.searchOrdersForDel", deldata);
+		
+		if(searchcount != 0) result = true;
+		
+		return result;
+	}	
 	
 	// (관리자 페이지) 상품 삭제
 	public boolean delGoodItem(String[] delgids){
@@ -134,28 +162,34 @@ public class goodsDAO {
 		return result;
 	}
 
-	public boolean searchCartForDel(String[] delgids) {
+	// (관리자페이지) 상품 1품목 재고량 변경 
+	public boolean updateStockOne(int gID, int newstock) {
 		boolean result = false;
-		int searchcount = 0;
-		HashMap<String, Object> deldata = new HashMap<>();
-		deldata.put("delgids", delgids);
 		
-		searchcount = sqlsession.selectOne("goods.searchCartForDel", deldata);
+		HashMap<String, Integer> datas = new HashMap<>();
+		datas.put("gID", gID);
+		datas.put("newstock", newstock);
 		
-		if(searchcount != 0) result = true;
+		if(sqlsession.update("goods.updateStockOne", datas) == 1) {
+			result = true;
+		}
 		
 		return result;
 	}
 	
-	public boolean searchOrdersForDel(String[] delgids) {
+	// (관리자페이지) 상품 다품목 재고량 변경 
+	public boolean updateStockAll(String[] gIDs, String[] newstocks) {
 		boolean result = false;
-		int searchcount = 0;
-		HashMap<String, Object> deldata = new HashMap<>();
-		deldata.put("delgids", delgids);
+		int gID = 0, newstock = 0, count = 0;
 		
-		searchcount = sqlsession.selectOne("goods.searchOrdersForDel", deldata);
+		for (int i = 0; i < gIDs.length; i++) {
+			gID = Integer.parseInt(gIDs[i]);
+			newstock = Integer.parseInt(newstocks[i]);
+			updateStockOne(gID,newstock);
+			count++;
+		}
 		
-		if(searchcount != 0) result = true;
+		if( count != 0) result = true;
 		
 		return result;
 	}

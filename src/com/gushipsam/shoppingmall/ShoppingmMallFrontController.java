@@ -80,15 +80,9 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			 break;
 			
 		// 관리자 상품관리
-		case "/admin/Goodslist.spm":
-			System.out.println("/AD-Page/Goodslist.spm 도착");
+		case "/admin/adminGoods.spm":
+			System.out.println("/admin/adminGoods.spm 도착");
 			forward = new ADGoodsListAction().execute(req, resp);
-			break;
-
-		// 관리자 상품관리에서 상품 추가 페이지로 이동
-		case "/AD-Page/ADDgoods.spm":
-			System.out.println("/AD-Page/ADDgoods.spm 도착");
-			forward = new ActionForward(true, req.getContextPath() + "/AD-Page/ADDgoods.jsp");
 			break;
 
 		// 관리자 상품관리에서 상품 추가
@@ -126,6 +120,19 @@ public class ShoppingmMallFrontController extends HttpServlet{
 			System.out.println("/AD-Page/SearchGoods.spm 도착");
 			forward = new SearchGoodsAction().execute(req, resp);
 			break;
+			
+		// 관리자 - 상품 1품목 재고량 변경 
+		case "/AD-Page/UpdateStockOne.spm":
+		System.out.println("/AD-Page/UpdateStockOne.spm 도착");
+		forward = new UpdateStockOneAction().execute(req, resp);
+		break;	
+		
+		// 관리자 - 상품 다품목 재고량 변경 
+		case "/AD-Page/UpdateStockAll.spm":
+			System.out.println("/AD-Page/UpdateStockAll.spm 도착");
+			forward = new UpdateStockAllAction().execute(req, resp);
+			break;
+			
 		} 
 		
 		

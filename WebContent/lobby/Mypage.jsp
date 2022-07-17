@@ -27,13 +27,10 @@
 	<!-- 마이페이지 메뉴 시작-->
 	<div class="my-my-nav">
 		<ul>
-			<li><a onclick="location.href='/OrderList/OrderList.spm'"
-				style="cursor: pointer;">주문내역</a></li>
-			<!-- 					onclick="window.open('shopping_basket.html', '장바구니','width=1200, height=800, left=0, top=0');"-->
+			<li><a href="#" onclick="location.href='/OrderList/OrderList.spm'">주문내역</a></li>
 			<li><a href="${pageContext.request.contextPath }/payment/cart.pay">장바구니 </a></li>
-			<li><a href="#" style="cursor: pointer;" onclick="alert('미구현 상태입니다.');">상품리뷰</a></li>
-			<li><a onclick="location.href='${pageContext.request.contextPath }/lobby/mypage.spm'"
-				style="cursor: pointer;">회원정보수정</a></li>
+			<li><a href="#" onclick="location.href='${pageContext.request.contextPath }/Info/User-Info.jsp'">회원정보수정</a></li>
+			<li><a href="#" onclick= "location.href='${pageContext.request.contextPath}/main/sessionInitialization.jsp'">로그아웃</a></li>
 		</ul>
 	</div>
 	<!-- 마이페이지 메뉴 끝-->
@@ -119,7 +116,7 @@
 				</c:when>
 				<c:otherwise>
 					<tr>
-						<td colspan="4">
+						<td colspan="5">
 							<div class="tab-center">주문 내역이 없습니다.</div>
 						</td>
 					</tr>
@@ -129,8 +126,7 @@
 
 	</table>
 
-	<br>
-	<br>
+	<div style="height:120px"></div>
 
 		<jsp:include page="../footer/footer.jsp" />
 

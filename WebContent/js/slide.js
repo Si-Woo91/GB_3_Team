@@ -15,7 +15,7 @@
 			dots: true,
 			arrows: true,
 			autoplay: true,
-			autoplaySpeed: 2200,
+			autoplaySpeed: 4000,
 			focusOnSelect: true,
 			prevArrow: '<a class="slick-prev" href="#">&#10094;</a>',
 			nextArrow: '<a class="slick-next" href="#">&#10095;</a>',

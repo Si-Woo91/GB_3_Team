@@ -24,7 +24,7 @@
 		<div class="ad-menu">
 			<ul>
 				<li><a class="adminlink"
-					href="${pageContext.request.contextPath}/admin/Goodslist.spm">상품
+					href="${pageContext.request.contextPath}/admin/adminGoods.spm">상품
 						관리</a>
 				<li><a class="adminlink"
 					href="${pageContext.request.contextPath}/admin/Memberlist.spm">회원

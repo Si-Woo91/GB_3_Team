@@ -40,8 +40,8 @@
 				
 				<thead class="member-list-thead">
 					<tr>
-						<td>회원아이디</td>
-						<td>회원 닉네임</td>
+						<td>회원 아이디</td>
+						<td>회원 이름</td>
 						<td>회원 이메일</td>
 						<td>회원 전화번호</td>
 						<td>회원 생년월일</td>

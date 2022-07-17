@@ -66,12 +66,12 @@ section#cart, section#checkout {
 #cart #title_big, #checkout #title_big {
 	line-height: 100px;
 	width: 600px;
-	margin: 220px auto 0px auto;
+	margin: 200px auto 0px auto;
 	/*header 때문에 맨 위 margin 크게 잡아야 전체화면이 보임.*/
 	border: 1px solid orange;
 	border-radius: 10px;
 	text-align: center;
-	font-size: 25px;
+	font-size: 28px;
 	font-weight: bold;
 }
 
